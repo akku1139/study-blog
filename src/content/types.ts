@@ -5,7 +5,7 @@
 // 同一のブロック列として表現する。
 // ============================================================
 
-export type Stage = 'junior' | 'senior';
+export type Stage = 'junior' | 'senior' | 'university';
 
 /** 学習指導要領上の教科・科目 */
 export interface Subject {
@@ -49,18 +49,6 @@ export type Block =
   | { type: 'diagram'; diagram: DiagramId; caption?: string } // 静的図解
   | { type: 'widget'; widget: WidgetRef };                   // プレイグラウンド
 
-export type WidgetId =
-  | 'function-grapher'      // 関数グラフ描画
-  | 'quadratic-explorer'    // 二次関数 a(x-p)^2+q エクスプローラ
-  | 'trig-circle'           // 単位円と三角関数
-  | 'derivative-tangent'    // 接線と微分係数
-  | 'triangle-solver'       // 三平方の定理 / 直角三角形
-  | 'linear-system'         // 連立方程式（2直線の交点）
-  | 'probability-simulator' // 確率シミュレータ（サイコロ）
-  | 'physics-projectile'   // 物体の放物運動
-  | 'vector-explorer'      // ベクトルの和と内積
-  | 'wave-simulator';      // 波の重ね合わせ
-
 /** 教科書内の静的図解の ID */
 export type DiagramId =
   | 'number-line'          // 数直線と絶対値
@@ -72,9 +60,22 @@ export type DiagramId =
   | 'sine-rule-triangle'   // 正弦定理・余弦定理の三角形
   | 'projectile-forces';   // 放物運動の分解
 
+/** プレイグラウンド参照 */
 export interface WidgetRef {
   id: WidgetId;
   caption: string;
   /** ウィジェットごとの初期パラメータ */
   props?: Record<string, unknown>;
 }
+
+export type WidgetId =
+  | 'function-grapher'      // 関数グラフ描画
+  | 'quadratic-explorer'    // 二次関数 a(x-p)^2+q エクスプローラ
+  | 'trig-circle'           // 単位円と三角関数
+  | 'derivative-tangent'    // 接線と微分係数
+  | 'triangle-solver'       // 三平方の定理 / 直角三角形
+  | 'linear-system'         // 連立方程式（2直線の交点）
+  | 'probability-simulator' // 確率シミュレータ（サイコロ）
+  | 'physics-projectile'    // 物体の放物運動
+  | 'vector-explorer'       // ベクトルの和と内積
+  | 'wave-simulator';       // 波の重ね合わせ
