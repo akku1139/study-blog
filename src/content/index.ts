@@ -17,6 +17,7 @@ import { seniorJapanese } from './senior-japanese';
 import { seniorEnglish } from './senior-english';
 import { info1 } from './info-1/index';
 import { universityMath } from './university-math/index';
+import { universityChemistry } from './university-chemistry/index';
 
 /** 全教科・科目のレジストリ。ここに追加するだけでサイトに反映される。 */
 export const subjects: Subject[] = [
@@ -38,6 +39,7 @@ export const subjects: Subject[] = [
   seniorEnglish,
   info1,
   universityMath,
+  universityChemistry,
 ];
 
 export const stageNames = {
