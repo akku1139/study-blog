@@ -1,0 +1,131 @@
+import type { Subject } from './types';
+
+// ============================================================
+// 高校英語（学習指導要領 第2章 第7節「英語」: 英語コミュニケーション／論理・表現）
+// ============================================================
+
+export const seniorEnglish: Subject = {
+  id: 'senior-english',
+  stage: 'senior',
+  name: '高等学校英語',
+  description: '英語コミュニケーションI・II と論理・表現I。構文・長文読解・表現力。',
+  icon: '🌐',
+  color: '#0e7490',
+  units: [
+    {
+      id: 'se-grammar',
+      name: '構文と文法',
+      gakushuShidoYoryo: '主な言語材料: 不定詞・分詞・動名詞、関係詞、仮定法、比較、倒置など',
+      lessons: [
+        {
+          id: 'infinitive-participle',
+          title: '不定詞・分詞・動名詞',
+          summary: '準動詞の3種を用法別に整理する。',
+          objectives: ['不定詞の3用法（名詞・形容詞・副詞）を判別できる', '分詞構文を訳せる', '動名詞と不定詞の使い分けができる'],
+          blocks: [
+            { type: 'heading', level: 3, content: '不定詞の3用法' },
+            {
+              type: 'table',
+              headers: ['用法', '働き', '例文'],
+              rows: [
+                ['名詞的用法', '主語・目的語など', '**To know** yourself is difficult.'],
+                ['形容詞的用法', '名詞を修飾', 'I have homework **to do**.'],
+                ['副詞的用法', '目的・原因・結果・条件など', 'I got up early **to catch** the train.'],
+              ],
+            },
+            { type: 'heading', level: 3, content: '分詞構文' },
+            {
+              type: 'text',
+              content: '「**Walking** along the street, I met him.」のように、分詞で始まる句は副詞節相当（時・理由・条件・譲歩・付帯状況）を表します。訳し分けは文脈で決まります。',
+            },
+            { type: 'heading', level: 3, content: '独立不定詞' },
+            {
+              type: 'list',
+              items: ['**to tell the truth** = 正直に言えば', '**to be frank (with you)** = 率直に言えば', '**to make matters worse** = さらに悪いことに'],
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: '「Judging from his accent, he is from Australia.」の Judging が何を表すか説明せよ。',
+              answer: '分詞構文（独立分詞構文）。「彼のアクセントから**判断すると**」＝付帯状況・条件に近い慣用的表現。',
+            },
+          ],
+        },
+        {
+          id: 'subjunctive-comparison',
+          title: '仮定法と比較',
+          summary: '仮定法過去・過去完了と、比較構文のパターン。',
+          blocks: [
+            { type: 'heading', level: 3, content: '仮定法' },
+            {
+              type: 'table',
+              headers: ['種類', '形', '意味'],
+              rows: [
+                ['仮定法過去', 'If S + 過去形, S + would + 動詞原形', '今は実際に〜でないのに、もし〜なら'],
+                ['仮定法過去完了', 'If S + had + 過去分詞, S + would have + 過去分詞', '過去に実際に〜しなかったのに、もし〜していたら'],
+                ['仮定法未来', 'If S + should + 動詞原形, 〜', '万一〜なら'],
+              ],
+            },
+            {
+              type: 'text',
+              content: 'If を使わない仮定法（**Without water, no life could exist.**）も重要。without / but for ＋名詞 が If 節の代わりをします。',
+            },
+            { type: 'heading', level: 3, content: '比較構文' },
+            {
+              type: 'list',
+              items: [
+                '**as A as B** = Bと同じくらいA（原級）',
+                '**the 比較級, the 比較級** = 〜すればするほど',
+                '**no more than / not more than** = せいぜい〜に過ぎない / 〜以下',
+                '**A is three times as large as B** = AはBの3倍の大きさ',
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: '「もし昨日彼に会っていたら、このことを伝えていたでしょう。」を英訳せよ。',
+              answer: '**If I had seen him yesterday, I would have told him about this.**（仮定法過去完了）',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'se-reading',
+      name: '読解と表現',
+      gakushuShidoYoryo: '「英語コミュニケーション」「論理・表現」: 長文読解、要約・英作文',
+      lessons: [
+        {
+          id: 'reading-strategy',
+          title: '長文読解の戦略',
+          summary: 'パラグラフリーディングと設問別の解き方。',
+          blocks: [
+            { type: 'heading', level: 3, content: 'パラグラフリーディング' },
+            {
+              type: 'text',
+              content: '英語の論説文は通常、各パラグラフに**トピックセンテンス**（多くは第1文）があり、それを具体例や根拠が支えます。第1文を先に全部読む「スキミング」で全体構造をつかんでから精読すると速く正確になります。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**内容一致問題**: 選択肢ごとに本文の根拠箇所を特定。「too general / not mentioned / 反対の内容」で消去',
+                '**空所補充**: 空所の前後の論理関係（however / therefore など）に注目',
+                '**要約問題**: 各パラグラフのトピックを1文ずつ拾い、指定語数でつなぐ',
+              ],
+            },
+            { type: 'heading', level: 3, content: '自由英作文の型' },
+            {
+              type: 'text',
+              content: '意見英作文は **主張（Topic sentence）→ 理由1 → 具体例 → 理由2 → 結論** の5文構成が基本。接続語（First, In addition, Therefore）で論理の骨組みを見せることで、読み手に伝わる構成になります。',
+            },
+            {
+              type: 'note',
+              variant: 'tip',
+              content: '書けないときは「I think that S + V」の骨格に、学習した構文（分詞構文・関係代名詞）を1つずつ組み込むと、文法力をアピールできます。',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
