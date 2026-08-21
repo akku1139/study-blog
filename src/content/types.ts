@@ -58,7 +58,8 @@ export type WidgetId =
   | 'linear-system'         // 連立方程式（2直線の交点）
   | 'probability-simulator' // 確率シミュレータ（サイコロ）
   | 'physics-projectile'   // 物体の放物運動
-  | 'vector-explorer';     // ベクトルの和と内積
+  | 'vector-explorer'      // ベクトルの和と内積
+  | 'wave-simulator';      // 波の重ね合わせ
 
 /** 教科書内の静的図解の ID */
 export type DiagramId =

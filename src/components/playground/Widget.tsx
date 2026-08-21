@@ -9,6 +9,7 @@ import { LinearSystem } from './LinearSystem';
 import { ProbabilitySimulator } from './ProbabilitySimulator';
 import { PhysicsProjectile } from './PhysicsProjectile';
 import { VectorExplorer } from './VectorExplorer';
+import { WaveSimulator } from './WaveSimulator';
 
 const registry: Record<string, ComponentType<{ initial?: Record<string, unknown> }>> = {
   'function-grapher': FunctionGrapher,
@@ -20,6 +21,7 @@ const registry: Record<string, ComponentType<{ initial?: Record<string, unknown>
   'probability-simulator': ProbabilitySimulator,
   'physics-projectile': PhysicsProjectile,
   'vector-explorer': VectorExplorer,
+  'wave-simulator': WaveSimulator,
 };
 
 export function Widget({ spec: w }: { spec: WidgetRef }) {
