@@ -6,6 +6,8 @@ import { juniorJapanese } from './junior-japanese';
 import { juniorEnglish } from './junior-english';
 import { seniorMath } from './senior-math';
 import { seniorMath3C } from './senior-math-3c';
+import { seniorMathAB } from './senior-math-ab/index';
+import { seniorBiology } from './senior-biology/index';
 import { seniorPhysics } from './senior-physics-basic';
 import { seniorPhysicsFull } from './senior-physics/index';
 import { seniorScience } from './senior-science';
@@ -23,9 +25,11 @@ export const subjects: Subject[] = [
   juniorEnglish,
   seniorMath,
   seniorMath3C,
+  seniorMathAB,
   seniorPhysics,
   seniorPhysicsFull,
   seniorScience,
+  seniorBiology,
   seniorChemistry,
   seniorSocialStudies,
   seniorJapanese,
