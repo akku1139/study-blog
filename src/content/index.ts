@@ -15,6 +15,7 @@ import { seniorChemistry } from './senior-chemistry/index';
 import { seniorSocialStudies } from './senior-social';
 import { seniorJapanese } from './senior-japanese';
 import { seniorEnglish } from './senior-english';
+import { info1 } from './info-1/index';
 
 /** 全教科・科目のレジストリ。ここに追加するだけでサイトに反映される。 */
 export const subjects: Subject[] = [
@@ -24,16 +25,17 @@ export const subjects: Subject[] = [
   juniorJapanese,
   juniorEnglish,
   seniorMath,
-  seniorMath3C,
   seniorMathAB,
+  seniorMath3C,
   seniorPhysics,
   seniorPhysicsFull,
   seniorScience,
-  seniorBiology,
   seniorChemistry,
+  seniorBiology,
   seniorSocialStudies,
   seniorJapanese,
   seniorEnglish,
+  info1,
 ];
 
 export const stageNames = {
