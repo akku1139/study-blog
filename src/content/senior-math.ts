@@ -327,6 +327,15 @@ export const seniorMath: Subject = {
               variant: 'info',
               content: '微分と積分は互いに逆の操作——この事実を**微積分学の基本定理**といい、ニュートンとライプニッツが独立に発見しました。',
             },
+            { type: 'heading', level: 3, content: '練習（定積分ドリル）' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 二次式の定積分がランダムに出題されます。積分してから上端・下端を代入',
+                props: { topic: 'definite-integral' },
+              },
+            },
           ],
         },
       ],

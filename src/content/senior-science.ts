@@ -46,6 +46,26 @@ export const seniorScience: Subject = {
               variant: 'warn',
               content: '気体の体積を扱うときは、**標準状態（0℃, 1気圧）で 1 mol = 22.4 L** という関係も使えます。条件（温度・圧力）の確認を忘れずに。',
             },
+            { type: 'heading', level: 3, content: '練習問題' },
+            {
+              type: 'practice',
+              problems: [
+                {
+                  body: '二酸化炭素 CO₂（分子量 44）88 g は何 mol か。',
+                  answer: '$n = 88 \\div 44 = $ **2 mol**',
+                },
+                {
+                  body: '水素原子 H の原子量を 1 とするとき、水素分子 H₂ 0.5 mol の質量は何 g か。',
+                  hint: 'H₂ の分子量は 2。',
+                  answer: '$m = nM = 0.5 \\times 2 = $ **1.0 g**',
+                },
+                {
+                  body: 'メタン CH₄（分子量 16）16 g を完全燃焼させるとき（$\\text{CH}_4 + 2\\text{O}_2 \\rightarrow \\text{CO}_2 + 2\\text{H}_2\\text{O}$）、必要な酸素は何 mol か。また発生する二酸化炭素の質量は何 g か。',
+                  hint: '係数比＝モル比。CH₄ : O₂ : CO₂ = 1 : 2 : 1。',
+                  answer: 'CH₄ は $16/16 = 1$ mol なので酸素は **2 mol**、CO₂ も 1 mol → 質量 $1 \\times 44 = $ **44 g**',
+                },
+              ],
+            },
           ],
         },
       ],

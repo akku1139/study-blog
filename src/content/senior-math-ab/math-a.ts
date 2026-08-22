@@ -67,6 +67,27 @@ export const countingUnit: Unit = {
           body: '表が出る確率 1/3 のコインを3回投げるとき、表がちょうど2回出る確率を求めよ。',
           answer: '${}_3\\mathrm{C}_2 (\\tfrac{1}{3})^2 (\\tfrac{2}{3}) = 3 \\times \\tfrac{1}{9} \\times \\tfrac{2}{3} = $ **2/9**',
         },
+        { type: 'heading', level: 3, content: '練習問題' },
+        {
+          type: 'practice',
+          problems: [
+            {
+              body: 'サイコロを2個投げるとき、目の和が 7 になる確率を求めよ。',
+              hint: '和が 7 になる組は (1,6), (2,5), (3,4), (4,3), (5,2), (6,1)。',
+              answer: '$\\dfrac{6}{36} = $ **$\\dfrac{1}{6}$**',
+            },
+            {
+              body: '白玉 3 個と黒玉 2 個が入った袋から同時に 2 個取り出す。両方とも白玉である確率を求めよ。',
+              hint: '${}_5\\mathrm{C}_2 = 10$ 通りから白だけの ${}_3\\mathrm{C}_2$ 通り。',
+              answer: '$\\dfrac{{}_3\\mathrm{C}_2}{{}_5\\mathrm{C}_2} = \\dfrac{3}{10}$',
+            },
+            {
+              body: '表が出る確率 $\\dfrac{2}{3}$ のコインを 4 回投げるとき、表がちょうど 2 回出る確率を求めよ。（発展）',
+              hint: '反復試行 ${}_n\\mathrm{C}_r p^r (1-p)^{n-r}$。',
+              answer: '${}_4\\mathrm{C}_2 \\left(\\tfrac{2}{3}\\right)^2 \\left(\\tfrac{1}{3}\\right)^2 = 6 \\cdot \\tfrac{4}{9} \\cdot \\tfrac{1}{9} = $ **$\\dfrac{8}{27}$**',
+            },
+          ],
+        },
       ],
     },
   ],

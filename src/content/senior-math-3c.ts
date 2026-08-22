@@ -104,6 +104,34 @@ export const seniorMath3C: Subject = {
               variant: 'warn',
               content: '②の仮定（n = k の成立）を**実際に使わずに** n = k+1 を変形してしまうのが典型的な減点パターン。「仮定の式」を出発点に変形しましょう。',
             },
+            { type: 'heading', level: 3, content: '練習問題' },
+            {
+              type: 'practice',
+              problems: [
+                {
+                  body: '初項 3、公差 4 の等差数列の第 20 項を求めよ。',
+                  answer: '$a_{20} = 3 + 19 \\times 4 = $ **79**',
+                },
+                {
+                  body: '初項 1、公比 2 の等比数列の初項から第 10 項までの和を求めよ。',
+                  hint: '$S_n = \\dfrac{a_1(r^n - 1)}{r - 1}$。',
+                  answer: '$S_{10} = \\dfrac{2^{10} - 1}{2 - 1} = $ **1023**',
+                },
+                {
+                  body: '数列 $3, 7, 13, 21, 31, \\ldots$ の一般項を求めよ。（階差数列を作ると等差になる）',
+                  hint: '階差 $4, 6, 8, 10, \\ldots$ は公差 2 の等差数列。',
+                  answer: '$b_k = 2k + 2$ なので $a_n = 3 + \\sum_{k=1}^{n-1}(2k+2) = 3 + (n-1)(n+2) = $ **$n^2 + n + 1$**',
+                },
+              ],
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 等差・等比数列の一般項がランダムに出題されます',
+                props: { topic: 'sequence-terms' },
+              },
+            },
           ],
         },
         // ---------- 数学C: 統計的な推測 ----------

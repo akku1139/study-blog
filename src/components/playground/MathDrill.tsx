@@ -122,6 +122,91 @@ const topics: Record<string, { label: string; generate: TopicGenerator }> = {
       };
     },
   },
+  'exponent-laws': {
+    label: '指数法則（中学3年）',
+    generate: (rng) => {
+      const a = randInt(rng, 2, 6);
+      const b = randInt(rng, 2, 6);
+      const kind = randInt(rng, 0, 2);
+      if (kind === 0) {
+        return {
+          question: `次の式を簡単にせよ。\n$$x^{${a}} \\times x^{${b}}$$`,
+          answer: `$x^{${a + b}}$`,
+          hint: '底が同じ積は指数をたす。',
+        };
+      }
+      if (kind === 1) {
+        return {
+          question: `次の式を簡単にせよ。\n$$\\left( x^{${a}} \\right)^{${b}}$$`,
+          answer: `$x^{${a * b}}$`,
+          hint: '累乗の累乗は指数をかける。',
+        };
+      }
+      return {
+        question: `次の式を簡単にせよ。\n$$x^{${a + b}} \\div x^{${b}}$$`,
+        answer: `$x^{${a}}$`,
+        hint: '底が同じ商は指数をひく。',
+      };
+    },
+  },
+  'sequence-terms': {
+    label: '数列の一般項（高校）',
+    generate: (rng) => {
+      const n = randInt(rng, 5, 12);
+      if (rng() < 0.5) {
+        const a1 = randInt(rng, -9, 9);
+        const d = randInt(rng, 2, 6);
+        const an = a1 + (n - 1) * d;
+        return {
+          question: `初項 $${a1}$、公差 $${d}$ の等差数列の第 $${n}$ 項を求めよ。`,
+          answer: `$a_{${n}} = ${a1} + (${n} - 1) \\cdot ${d} = ${an}$`,
+          hint: '$a_n = a_1 + (n-1)d$',
+        };
+      }
+      const a1 = randInt(rng, 1, 4);
+      const r = pick(rng, [2, 3]);
+      const an = a1 * Math.pow(r, n - 1);
+      return {
+        question: `初項 $${a1}$、公比 $${r}$ の等比数列の第 $${n}$ 項を求めよ。`,
+        answer: `$a_{${n}} = ${a1} \\cdot ${r}^{${n - 1}} = ${an}$`,
+        hint: '$a_n = a_1 r^{n-1}$',
+      };
+    },
+  },
+  'definite-integral': {
+    label: '定積分の計算（高校2年）',
+    generate: (rng) => {
+      // f(x) = 3a x² + 2b x + c とすると原始関数 F(x) = a x³ + b x² + c x で
+      // ∫₀ᵏ f dx = a k³ + b k² + c k となり必ず整数になる
+      const a = pick(rng, [-3, -2, -1, 1, 2]);
+      const b = randInt(rng, -4, 4);
+      const c = randInt(rng, -6, 6);
+      const k = pick(rng, [1, 2, 3]);
+      const fmtPoly = (terms: Array<[number, string]>): string => {
+        const parts = terms
+          .filter(([coef]) => coef !== 0)
+          .map(([coef, sym], i) => {
+            const mag = Math.abs(coef) === 1 && sym !== '' ? sym : `${Math.abs(coef)}${sym}`;
+            return (i === 0 ? (coef < 0 ? '-' : '') : coef < 0 ? ' - ' : ' + ') + mag;
+          });
+        return parts.join('') || '0';
+      };
+      const val = a * k ** 3 + b * k ** 2 + c * k;
+      return {
+        question: `次の定積分を求めよ。\n$$\\int_0^{${k}} \\left( ${fmtPoly([
+          [3 * a, 'x^2'],
+          [2 * b, 'x'],
+          [c, ''],
+        ])} \\right) dx$$`,
+        answer: `$\\left[ ${fmtPoly([
+          [a, 'x^3'],
+          [b, 'x^2'],
+          [c, 'x'],
+        ])} \\right]_0^{${k}} = ${val}$`,
+        hint: '各項を積分してから上端・下端を代入する。',
+      };
+    },
+  },
 };
 
 /**

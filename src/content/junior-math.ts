@@ -134,6 +134,15 @@ export const juniorMath: Subject = {
               body: '$x = -2$ のとき、$3x^2 - 4x + 1$ の値を求めよ。',
               answer: '$3(-2)^2 - 4(-2) + 1 = 12 + 8 + 1 = 21$',
             },
+            { type: 'heading', level: 3, content: '練習（指数法則）' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 指数法則の計算がランダムに出題されます。積・累乗・商の規則を区別して答えよう',
+                props: { topic: 'exponent-laws' },
+              },
+            },
             { type: 'heading', level: 3, content: '数量の関係を式に表す' },
             {
               type: 'table',

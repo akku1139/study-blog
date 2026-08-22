@@ -49,6 +49,30 @@ export const seniorEnglish: Subject = {
               body: '「Judging from his accent, he is from Australia.」の Judging が何を表すか説明せよ。',
               answer: '分詞構文（独立分詞構文）。「彼のアクセントから**判断すると**」＝付帯状況・条件に近い慣用的表現。',
             },
+            {
+              type: 'quiz',
+              title: '確認クイズ（準動詞）',
+              questions: [
+                {
+                  question: '「**To swim** in this river is dangerous.」の下線部 To swim の用法は？',
+                  choices: ['名詞的用法', '形容詞的用法', '副詞的用法'],
+                  answerIndex: 0,
+                  explanation: '文の主語として働いているので名詞的用法です。「この川で泳ぐことは危険だ」。',
+                },
+                {
+                  question: '「I have no friend **to help** me.」の to help の用法は？',
+                  choices: ['形容詞的用法（friend を修飾）', '名詞的用法', '独立不定詞'],
+                  answerIndex: 0,
+                  explanation: '名詞 friend を後ろから修飾する形容詞的用法。「私を助けてくれる友人がいない」。',
+                },
+                {
+                  question: '「**Written** in easy English, this book is suitable for beginners.」の意味は？',
+                  choices: ['やさしい英語で書かれているので、この本は初心者に向いている', 'やさしい英語で書くと、この本は初心者に向くだろう', 'この本をやさしい英語で書いた人は初心者向けに適している'],
+                  answerIndex: 0,
+                  explanation: '書く (write) のは本ではなく人間 → 本の側から見ると受動的な関係。分詞構文の受動・原因「〜なので」。',
+                },
+              ],
+            },
           ],
         },
         {

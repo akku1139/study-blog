@@ -50,6 +50,22 @@ export const thermodynamicsUnit: Unit = {
           variant: 'tip',
           content: '標準生成ギブズエネルギーの表を使えば任意の反応の ΔG° を計算できます。平衡定数との関係 K = e^(−ΔG°/RT) は熱力学と平衡をつなぐ最重要公式。',
         },
+        { type: 'heading', level: 3, content: '練習問題' },
+        {
+          type: 'practice',
+          problems: [
+            {
+              body: '氷の融解（$\\text{H}_2\\text{O}(s) \\rightarrow \\text{H}_2\\text{O}(l)$）は ΔH > 0（吸熱）。それでも 0℃ 以上で進む理由を ΔG の式で説明せよ。',
+              hint: '液体の方が分子の配置の自由度が大きい。',
+              answer: '融解では ΔS > 0（固体より液体の方が乱雑）。$\\Delta G = \\Delta H - T\\Delta S$ で温度が十分高いと $T\\Delta S$ が $\\Delta H$ を上回り $\\Delta G < 0$ になるため。',
+            },
+            {
+              body: 'ある反応で ΔH = −100 kJ/mol, ΔS = −200 J/(mol·K) とする。この反応が自発になる温度の条件を求めよ。',
+              hint: '単位を揃えて（−200 J = −0.2 kJ）$\\Delta G < 0 \\iff T < \\Delta H / \\Delta S$。',
+              answer: '$-100 + 0.2T < 0 \\iff T < $ **500 K**（低温でのみ自発。ΔH < 0, ΔS < 0 の典型パターン）',
+            },
+          ],
+        },
       ],
     },
   ],
