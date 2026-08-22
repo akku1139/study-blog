@@ -7,15 +7,36 @@
 ```bash
 pnpm install
 pnpm dev      # 開発サーバー
-pnpm build    # 本番ビルド (tsc + vite)
+pnpm build    # 本番ビルド (tsc + vite) + 全ページのプリレンダリング
 pnpm preview  # ビルド結果の確認
 ```
+
+## SSG（静的サイト生成）
+
+`pnpm build` の最終ステップで `scripts/prerender.mjs` が走り、**全ルート（トップ + 科目一覧 + 各レッスン + 404）を事前描画した HTML** を `dist/` に出力します。
+
+- クライアントは生成済み HTML に対して**ハイドレーション**するだけなので初回表示が速く、SEO / OGP クロールにも強い構成です
+- 各ページに `<title>` と `<meta name="description">`（レッスン名・概要）が注入されます
+- KaTeX CSS・フォントも CDN なしでバンドルされるため完全オフライン動作します
+- **Cloudflare Pages 向け設定済み**：
+  - 出力ディレクトリ直下の `404.html` を未一致リクエストに 404 ステータスで返却（実在ルートはすべて個別プリレンダリング済みのため `_redirects` の SPA フォールバックは不要）
+  - `public/_headers` でハッシュ付き `/assets/*` を immutable キャッシュ
+
+### Cloudflare Pages でのデプロイ
+
+| 項目 | 値 |
+| --- | --- |
+| フレームワークプリセット | Vite |
+| ビルドコマンド | `pnpm build` |
+| ビルド出力ディレクトリ | `dist` |
+
 
 ## 技術スタック
 
 - Vite + React 19 + TypeScript
 - react-router-dom（ルーティング）
 - KaTeX（数式レンダリング）
+- ビルド時プリレンダリング（自作 SSG スクリプト、Cloudflare Pages 想定）
 - pnpm
 
 ## 構成
