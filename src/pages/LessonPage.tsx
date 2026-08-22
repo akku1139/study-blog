@@ -30,6 +30,12 @@ export function LessonPage() {
   const prev = idx > 0 ? flatLessons[idx - 1] : null;
   const next = idx < flatLessons.length - 1 ? flatLessons[idx + 1] : null;
 
+  // 見出しブロックからミニ目次を自動生成
+  const toc = lesson.blocks
+    .map((b, i) => ({ b, i }))
+    .filter(({ b }) => b.type === 'heading' && b.level === 3)
+    .map(({ b, i }) => ({ id: `sec-${i}`, title: (b as { content: string }).content }));
+
   return (
     <article>
       <nav className="breadcrumb">
@@ -62,8 +68,21 @@ export function LessonPage() {
         </div>
       )}
 
+      {toc.length >= 3 && (
+        <details className="lesson-toc">
+          <summary>📑 目次</summary>
+          <ol>
+            {toc.map((t) => (
+              <li key={t.id}>
+                <a href={`#${t.id}`}>{t.title}</a>
+              </li>
+            ))}
+          </ol>
+        </details>
+      )}
+
       {lesson.blocks.map((b, i) => (
-        <BlockView key={i} block={b} />
+        <BlockView key={i} block={b} index={i} />
       ))}
 
       <LessonMemo subjectId={subject.id} lessonId={lesson.id} />
@@ -88,12 +107,16 @@ export function LessonPage() {
   );
 }
 
-function BlockView({ block }: { block: Block }) {
+function BlockView({ block, index }: { block: Block; index: number }) {
   switch (block.type) {
     case 'text':
       return <p className="prose">{renderInline(block.content)}</p>;
     case 'heading':
-      return block.level === 3 ? <h3>{block.content}</h3> : <h4>{block.content}</h4>;
+      return block.level === 3 ? (
+        <h3 id={`sec-${index}`}>{block.content}</h3>
+      ) : (
+        <h4 id={`sec-${index}`}>{block.content}</h4>
+      );
     case 'formula':
       return block.display ? (
         <div className="formula-display">{renderMathInText(`$$${block.tex}$$`)}</div>

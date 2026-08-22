@@ -25,6 +25,12 @@ function pageMeta(route) {
         '中学・高校の学習指導要領と大学教養課程に対応したオンライン教材。数式・図解・グラフやシミュレーションで学べる教科書。',
     };
   }
+  if (route === '/toc') {
+    return {
+      title: `目次 | ${SITE_NAME}`,
+      description: '全科目・全レッスンの索引。読みたい単元へ直接ジャンプできます。',
+    };
+  }
   if (route === null) {
     return {
       title: `ページが見つかりません | ${SITE_NAME}`,
@@ -57,9 +63,9 @@ async function writePage(file, html, meta) {
   await writeFile(out, page);
 }
 
-/** 全ルート（トップ + 科目一覧 + 各レッスン）を列挙 */
+/** 全ルート（トップ + 目次 + 科目一覧 + 各レッスン）を列挙 */
 function enumerateRoutes() {
-  const routes = ['/'];
+  const routes = ['/', '/toc'];
   for (const s of subjects) {
     routes.push(`/subject/${s.id}`);
     for (const u of s.units) {

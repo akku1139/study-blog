@@ -2,6 +2,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/LessonPage';
 import { LessonPage } from './pages/LessonPage';
 import { SubjectPage } from './pages/SubjectPage';
+import { TocPage } from './pages/TocPage';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,6 +10,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header className="site-header">
         <Link to="/" className="site-title">📚 学習ノート</Link>
         <span className="site-tagline">中学・高校・大学 学習指導要領対応</span>
+        <nav className="site-nav">
+          <Link to="/toc">🗂️ 目次</Link>
+        </nav>
       </header>
       <main>{children}</main>
       <footer className="site-footer">
@@ -30,6 +34,7 @@ export function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/toc" element={<TocPage />} />
         <Route path="/subject/:subjectId" element={<SubjectPage />} />
         <Route path="/subject/:subjectId/:lessonId" element={<LessonPage />} />
         <Route path="*" element={<NotFoundPage />} />
