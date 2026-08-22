@@ -261,6 +261,59 @@ export const juniorMath: Subject = {
               body: '濃度 10% の食塩水と濃度 30% の食塩水を混ぜて、濃度 15% の食塩水 200 g を作りたい。それぞれ何 g ずつ混ぜればよいか。',
               answer: '10% を x g、30% を y g とすると $\\begin{cases} x + y = 200 \\\\ 0.1x + 0.3y = 0.15 \\times 200 \\end{cases}$。解いて **x = 150, y = 50**',
             },
+            { type: 'heading', level: 3, content: '発展：解の個数とグラフの位置関係' },
+            {
+              type: 'text',
+              content:
+                '$\\begin{cases} ax + by = c \\\\ a\'x + b\'y = c\'. \\end{cases}$ の解の個数は、2 直線 $ax+by=c$, $a\'x+b\'y=c\'$ の位置関係そのものです。傾き $-a/b$ を比べると次のように読み取れます。',
+            },
+            {
+              type: 'list',
+              items: [
+                '$a b\' - a\' b \\neq 0$: 傾きが異なる → **交点 1 つ**（解はただ 1 つ）',
+                '$a b\' - a\' b = 0$ かつ切片が異なる → **平行**（解なし）',
+                '係数がすべて比例 → **一致**（解は無数にある）',
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'tip',
+              content: 'この見方は高校数学の「連立不等式と領域」「ベクトルの一次独立性」にも直接つながります。「式 2 本が直線 2 本」という対応を意識しておくと後で楽です。',
+            },
+            { type: 'heading', level: 3, content: '練習問題' },
+            {
+              type: 'practice',
+              problems: [
+                {
+                  body: '$\\begin{cases} x + 2y = 7 \\\\ 3x - y = 7 \\end{cases}$ を解け。',
+                  hint: '②を $y = 3x - 7$ として①に代入（代入法）か、②×2 ＋ ①（加減法）。',
+                  answer: '②×2 ＋① より $7x = 21$、**x = 3, y = 2**',
+                },
+                {
+                  body: '$\\begin{cases} \\dfrac{1}{2}x - \\dfrac{1}{3}y = \\dfrac{2}{3} \\\\ 2x + 3y = 20 \\end{cases}$ を解け。（まず分数を整数に）',
+                  hint: '①×6 で $3x - 2y = 4$。加減法へ。',
+                  answer: '①×3 ＋ ②×2 より $13x = 52$、**x = 4, y = 4**',
+                },
+                {
+                  body: 'ある 2 桁の整数は、十の位と一の位の数字の和が 11 で、位を入れ替えるともとの数より 27 小さくなる。もとの数を求めよ。',
+                  hint: '十の位を x、一の位を y として $x + y = 11$, $(10x + y) - (10y + x) = 27$',
+                  answer: '$x - y = 3$ と $x + y = 11$ より **74**',
+                },
+                {
+                  body: 'A さんは時速 4 km、B さんは時速 6 km で、距離 5 km 離れた 2 地点から向かい合って同時に出発した。2 人が出会うまで何分か。',
+                  hint: '向かい合う場合は「速さの和」で近づく。$(4 + 6) \\times t = 5$',
+                  answer: '$t = 0.5$ 時間＝ **30 分**',
+                },
+              ],
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 連立方程式がランダムに生成されます。解き終わったら「答えを見る」で採点しよう',
+                props: { topic: 'simultaneous-linear' },
+              },
+            },
           ],
         },
       ],
@@ -326,6 +379,52 @@ export const juniorMath: Subject = {
               type: 'note',
               variant: 'warn',
               content: 'x軸との共有点の個数は a の符号と判別式で決まります（高校で学ぶ判別式 $D = b^2 - 4ac$ の芽生え）。',
+            },
+            { type: 'heading', level: 3, content: '発展：平方完成——一般形を頂点の形へ' },
+            {
+              type: 'text',
+              content:
+                '$y = ax^2 + bx + c$ の形でも、**たすきがけ的に変形（平方完成）**すれば頂点が読み取れます。高校では式変形でやりますが、中学でも「$x = -\\dfrac{b}{2a}$ で頂点」という結果を使えます。実際に確認してみましょう。',
+            },
+            { type: 'formula', tex: 'y = ax^2 + bx + c \\quad \\text{の頂点} \\quad \\left( -\\frac{b}{2a},\\; \\frac{4ac - b^2}{4a} \\right)', display: true },
+            {
+              type: 'example',
+              title: '発展例題',
+              body: '$y = x^2 - 6x + 1$ のグラフの頂点を求めよ。（$x^2 - 6x$ を $(x - 3)^2 - 9$ と見立てる）',
+              answer: '$y = (x - 3)^2 - 9 + 1 = (x-3)^2 - 8$ より頂点 **$(3, -8)$**。公式 $(-b/2a, \\cdot) = (3, \\cdot)$ とも一致',
+            },
+            { type: 'heading', level: 3, content: '練習問題' },
+            {
+              type: 'practice',
+              problems: [
+                {
+                  body: '放物線 $y = -2(x + 4)^2 + 3$ の頂点の座標と軸の方程式を求めよ。',
+                  hint: '$(x + 4)^2 = (x - (-4))^2$ と読み替える。',
+                  answer: '頂点 **$(-4, 3)$**、軸 **$x = -4$**',
+                },
+                {
+                  body: '放物線 $y = 3x^2$ を x 軸方向に $-2$、y 軸方向に $5$ だけ平行移動したグラフの式を求めよ。',
+                  answer: '$y = 3(x + 2)^2 + 5$',
+                },
+                {
+                  body: '頂点が $(2, -1)$ で点 $(0, 3)$ を通る放物線の式を求めよ。',
+                  hint: '$y = a(x - 2)^2 - 1$ とおいて点を代入する。',
+                  answer: '$3 = a(0 - 2)^2 - 1 \\Rightarrow a = 1$。よって **$y = (x - 2)^2 - 1$**',
+                },
+                {
+                  body: '$y = x^2 + 4x + 7$ を平方完成し、最小値を求めよ。（発展）',
+                  hint: '$x^2 + 4x = (x + 2)^2 - 4$。',
+                  answer: '$y = (x + 2)^2 + 3$ より **最小値 3（x = −2 のとき）**',
+                },
+              ],
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 二次方程式がランダムに出題されます。因数分解で解いてみよう',
+                props: { topic: 'quadratic-equation' },
+              },
             },
           ],
         },

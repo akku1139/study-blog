@@ -4,6 +4,8 @@ import type { Block, Lesson, Unit } from '../content/types';
 import { renderInline, renderMathInText } from '../lib/math-render';
 import { Widget } from '../components/playground/Widget';
 import { Diagram } from '../components/Diagram';
+import { QuizBlock } from '../components/QuizBlock';
+import { BookmarkButton, BookmarksSection, LessonMemo } from '../components/LessonExtras';
 
 export function LessonPage() {
   const { subjectId, lessonId } = useParams();
@@ -35,8 +37,18 @@ export function LessonPage() {
         <span>{lesson.title}</span>
       </nav>
       <header className="lesson-header" style={{ borderLeftColor: subject.color }}>
-        <h1>{lesson.title}</h1>
-        <p className="lesson-summary">{lesson.summary}</p>
+        <div className="lesson-header-row">
+          <div>
+            <h1>{lesson.title}</h1>
+            <p className="lesson-summary">{lesson.summary}</p>
+          </div>
+          <BookmarkButton
+            subjectId={subject.id}
+            lessonId={lesson.id}
+            lessonTitle={lesson.title}
+            subjectName={subject.name}
+          />
+        </div>
       </header>
 
       {lesson.objectives && (
@@ -53,6 +65,8 @@ export function LessonPage() {
       {lesson.blocks.map((b, i) => (
         <BlockView key={i} block={b} />
       ))}
+
+      <LessonMemo subjectId={subject.id} lessonId={lesson.id} />
 
       <nav className="lesson-nav">
         {prev ? (
@@ -111,6 +125,28 @@ function BlockView({ block }: { block: Block }) {
       );
     case 'note':
       return <div className={`note note-${block.variant}`}>{renderInline(block.content)}</div>;
+    case 'practice':
+      return (
+        <div className="practice-box">
+          <div className="practice-title">{block.title ?? '練習問題'}</div>
+          <ol>
+            {block.problems.map((p, i) => (
+              <li key={i}>
+                <p className="practice-body">{renderMathInText(p.body)}</p>
+                {p.hint && <details><summary>ヒント</summary><p>{renderInline(p.hint)}</p></details>}
+                {p.answer && (
+                  <details>
+                    <summary>解答・解説</summary>
+                    <p>{renderMathInText(p.answer)}</p>
+                  </details>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      );
+    case 'quiz':
+      return <QuizBlock title={block.title} questions={block.questions} />;
     case 'table':
       return (
         <div className="table-wrap">
@@ -149,6 +185,7 @@ export function HomePage() {
           数式はきれいに表示され、グラフやシミュレーションを<strong>その場で動かして</strong>学べます。
         </p>
       </section>
+      <BookmarksSection />
       {stages.map((stage) => {
         const list = subjects.filter((s) => s.stage === stage);
         if (!list.length) return null;

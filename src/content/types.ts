@@ -46,8 +46,25 @@ export type Block =
   | { type: 'example'; title: string; body: string; answer?: string }
   | { type: 'note'; variant: 'tip' | 'warn' | 'info'; content: string }
   | { type: 'table'; headers: string[]; rows: string[][] }
+  | { type: 'practice'; title?: string; problems: PracticeProblem[] } // 練習問題（解答は折りたたみ）
+  | { type: 'quiz'; title?: string; questions: QuizQuestion[] }       // 確認クイズ（選択式・自動判定）
   | { type: 'diagram'; diagram: DiagramId; caption?: string } // 静的図解
   | { type: 'widget'; widget: WidgetRef };                   // プレイグラウンド
+
+/** 練習問題 1 問。body / answer には $...$ 数式が使える */
+export interface PracticeProblem {
+  body: string;
+  answer?: string;
+  hint?: string;
+}
+
+/** 確認クイズ 1 問。選択式でクライアント側で自動判定される */
+export interface QuizQuestion {
+  question: string;
+  choices: string[];
+  answerIndex: number;
+  explanation?: string;
+}
 
 /** 教科書内の静的図解の ID */
 export type DiagramId =
@@ -78,4 +95,5 @@ export type WidgetId =
   | 'probability-simulator' // 確率シミュレータ（サイコロ）
   | 'physics-projectile'    // 物体の放物運動
   | 'vector-explorer'       // ベクトルの和と内積
-  | 'wave-simulator';       // 波の重ね合わせ
+  | 'wave-simulator'        // 波の重ね合わせ
+  | 'math-drill';           // 無限ドリル（ランダム問題生成）

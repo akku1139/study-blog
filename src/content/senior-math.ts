@@ -136,6 +136,62 @@ export const seniorMath: Subject = {
               body: 'b = 5, c = 8, A = 60° のとき a を求めよ。',
               answer: '$a^2 = 25 + 64 - 2 \\cdot 5 \\cdot 8 \\cdot \\tfrac{1}{2} = 89 - 40 = 49$。よって $a = 7$',
             },
+            { type: 'heading', level: 3, content: '発展：2つの定理の使い分けと面積公式' },
+            {
+              type: 'list',
+              items: [
+                'わかっている情報が「**角 2 個以上**」→ 正弦定理（対辺の組をつくれるか確認）',
+                'わかっている情報が「**2辺とはさむ角**」「**3辺**」→ 余弦定理',
+                '面積 $S = \\dfrac{1}{2}bc\\sin A$（はさむ角版の $\\dfrac{1}{2}\\times$辺$\\times$辺$\\times$sin）',
+                '外接円の半径が必要なときは正弦定理の $= 2R$ を逆に使う: $R = \\dfrac{a}{2\\sin A}$',
+              ],
+            },
+            {
+              type: 'example',
+              title: '発展例題（面積＋余弦定理）',
+              body: 'AB = 6, AC = 5, A = 60° の三角形 ABC について、辺 BC の長さと面積を求めよ。',
+              answer:
+                '$BC^2 = 6^2 + 5^2 - 2 \\cdot 6 \\cdot 5 \\cos 60° = 61 - 30 = 31$ より $BC = \\sqrt{31}$。面積 $S = \\frac{1}{2} \\cdot 6 \\cdot 5 \\sin 60° = \\frac{15\\sqrt{3}}{2}$',
+            },
+            {
+              type: 'note',
+              variant: 'info',
+              content: '三角比を「回転角 θ で定義する関数（三角関数）」に拡張すると数学IIの内容に、さらに弧度法（ラジアン）を導入すると微積分で本領を発揮します。',
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 特別な角の三角比が出題されます。単位円を思い出して答えよう',
+                props: { topic: 'special-angles' },
+              },
+            },
+            { type: 'heading', level: 3, content: '練習問題' },
+            {
+              type: 'practice',
+              problems: [
+                {
+                  body: '$\\sin \\theta = \\dfrac{3}{5}$（$90° < \\theta < 180°$）のとき $\\cos \\theta$, $\\tan \\theta$ を求めよ。',
+                  hint: '$\\sin^2\\theta + \\cos^2\\theta = 1$。第2象限では cos は負。',
+                  answer: '$\\cos\\theta = -\\frac{4}{5}$、$\\tan\\theta = -\\frac{3}{4}$',
+                },
+                {
+                  body: '三角形 ABC で A = 30°, B = 105°, b = 6 のとき a を求めよ。（$\\sin 105° = \\dfrac{\\sqrt{6} + \\sqrt{2}}{4}$ を使ってよい）',
+                  hint: '正弦定理 $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$。角と対辺の対応（A↔a, B↔b）に注意。',
+                  answer: '$a = 6 \\cdot \\dfrac{1/2}{(\\sqrt{6}+\\sqrt{2})/4} = \\dfrac{12}{\\sqrt{6}+\\sqrt{2}} = 3(\\sqrt{6}-\\sqrt{2})$',
+                },
+                {
+                  body: '3 辺が 4, 5, 6 の三角形の最大の角の大きさを cos を使って求めよ。',
+                  hint: '最大の角は最長辺 6 の対角。余弦定理を cos について解く。',
+                  answer: '$\\cos C = \\frac{4^2 + 5^2 - 6^2}{2 \\cdot 4 \\cdot 5} = \\frac{5}{40} = \\frac{1}{8}$',
+                },
+                {
+                  body: 'AB = 3, BC = 5, CA = 7 の三角形の面積を求めよ。（発展）',
+                  hint: 'まず余弦定理で cos B（辺 AB・BC にはさまれる角）を求める。',
+                  answer: '$\\cos B = \\frac{3^2 + 5^2 - 7^2}{2 \\cdot 3 \\cdot 5} = -\\frac{1}{2}$ より $B = 120°$。$S = \\frac{1}{2} \\cdot AB \\cdot BC \\sin B = \\frac{1}{2} \\cdot 3 \\cdot 5 \\cdot \\frac{\\sqrt{3}}{2} = \\frac{15\\sqrt{3}}{4}$',
+                },
+              ],
+            },
           ],
         },
       ],
@@ -180,6 +236,65 @@ export const seniorMath: Subject = {
               type: 'note',
               variant: 'tip',
               content: '増減表は必ず「f′ の符号 → f の増減」の順に書く。符号表を省略すると符号ミスが起きやすくなります。',
+            },
+            { type: 'heading', level: 3, content: '発展：接線が通る点と極値・最大最小' },
+            {
+              type: 'text',
+              content:
+                '「**曲線上でない点** P を通る接線」では、接点を $Q(t, f(t))$ とおくのが定石です。P を通る条件 $f\'(t) = \\dfrac{f(t) - y_P}{t - x_P}$ から t を解きます。',
+            },
+            {
+              type: 'example',
+              title: '発展例題（曲線外の点からの接線）',
+              body: '放物線 $y = x^2$ に、点 $(0, -4)$ から引いた接線の方程式を求めよ。',
+              answer:
+                '接点を $(t, t^2)$ とおくと傾きは $2t$ なので、$2t = \\frac{t^2 - (-4)}{t - 0}$。両辺に $t$ をかけて $2t^2 = t^2 + 4$、$t = \\pm 2$。傾きは $\\pm 4$ なので接線は **$y = 4x - 4$ と $y = -4x - 4$**',
+            },
+            {
+              type: 'text',
+              content:
+                'また、閉区間での**最大・最小**は「極値 ＋ 区間の端点」の値をすべて比べれば求まります。これは物理（位置と速度の関係）や経済（限界費用）でも同じ形で現れる、微分の最もよく使う応用です。',
+            },
+            {
+              type: 'example',
+              title: '発展例題（区間の最大最小）',
+              body: '$f(x) = x^3 - 3x$, $-2 \\le x \\le 3$ の最大値・最小値を求めよ。',
+              answer:
+                "$f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$ より極大 $f(-1) = 2$、極小 $f(1) = -2$。端点値は $f(-2) = -2$, $f(3) = 18$。比較して**最大値 18、最小値 −2**",
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 多項式の導関数計算が出題されます。冪の微分規則を体で覚えよう',
+                props: { topic: 'polynomial-differentiate' },
+              },
+            },
+            { type: 'heading', level: 3, content: '練習問題' },
+            {
+              type: 'practice',
+              problems: [
+                {
+                  body: "$f(x) = x^3 - 12x$ の増減表をかき、極値を求めよ。",
+                  hint: "$f'(x) = 3x^2 - 12 = 3(x+2)(x-2)$。",
+                  answer: '**x = −2 で極大値 16、x = 2 で極小値 −16**',
+                },
+                {
+                  body: '放物線 $y = \\frac{1}{3}x^3$ の $x = 1$ における接線の方程式を求めよ。',
+                  hint: "$y' = x^2$、接点 $(1, \\frac{1}{3})$。",
+                  answer: '傾きは $f\'(1) = 1$。$y = (x - 1) + \\frac{1}{3}$、すなわち **$y = x - \\frac{2}{3}$**',
+                },
+                {
+                  body: '$f(x) = x^3 + ax^2 + bx$ が $x = 1$ で極小、$x = -1$ で極大をもつとき、定数 a, b を求めよ。（発展）',
+                  hint: "極値条件は $f'(x) = 3x^2 + 2ax + b$ の解として現れる。",
+                  answer: "解の組は $(1, -1)$ なので $f'(x) = 3(x-1)(x+1) = 3x^2 - 3$。係数比較で **a = 0, b = −3**",
+                },
+                {
+                  body: '$f(x) = x^3 - 6x^2 + 9x$, $0 \\le x \\le 4$ の最大値と最小値を求めよ。',
+                  hint: "$f'(x) = 3(x-1)(x-3)$。極値に加えて端点 $f(0), f(4)$ を比べる。",
+                  answer: '極大 $f(1) = 4$、極小 $f(3) = 0$、端点 $f(0) = 0$, $f(4) = 4$。よって**最大値 4、最小値 0**',
+                },
+              ],
             },
           ],
         },
