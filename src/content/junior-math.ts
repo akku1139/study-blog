@@ -435,6 +435,14 @@ export const juniorMath: Subject = {
                 props: { topic: 'quadratic-equation' },
               },
             },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '激ムズ無限ドリル（発展）: たすきがけの因数分解。二次方程式の解法の土台です',
+                props: { topic: 'factorize' },
+              },
+            },
           ],
         },
       ],

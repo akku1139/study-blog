@@ -270,6 +270,14 @@ export const seniorMath: Subject = {
                 props: { topic: 'polynomial-differentiate' },
               },
             },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '激ムズ無限ドリル（発展）: 積・合成関数の微分。連鎖律を使いこなせるか挑戦しよう',
+                props: { topic: 'hard-differentiate' },
+              },
+            },
             { type: 'heading', level: 3, content: '練習問題' },
             {
               type: 'practice',
@@ -334,6 +342,14 @@ export const seniorMath: Subject = {
                 id: 'math-drill',
                 caption: '無限ドリル: 二次式の定積分がランダムに出題されます。積分してから上端・下端を代入',
                 props: { topic: 'definite-integral' },
+              },
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '激ムズ無限ドリル（発展）: 三次式の不定積分と置換積分。積分定数 C を忘れずに',
+                props: { topic: 'indefinite-integrate' },
               },
             },
           ],

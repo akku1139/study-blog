@@ -10,8 +10,40 @@ interface GeneratedProblem {
 
 type TopicGenerator = (rng: Rng) => GeneratedProblem;
 
+/** 項を整形する（coef=0 なら空文字）。first=true で先頭項（符号なし or −のみ） */
+function term(coef: number, sym: string, first = false): string {
+  if (coef === 0) return '';
+  const mag = Math.abs(coef) === 1 && sym !== '' ? sym : `${Math.abs(coef)}${sym}`;
+  const sign = first ? (coef < 0 ? '-' : '') : coef < 0 ? ' - ' : ' + ';
+  return sign + mag;
+}
+
+/** 係数が分数になる項（num/den を既約化） */
+function fracTerm(num: number, den: number, sym: string, first = false): string {
+  const g = gcd(num, den);
+  const n = num / g;
+  const d = den / g;
+  if (d === 1) return term(n, sym, first);
+  const mag = `\\frac{${Math.abs(n)}}{${d}}${sym}`;
+  const sign = first ? (n < 0 ? '-' : '') : n < 0 ? ' - ' : ' + ';
+  return sign + mag;
+}
+
+/** 既約分数 a/b */
+function fmtFrac(a: number, b: number): string {
+  const g = gcd(a, b);
+  const n = a / g;
+  const d = b / g;
+  if (d === 1) return String(n);
+  return `${n < 0 ? '-' : ''}\\frac{${Math.abs(n)}}{${d}}`;
+}
+
+function xMinus(a: number, sym = 'x'): string {
+  return `${sym} ${a >= 0 ? '-' : '+'} ${Math.abs(a)}`;
+}
+
 /** 各トピック: rng は呼び出しごとに新しく渡される。数式は $...$ / $$...$$ 記法 */
-const topics: Record<string, { label: string; generate: TopicGenerator }> = {
+export const drillTopics: Record<string, { label: string; generate: TopicGenerator }> = {
   'quadratic-equation': {
     label: '二次方程式（中学3年）',
     generate: (rng) => {
@@ -40,7 +72,7 @@ const topics: Record<string, { label: string; generate: TopicGenerator }> = {
       const b1 = randInt(rng, -3, 3);
       const a2 = randInt(rng, -3, 3);
       const b2 = randInt(rng, 1, 3);
-      if (a1 * b2 - a2 * b1 === 0) return topics['simultaneous-linear'].generate(rng);
+      if (a1 * b2 - a2 * b1 === 0) return drillTopics["simultaneous-linear"].generate(rng);
       const c1 = a1 * x + b1 * y;
       const c2 = a2 * x + b2 * y;
       const term = (a: number, v: string) => (a === 1 ? v : a === -1 ? `-${v}` : `${a}${v}`);
@@ -207,6 +239,169 @@ const topics: Record<string, { label: string; generate: TopicGenerator }> = {
       };
     },
   },
+  'hard-differentiate': {
+    label: '激ムズ微分（積・合成）',
+    generate: (rng) => {
+      const kind = randInt(rng, 0, 2);
+      if (kind === 0) {
+        // (x² + px + q)(rx + s) → f' = 3r x² + 2(rp+s) x + (rq+sp)
+        const p = randInt(rng, -5, 5);
+        const q = randInt(rng, -6, 6);
+        const r = randInt(rng, 1, 3);
+        const s = randInt(rng, -6, 6);
+        const f = `x^2${term(p, 'x')}${term(q, '')}`;
+        const g = `${r}x${term(s, '')}`;
+        return {
+          question: `次の関数を微分せよ。\n$$f(x) = \\left( ${f} \\right)\\left( ${g} \\right)$$`,
+          answer: `$f'(x) = ${term(3 * r, 'x^2', true)}${term(2 * (r * p + s), 'x')}${term(r * q + s * p, '')}$`,
+          hint: '積の微分公式 $(fg)\' = f\'g + fg\'$。展開してから微分してもよい。',
+        };
+      }
+      if (kind === 1) {
+        // (ax + b)^n → n a (ax+b)^{n-1}
+        const a = randInt(rng, 1, 3);
+        const b = randInt(rng, -5, 5);
+        const n = randInt(rng, 3, 5);
+        const inner = `${a}x${term(b, '')}`;
+        return {
+          question: `次の関数を微分せよ。\n$$f(x) = \\left( ${inner} \\right)^{${n}}$$`,
+          answer: `$f'(x) = ${n * a}\\left( ${inner} \\right)^{${n - 1}}$`,
+          hint: '連鎖律: 外側を微分したものに内側の微分 $a$ を掛ける。',
+        };
+      }
+      // (ax² + b)³ → 6a x (ax²+b)²
+      const a = randInt(rng, 1, 2);
+      const b = randInt(rng, -5, 5);
+      const inner = `${a}x^2${term(b, '')}`;
+      return {
+        question: `次の関数を微分せよ。\n$$f(x) = \\left( ${inner} \\right)^{3}$$`,
+        answer: `$f'(x) = ${6 * a}x\\left( ${inner} \\right)^{2}$`,
+        hint: '連鎖律: $3(ax^2+b)^2 \\times 2ax$。',
+      };
+    },
+  },
+  'indefinite-integrate': {
+    label: '激ムズ不定積分',
+    generate: (rng) => {
+      if (rng() < 0.55) {
+        // ∫(ax³+bx²+cx+d)dx — 係数を選んで原始関数が整数係数になるようにする
+        const a = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]);
+        const b = pick(rng, [-6, -3, 3, 6]);
+        const c = pick(rng, [-6, -4, -2, 2, 4, 6]);
+        const d = randInt(rng, -6, 6);
+        const f = `${term(a, 'x^3', true)}${term(b, 'x^2')}${term(c, 'x')}${term(d, '')}`;
+        const F = `${fracTerm(a, 4, 'x^4', true)}${fracTerm(b, 3, 'x^3')}${fracTerm(c, 2, 'x^2')}${term(d, 'x')}`;
+        return {
+          question: `次の不定積分を求めよ。\n$$\\int \\left( ${f} \\right) dx$$`,
+          answer: `$${F} + C$`,
+          hint: '$\\int x^n dx = \\dfrac{x^{n+1}}{n+1}$。各項の係数 ÷ (次数+1)。',
+        };
+      }
+      // ∫(ax+b)^n dx = (ax+b)^{n+1} / (a(n+1)) + C
+      const a = randInt(rng, 1, 3);
+      const b = randInt(rng, -5, 5);
+      const n = pick(rng, [2, 3]);
+      const inner = `${a}x${term(b, '')}`;
+      return {
+        question: `次の不定積分を求めよ。\n$$\\int \\left( ${inner} \\right)^{${n}} dx$$`,
+        answer: `$\\frac{\\left( ${inner} \\right)^{${n + 1}}}{${a * (n + 1)}} + C$`,
+        hint: '$u = ax + b$ の置換積分。$u^{n+1}/(n+1)$ をさらに $a$ で割る。',
+      };
+    },
+  },
+  'factorize': {
+    label: '激ムズ因数分解',
+    generate: (rng) => {
+      const kind = randInt(rng, 0, 2);
+      if (kind === 0) {
+        // x² + (p+q)x + pq → (x+p)(x+q)
+        const p = pick(rng, [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6]);
+        let q = pick(rng, [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6]);
+        if (q === p) q = q >= 6 ? q - 2 : q + 1;
+        return {
+          question: `次の式を因数分解せよ。\n$$x^2${term(p + q, 'x')}${term(p * q, '')}$$`,
+          answer: `$(x ${p >= 0 ? '+' : '-'} ${Math.abs(p)})(x ${q >= 0 ? '+' : '-'} ${Math.abs(q)})$`,
+          hint: 'たして $' + (p + q) + '$、かけて $' + p * q + '$ になる 2 数を探す。',
+        };
+      }
+      if (kind === 1) {
+        // たすきがけ: (mx+n)(px+q) → mpx² + (mq+np)x + nq
+        // 全係数の共通因数が出ないよう（= 完全因数分解になるよう）再抽選する
+        const m = randInt(rng, 1, 3);
+        const pp = randInt(rng, 1, 3);
+        const n = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]);
+        const q = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]);
+        const a = m * pp;
+        const b = m * q + n * pp;
+        const c = n * q;
+        if (gcd(gcd(a, Math.abs(b)), Math.abs(c)) > 1) {
+          return drillTopics['factorize'].generate(rng);
+        }
+        const fac = (k: number, l: number) => `${k}x ${l >= 0 ? '+' : '-'} ${Math.abs(l)}`;
+        return {
+          question: `次の式を因数分解せよ。\n$$${a}x^2${term(b, 'x')}${term(c, '')}$$`,
+          answer: `$(${fac(m, n)})(${fac(pp, q)})$`,
+          hint: 'たすきがけ。積が $' + a + 'x^2$ と $' + c + '$、たしが $' + b + 'x$ になる組合せ。',
+        };
+      }
+      // x³ + px² + qx + pq = (x+p)(x²+q)
+      const p = pick(rng, [-3, -2, -1, 1, 2, 3]);
+      const q = randInt(rng, 1, 4);
+      return {
+        question: `次の式を因数分解せよ。\n$$x^3${term(p, 'x^2')}${term(q, 'x')}${term(p * q, '')}$$`,
+        answer: `$(x ${p >= 0 ? '+' : '-'} ${Math.abs(p)})(x^2 + ${q})$`,
+        hint: '組み合わせで因数分解。$x^3 + px^2$ と $qx + pq$ に分けて共通因数 $(x + p)$。',
+      };
+    },
+  },
+  'limits': {
+    label: '激ムズ極限',
+    generate: (rng) => {
+      const kind = randInt(rng, 0, 3);
+      if (kind === 0) {
+        // lim_{x→a} (x² − a²)/(x − a) = 2a
+        const a = pick(rng, [-4, -3, -2, 2, 3, 4, 5]);
+        const facMinus = `(x ${a >= 0 ? '-' : '+'} ${Math.abs(a)})`;
+        const facPlus = `(x ${a >= 0 ? '+' : '-'} ${Math.abs(a)})`;
+        return {
+          question: `次の極限を求めよ。\n$$\\lim_{x \\to ${a}} \\frac{x^2 - ${a * a}}{${xMinus(a)}}$$`,
+          answer: `$\\frac{${facMinus}${facPlus}}{${facMinus}} = 2 \\cdot (${a}) = ${2 * a}$`,
+          hint: '分子を因数分解して $(x - a)$ を約分する（極限では $x \\neq a$）。',
+        };
+      }
+      if (kind === 1) {
+        // lim_{x→∞} (ax²+bx+c)/(dx²+e) = a/d
+        const a = randInt(rng, 1, 4);
+        const d = randInt(rng, 1, 4);
+        const b = randInt(rng, -6, 6);
+        const c = randInt(rng, -6, 6);
+        const e = randInt(rng, -6, 6);
+        return {
+          question: `次の極限を求めよ。\n$$\\lim_{x \\to \\infty} \\frac{${a}x^2${term(b, 'x')}${term(c, '')}}{${d}x^2${term(e, '')}}$$`,
+          answer: `$${fmtFrac(a, d)}$`,
+          hint: '分子・分母を $x^2$ で割ると、低次の項は消える。',
+        };
+      }
+      if (kind === 2) {
+        // lim_{x→0} sin(ax)/(bx) = a/b
+        const a = randInt(rng, 1, 4);
+        const b = randInt(rng, 1, 4);
+        const den = `${b === 1 ? '' : b}x`;
+        return {
+          question: `次の極限を求めよ。\n$$\\lim_{x \\to 0} \\frac{\\sin ${a}x}{${den}}$$`,
+          answer: `$${fmtFrac(a, b)}$`,
+          hint: `有名極限 $\\lim_{t \\to 0} \\frac{\\sin t}{t} = 1$。$\\frac{\\sin ${a}x}{${den}} = \\frac{1}{${b}} \\cdot ${a} \\cdot \\frac{\\sin ${a}x}{${a}x}$ の形に整理。`,
+        };
+      }
+      // lim_{x→a} (x³ − a³)/(x − a) = 3a²
+      const a = pick(rng, [-3, -2, 2, 3, 4]);
+      return {
+        question: `次の極限を求めよ。\n$$\\lim_{x \\to ${a}} \\frac{x^3 - ${a ** 3}}{${xMinus(a)}}$$`,
+        answer: `$\\lim_{x \\to ${a}} \\left( x^2${term(a, 'x')}${term(a * a, '')} \\right) = 3 \\cdot (${a})^2 = ${3 * a * a}$`,
+        hint: '$x^3 - a^3 = (x - a)(x^2 + ax + a^2)$ と因数分解。',
+      };
+    },
+  },
 };
 
 /**
@@ -215,13 +410,13 @@ const topics: Record<string, { label: string; generate: TopicGenerator }> = {
  */
 export function MathDrill({ initial }: { initial?: Record<string, unknown> }) {
   const initialTopic =
-    typeof initial?.topic === 'string' && topics[initial.topic] ? initial.topic : 'quadratic-equation';
+    typeof initial?.topic === 'string' && drillTopics[initial.topic] ? initial.topic : 'quadratic-equation';
   const [topicKey, setTopicKey] = useState(initialTopic);
   const [seed, setSeed] = useState(() => hashSeed(initialTopic));
   const [count, setCount] = useState(1);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  const topic = topics[topicKey];
+  const topic = drillTopics[topicKey];
   // 同じ seed → 同じ問題。SSR も同じ seed を使うので出力が一致する
   const problem = topic.generate(mulberry32(seed));
 
@@ -244,7 +439,7 @@ export function MathDrill({ initial }: { initial?: Record<string, unknown> }) {
         <label className="slider">
           トピック
           <select value={topicKey} onChange={changeTopic}>
-            {Object.entries(topics).map(([k, t]) => (
+            {Object.entries(drillTopics).map(([k, t]) => (
               <option key={k} value={k}>{t.label}</option>
             ))}
           </select>

@@ -228,6 +228,15 @@ export const seniorMath3C: Subject = {
               variant: 'tip',
               content: '数学IIIの積分は部分積分・置換積分が武器になります。$(fg)\' = f\'g + fg\'$ を移項した $\\displaystyle\\int f\'g = [fg] - \\int fg\'$ が部分積分の本体です。',
             },
+            { type: 'heading', level: 3, content: '練習（極限ドリル）' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '激ムズ無限ドリル: 因数分解・有名極限・∞/∞ 型の極限がランダムに出題されます',
+                props: { topic: 'limits' },
+              },
+            },
           ],
         },
       ],

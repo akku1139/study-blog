@@ -12,7 +12,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </header>
       <main>{children}</main>
       <footer className="site-footer">
-        <p>学習ノート — 学習指導要領対応のオンライン教材（教科書 + プレイグラウンド）</p>
+        <p>
+          学習ノート — 学習指導要領対応のオンライン教材（教科書 + プレイグラウンド）
+          {' · '}
+          <a href="https://github.com/akku1139/study-blog" target="_blank" rel="noopener noreferrer">
+            GitHub（AGPL-3.0）
+          </a>
+        </p>
       </footer>
     </div>
   );
