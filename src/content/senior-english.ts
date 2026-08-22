@@ -159,6 +159,49 @@ export const seniorEnglish: Subject = {
             },
           ],
         },
+        {
+          id: 'vocabulary-master',
+          title: '英単語マスター5000',
+          summary: '頻度順に並べた 5000 語のトレーナー。分冊（各500語）でコツコツ鍛える。',
+          objectives: [
+            '使用頻度の高い順に単語を効率よく暗習できる',
+            '知らない語だけを範囲を絞って反復できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: 'なぜ「頻度順」が効率的か' },
+            {
+              type: 'text',
+              content:
+                '英語のテキストに出てくる語の大部分は、実は上位数千語の繰り返しで占められています。つまり<strong>よく使われる順</strong>に覚えるほど、1語あたりの出会い回数が多く投資対効果が高い。このトレーナーは一般英語コーパスの頻度順に 5000 語を並べています（語義データは CC0 ライセンスの EJDict-hand 由来）。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**第1章から順に**: 各章500語。まずは知っている語を素早く抜き、残りを暗記',
+                '**全5000語ランダム**: 実力確認モード。間違えた語だけ復習する',
+                '意味は代表的な第1語義に絞ってあります。詳細な語法は辞書で補完しましょう',
+              ],
+            },
+            { type: 'heading', level: 3, content: 'フラッシュカード' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'vocab-flashcards',
+                caption: 'フラッシュカード: 出題範囲を選んでスタート。できなかった語だけを回すのが最短ルート',
+                props: { deck: 'master' },
+              },
+            },
+            { type: 'heading', level: 3, content: '4択クイズ' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'vocab-quiz',
+                caption: '4択クイズ: 5000語プールからの出題。紛らわしい選択肢に注意',
+                props: { deck: 'master', rounds: 10 },
+              },
+            },
+          ],
+        },
       ],
     },
     {

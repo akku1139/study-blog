@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { VOCAB_MASTER } from '../../data/vocab-master';
 
 export interface VocabEntry {
   w: string; // 見出し語
@@ -9,6 +10,10 @@ export interface VocabEntry {
 
 /** 単語帳データ（deck キーで選択） */
 export const VOCAB_DECKS: Record<string, { label: string; words: VocabEntry[] }> = {
+  master: {
+    label: '英単語マスター5000（頻度順）',
+    words: VOCAB_MASTER.map(([w, mean]) => ({ w, pos: '', mean, ex: '' })),
+  },
   junior: {
     label: '中学コア単語',
     words: [
@@ -86,6 +91,9 @@ function shuffled<T>(arr: T[]): T[] {
 export function VocabFlashcards({ initial }: { initial?: Record<string, unknown> }) {
   const deckKey = typeof initial?.deck === 'string' && VOCAB_DECKS[initial.deck] ? initial.deck : 'junior';
   const deck = VOCAB_DECKS[deckKey];
+  const CHUNK = 500;
+  const chunkCount = Math.ceil(deck.words.length / CHUNK);
+  const [chunk, setChunk] = useState(-1); // -1 = 全範囲
   const [phase, setPhase] = useState<'idle' | 'playing' | 'done'>('idle');
   const [queue, setQueue] = useState<number[]>([]);
   const [idx, setIdx] = useState(0);
@@ -94,8 +102,18 @@ export function VocabFlashcards({ initial }: { initial?: Record<string, unknown>
   const [unknown, setUnknown] = useState<number[]>([]);
   const [reviewMode, setReviewMode] = useState(false);
 
+  // 大きなデッキは範囲を絞って出題できる
+  function sliceFor(chunkSel: number): number[] {
+    if (chunkSel < 0) return deck.words.map((_, i) => i);
+    const lo = chunkSel * CHUNK;
+    const hi = Math.min(lo + CHUNK, deck.words.length);
+    const out: number[] = [];
+    for (let i = lo; i < hi; i++) out.push(i);
+    return out;
+  }
+
   function start(q?: number[], review = false) {
-    setQueue(q ?? shuffled(deck.words.map((_, i) => i)));
+    setQueue(q ?? shuffled(sliceFor(chunk)));
     setIdx(0);
     setRevealed(false);
     setKnown([]);
@@ -120,20 +138,38 @@ export function VocabFlashcards({ initial }: { initial?: Record<string, unknown>
   return (
     <div className="vocab-cards">
       {phase === 'idle' && (
-        <div className="widget-controls">
-          <button onClick={() => start()}>スタート! ({deck.words.length} 枚)</button>
-        </div>
+        <>
+          <p className="widget-note">{deck.label}</p>
+          <div className="widget-controls" style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+            {chunkCount > 1 && (
+              <label className="slider">
+                出題範囲
+                <select value={chunk} onChange={(e) => setChunk(Number(e.target.value))}>
+                  <option value={-1}>全 {deck.words.length} 語からランダム</option>
+                  {Array.from({ length: chunkCount }, (_, c) => (
+                    <option key={c} value={c}>
+                      第 {c + 1} 章（{c * CHUNK + 1}〜{Math.min((c + 1) * CHUNK, deck.words.length)} 語）
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <button onClick={() => start()}>
+              スタート! ({(chunk < 0 ? deck.words.length : sliceFor(chunk).length)} 枚)
+            </button>
+          </div>
+        </>
       )}
       {phase === 'playing' && entry && (
         <>
           <p className="widget-note">{reviewMode ? '復習モード: ' : ''}{idx + 1} / {queue.length} 枚目</p>
           <div className="vocab-card">
             <span className="vocab-word">{entry.w}</span>
-            <span className="vocab-pos">[{entry.pos}]</span>
+            {entry.pos && <span className="vocab-pos">[{entry.pos}]</span>}
             {revealed ? (
               <div className="vocab-mean">
                 <strong>{entry.mean}</strong>
-                <p className="vocab-ex">{entry.ex}</p>
+                {entry.ex && <p className="vocab-ex">{entry.ex}</p>}
               </div>
             ) : (
               <button onClick={() => setRevealed(true)}>意味を見る</button>
@@ -220,7 +256,7 @@ export function VocabQuiz({ initial }: { initial?: Record<string, unknown> }) {
           <p className="widget-note"><strong>{roundNo} / {rounds} 問:</strong> {toJa ? '意味は?' : '英語は?'}</p>
           <div className="vocab-card">
             <span className="vocab-word">{toJa ? deck.words[qIdx].w : deck.words[qIdx].mean}</span>
-            {!toJa && <span className="vocab-pos">[{deck.words[qIdx].pos} の意味に対応する英単語]</span>}
+            {!toJa && deck.words[qIdx].pos && <span className="vocab-pos">[{deck.words[qIdx].pos} の意味に対応する英単語]</span>}
           </div>
           <div className="quiz-choices" style={{ flexDirection: 'column', display: 'flex' }}>
             {choices.map((c) => {
