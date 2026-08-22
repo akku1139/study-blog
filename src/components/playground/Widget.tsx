@@ -13,6 +13,7 @@ import { WaveSimulator } from './WaveSimulator';
 import { MathDrill } from './MathDrill';
 import { FlashAnzan, StroopTest } from './FlashAnzan';
 import { MonteCarloPi, ReactionTest } from './MiniGames';
+import { Collatz, CompoundE, GaltonBoard, GoldenSunflower } from './FunMath';
 
 const registry: Record<string, ComponentType<{ initial?: Record<string, unknown> }>> = {
   'function-grapher': FunctionGrapher,
@@ -30,6 +31,10 @@ const registry: Record<string, ComponentType<{ initial?: Record<string, unknown>
   'stroop-test': StroopTest,
   'reaction-test': ReactionTest,
   'monte-carlo-pi': MonteCarloPi,
+  'galton-board': GaltonBoard,
+  'golden-sunflower': GoldenSunflower,
+  'collatz': Collatz,
+  'compound-e': CompoundE,
 };
 
 export function Widget({ spec: w }: { spec: WidgetRef }) {

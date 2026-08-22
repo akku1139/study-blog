@@ -132,6 +132,21 @@ export const seniorMath3C: Subject = {
                 props: { topic: 'sequence-terms' },
               },
             },
+            { type: 'heading', level: 3, content: '小ネタ: 数列は自然界にも現れる' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'golden-sunflower',
+                caption: 'ひまわりの種の並びは黄金角（フィボナッチ数列の隣項の比の極限）。角度をずらすと縞模様が現れる',
+              },
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'collatz',
+                caption: 'コラーツ予想: 「偶数なら割る2、奇数なら3n+1」を繰り返すと必ず 1 になる——はずだが、まだ誰も証明できていない',
+              },
+            },
           ],
         },
         // ---------- 数学C: 統計的な推測 ----------
@@ -164,6 +179,14 @@ export const seniorMath3C: Subject = {
               title: '例題',
               body: '表が出る確率が不明のコインを400回投げて224回表が出た。表の出る確率 p の95%信頼区間を求めよ（ただし $\\sigma = \\sqrt{p(1-p)} \\approx 0.5$ と近似）。',
               answer: '$\\hat{p} = 224/400 = 0.56$、誤差幅 $1.96 \\times 0.5/\\sqrt{400} = 0.049$。よって **0.51 ≤ p ≤ 0.61** 程度。',
+            },
+            { type: 'heading', level: 3, content: '小ネタ: ガルトン板——二項分布が正規分布に化ける' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'galton-board',
+                caption: '釘のたびに左右 1/2 の運命の分かれ道。ボール 300 個落として正規分布の鐘型を描かせよう',
+              },
             },
           ],
         },
@@ -235,6 +258,14 @@ export const seniorMath3C: Subject = {
                 id: 'math-drill',
                 caption: '激ムズ無限ドリル: 因数分解・有名極限・∞/∞ 型の極限がランダムに出題されます',
                 props: { topic: 'limits' },
+              },
+            },
+            { type: 'heading', level: 3, content: '小ネタ: 複利の極限としての e' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'compound-e',
+                caption: '複利を細かく回すと元金は e 倍で頭打ち——lim(1+1/n)ⁿ = e を体感する',
               },
             },
           ],

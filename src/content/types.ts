@@ -100,4 +100,8 @@ export type WidgetId =
   | 'flash-anzan'           // フラッシュ暗算
   | 'reaction-test'         // 反応速度テスト
   | 'stroop-test'           // ストループ課題（色言葉テスト）
-  | 'monte-carlo-pi';       // モンテカルロ法で円周率を推定
+  | 'monte-carlo-pi'        // モンテカルロ法で円周率を推定
+  | 'galton-board'          // ガルトン板（二項分布→正規分布）
+  | 'golden-sunflower'      // ひまわりの種と黄金角（フィボナッチ）
+  | 'collatz'               // コラーツ予想（3n+1 問題）
+  | 'compound-e';           // 複利とネイピア数 e
