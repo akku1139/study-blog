@@ -139,13 +139,13 @@ function BlockView({ block }: { block: Block }) {
 }
 
 export function HomePage() {
-  const stages: Array<keyof typeof stageNames> = ['junior', 'senior'];
+  const stages: Array<keyof typeof stageNames> = ['junior', 'senior', 'university'];
   return (
     <div>
       <section className="hero">
         <h1>学習ノート</h1>
         <p>
-          中学校・高等学校の学習指導要領に対応した、教科書としても使えるオンライン教材。
+          中学校・高等学校の学習指導要領、大学教養課程に対応した、教科書としても使えるオンライン教材。
           数式はきれいに表示され、グラフやシミュレーションを<strong>その場で動かして</strong>学べます。
         </p>
       </section>
