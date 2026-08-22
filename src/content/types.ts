@@ -104,4 +104,10 @@ export type WidgetId =
   | 'galton-board'          // ガルトン板（二項分布→正規分布）
   | 'golden-sunflower'      // ひまわりの種と黄金角（フィボナッチ）
   | 'collatz'               // コラーツ予想（3n+1 問題）
-  | 'compound-e';           // 複利とネイピア数 e
+  | 'compound-e'            // 複利とネイピア数 e
+  | 'pendulum'              // 単振り子（長さと周期）
+  | 'doppler'               // ドップラー効果シミュレータ
+  | 'half-life'             // 半減期シミュレータ
+  | 'time-dilation'         // 特殊相対論の時間の遅れ
+  | 'ph-scale'              // pH スケール体感
+  | 'element-quiz';         // 元素記号クイズ

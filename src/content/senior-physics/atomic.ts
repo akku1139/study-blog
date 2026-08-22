@@ -42,6 +42,14 @@ export const atomicUnit: Unit = {
           variant: 'info',
           content: 'プランク定数 h ≈ 6.6 × 10⁻³⁴ J·s。ミクロの世界では h が小さすぎて量子性が身近に感じられませんが、スケールを変えると現れる——それがこの単元の主役です。',
         },
+        { type: 'heading', level: 3, content: '小ネタ: 光速度不変がもたらす「時間の遅れ」' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'time-dilation',
+            caption: '速く動く時計はゆっくり進む。v を光速に近づけるとローレンツ因子 γ が発散する',
+          },
+        },
       ],
     },
     {
@@ -83,6 +91,14 @@ export const atomicUnit: Unit = {
           type: 'note',
           variant: 'warn',
           content: '核反応では**電荷と質量数の保存**を必ず確認。β⁻崩壊で中性子が陽子になるため Z が増えます（A は不変）。',
+        },
+        { type: 'heading', level: 3, content: '小ネタ: 半減期を自分の手で体験する' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'half-life',
+            caption: '原子 400 個が毎年半分ずつ壊変するシミュレーション。減衰曲線 N = N₀(1/2)^(t/T) が描かれる',
+          },
         },
       ],
     },

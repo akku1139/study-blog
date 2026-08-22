@@ -47,6 +47,14 @@ export const wavesUnit: Unit = {
           body: '長さ 0.6 m の両端固定の弦に、基本振動が生じた。波の速さが 240 m/s のとき基本振動数を求めよ。',
           answer: '$\\lambda = 2L = 1.2$ m、$f = v/\\lambda = 240/1.2 = 200$ Hz',
         },
+        { type: 'heading', level: 3, content: '小ネタ: 振り子は等時性のハードウェア' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'pendulum',
+            caption: '長さを変えると周期 T = 2π√(L/g) が変わる——振動数 f の観点でも眺めてみよう',
+          },
+        },
       ],
     },
     {
@@ -87,6 +95,14 @@ export const wavesUnit: Unit = {
           type: 'note',
           variant: 'tip',
           content: '光の単位は nm（10⁻⁹ m）で与えられることが多い。計算前にすべて m へ換算する癖をつけましょう。',
+        },
+        { type: 'heading', level: 3, content: '小ネタ: ドップラー効果を目で見る' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'doppler',
+            caption: '動く音源が出す円波——近づく側で波が密になり、遠ざかる側で疎になる。v を音速まで上げると衝撃波も',
+          },
         },
       ],
     },

@@ -83,6 +83,14 @@ export const statesUnit: Unit = {
           variant: 'tip',
           content: '弱酸・弱塩基の pH 計算では電離度 α と共通イオンの影響（緩衝液）まで出題範囲。まず強酸強塩基の計算を確実に。',
         },
+        { type: 'heading', level: 3, content: '小ネタ: pH スケールを体感する' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'ph-scale',
+            caption: 'pH は対数スケール——1 違えば水素イオン濃度が 10 倍。身近な液体の pH もあわせて確認',
+          },
+        },
       ],
     },
     {

@@ -53,6 +53,14 @@ export const inorganicUnit: Unit = {
           variant: 'tip',
           content: '陽イオン分離では「両性（Zn²⁺, Al³⁺）」「アンミン錯体を作る（Cu²⁺, Ag⁺, Zn²⁺）」の2つの性質を軸に系統的に整理するのが定石です。',
         },
+        { type: 'heading', level: 3, content: '小ネタ: 元素記号クイズ' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'element-quiz',
+            caption: '28 元素の記号をランダム出題。周期表の暗記の最初の一歩として',
+          },
+        },
       ],
     },
     {

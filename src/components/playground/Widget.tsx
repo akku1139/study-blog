@@ -14,6 +14,7 @@ import { MathDrill } from './MathDrill';
 import { FlashAnzan, StroopTest } from './FlashAnzan';
 import { MonteCarloPi, ReactionTest } from './MiniGames';
 import { Collatz, CompoundE, GaltonBoard, GoldenSunflower } from './FunMath';
+import { Doppler, ElementQuiz, HalfLife, Pendulum, PhScale, TimeDilation } from './ScienceFun';
 
 const registry: Record<string, ComponentType<{ initial?: Record<string, unknown> }>> = {
   'function-grapher': FunctionGrapher,
@@ -35,6 +36,12 @@ const registry: Record<string, ComponentType<{ initial?: Record<string, unknown>
   'golden-sunflower': GoldenSunflower,
   'collatz': Collatz,
   'compound-e': CompoundE,
+  'pendulum': Pendulum,
+  'doppler': Doppler,
+  'half-life': HalfLife,
+  'time-dilation': TimeDilation,
+  'ph-scale': PhScale,
+  'element-quiz': ElementQuiz,
 };
 
 export function Widget({ spec: w }: { spec: WidgetRef }) {
