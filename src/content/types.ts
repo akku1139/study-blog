@@ -5,7 +5,7 @@
 // 同一のブロック列として表現する。
 // ============================================================
 
-export type Stage = 'junior' | 'senior' | 'university';
+export type Stage = 'junior' | 'senior' | 'university' | 'misc';
 
 /** 学習指導要領上の教科・科目 */
 export interface Subject {
@@ -114,4 +114,5 @@ export type WidgetId =
   | 'vocab-flashcards'      // 英単語フラッシュカード
   | 'vocab-quiz'            // 英単語4択クイズ
   | 'kanji-quiz'            // 漢字の読み方クイズ
-  | 'flag-quiz';            // 国旗クイズ
+  | 'flag-quiz'             // 国旗クイズ
+  | 'trivia-quiz';          // 雑学クイズ（カテゴリ別）

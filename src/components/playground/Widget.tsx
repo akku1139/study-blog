@@ -16,7 +16,8 @@ import { MonteCarloPi, ReactionTest } from './MiniGames';
 import { Collatz, CompoundE, GaltonBoard, GoldenSunflower } from './FunMath';
 import { Doppler, ElementQuiz, HalfLife, Pendulum, PhScale, TimeDilation } from './ScienceFun';
 import { VocabFlashcards, VocabQuiz } from './Vocab';
-import { FlagQuiz, KanjiQuiz } from './QuizFun';
+import { FlagQuiz, KanjiQuiz, TriviaQuiz } from './QuizFun';
+
 
 const registry: Record<string, ComponentType<{ initial?: Record<string, unknown> }>> = {
   'function-grapher': FunctionGrapher,
@@ -48,6 +49,7 @@ const registry: Record<string, ComponentType<{ initial?: Record<string, unknown>
   'vocab-quiz': VocabQuiz,
   'kanji-quiz': KanjiQuiz,
   'flag-quiz': FlagQuiz,
+  'trivia-quiz': TriviaQuiz,
 };
 
 export function Widget({ spec: w }: { spec: WidgetRef }) {

@@ -18,6 +18,7 @@ import { seniorEnglish } from './senior-english';
 import { info1 } from './info-1/index';
 import { universityMath } from './university-math/index';
 import { universityChemistry } from './university-chemistry/index';
+import { triviaSubject } from './trivia';
 
 /** 全教科・科目のレジストリ。ここに追加するだけでサイトに反映される。 */
 export const subjects: Subject[] = [
@@ -40,10 +41,13 @@ export const subjects: Subject[] = [
   info1,
   universityMath,
   universityChemistry,
+  triviaSubject,
 ];
+
 
 export const stageNames = {
   junior: '中学校',
   senior: '高等学校',
   university: '大学',
+  misc: '雑学・お楽しみ',
 } as const;

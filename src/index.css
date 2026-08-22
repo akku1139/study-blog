@@ -234,6 +234,7 @@ th { background: #f1f5f9; }
   padding: 18px 20px; margin: 8px 0; text-align: center;
 }
 .vocab-word { font-size: 1.7rem; font-weight: 700; display: block; }
+.vocab-word-sm { font-size: 1.15rem; font-weight: 700; line-height: 1.6; }
 .vocab-pos { color: var(--muted); font-size: 0.85rem; display: block; margin: 4px 0 10px; }
 .vocab-mean strong { font-size: 1.15rem; }
 .vocab-ex { color: #334155; font-style: italic; font-size: 0.95rem; margin: 6px 0 0; }

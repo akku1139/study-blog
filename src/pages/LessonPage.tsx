@@ -175,7 +175,7 @@ function BlockView({ block }: { block: Block }) {
 }
 
 export function HomePage() {
-  const stages: Array<keyof typeof stageNames> = ['junior', 'senior', 'university'];
+  const stages: Array<keyof typeof stageNames> = ['junior', 'senior', 'university', 'misc'];
   return (
     <div>
       <section className="hero">
