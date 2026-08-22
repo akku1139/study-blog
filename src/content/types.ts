@@ -115,4 +115,5 @@ export type WidgetId =
   | 'vocab-quiz'            // 英単語4択クイズ
   | 'kanji-quiz'            // 漢字の読み方クイズ
   | 'flag-quiz'             // 国旗クイズ
-  | 'trivia-quiz';          // 雑学クイズ（カテゴリ別）
+  | 'trivia-quiz'           // 雑学クイズ（カテゴリ別）
+  | 'hydrocarbon-lab';      // 架空炭化水素シミュレーター

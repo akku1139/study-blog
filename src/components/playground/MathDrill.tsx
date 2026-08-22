@@ -200,6 +200,57 @@ export const drillTopics: Record<string, { label: string; generate: TopicGenerat
       };
     },
   },
+  'hydrocarbon': {
+    label: '炭化水素の命名（化学）',
+    generate: (rng) => {
+      // 直鎖炭化水素の命名と分子式（IUPAC名・学校用語法）
+      const ALKANE = ['メタン', 'エタン', 'プロパン', 'ブタン', 'ペンタン', 'ヘキサン', 'ヘプタン', 'オクタン', 'ノナン', 'デカン'];
+      const ALKENE = ['エテン', 'プロペン', 'ブテン', 'ペンテン', 'ヘキセン', 'ヘプテン', 'オクテン', 'ノネン', 'デセン'];
+      const ALKYNE = ['エチン', 'プロピン', 'ブチン', 'ペンチン', 'ヘキシン', 'ヘプチン', 'オクチン', 'ノニン', 'デシン'];
+      const formula = (n: number, h: number) => `$\\mathrm{C}_{${n}}\\mathrm{H}_{${h}}$`;
+      const kind = randInt(rng, 0, 2);
+
+      if (kind === 0) {
+        // アルカン CnH2n+2
+        const n = randInt(rng, 1, 10);
+        if (rng() < 0.55) {
+          return {
+            question: `炭素を ${n} 個もつ直鎖のアルカン（単結合のみ）の名称を答えよ。`,
+            answer: ALKANE[n - 1],
+            hint: 'アルカンの語尾は「〜ン」。炭素数 1〜4 は慣用名、5 以上はギリシャ語由来。',
+          };
+        }
+        return {
+          question: `アルカン「${ALKANE[n - 1]}」の分子式を答えよ。`,
+          answer: formula(n, 2 * n + 2),
+          hint: 'アルカンは飽和炭化水素。一般式 $\\mathrm{C}_n\\mathrm{H}_{2n+2}$。',
+        };
+      }
+
+      // アルケン / アルキン
+      const alkene = kind === 1;
+      const table = alkene ? ALKENE : ALKYNE;
+      const type = alkene ? 'アルケン' : 'アルキン';
+      const bond = alkene ? '二重結合' : '三重結合';
+      const n = randInt(rng, 2, 10);
+      const maxPos = Math.max(Math.floor(n / 2), 1); // 番号は小さい方から付けるのでこれ以上は不要
+      const pos = randInt(rng, 1, maxPos);
+      const stem = table[n - 2];
+      const locant = n <= 3 ? '' : `${pos}-`;
+      if (rng() < 0.6) {
+        return {
+          question: `炭素 ${n} 個の直鎖で、${bond}が ${pos} 番目の炭素間にある${type}の名称は?`,
+          answer: `${locant}${stem}`,
+          hint: `${bond}の位置をハイフンで名前の手前に付けます（炭素 2〜3 個では省略）。`,
+        };
+      }
+      return {
+        question: `${locant}${stem} の分子式を答えよ。`,
+        answer: formula(n, alkene ? 2 * n : 2 * n - 2),
+        hint: alkene ? '不飽結合 1 か所ぶん水素が少なく $\\mathrm{C}_n\\mathrm{H}_{2n}$。' : '$\\mathrm{C}_n\\mathrm{H}_{2n-2}$。',
+      };
+    },
+  },
   'sequence-terms': {
     label: '数列の一般項（高校）',
     generate: (rng) => {

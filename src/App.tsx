@@ -3,6 +3,7 @@ import { HomePage } from './pages/LessonPage';
 import { LessonPage } from './pages/LessonPage';
 import { SubjectPage } from './pages/SubjectPage';
 import { TocPage } from './pages/TocPage';
+import { DrillPage } from './pages/DrillPage';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Link to="/" className="site-title">📚 学習ノート</Link>
         <span className="site-tagline">中学・高校・大学 学習指導要領対応</span>
         <nav className="site-nav">
+          <Link to="/drills">⚡ 無限ドリル</Link>
           <Link to="/toc">🗂️ 目次</Link>
         </nav>
       </header>
@@ -35,6 +37,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/toc" element={<TocPage />} />
+        <Route path="/drills" element={<DrillPage />} />
         <Route path="/subject/:subjectId" element={<SubjectPage />} />
         <Route path="/subject/:subjectId/:lessonId" element={<LessonPage />} />
         <Route path="*" element={<NotFoundPage />} />

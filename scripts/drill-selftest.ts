@@ -23,7 +23,7 @@ for (const [key, t] of Object.entries(drillTopics)) {
   const questions = new Set<string>();
   for (let s = 0; s < 800; s++) {
     const p = t.generate(mulberry32(s));
-    if (!p.question.includes('$') || !p.answer.includes('$')) {
+    if (!p.question.trim() || !p.answer.trim()) {
       console.log(`FORMAT FAIL ${key}:`, p.question);
       fail++;
       break;

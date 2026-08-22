@@ -50,6 +50,23 @@ export const organicUnit: Unit = {
           variant: 'tip',
           content: '有機化学の問題は「官能基＝反応の場所」という視点で整理すると一気に楽になります。まず変換マップを暗記し、あとは出発物質と目的物質をつなぐ最短ルートを探しましょう。',
         },
+        { type: 'heading', level: 3, content: '小ネタ: 炭化水素の命名ドリル' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'math-drill',
+            caption: '無限ドリル: 直鎖アルカン・アルケン・アルキンの命名と分子式がランダムに出題されます',
+            props: { topic: 'hydrocarbon' },
+          },
+        },
+        { type: 'heading', level: 3, content: '小ネタ: 架空炭化水素シミュレーター' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'hydrocarbon-lab',
+            caption: '炭素数と結合を選ぶと構造式・分子式・名称を即時計算。ルールから外れると「架空」判定——炭素の4本手ルールを体感しよう',
+          },
+        },
       ],
     },
     {

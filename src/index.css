@@ -39,6 +39,17 @@ h3[id], h4[id] { scroll-margin-top: 16px; }
 
 /* サイト全体の目次ページ */
 .toc-page h2 { border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+
+/* 無限ドリルページ */
+.drill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; margin: 14px 0 24px; }
+.drill-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  background: #fff; border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 10px 12px; cursor: pointer; text-align: left; color: var(--fg); font-size: 0.9rem;
+}
+.drill-card:hover { border-color: var(--accent); }
+.drill-card.active { background: #eff6ff; border-color: var(--accent); }
+.drill-card span { color: var(--muted); font-size: 0.78rem; }
 .toc-subject h3 {
   border: none; background: #fff; border-left: 5px solid var(--accent);
   padding: 8px 12px; margin: 22px 0 10px; border-radius: 0 8px 8px 0;

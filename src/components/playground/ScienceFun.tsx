@@ -436,3 +436,149 @@ export function ElementQuiz({ initial }: { initial?: Record<string, unknown> }) 
     </div>
   );
 }
+
+// ---------- 架空炭化水素シミュレーター ----------
+const LAB_ALKANE = ['メタン', 'エタン', 'プロパン', 'ブタン', 'ペンタン', 'ヘキサン', 'ヘプタン', 'オクタン', 'ノナン', 'デカン'];
+const LAB_ALKENE = ['エテン', 'プロペン', 'ブテン', 'ペンテン', 'ヘキセン', 'ヘプテン', 'オクテン', 'ノネン', 'デセン'];
+const LAB_ALKYNE = ['エチン', 'プロピン', 'ブチン', 'ペンチン', 'ヘキシン', 'ヘプチン', 'オクチン', 'ノニン', 'デシン'];
+
+/**
+ * 炭化水素構築ラボ: 炭素数と結合を選ぶと構造式・分子式・名称を即時計算。
+ * 存在できない組合せ（C1なのに二重結合など）は「架空」と表示される。
+ */
+export function HydrocarbonLab() {
+  const [n, setN] = useState(3);
+  const [bond, setBond] = useState<'single' | 'double' | 'triple'>('single');
+  const [posRaw, setPosRaw] = useState(1);
+
+  const multi = bond !== 'single';
+  const maxPos = Math.max(Math.floor(n / 2), 1);
+  const pos = Math.min(posRaw, maxPos);
+  const invalid = multi && n < 2;
+
+  const hTotal = 2 * n + 2 - (bond === 'double' ? 2 : 0) - (bond === 'triple' ? 4 : 0);
+  const order = bond === 'double' ? 2 : bond === 'triple' ? 3 : 1;
+
+  let name = '';
+  let clsName = '';
+  if (invalid) {
+    clsName = '架空の分子（安定には存在できない）';
+  } else if (!multi) {
+    name = LAB_ALKANE[n - 1];
+    clsName = 'アルカン（飽和炭化水素）';
+  } else {
+    const table = bond === 'double' ? LAB_ALKENE : LAB_ALKYNE;
+    const locant = n <= 3 ? '' : `${pos}-`;
+    name = `${locant}${table[n - 2]}`;
+    clsName = bond === 'double' ? 'アルケン' : 'アルキン';
+  }
+
+  // 各炭素の水素の数 = 4 - (自分に接続する結合の次数の合計)
+  const orders: number[] = Array(Math.max(n - 1, 0)).fill(1);
+  if (multi && !invalid) orders[pos - 1] = order;
+  const hAt: number[] = [];
+  for (let i = 0; i < n; i++) {
+    let hh = 4;
+    if (i > 0) hh -= orders[i - 1];
+    if (i < n - 1) hh -= orders[i];
+    hAt.push(hh);
+  }
+
+  // 構造式の描画座標（ジグザグ）
+  const step = 64;
+  const W = Math.max(n * step + 60, 240);
+  const xs = Array.from({ length: n }, (_, i) => 44 + i * step);
+  const ys = xs.map((_, i) => (i % 2 === 0 ? 62 : 102));
+
+  return (
+    <div className="hclab">
+      <div className="widget-controls">
+        <label className="slider">
+          炭素の数 n = {n}
+          <input type="range" min={1} max={10} value={n} onChange={(e) => setN(Number(e.target.value))} />
+        </label>
+        <label className="slider">
+          C–C 間の結合
+          <select value={bond} onChange={(e) => setBond(e.target.value as typeof bond)}>
+            <option value="single">単結合（−）</option>
+            <option value="double">二重結合（＝）</option>
+            <option value="triple">三重結合（≡）</option>
+          </select>
+        </label>
+        {multi && n >= 2 && (
+          <label className="slider">
+            結合の位置 = {pos}
+            <input type="range" min={1} max={maxPos} value={pos} onChange={(e) => setPosRaw(Number(e.target.value))} />
+          </label>
+        )}
+      </div>
+
+      <svg viewBox={`0 0 ${W} 170`} style={{ maxWidth: '100%', background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8 }} width={W} height={170}>
+        {/* 結合線 */}
+        {xs.slice(0, -1).map((x, i) => {
+          const x1 = x + 15;
+          const y1 = ys[i];
+          const x2 = xs[i + 1] - 15;
+          const y2 = ys[i + 1];
+          const o = orders[i];
+          const mx = (x1 + x2) / 2;
+          const my = (y1 + y2) / 2;
+          // 垂直方向オフセットで多重結合を描く
+          const dx = x2 - x1;
+          const dy = y2 - y1;
+          const len = Math.hypot(dx, dy);
+          const ox = (-dy / len) * 3.2;
+          const oy = (dx / len) * 3.2;
+          const lines =
+            o === 1
+              ? [[x1, y1, x2, y2]]
+              : o === 2
+                ? [
+                    [x1 + ox, y1 + oy, x2 + ox, y2 + oy],
+                    [x1 - ox, y1 - oy, x2 - ox, y2 - oy],
+                  ]
+                : [
+                    [x1, y1, x2, y2],
+                    [x1 + ox * 1.6, y1 + oy * 1.6, x2 + ox * 1.6, y2 + oy * 1.6],
+                    [x1 - ox * 1.6, y1 - oy * 1.6, x2 - ox * 1.6, y2 - oy * 1.6],
+                  ];
+          return (
+            <g key={i} stroke="#334155" strokeWidth={2}>
+              {lines.map((l, j) => (
+                <line key={j} x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} />
+              ))}
+            </g>
+          );
+        })}
+        {/* 炭素と水素 */}
+        {xs.map((x, i) => (
+          <g key={i}>
+            <circle cx={x} cy={ys[i]} r={16} fill="#1e293b" />
+            <text x={x} y={ys[i] + 5} textAnchor="middle" fontSize={13} fontWeight="bold" fill="#fff">C</text>
+            <text x={x} y={ys[i] + (i % 2 === 0 ? -22 : 34)} textAnchor="middle" fontSize={12} fill="#b45309">
+              H<tspan fontSize={9} baselineShift="sub">{hAt[i]}</tspan>
+            </text>
+          </g>
+        ))}
+      </svg>
+
+      <div className={`quiz-feedback ${invalid ? 'ng' : 'ok'}`}>
+        {invalid ? (
+          <>⚠ 架空の炭化水素です。二重・三重結合をつくるには炭素が 2 個以上必要です（C どうしで結合を作れないため）。スライダーで n を増やしてみましょう。</>
+        ) : (
+          <>
+            ✅ 実在する分子: <strong>{name}</strong>（{clsName}）
+          </>
+        )}
+      </div>
+      <p className="mc-estimate">
+        分子式: <strong>{`C${n}H${hTotal}`}</strong>　一般式チェック:{' '}
+        {multi ? (bond === 'double' ? `CnH2n = C${n}H${2 * n}` : `CnH2n−2 = C${n}H${2 * n - 2}`) : `CnH2n+2 = C${n}H${2 * n + 2}`}
+        {invalid ? '（成立しないので一般式からも外れます）' : ''}
+      </p>
+      <p className="widget-note">
+        炭素は必ず 4 本の手（共有電子対）を持つのが決まり。結合の本数が増えるぶん、水素が減っていきます。ルールから外れると自動的に「架空」判定——逆に言えば、このルールを守る分子は全部実在します。
+      </p>
+    </div>
+  );
+}

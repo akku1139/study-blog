@@ -31,6 +31,12 @@ function pageMeta(route) {
       description: '全科目・全レッスンの索引。読みたい単元へ直接ジャンプできます。',
     };
   }
+  if (route === '/drills') {
+    return {
+      title: `無限ドリル | ${SITE_NAME}`,
+      description: '数学・情報I・化学の計算問題をランダム生成して無限に解けるトレーナー。14トピック収録。',
+    };
+  }
   if (route === null) {
     return {
       title: `ページが見つかりません | ${SITE_NAME}`,
@@ -65,7 +71,7 @@ async function writePage(file, html, meta) {
 
 /** 全ルート（トップ + 目次 + 科目一覧 + 各レッスン）を列挙 */
 function enumerateRoutes() {
-  const routes = ['/', '/toc'];
+  const routes = ['/', '/toc', '/drills'];
   for (const s of subjects) {
     routes.push(`/subject/${s.id}`);
     for (const u of s.units) {
