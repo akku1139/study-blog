@@ -112,6 +112,53 @@ export const seniorEnglish: Subject = {
             },
           ],
         },
+        {
+          id: 'academic-vocabulary',
+          title: '英単語・熟語ドリル',
+          summary: '入試頻出の単語・熟語を接頭辞パターンとあわせて暗記する。',
+          objectives: [
+            '大学入試頻出レベルの単語・熟語を両方向で使える',
+            '接頭辞・接尾辞から未知の単語の意味を推測できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '接頭辞で語彙を増やす' },
+            {
+              type: 'table',
+              headers: ['接頭辞', '意味', '例'],
+              rows: [
+                ['re-', '再び', 're + build → **rebuild** 再建する'],
+                ['dis-', '否定・反対', 'dis + agree → **disagree** 同意しない'],
+                ['un- / in-', '〜でない', '**unfair** 不公平な / **invisible** 見えない'],
+                ['pre-', '前もって', 'pre + dict → **predict** 予測する'],
+                ['sub-', '下に', 'sub + way → **subway** 地下鉄'],
+                ['im- / ex-', '中へ／外へ', '**import** 輸入 / **export** 輸出'],
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'tip',
+              content: '接尾辞も便利です。-tion（動作）→ education、-able（〜できる）→ readable、-ly（副詞化）→ quickly。知らない単語に出会っても「語根＋接辞」で意味を推測する癖をつけましょう。',
+            },
+            { type: 'heading', level: 3, content: 'フラッシュカード' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'vocab-flashcards',
+                caption: 'フラッシュカード: 頻出単語24語。熟語もカードになっています',
+                props: { deck: 'senior' },
+              },
+            },
+            { type: 'heading', level: 3, content: '4択クイズ' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'vocab-quiz',
+                caption: '4択クイズ: 英→日・日→英ランダム出題。例文つき',
+                props: { deck: 'senior', rounds: 10 },
+              },
+            },
+          ],
+        },
       ],
     },
     {

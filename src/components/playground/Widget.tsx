@@ -15,6 +15,7 @@ import { FlashAnzan, StroopTest } from './FlashAnzan';
 import { MonteCarloPi, ReactionTest } from './MiniGames';
 import { Collatz, CompoundE, GaltonBoard, GoldenSunflower } from './FunMath';
 import { Doppler, ElementQuiz, HalfLife, Pendulum, PhScale, TimeDilation } from './ScienceFun';
+import { VocabFlashcards, VocabQuiz } from './Vocab';
 
 const registry: Record<string, ComponentType<{ initial?: Record<string, unknown> }>> = {
   'function-grapher': FunctionGrapher,
@@ -42,6 +43,8 @@ const registry: Record<string, ComponentType<{ initial?: Record<string, unknown>
   'time-dilation': TimeDilation,
   'ph-scale': PhScale,
   'element-quiz': ElementQuiz,
+  'vocab-flashcards': VocabFlashcards,
+  'vocab-quiz': VocabQuiz,
 };
 
 export function Widget({ spec: w }: { spec: WidgetRef }) {

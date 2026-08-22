@@ -122,6 +122,44 @@ export const juniorEnglish: Subject = {
             },
           ],
         },
+        {
+          id: 'core-vocabulary',
+          title: '英単語コアドリル',
+          summary: '中学で覚えるべき頻出単語をフラッシュカードと4択クイズで暗記する。',
+          objectives: [
+            '中学校学習指導要領の語彙のうち頻出コア単語を英→日・日→英両方向で使える',
+            '例文の中で単語を記憶する習慣をつける',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '覚え方のコツ' },
+            {
+              type: 'list',
+              items: [
+                '**例文ごと覚える**: 単語だけより思い出しやすい（文脈がヒントになる）',
+                '**両方向で確認**: 英→日だけでなく日→英もできると書ける語彙になる',
+                '**できなかった分だけ繰り返す**: 全部一括より、間隔をあけてピンポイント復習が効率的',
+              ],
+            },
+            { type: 'heading', level: 3, content: 'フラッシュカード' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'vocab-flashcards',
+                caption: 'フラッシュカード: 意味を思い出してから答え合わせ。自分で採点して「できなかった分」を復習',
+                props: { deck: 'junior' },
+              },
+            },
+            { type: 'heading', level: 3, content: '4択クイズ' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'vocab-quiz',
+                caption: '4択クイズ: 英→日・日→英ランダム出題。例文つき',
+                props: { deck: 'junior', rounds: 10 },
+              },
+            },
+          ],
+        },
       ],
     },
   ],

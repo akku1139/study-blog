@@ -227,3 +227,14 @@ th { background: #f1f5f9; }
 .stroop-chip:hover { transform: scale(1.06); }
 
 .mc-estimate { font-size: 0.95rem; margin-top: 8px; }
+
+/* ---------- 英単語カード ---------- */
+.vocab-card {
+  background: #f8fafc; border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; margin: 8px 0; text-align: center;
+}
+.vocab-word { font-size: 1.7rem; font-weight: 700; display: block; }
+.vocab-pos { color: var(--muted); font-size: 0.85rem; display: block; margin: 4px 0 10px; }
+.vocab-mean strong { font-size: 1.15rem; }
+.vocab-ex { color: #334155; font-style: italic; font-size: 0.95rem; margin: 6px 0 0; }
+.btn-warn { background: #d97706 !important; }

@@ -110,4 +110,6 @@ export type WidgetId =
   | 'half-life'             // 半減期シミュレータ
   | 'time-dilation'         // 特殊相対論の時間の遅れ
   | 'ph-scale'              // pH スケール体感
-  | 'element-quiz';         // 元素記号クイズ
+  | 'element-quiz'          // 元素記号クイズ
+  | 'vocab-flashcards'      // 英単語フラッシュカード
+  | 'vocab-quiz';           // 英単語4択クイズ
