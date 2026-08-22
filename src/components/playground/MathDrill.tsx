@@ -181,6 +181,25 @@ export const drillTopics: Record<string, { label: string; generate: TopicGenerat
       };
     },
   },
+  'binary-convert': {
+    label: '2進数⇔10進数（情報I）',
+    generate: (rng) => {
+      const n = randInt(rng, 5, 255);
+      const bin = n.toString(2);
+      if (rng() < 0.5) {
+        return {
+          question: `次の10進数を2進数に変換せよ。\n$$(${n})_{10}$$`,
+          answer: `$(${bin})_{2}$`,
+          hint: '2で割り続けて余りを下から読む。または 128, 64, 32, … の重みで考える。',
+        };
+      }
+      return {
+        question: `次の2進数を10進数に変換せよ。\n$$(${bin})_{2}$$`,
+        answer: `$(${n})_{10}$`,
+        hint: '各桁に $2^0, 2^1, 2^2, \\ldots$ の重みを掛けてたし合わせる。',
+      };
+    },
+  },
   'sequence-terms': {
     label: '数列の一般項（高校）',
     generate: (rng) => {

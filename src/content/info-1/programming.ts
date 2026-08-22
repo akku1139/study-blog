@@ -81,6 +81,15 @@ export const programmingUnit: Unit = {
             caption: 'あなたの反応時間は何ミリ秒? CPU の1クロック（ナノ秒オーダー）との差を実感してみよう',
           },
         },
+        { type: 'heading', level: 3, content: '練習（基数変換ドリル）' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'math-drill',
+            caption: '無限ドリル: 2進数⇔10進数の変換がランダムに出題されます。情報Iの計算問題の定番',
+            props: { topic: 'binary-convert' },
+          },
+        },
       ],
     },
     {

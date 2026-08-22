@@ -171,6 +171,14 @@ export const juniorJapanese: Subject = {
               body: '「先生がおっしゃった」の「おっしゃった」はどの敬語ですか。',
               answer: '先生（上位の人）の動作を高めているので**尊敬語**。「言う」の尊敬語。',
             },
+            { type: 'heading', level: 3, content: '小ネタ: 漢字の読み方クイズ' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'kanji-quiz',
+                caption: '頻出漢字28語の読み方テスト。新聞や教科書で本当によく出る語を集めました',
+              },
+            },
           ],
         },
       ],

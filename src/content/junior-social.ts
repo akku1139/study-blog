@@ -50,6 +50,14 @@ export const juniorSocial: Subject = {
               variant: 'tip',
               content: '気候グラフ（雨温グラフ）の読み方：**縦軸で気温 18℃** を見て熱帯かどうか、**降水パターンの峰**が夏か冬かで半球や気候型を判断します。',
             },
+            { type: 'heading', level: 3, content: '小ネタ: 国旗クイズ' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'flag-quiz',
+                caption: '世界30カ国の国旗クイズ。国旗には気候・歴史・宗教の背景が色として織り込まれています',
+              },
+            },
           ],
         },
       ],

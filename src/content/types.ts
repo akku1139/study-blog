@@ -112,4 +112,6 @@ export type WidgetId =
   | 'ph-scale'              // pH スケール体感
   | 'element-quiz'          // 元素記号クイズ
   | 'vocab-flashcards'      // 英単語フラッシュカード
-  | 'vocab-quiz';           // 英単語4択クイズ
+  | 'vocab-quiz'            // 英単語4択クイズ
+  | 'kanji-quiz'            // 漢字の読み方クイズ
+  | 'flag-quiz';            // 国旗クイズ
