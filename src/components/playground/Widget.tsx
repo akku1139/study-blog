@@ -11,6 +11,8 @@ import { PhysicsProjectile } from './PhysicsProjectile';
 import { VectorExplorer } from './VectorExplorer';
 import { WaveSimulator } from './WaveSimulator';
 import { MathDrill } from './MathDrill';
+import { FlashAnzan, StroopTest } from './FlashAnzan';
+import { MonteCarloPi, ReactionTest } from './MiniGames';
 
 const registry: Record<string, ComponentType<{ initial?: Record<string, unknown> }>> = {
   'function-grapher': FunctionGrapher,
@@ -24,6 +26,10 @@ const registry: Record<string, ComponentType<{ initial?: Record<string, unknown>
   'vector-explorer': VectorExplorer,
   'wave-simulator': WaveSimulator,
   'math-drill': MathDrill,
+  'flash-anzan': FlashAnzan,
+  'stroop-test': StroopTest,
+  'reaction-test': ReactionTest,
+  'monte-carlo-pi': MonteCarloPi,
 };
 
 export function Widget({ spec: w }: { spec: WidgetRef }) {

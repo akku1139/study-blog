@@ -88,6 +88,14 @@ export const countingUnit: Unit = {
             },
           ],
         },
+        { type: 'heading', level: 3, content: '小ネタ: モンテカルロ法で円周率を推定' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'monte-carlo-pi',
+            caption: 'ランダムな点の「入り方の割合」から π を推定——確率が数値計算の道具になる例',
+          },
+        },
       ],
     },
   ],

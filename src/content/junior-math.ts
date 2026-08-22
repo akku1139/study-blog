@@ -95,6 +95,15 @@ export const juniorMath: Subject = {
               content: '計算の順序は小学校と同じで、①かっこ内 → ②累乗 → ③乗除 → ④加除 の順です。分配法則 $a(b+c) = ab + ac$ も使えます。',
             },
             { type: 'formula', tex: '-2 \\times (5 - 8)^2 = -2 \\times (-3)^2 = -2 \\times 9 = -18', display: true },
+            { type: 'heading', level: 3, content: '小ネタ: フラッシュ暗算' },
+            {
+              type: 'widget',
+              widget: {
+                id: 'flash-anzan',
+                caption: 'フラッシュ暗算: 数字を一瞬ずつ見て合計を答える。マイナスまぜモードで正負の数の練習にも',
+                props: { negatives: true },
+              },
+            },
           ],
         },
         {

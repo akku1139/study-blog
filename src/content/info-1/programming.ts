@@ -73,6 +73,14 @@ export const programmingUnit: Unit = {
             },
           ],
         },
+        { type: 'heading', level: 3, content: '小ネタ: 人間の反応速度を測ってみる' },
+        {
+          type: 'widget',
+          widget: {
+            id: 'reaction-test',
+            caption: 'あなたの反応時間は何ミリ秒? CPU の1クロック（ナノ秒オーダー）との差を実感してみよう',
+          },
+        },
       ],
     },
     {

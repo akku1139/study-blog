@@ -192,3 +192,38 @@ th { background: #f1f5f9; }
 }
 .memo-box textarea:focus { outline: 2px solid #bfdbfe; }
 .memo-placeholder { color: var(--muted); font-size: 0.88rem; background: #fafafa; border: 1px dashed var(--border); border-radius: 8px; padding: 12px 14px; }
+
+/* ---------- フラッシュ暗算・小ネタウィジェット ---------- */
+.check-label { display: inline-flex; align-items: center; gap: 6px; font-size: 0.88rem; }
+.flash-stage {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  background: #0f172a; border-radius: 10px; height: 130px; margin-bottom: 10px;
+}
+.flash-num { color: #fff; font-size: 4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.flash-progress { color: #64748b; font-size: 0.9rem; }
+.anzan-input {
+  font-size: 1.3rem; padding: 8px 12px; width: 160px;
+  border: 2px solid var(--border); border-radius: 8px; text-align: right;
+}
+.anzan-streak { font-size: 0.95rem; color: #d97706; font-weight: 700; }
+
+.reaction-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; min-height: 150px; cursor: pointer;
+  background: #fee2e2; border: 2px solid #fca5a5; border-radius: 12px;
+}
+.reaction-btn.ready { background: #fee2e2; }
+.reaction-btn.go { background: #dcfce7; border-color: #22c55e; }
+.reaction-btn.flying { background: #fef3c7; border-color: #f59e0b; }
+.reaction-ms { font-size: 2.2rem; font-weight: 700; color: var(--fg); }
+.reaction-best { font-size: 0.85rem; color: var(--muted); }
+
+.stroop-word { text-align: center; font-size: 4rem; font-weight: 700; margin: 8px 0; }
+.stroop-chips { display: flex; justify-content: center; gap: 14px; margin-bottom: 10px; }
+.stroop-chip {
+  width: 64px; height: 44px; border-radius: 10px; cursor: pointer;
+  border: 2px solid rgba(15, 23, 42, .15);
+}
+.stroop-chip:hover { transform: scale(1.06); }
+
+.mc-estimate { font-size: 0.95rem; margin-top: 8px; }

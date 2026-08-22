@@ -96,4 +96,8 @@ export type WidgetId =
   | 'physics-projectile'    // 物体の放物運動
   | 'vector-explorer'       // ベクトルの和と内積
   | 'wave-simulator'        // 波の重ね合わせ
-  | 'math-drill';           // 無限ドリル（ランダム問題生成）
+  | 'math-drill'            // 無限ドリル（ランダム問題生成）
+  | 'flash-anzan'           // フラッシュ暗算
+  | 'reaction-test'         // 反応速度テスト
+  | 'stroop-test'           // ストループ課題（色言葉テスト）
+  | 'monte-carlo-pi';       // モンテカルロ法で円周率を推定
