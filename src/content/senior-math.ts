@@ -196,6 +196,349 @@ export const seniorMath: Subject = {
         },
       ],
     },
+    // ---------- 数学I: 数と式 ----------
+    {
+      id: 's1-numbers',
+      name: '数学I：数と式',
+      gakushuShidoYoryo: '内容「数と式」: 実数、絶対値、複素数の基礎、多項式の展開と因数分解',
+      lessons: [
+        {
+          id: 'numbers-expressions',
+          title: '実数・絶対値と式の変形',
+          summary: '実数の分類、絶対値を含む式、有理化、二重根号の処理。',
+          objectives: [
+            '実数の分類（有理数・無理数）を説明できる',
+            '絶対値を含む式を場合分けで処理できる',
+            '分母の有理化や二重根号を計算できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '実数の世界' },
+            {
+              type: 'table',
+              headers: ['分類', '定義', '例'],
+              rows: [
+                ['有理数', '分数 a/b（b≠0）で書ける', '整数、0.5、1/3、0.333…'],
+                ['無理数', '分数で書けない実数', '$\\sqrt{2}$, $\\pi$'],
+                ['実数', '有理数＋無理数', '数直線上のすべての点'],
+              ],
+            },
+            { type: 'heading', level: 3, content: '絶対値' },
+            { type: 'formula', tex: '|a| = \\begin{cases} a & (a \\ge 0) \\\\ -a & (a < 0) \\end{cases}', display: true },
+            {
+              type: 'text',
+              content: '絶対値は「**数直線上での原点からの距離**」なので必ず 0 以上。式では**中身の符号で場合分け**します。$|a - 2|$ は「a と 2 の距離」とも読めます。',
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: '$a = -3$ のとき $|a - 1|$ を求めよ。',
+              answer: '$a - 1 = -4 < 0$ なので $|a-1| = -(a-1) = $ **4**',
+            },
+            { type: 'heading', level: 3, content: '根号の処理' },
+            {
+              type: 'list',
+              items: [
+                '**有理化**: $\\dfrac{1}{\\sqrt{2}} = \\dfrac{\\sqrt{2}}{2}$（分母の根号を外す）',
+                '**二重根号**: $\\sqrt{4 + 2\\sqrt{3}} = \\sqrt{(\\sqrt{3}+1)^2} = \\sqrt{3}+1$（$x+y$ と $xy$ を見つける）',
+                '**同類項の根号**はたし算できる: $\\sqrt{12} - \\sqrt{3} = 2\\sqrt{3} - \\sqrt{3} = \\sqrt{3}$',
+              ],
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: '$\\sqrt{50} + \\sqrt{8} - \\sqrt{18}$ を簡単にせよ。',
+                  answer: '$5\\sqrt{2} + 2\\sqrt{2} - 3\\sqrt{2} = $ **$2\\sqrt{2}$**',
+                },
+                {
+                  body: '$\\dfrac{3}{\\sqrt{5}}$ を分母に根号を含まない形にせよ。',
+                  hint: '分子分母に $\\sqrt{5}$ を掛ける。',
+                  answer: '$\\dfrac{3\\sqrt{5}}{5}$',
+                },
+                {
+                  body: '$\\sqrt{7 - 4\\sqrt{3}}$ を簡単にせよ。',
+                  hint: '$7 - 4\\sqrt{3} = 4 - 4\\sqrt{3} + 3 = (2 - \\sqrt{3})^2$',
+                  answer: '$\\sqrt{(2-\\sqrt{3})^2} = $ **$2 - \\sqrt{3}$**（$2 > \\sqrt{3}$ に注意）',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（数と式）',
+              questions: [
+                {
+                  question: '次のうち無理数はどれか。',
+                  choices: ['$\\sqrt{9}$', '$0.121212…$', '$\\sqrt{10}$'],
+                  answerIndex: 2,
+                  explanation: '$\\sqrt{9} = 3$ は整数、0.121212… は循環小数なので有理数。$\\sqrt{10}$ は整数の平方にならない無理数です。',
+                },
+                {
+                  question: '$|x - 3| = 2$ を解くと？',
+                  choices: ['$x = 5, 1$', '$x = 5$', '$x = -5, -1$'],
+                  answerIndex: 0,
+                  explanation: '「3 からの距離が 2」なので $x = 5$ または $x = 1$。',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    // ---------- 数学I: データの分析 ----------
+    {
+      id: 's1-data',
+      name: '数学I：データの分析',
+      gakushuShidoYoryo: '内容「データの分析」: 平均値・中央値・分散・標準偏差、四分位範囲、相関',
+      lessons: [
+        {
+          id: 'data-analysis',
+          title: '分散・標準偏差と相関',
+          summary: 'データのばらつきを数値化し、2つのデータの関係を読む。',
+          objectives: [
+            '分散・標準偏差を計算し、ばらつきを比較できる',
+            '散布図と相関係数から関係の強さを読み取れる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: 'ばらつきの指標' },
+            { type: 'formula', tex: '\\text{分散 } s^2 = \\frac{1}{n}\\sum_{i=1}^{n} (x_i - \\bar{x})^2, \\qquad \\text{標準偏差 } s = \\sqrt{s^2}', display: true },
+            {
+              type: 'list',
+              items: [
+                '**範囲**: 最大値 − 最小値（粗い指標）',
+                '**四分位範囲**: 上位25%と下位25%を除いた中央50%の幅（外れ値に強い）',
+                '**分散**: 偏差の2乗の平均。**標準偏差**はその平方根（データと同じ単位になる）',
+                '分散・標準偏差が小さいほどデータは平均の近くに集まっている',
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: 'データ 1, 3, 5 の平均と分散を求めよ。',
+              answer: '平均 $\\bar{x} = 3$。偏差は $-2, 0, 2$ なので分散 $= \\frac{4+0+4}{3} = \\frac{8}{3}$',
+            },
+            { type: 'heading', level: 3, content: '相関' },
+            {
+              type: 'text',
+              content: '2 つの量の関係を散布図で見るとき、点が右上がりに並べば**正の相関**、右下がりなら**負の相関**。相関係数 $r$（$-1 \\le r \\le 1$）はその強さを数値化します。',
+            },
+            {
+              type: 'list',
+              items: [
+                '$|r|$ が 1 に近いほど強い直線的関係',
+                '**相関 ≠ 因果**: 第3の変数（交絡因子）が隠れていることがある',
+                '外れ値が相関係数を大きく動かすことがある（データの吟味が重要）',
+              ],
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: 'データ 2, 4, 6, 8 の平均と分散を求めよ。',
+                  answer: '平均 5。偏差 $-3, -1, 1, 3$ → 分散 $\\frac{9+1+1+9}{4} = $ **5**',
+                },
+                {
+                  body: '「アイスの売上と水難事故の件数に正の相関がある」ことの正しい解釈は？',
+                  answer: '気温という**交絡因子**が両方を増やしている可能性が高い。因果関係とは言えない。',
+                },
+                {
+                  body: '各データに 3 を足すと、平均と標準偏差はどう変わるか。',
+                  hint: '足し算はばらつきを変えない。',
+                  answer: '平均は **3 増える**が、標準偏差は**不変**（ばらつきは平行移動で変わらない）。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（データ分析）',
+              questions: [
+                {
+                  question: '標準偏差の単位は何か。',
+                  choices: ['データと同じ単位', 'データの単位の2乗', '単位をもたない'],
+                  answerIndex: 0,
+                  explanation: '分散は2乗の単位になるため、平方根をとった標準偏差を使うと元データと同じ単位で比較できます。',
+                },
+                {
+                  question: '外れ値の影響を受けにくい指標はどれか。',
+                  choices: ['中央値', '平均値', '分散'],
+                  answerIndex: 0,
+                  explanation: '中央値は並び順の真ん中なので、極端な値が1つあってもほとんど動きません。',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    // ---------- 数学II: 三角関数・指数対数 ----------
+    {
+      id: 's2-functions',
+      name: '数学II：三角関数・指数関数・対数関数',
+      gakushuShidoYoryo: '内容「三角関数」「指数関数・対数関数」: 弧度法、加法定理、指数・対数の計算とグラフ',
+      lessons: [
+        {
+          id: 'trig-functions',
+          title: '弧度法と三角関数',
+          summary: 'ラジアン、一般角、三角関数のグラフと加法定理。',
+          objectives: [
+            '弧度法と度数法を相互に換算できる',
+            'sin・cos のグラフの性質（周期・最大最小）を説明できる',
+            '加法定理を使って計算できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '弧度法' },
+            { type: 'formula', tex: '\\theta [\\text{rad}] = \\frac{\\text{弧の長さ}}{\\text{半径}}, \\qquad 180^\\circ = \\pi \\text{ rad}', display: true },
+            {
+              type: 'list',
+              items: [
+                '$90^\\circ = \\dfrac{\\pi}{2}$、$60^\\circ = \\dfrac{\\pi}{3}$、$45^\\circ = \\dfrac{\\pi}{4}$、$30^\\circ = \\dfrac{\\pi}{6}$',
+                '弧度法なら微積分の公式がきれいになる（数学III で本格使用）',
+              ],
+            },
+            { type: 'heading', level: 3, content: 'グラフの性質' },
+            {
+              type: 'table',
+              headers: ['関数', '周期', '最大・最小', '奇偶'],
+              rows: [
+                ['$y = \\sin x$', '$2\\pi$', '$1 / -1$', '奇関数（原点対称）'],
+                ['$y = \\cos x$', '$2\\pi$', '$1 / -1$', '偶関数（y軸対称）'],
+                ['$y = \\tan x$', '$\\pi$', 'なし（漸近線）', '奇関数'],
+              ],
+            },
+            { type: 'heading', level: 3, content: '加法定理' },
+            { type: 'formula', tex: '\\sin(\\alpha \\pm \\beta) = \\sin\\alpha\\cos\\beta \\pm \\cos\\alpha\\sin\\beta', display: true },
+            { type: 'formula', tex: '\\cos(\\alpha \\pm \\beta) = \\cos\\alpha\\cos\\beta \\mp \\sin\\alpha\\sin\\beta', display: true },
+            {
+              type: 'example',
+              title: '例題',
+              body: '$\\sin 75^\\circ$ を求めよ。',
+              answer: '$75 = 45 + 30$ なので加法定理より $\\sin 45\\cos 30 + \\cos 45 \\sin 30 = \\frac{1}{\\sqrt{2}} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{1}{\\sqrt{2}} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: '$\\dfrac{2\\pi}{3}$ rad を度数法で表せ。',
+                  answer: '$\\dfrac{2\\pi}{3} \\times \\dfrac{180}{\\pi} = $ **120°**',
+                },
+                {
+                  body: '$y = 2\\sin x + 1$ の最大値と最小値を求めよ。',
+                  hint: '$\\sin x$ の範囲は $-1 \\le \\sin x \\le 1$',
+                  answer: '最大 **3**（$\\sin x = 1$）、最小 **$-1$**（$\\sin x = -1$）',
+                },
+                {
+                  body: '$\\cos 15^\\circ$ を求めよ。',
+                  hint: '$15 = 45 - 30$',
+                  answer: '$\\cos 45\\cos 30 + \\sin 45 \\sin 30 = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（三角関数）',
+              questions: [
+                {
+                  question: '$\\pi$ rad は何度か。',
+                  choices: ['180°', '360°', '90°'],
+                  answerIndex: 0,
+                  explanation: '半回転（180°）が π ラジアン。弧度法は半径と同じ長さの弧に対する中心角を 1 rad とします。',
+                },
+                {
+                  question: '$y = \\cos x$ はどの対称性をもつか。',
+                  choices: ['y 軸について対称（偶関数）', '原点について対称（奇関数）', 'どちらでもない'],
+                  answerIndex: 0,
+                  explanation: '$\\cos(-x) = \\cos x$ なので偶関数です。$\\sin(-x) = -\\sin x$ の sin は奇関数。',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: 'exp-log-functions',
+          title: '指数関数と対数関数',
+          summary: '指数法則の拡張、対数の性質、2つの関数のグラフと関係。',
+          objectives: [
+            '実数の指数計算と対数計算ができる',
+            '指数関数・対数関数が互いに逆関数であることを説明できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '指数の拡張' },
+            {
+              type: 'list',
+              items: [
+                '$a^0 = 1$、$a^{-n} = \\dfrac{1}{a^n}$（負の指数）',
+                '$a^{1/2} = \\sqrt{a}$（分数の指数は根号）',
+                '$a^x a^y = a^{x+y}$、$(a^x)^y = a^{xy}$ は実数の指数でも成り立つ',
+              ],
+            },
+            { type: 'heading', level: 3, content: '対数' },
+            { type: 'formula', tex: 'a^x = N \\iff x = \\log_a N \\quad (a > 0, a \\ne 1, N > 0)', display: true },
+            {
+              type: 'list',
+              items: [
+                '$\\log_a xy = \\log_a x + \\log_a y$（積→和）',
+                '$\\log_a \\dfrac{x}{y} = \\log_a x - \\log_a y$（商→差）',
+                '$\\log_a x^n = n \\log_a x$（累乗→係数）',
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: '$\\log_2 8 + \\log_2 4$ を求めよ。',
+              answer: '$3 + 2 = $ **5**（$\\log_2 32 = 5$ とも言える）',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: '$\\log_3 81$ を求めよ。',
+                  hint: '$81 = 3^4$',
+                  answer: '**4**',
+                },
+                {
+                  body: '$\\log_2 3 = a$ のとき $\\log_2 12$ を $a$ で表せ。',
+                  hint: '$12 = 4 \\times 3$',
+                  answer: '$\\log_2 4 + \\log_2 3 = 2 + a$',
+                },
+                {
+                  body: '$2^x = 10$ を解くとき、$x$ を対数で表せ。',
+                  answer: '$x = \\log_2 10 = \\dfrac{\\log 10}{\\log 2} \\approx 3.32$（底の変換公式）',
+                },
+              ],
+            },
+            {
+              type: 'widget',
+              widget: {
+                id: 'math-drill',
+                caption: '無限ドリル: 対数の計算が出題されます',
+                props: { topic: 'log-evaluate' },
+              },
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（指数・対数）',
+              questions: [
+                {
+                  question: '$\\log_a 1$ の値は？（$a>0, a\\neq1$）',
+                  choices: ['0', '1', '$a$'],
+                  answerIndex: 0,
+                  explanation: '$a^0 = 1$ なので答えは 0。「1 の対数は常に 0」。',
+                },
+                {
+                  question: '$y = 2^x$ と $y = \\log_2 x$ のグラフの関係は？',
+                  choices: ['y = x について対称（逆関数）', 'x 軸について対称', '一致する'],
+                  answerIndex: 0,
+                  explanation: '指数関数と対数関数は互いに逆関数なので、直線 y = x について線対称になります。',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
     // ---------- 数学II: 微分 ----------
     {
       id: 's2-calculus',
