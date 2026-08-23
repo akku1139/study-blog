@@ -595,3 +595,168 @@ export const differentialEquationsUnit: Unit = {
     },
   ],
 };
+
+/** 大学数学：複素関数とベクトル解析 */
+export const complexVectorUnit: Unit = {
+  id: 'uni-complex-vector',
+  name: '複素関数とベクトル解析',
+  gakushuShidoYoryo: '複素数の極形式、正則関数、勾配・発散・回転、ガウスの発散定理',
+  lessons: [
+    {
+      id: 'complex-functions',
+      title: '複素関数——正則性とコーシー＝リーマン',
+      summary: '複素変数の微分可能性が強力な構造をもつことを学ぶ。',
+      objectives: [
+        '極形式で複素数を扱える',
+        'コーシー＝リーマンの関係式を確認できる',
+        '正則関数が無限回微分可能であることを説明できる',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: '複素数の極形式' },
+        { type: 'formula', tex: 'z = x + iy = r(\\cos\\theta + i\\sin\\theta) = re^{i\\theta}', display: true },
+        {
+          type: 'list',
+          items: [
+            '**掛け算**＝絶対値の積・偏角の和（$z_1 z_2 = r_1 r_2 e^{i(\\theta_1+\\theta_2)}$）',
+            '**ド・モアブル**: $(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i \\sin n\\theta$',
+            '$e^{i\\theta}$ の幾何：単位円上の点。オイラーの公式 $e^{i\\pi} + 1 = 0$',
+          ],
+        },
+        { type: 'heading', level: 3, content: '正則性' },
+        {
+          type: 'text',
+          content:
+            '複素関数 $f(z)$ の導関数は「どの方向からでも同じ極限」を要求します。これは実2変数関数よりずっと厳しい条件で、**コーシー＝リーマン方程式** $u_x = v_y, \\; u_y = -v_x$ と同値です。',
+        },
+        {
+          type: 'example',
+          title: '例題',
+          body: '$f(z) = z^2 = (x^2-y^2) + 2xyi$ が正則であることを確かめよ。',
+          answer: '$u = x^2-y^2$, $v = 2xy$。$u_x = 2x = v_y$、$u_y = -2y = -v_x$ ——CR 方程式を満たすので全域で正則。',
+        },
+        { type: 'heading', level: 3, content: 'なぜ強力か' },
+        {
+          type: 'list',
+          items: [
+            '**一度微分可能なら無限回微分可能**（実関数では成り立たない奇跡的な構造）',
+            '**コーシーの積分定理**: 閉曲線に沿った積分が内部の特異点だけで決まる → 留数計算',
+            '実積分や級数和（$\\int e^{-x^2}\\cos ax\\, dx$ 型）が複素平面上で一瞬で計算できることがある',
+          ],
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '$1+i$ を極形式で表せ。',
+              answer: '$r = \\sqrt{2}$、$\\theta = \\pi/4$ より **$\\sqrt{2}\\,e^{i\\pi/4}$**。',
+            },
+            {
+              body: '$f(z) = \\bar{z} = x - iy$ が正則でない理由を CR 方程式で示せ。',
+              answer: '$u=x$, $v=-y$。$u_x=1 \\neq v_y=-1$ ——CR を満たさないため正則でない。',
+            },
+            {
+              body: '$(1+i)^8$ を計算せよ。',
+              hint: '極形式とド・モアブル。',
+              answer: '$(\\sqrt{2})^8 e^{i 8\\pi/4} = 16e^{i2\\pi} = $ **16**',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（複素関数）',
+          questions: [
+            {
+              question: 'オイラーの公式 $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$ の θ=π での帰結は？',
+              choices: ['$e^{i\\pi} + 1 = 0$', '$e^{i\\pi} = 0$', '$e^{i\\pi} = i$'],
+              answerIndex: 0,
+              explanation: 'cos π = −1, sin π = 0 なので e^{iπ} = −1。数学で最も有名な等式の一つです。',
+            },
+            {
+              question: '正則関数の特徴はどれか。',
+              choices: ['一度微分可能なら無限回微分可能', '必ずいたるところ発散する', '実部だけでは決まらない'],
+              answerIndex: 0,
+              explanation: '複素微分可能性（正則性）は極めて強い条件で、滑らかさを自動的に無限階まで保証します。',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'vector-calculus',
+      title: 'ベクトル解析——流れを読む演算子',
+      summary: 'grad・div・rot で場の空間構造を捉え、積分定理で体積計算を面積計算へ落とす。',
+      objectives: [
+        '勾配・発散・回転の物理的意味を説明できる',
+        'ガウスの発散定理を使って体積積分を面積分に変換できる',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: '3つの演算子' },
+        {
+          type: 'table',
+          headers: ['演算子', '定義', '意味'],
+          rows: [
+            ['勾配 grad f', '$\\nabla f = (f_x, f_y, f_z)$', '最も急な増加方向のベクトル'],
+            ['発散 div F', '$\\nabla \\cdot \\vec{F} = \\partial_x F_x + \\partial_y F_y + \\partial_z F_z$', '湧き出しの強さ（源か吸込みか）'],
+            ['回転 rot F', '$\\nabla \\times \\vec{F}$', '渦の強さ（回転成分）'],
+          ],
+        },
+        {
+          type: 'text',
+          content:
+            'マクスウェル方程式や流体力学はすべてこの言語で書かれます。たとえば「電荷がない場所では $\\nabla \\cdot \\vec E = 0$」＝電場の湧き出しがない、という文です。',
+        },
+        { type: 'heading', level: 3, content: '積分定理' },
+        { type: 'formula', tex: '\\iiint_V (\\nabla \\cdot \\vec{F})\\,dV = \\oint_{\\partial V} \\vec{F} \\cdot d\\vec{S} \\quad (\\text{ガウスの発散定理})', display: true },
+        {
+          type: 'text',
+          content:
+            '「内部の湧き出しの総量＝境界から出ていく流量」。3次元の体積計算を表面の計算に置き換えられます。ストークスの定理はその回転版です。',
+        },
+        {
+          type: 'example',
+          title: '例題',
+          body: '$\\vec{F} = (x, y, z)$ に対し $\\nabla \\cdot \\vec{F}$ を求めよ。',
+          answer: '$1 + 1 + 1 = $ **3**。原点から放射状に広がる場で、どこでも一定の湧き出しがある。',
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '$f(x,y,z) = x^2 y$ の勾配を求めよ。',
+              answer: '$\\nabla f = (2xy, x^2, 0)$',
+            },
+            {
+              body: '任意のスカラー場について $\\nabla \\times (\\nabla f) = \\vec{0}$ を示せ。',
+              hint: '偏微分の順序交換（混合二次微分は等しい）。',
+              answer: '各成分が $\\partial_y \\partial_z f - \\partial_z \\partial_y f = 0$ などとなりゼロ。**渦なし場はポテンシャルの勾配**で書ける根拠。',
+            },
+            {
+              body: '$\\vec{F} = (-y, x, 0)$ の rot を求めよ。',
+              answer: '$(0, 0, \\partial_x x - \\partial_y(-y)) = (0,0,2)$ ——原点周りの剛体回転に対応。',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（ベクトル解析）',
+          questions: [
+            {
+              question: 'div F > 0 となる点には何があるか。',
+              choices: ['湧き出し（源）', '吸い込み', '渦'],
+              answerIndex: 0,
+              explanation: '発散が正＝そこから流れが生まれている。負なら吸い込みです。',
+            },
+            {
+              question: 'ガウスの発散定理の利点は？',
+              choices: ['体積積分を面積分に変換できる', '任意の関数を級数展開できる', '微分方程式を解ける'],
+              answerIndex: 0,
+              explanation: '内部の総湧き出し（体積積分）を境界での流出入（面積分）に写し替えます。',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
