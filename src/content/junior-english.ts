@@ -162,5 +162,152 @@ export const juniorEnglish: Subject = {
         },
       ],
     },
+    // ---------- 中学3年: 関係代名詞と完了形 ----------
+    {
+      id: 'je-grammar3',
+      name: '関係代名詞・現在完了の詳細',
+      gakushuShidoYoryo: '主な言語材料: 関係代名詞（who, which, that）、現在完了（経験・継続・完了・結果）',
+      lessons: [
+        {
+          id: 'relative-pronoun',
+          title: '関係代名詞 who / which / that',
+          summary: '2つの文を1つにつなぎ、名詞に情報を付け加える。',
+          objectives: [
+            '2つの文を関係代名詞でつなげられる',
+            '関係代名詞の後ろの動詞の形（単数扱いかどうか）を決められる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '関係代名詞の基本' },
+            {
+              type: 'text',
+              content: '**I have a friend. + He lives in London.** → **I have a friend who lives in London.**（ロンドンに住んでいる友達がいる）。関係代名詞は「接続詞＋代名詞」の働きを一度にします。',
+            },
+            {
+              type: 'table',
+              headers: ['関係代名詞', '先行詞', '例'],
+              rows: [
+                ['who', '人', 'a boy **who** plays tennis'],
+                ['which', '物・動物', 'a book **which** is interesting'],
+                ['that', '人・物どちらも', 'the best movie **that** I have ever seen'],
+              ],
+            },
+            { type: 'heading', level: 3, content: '目的格' },
+            {
+              type: 'text',
+              content: '**the book (which) I bought yesterday** のように、目的格は省略できます。省略されていても、後ろに「主語＋動詞」が続いたら関係代名詞の省略と考えます。',
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: 'Look at the mountain. + Its top is covered with snow. を1文にせよ。',
+              answer: '**Look at the mountain whose top is covered with snow.**（頂が雪でおおわれた山）所有格 whose の使用。中学では that/which で書き換える別解もあります。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: 'This is the photo. + I took it last summer. を1文に。',
+                  answer: '**This is the photo (which/that) I took last summer.** 目的格なので省略可。',
+                },
+                {
+                  body: 'She has two sons who live in Kyoto. を日本語に。',
+                  answer: '**彼女には京都に住んでいる2人の息子がいます。**（who 以降が sons を修飾）',
+                },
+                {
+                  body: 'I know a girl ___ can speak five languages. 空欄に入る語は？',
+                  answer: '**who**（主格。girl を修飾する節の中の主語として働く）',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（関係代名詞）',
+              questions: [
+                {
+                  question: '「私が昨日会った人は先生です」の英文で適切なのは？',
+                  choices: ['The man who I met yesterday is a teacher.', 'The man which I met yesterday is a teacher.', 'The man what I met yesterday is a teacher.'],
+                  answerIndex: 0,
+                  explanation: '人を先行詞にするときは who（または that）。which は物・動物に使います。',
+                },
+                {
+                  question: 'I have a friend who lives in Osaka. の who の働きは？',
+                  choices: ['friend を修飾する節の主語', 'lives の目的語', '接続詞だけ'],
+                  answerIndex: 0,
+                  explanation: 'who が節内の主語（lives の主語）を兼ねる主格です。このとき動詞は先行詞に合わせて lives になります。',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: 'present-perfect-detail',
+          title: '現在完了の4つの意味',
+          summary: '経験・継続・完了・結果を見分け、過去形と使い分ける。',
+          objectives: [
+            'have + 過去分詞が表す4つの意味を判別できる',
+            '完了形と一緒に使えない語（yesterday など）を説明できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '4つの意味' },
+            {
+              type: 'table',
+              headers: ['意味', 'キーワード', '例'],
+              rows: [
+                ['経験', 'ever, never, before, 〜times', 'Have you **ever** been to Kyoto?'],
+                ['継続', 'for, since, how long', 'I have lived here **since** 2020.'],
+                ['完了', 'just, already, yet', 'I have **just** finished my homework.'],
+                ['結果', '(今はもう〜してしまっている)', 'He has gone to America.（＝今はここにいない）'],
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'warn',
+              content: '**He has gone to Kyoto.**（行ってしまった＝今も向こう）と **He has been to Kyoto.**（行ったことがある＝経験）は意味が違います。been は「行って戻ってきた」ニュアンス。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: '「私は彼を昨日見ました」を英語にせよ（ヒント：完了形は使えない）。',
+                  answer: '**I saw him yesterday.** yesterday など特定の過去時点の副詞があるときは必ず過去形。',
+                },
+                {
+                  body: 'How long ___ you known her? に入る語と、答え方の例を示せ。',
+                  answer: '**have**。答えは for/since を使った継続の文（例: I have known her **for** ten years.）',
+                },
+                {
+                  body: 'She has just left home. の just が表す意味は？',
+                  answer: '**完了**（たった今出発したところだ）。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（現在完了）',
+              questions: [
+                {
+                  question: '「3年間ずっとピアノを弾いています」の正しい英訳は？',
+                  choices: ['I have played the piano for three years.', 'I play the piano for three years.', 'I played the piano three years ago.'],
+                  answerIndex: 0,
+                  explanation: 'for ＋ 期間 ＝ 継続の現在完了。現在も続いていることを表します。',
+                },
+                {
+                  question: '×I have met him last Sunday. が誤りな理由は？',
+                  choices: [
+                    'last Sunday という特定の過去の時点があるから',
+                    'met の形が間違っているから',
+                    'him が不要だから',
+                  ],
+                  answerIndex: 0,
+                  explanation: '現在完了は現在とのつながりを言うので、特定の過去時点の副詞とは相容れません。→ I met him last Sunday.',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
