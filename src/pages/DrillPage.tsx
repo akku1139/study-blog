@@ -7,10 +7,16 @@ const TOPIC_NOTES: Record<string, string> = {
   'simultaneous-linear': '中学数学（連立方程式）',
   'fraction-arithmetic': '中学数学（分数の計算）',
   'exponent-laws': '中学数学（文字と式）',
+  'percent-calc': '中学数学（割合・百分率）',
+  'unit-si': '中学理科（単位の換算）',
+  'mol-mass': '高校化学（物質量と式量）',
+  'irregular-verbs': '中学英語（不規則動詞の活用）',
+  'era-history': '中学社会（歴史事件の年代）',
   'polynomial-differentiate': '高校数学II（微分）',
   'definite-integral': '高校数学II（積分）',
   'special-angles': '高校数学I（三角比）',
   'sequence-terms': '高校数学C（数列）',
+  'log-evaluate': '高校数学II（対数）',
   'factorize': '因数分解（中学〜高校）',
   'hard-differentiate': '激ムズ: 積・合成関数の微分',
   'indefinite-integrate': '激ムズ: 不定積分・置換積分',
@@ -32,6 +38,27 @@ export function DrillPage() {
   const hard = entries.filter(([k]) => HARD.has(k));
   const normal = entries.filter(([k]) => !HARD.has(k));
 
+  // カテゴリ別の表示順（未分類は末尾に回す）
+  const ORDER: Array<[string, string[]]> = [
+    ['中学数学', ['fraction-arithmetic', 'percent-calc', 'simultaneous-linear', 'exponent-laws', 'quadratic-equation']],
+    ['中学英語・理科・社会', ['irregular-verbs', 'unit-si', 'era-history']],
+    ['高校数学', ['special-angles', 'log-evaluate', 'polynomial-differentiate', 'definite-integral', 'sequence-terms']],
+    ['理科（高校）・情報', ['mol-mass', 'hydrocarbon', 'binary-convert']],
+  ];
+  const shown = new Set(ORDER.flatMap(([, ks]) => ks));
+  const rest = normal.filter(([k]) => !shown.has(k));
+
+  const renderCard = ([key, t]: [string, { label: string }]) => (
+    <button
+      key={key}
+      className={`drill-card ${selected === key ? 'active' : ''}`}
+      onClick={() => setSelected(key)}
+    >
+      <strong>{t.label}</strong>
+      <span>{TOPIC_NOTES[key] ?? ''}</span>
+    </button>
+  );
+
   return (
     <div className="drill-page">
       <header className="subject-header" style={{ borderLeftColor: '#2563eb' }}>
@@ -45,32 +72,21 @@ export function DrillPage() {
         </div>
       </header>
 
-      <section className="drill-grid">
-        {normal.map(([key, t]) => (
-          <button
-            key={key}
-            className={`drill-card ${selected === key ? 'active' : ''}`}
-            onClick={() => setSelected(key)}
-          >
-            <strong>{t.label}</strong>
-            <span>{TOPIC_NOTES[key] ?? ''}</span>
-          </button>
-        ))}
-      </section>
+      {ORDER.map(([name, keys]) => (
+        <section key={name}>
+          <h2>{name}</h2>
+          <section className="drill-grid">{keys.map((k) => renderCard([k, drillTopics[k]]))}</section>
+        </section>
+      ))}
+      {rest.length > 0 && (
+        <section>
+          <h2>その他</h2>
+          <section className="drill-grid">{rest.map(renderCard)}</section>
+        </section>
+      )}
 
       <h2>🔥 激ムズ</h2>
-      <section className="drill-grid">
-        {hard.map(([key, t]) => (
-          <button
-            key={key}
-            className={`drill-card ${selected === key ? 'active' : ''}`}
-            onClick={() => setSelected(key)}
-          >
-            <strong>{t.label}</strong>
-            <span>{TOPIC_NOTES[key] ?? ''}</span>
-          </button>
-        ))}
-      </section>
+      <section className="drill-grid">{hard.map(renderCard)}</section>
 
       <div className="widget">
         <MathDrill key={selected} initial={{ topic: selected }} />

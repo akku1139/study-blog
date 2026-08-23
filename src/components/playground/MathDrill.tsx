@@ -472,6 +472,212 @@ export const drillTopics: Record<string, { label: string; generate: TopicGenerat
       };
     },
   },
+
+  'percent-calc': {
+    label: '割合・百分率（中学1年）',
+    generate: (rng) => {
+      // 基準量 = 20a、割合 = 5b % → 答えが必ず整数になる
+      const a = randInt(rng, 1, 30);
+      const b = randInt(rng, 1, 16);
+      const base = 20 * a;
+      const pct = 5 * b;
+      const kind = randInt(rng, 0, 2);
+      if (kind === 0) {
+        return {
+          question: `次の値を求めよ。\n$$${base} \\text{ の } ${pct}\\%$$`,
+          answer: `$${base} \\times ${pct} \\div 100 = ${a * b}$`,
+          hint: '割合 ＝ もとにする量 × 率。$\\%$ は 100 分の 1 を意味する。',
+        };
+      }
+      if (kind === 1) {
+        const up = rng() < 0.5;
+        const price = up ? base + a * b : base - a * b;
+        return {
+          question: `${base} 円の商品の価格を ${pct}% ${up ? '値上げ' : '値引き'}した。新しい価格を求めよ。`,
+          answer: `$${base} \\times \\left( 1 ${up ? '+' : '-'} \\frac{${pct}}{100} \\right) = ${price}$ 円`,
+          hint: `増減分は $${base} \\times \\frac{${pct}}{100} = ${a * b}$ 円。もとの価格にたす（ひく）。`,
+        };
+      }
+      return {
+        question: `ある数の ${pct}% が ${a * b} だった。もとにする量を求めよ。`,
+        answer: `$${a * b} \\div \\frac{${pct}}{100} = ${base}$`,
+        hint: 'もとにする量 ＝ 比較する量 ÷ 率。',
+      };
+    },
+  },
+  'unit-si': {
+    label: '単位の換算（中学理科）',
+    generate: (rng) => {
+      const CONV: Array<[string, string, number]> = [
+        ['km', 'm', 1000],
+        ['m', 'cm', 100],
+        ['cm', 'mm', 10],
+        ['t', 'kg', 1000],
+        ['kg', 'g', 1000],
+        ['g', 'mg', 1000],
+        ['L', 'mL', 1000],
+        ['kJ', 'J', 1000],
+        ['時', '分', 60],
+        ['分', '秒', 60],
+      ];
+      const [big, small, f] = pick(rng, CONV);
+      const v = randInt(rng, 2, 99);
+      if (rng() < 0.5) {
+        return {
+          question: `次の値を換算せよ。\n$$${v}\\,\\text{${big}} = ?\\ \\text{${small}}$$`,
+          answer: `$${v} \\times ${f} = ${v * f}\\ \\text{${small}}$`,
+          hint: `$1\\ \\text{${big}} = ${f}\\ \\text{${small}}$。大きい単位 → 小さい単位では ${f} を掛ける。`,
+        };
+      }
+      return {
+        question: `次の値を換算せよ。\n$$${v * f}\\,\\text{${small}} = ?\\ \\text{${big}}$$`,
+        answer: `$${v * f} \\div ${f} = ${v}\\ \\text{${big}}$`,
+        hint: `$1\\ \\text{${big}} = ${f}\\ \\text{${small}}$。小さい単位 → 大きい単位では ${f} で割る。`,
+      };
+    },
+  },
+  'mol-mass': {
+    label: '物質量 mol の計算（化学）',
+    generate: (rng) => {
+      // [表示式, 式量, 和名]。式量が偶数なので mol を 0.5 刻みにしても質量は整数になる
+      const SUBS: Array<[string, number, string]> = [
+        ['\\mathrm{H_2O}', 18, '水'],
+        ['\\mathrm{CO_2}', 44, '二酸化炭素'],
+        ['\\mathrm{O_2}', 32, '酸素'],
+        ['\\mathrm{H_2}', 2, '水素'],
+        ['\\mathrm{N_2}', 28, '窒素'],
+        ['\\mathrm{CH_4}', 16, 'メタン'],
+        ['\\mathrm{C_2H_5OH}', 46, 'エタノール'],
+        ['\\mathrm{CaCO_3}', 100, '炭酸カルシウム'],
+        ['\\mathrm{NaOH}', 40, '水酸化ナトリウム'],
+        ['\\mathrm{CO}', 28, '一酸化炭素'],
+      ];
+      const ATOMIC = '原子量: H=1, C=12, N=14, O=16, Na=23, Ca=40';
+      const [tex, molar, name] = pick(rng, SUBS);
+      const n = pick(rng, [0.5, 1, 1.5, 2, 2.5, 3, 4]);
+      const kind = randInt(rng, 0, 2);
+      if (kind === 0) {
+        return {
+          question: `${name} $${tex}$ ${n} mol の質量を求めよ。`,
+          answer: `$${n} \\times ${molar} = ${molar * n}\\ \\text{g}$`,
+          hint: `質量 ＝ 物質量 × 式量（$${name}$ の式量は $${molar}$）。`,
+        };
+      }
+      if (kind === 1) {
+        const mass = molar * n;
+        return {
+          question: `${name} $${tex}$ ${mass} g の物質量を求めよ。`,
+          answer: `$\\frac{${mass}}{${molar}} = ${n}\\ \\text{mol}$`,
+          hint: `物質量 ＝ 質量 ÷ 式量（$${name}$ の式量は $${molar}$）。`,
+        };
+      }
+      return {
+        question: `${name} $${tex}$ の式量を求めよ。`,
+        answer: `$${molar}$`,
+        hint: `${ATOMIC}。各原子の個数ぶんをたし合わせる。`,
+      };
+    },
+  },
+  'irregular-verbs': {
+    label: '不規則動詞の活用（中学英語）',
+    generate: (rng) => {
+      const VERBS: Array<[string, string, string]> = [
+        ['go', 'went', 'gone'], ['have', 'had', 'had'], ['make', 'made', 'made'],
+        ['take', 'took', 'taken'], ['see', 'saw', 'seen'], ['come', 'came', 'come'],
+        ['run', 'ran', 'run'], ['write', 'wrote', 'written'], ['speak', 'spoke', 'spoken'],
+        ['eat', 'ate', 'eaten'], ['drink', 'drank', 'drunk'], ['sing', 'sang', 'sung'],
+        ['swim', 'swam', 'swum'], ['give', 'gave', 'given'], ['know', 'knew', 'known'],
+        ['grow', 'grew', 'grown'], ['throw', 'threw', 'thrown'], ['fly', 'flew', 'flown'],
+        ['begin', 'began', 'begun'], ['buy', 'bought', 'bought'], ['teach', 'taught', 'taught'],
+        ['think', 'thought', 'thought'], ['catch', 'caught', 'caught'], ['bring', 'brought', 'brought'],
+        ['build', 'built', 'built'], ['find', 'found', 'found'], ['keep', 'kept', 'kept'],
+        ['sleep', 'slept', 'slept'], ['feel', 'felt', 'felt'], ['leave', 'left', 'left'],
+        ['lose', 'lost', 'lost'], ['meet', 'met', 'met'], ['pay', 'paid', 'paid'],
+        ['sell', 'sold', 'sold'], ['tell', 'told', 'told'], ['send', 'sent', 'sent'],
+        ['sit', 'sat', 'sat'], ['stand', 'stood', 'stood'], ['win', 'won', 'won'],
+        ['get', 'got', 'gotten'], ['forget', 'forgot', 'forgotten'], ['break', 'broke', 'broken'],
+        ['read', 'read', 'read'], ['put', 'put', 'put'], ['cut', 'cut', 'cut'],
+      ];
+      const kind = randInt(rng, 0, 3);
+      if (kind <= 1) {
+        const [base, past, pp] = pick(rng, VERBS);
+        if (kind === 0) {
+          return {
+            question: `動詞 **${base}** の過去形を答えよ。`,
+            answer: `**${past}**`,
+            hint: '不規則変化は「原形・過去形・過去分詞」のセットで覚える。',
+          };
+        }
+        return {
+          question: `動詞 **${base}** の過去分詞を答えよ。`,
+          answer: `**${pp}**`,
+          hint: `過去形は **${past}**。完了形（have + 〜）や受動態（be + 〜）で使う形。`,
+        };
+      }
+      // 原形と同じ形になる動詞（read / put / cut 等）は「原形を答えよ」だと自明なので除外する
+      const usePast = kind === 2;
+      const pool = VERBS.filter((v) => (usePast ? v[1] : v[2]) !== v[0]);
+      const [base, past, pp] = pick(rng, pool);
+      const shown = usePast ? past : pp;
+      return {
+        question: `**${shown}** を原形（現在形）になおせ。`,
+        answer: `**${base}**`,
+        hint: `過去形 **${past}** ／ 過去分詞 **${pp}** のどちらかの形。`,
+      };
+    },
+  },
+  'log-evaluate': {
+    label: '対数の計算（高校数学II）',
+    generate: (rng) => {
+      const base = pick(rng, [2, 3, 5]);
+      const k1 = randInt(rng, 2, 6);
+      if (rng() < 0.55) {
+        return {
+          question: `次の値を求めよ。\n$$\\log_{${base}} ${base ** k1}$$`,
+          answer: `$\\log_{${base}} ${base ** k1} = ${k1}$`,
+          hint: `$${base}^{${k1}} = ${base ** k1}$ なので答えは $${k1}$。対数は「底を何乗したか」。`,
+        };
+      }
+      const k2 = randInt(rng, 2, 6);
+      return {
+        question: `次の値を求めよ。\n$$\\log_{${base}} ${base ** k1} + \\log_{${base}} ${base ** k2}$$`,
+        answer: `$\\log_{${base}} \\left( ${base ** k1} \\times ${base ** k2} \\right) = \\log_{${base}} ${base ** (k1 + k2)} = ${k1 + k2}$`,
+        hint: '$\\log_a MN = \\log_a M + \\log_a N$（積の対数 ＝ 対数の和）。',
+      };
+    },
+  },
+  'era-history': {
+    label: '歴史事件の年代（中学社会）',
+    generate: (rng) => {
+      const EVENTS: Array<[number, string]> = [
+        [794, '平安京への遷都'], [1086, '院政の開始'], [1185, '鎌倉幕府の成立'],
+        [1192, '源頼朝の征夷大将軍就任'], [1274, '文永の役（モンゴル襲来）'], [1338, '室町幕府の成立'],
+        [1467, '応仁の乱'], [1600, '関ヶ原の戦い'], [1603, '江戸幕府の開設'],
+        [1639, '鎖国の完成'], [1853, 'ペリーの来航'], [1867, '大政奉還'],
+        [1868, '明治維新'], [1872, '学制の発布'], [1889, '大日本帝国憲法の発布'],
+        [1894, '日清戦争の開戦'], [1904, '日露戦争の開戦'], [1923, '関東大震災'],
+        [1925, '普通選挙法の成立'], [1931, '満州事変'], [1937, '日中戦争の開戦'],
+        [1941, '太平洋戦争の開戦'], [1945, '第二次世界大戦の終結'], [1946, '日本国憲法の公布'],
+        [1956, '国際連合加盟'], [1964, '東京オリンピック開催'],
+        [1492, 'コロンブスのアメリカ大陸到達'], [1517, 'ルターによる宗教改革の開始'],
+        [1776, 'アメリカ独立宣言'], [1789, 'フランス革命'], [1914, '第一次世界大戦の開戦'],
+        [1929, '世界恐慌'], [1939, '第二次世界大戦の開戦'],
+      ];
+      const [year, ev] = pick(rng, EVENTS);
+      if (rng() < 0.5) {
+        return {
+          question: `次のできごとが起こった年を西暦で答えよ。\n\n**${ev}**`,
+          answer: `**${year} 年**`,
+          hint: '前後のできごと（〜の前に、その結果として）とつながりで覚えると定着します。',
+        };
+      }
+      return {
+        question: `**${year} 年**に起こった主なできごとを答えよ。`,
+        answer: `**${ev}**（${year} 年）`,
+        hint: '世紀でざっくり位置づけてから絞ると想起しやすい（例: 15 世紀末 → 大航海時代、19 世紀後半 → 明治維新）。',
+      };
+    },
+  },
 };
 
 /**
