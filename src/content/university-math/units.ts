@@ -441,3 +441,157 @@ export const probabilityStatisticsUnit: Unit = {
     },
   ],
 };
+
+/** 大学数学：微分方程式とフーリエ解析 */
+export const differentialEquationsUnit: Unit = {
+  id: 'uni-difffourier',
+  name: '微分方程式とフーリエ解析',
+  gakushuShidoYoryo: '常微分方程式の解法、フーリエ級数・フーリエ変換、信号処理への応用',
+  lessons: [
+    {
+      id: 'ode-basics',
+      title: '常微分方程式——変化の法則を解く',
+      summary: '分離変数・線形方程式から、現象を記述する微分方程式を読む。',
+      objectives: [
+        '変数分離形と一次線形微分方程式を解ける',
+        '減衰振動や人口増加など、モデルとの対応を説明できる',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: '微分方程式とは' },
+        {
+          type: 'text',
+          content:
+            '未知関数の**導関数を含む方程式**。「今の状態が、この先どう変化するか」を直接書いたものです。物理・化学・経済・疫学のほぼすべてがここに落ちます。',
+        },
+        { type: 'heading', level: 3, content: '変数分離形' },
+        { type: 'formula', tex: '\\frac{dy}{dx} = f(x)g(y) \\;\\Rightarrow\\; \\int \\frac{dy}{g(y)} = \\int f(x)\\,dx', display: true },
+        {
+          type: 'example',
+          title: '例題（放射壊変）',
+          body: '$\\dfrac{dN}{dt} = -\\lambda N$ を解け。',
+          answer: '$\\dfrac{dN}{N} = -\\lambda dt$ を積分して $\\ln N = -\\lambda t + C$、$N(t) = N_0 e^{-\\lambda t}$ ——指数関数的減衰。半減期は $t_{1/2} = \\ln 2 / \\lambda$。',
+        },
+        { type: 'heading', level: 3, content: '一次線形（積分因子）' },
+        { type: 'formula', tex: "\\frac{dy}{dx} + P(x)y = Q(x) \\;\\Rightarrow\\; y = e^{-\\int P}\\left( \\int Q e^{\\int P} dx + C \\right)", display: true },
+        {
+          type: 'list',
+          items: [
+            '**RC回路**: $R\\dfrac{dq}{dt} + \\dfrac{q}{C} = V$ → 時定数 $\\tau = RC$ で充電曲線が決まる',
+            '**ロジスティック方程式**: $\\dot N = rN(1 - N/K)$ → 環境収容力 K へ飽和する増加',
+            '**減衰振動**: $m\\ddot x + c\\dot x + kx = 0$ → 摩擦のあるバネ。過減衰・臨界・不足減衰に分類',
+          ],
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '$\\dfrac{dy}{dx} = xy$ を解け。',
+              hint: '変数分離。',
+              answer: '$\\dfrac{dy}{y} = x\\,dx$ → $\\ln|y| = \\dfrac{x^2}{2} + C$ → $y = Ae^{x^2/2}$',
+            },
+            {
+              body: '半減期 8 日の物質の壊変定数 λ を求めよ。',
+              answer: '$\\lambda = \\dfrac{\\ln 2}{8} \\approx$ **0.0866 /日**',
+            },
+            {
+              body: 'ロジスティック方程式で N ≪ K のときの増殖のようすを述べよ。',
+              hint: '$(1-N/K) \\approx 1$。',
+              answer: '$\\dot N \\approx rN$ となり、**初期は指数関数的増加**。K に近づくと速度が 0 に向かい飽和する。',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（微分方程式）',
+          questions: [
+            {
+              question: '放射性物質の量は時間とともにどう減るか。',
+              choices: ['指数関数的（e^{-λt}）', '直線的に', '2乗に反比例して'],
+              answerIndex: 0,
+              explanation: '壊変速度が現存量に比例するため dN/dt = −λN となり、解は指数関数になります。',
+            },
+            {
+              question: 'RC回路の時定数 τ = RC は何を表すか。',
+              choices: ['充電が約63%進むまでの時間', '完全に満充電になる時間', '抵抗の発熱量'],
+              answerIndex: 0,
+              explanation: 'τ 後に電圧は最終値の約 63%（=1−1/e）に達します。',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fourier-analysis',
+      title: 'フーリエ解析——任意の波は sin の合成',
+      summary: '周期関数を周波数成分に分解し、音声・画像処理への道を開く。',
+      objectives: [
+        'フーリエ級数の構造（係数＝内積）を説明できる',
+        '時間領域と周波数領域の関係を述べられる',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: 'フーリエ級数' },
+        { type: 'formula', tex: 'f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty}\\left( a_n \\cos nx + b_n \\sin nx \\right)', display: true },
+        { type: 'formula', tex: 'a_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(x)\\cos nx \\,dx, \\qquad b_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(x)\\sin nx\\, dx', display: true },
+        {
+          type: 'text',
+          content:
+            '係数は「$f$ と各 cos/sin の**内積**」。三角関数が直交系をなすため、欲しい成分だけを選び出せます。これは線形代数の「正規直交基底への射影」と同じ操作です。',
+        },
+        { type: 'heading', level: 3, content: 'なぜ便利か' },
+        {
+          type: 'list',
+          items: [
+            '**微分が掛け算に変わる**: フーリエ変換すると $\\partial/\\partial t \\to i\\omega$。微分方程式が代数方程式になり解きやすい',
+            '**フィルタリング**: 音声のノイズ除去、画像の圧縮（JPEG は離散コサイン変換）は「高周波成分を削る」こと',
+            '**スペクトル分析**: 光のスペクトル、音楽の音色、地震波の解析すべてがここに基づく',
+          ],
+        },
+        {
+          type: 'example',
+          title: '例題',
+          body: '矩形波（パルス列）のフーリエ級数にはどんな周波数成分が含まれるか。',
+          answer: '奇数次の **sin 項のみ**（$b_n = 4/(n\\pi)$ for odd n）。角ばった波形を作るには無限の高調波が必要——急峻な変化ほど高周波を含みます。',
+        },
+        {
+          type: 'note',
+          variant: 'tip',
+          content: '**不確定性原理**「時間的に局在した信号ほど広い周波数帯を持つ」は、量子力学の ΔxΔp ≥ ℏ/2 と同じ数学（フーリエ対）です。',
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '周期 T の信号で、基本周波数はいくらか。',
+              answer: '$f_1 = \\dfrac{1}{T}$。第 n 高調波は $nf_1$。',
+            },
+            {
+              body: 'ノイズが高い周波数に集中しているとき、取り除くにはどんな処理をするか。',
+              hint: '低域通過フィルタ',
+              answer: '**フーリエ変換 → 高周波成分を減衰（ローパス）→ 逆変換**。',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（フーリエ）',
+          questions: [
+            {
+              question: 'フーリエ変換は信号をどの観点から見るか。',
+              choices: ['周波数成分', '時間幅', '振幅の最大値'],
+              answerIndex: 0,
+              explanation: '時間領域の関数を、どの周波数がどれだけ含まれるか（周波数領域）へ写し替えます。',
+            },
+            {
+              question: 'JPEG 圧縮で使われるのはどれか。',
+              choices: ['離散コサイン変換（DCT）', 'ラプラス変換', 'ガンマ関数'],
+              answerIndex: 0,
+              explanation: '画像ブロックを周波数成分に分解し、目立たない高周波を粗く量子化することで圧縮します。',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};

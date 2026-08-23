@@ -1,5 +1,5 @@
 import type { Subject } from '../types';
-import { linearAlgebraUnit, analysisUnit, probabilityStatisticsUnit } from './units';
+import { linearAlgebraUnit, analysisUnit, probabilityStatisticsUnit, differentialEquationsUnit } from './units';
 
 // ============================================================
 // 大学数学（入門：線形代数と解析）
@@ -10,8 +10,8 @@ export const universityMath: Subject = {
   stage: 'university',
   name: '大学数学（教養）',
   description:
-    '線形代数・解析・確率統計の入門。高校数学III・Cからの接続を意識した、理工系・経済学系で最初に学ぶ範囲。',
+    '線形代数・解析・確率統計・微分方程式の入門。高校数学III・Cからの接続を意識した、理工系・経済学系で最初に学ぶ範囲。',
   icon: '🎓',
   color: '#7e22ce',
-  units: [linearAlgebraUnit, analysisUnit, probabilityStatisticsUnit],
+  units: [linearAlgebraUnit, analysisUnit, differentialEquationsUnit, probabilityStatisticsUnit],
 };
