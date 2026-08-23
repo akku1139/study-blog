@@ -2,6 +2,8 @@ import type { Subject } from '../types';
 import { thermodynamicsUnit } from './thermodynamics';
 import { kineticsUnit } from './kinetics';
 import { quantumUnit } from './quantum';
+import { organicUnit } from './organic-reactions';
+import { solidUnit } from './solid-state';
 
 // ============================================================
 // 大学化学（教養：物理化学入門）
@@ -12,8 +14,8 @@ export const universityChemistry: Subject = {
   stage: 'university',
   name: '大学化学（教養）',
   description:
-    '熱力学・反応速度論・量子化学の入門。「なぜ反応は進むのか、どれだけ速いのか、なぜ結合するのか」を物理の言葉で学ぶ。',
+    '熱力学・反応速度論・量子化学・有機反応論・固体化学の入門。「なぜ反応は進むのか、どう速く進むか、物質はなぜその構造をとるか」を物理の言葉で学ぶ。',
   icon: '🧬',
   color: '#0f766e',
-  units: [thermodynamicsUnit, kineticsUnit, quantumUnit],
+  units: [thermodynamicsUnit, kineticsUnit, quantumUnit, organicUnit, solidUnit],
 };
