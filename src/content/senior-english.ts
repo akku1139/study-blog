@@ -76,6 +76,126 @@ export const seniorEnglish: Subject = {
           ],
         },
         {
+          id: 'relative-advanced',
+          title: '関係詞の応用——複合関係詞と前置詞＋関係代名詞',
+          summary: 'whoever・whatever の複合関係詞と、前置詞＋関係代名詞というフォーマルな構文を使いこなす。',
+          objectives: [
+            '複合関係詞（whoever / whatever / whichever など）の用法を区別できる',
+            '前置詞＋関係代名詞の形を選んで文をつなげられる',
+            'what を含む文を「〜すること」という含む節として正確に訳せる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '前置詞＋関係代名詞' },
+            {
+              type: 'text',
+              content: "「〜する（その）家」のような修飾を丁寧に言うとき、**前置詞＋関係代名詞**の形を使います。日常会話なら This is the house which I live in. で十分ですが、学術的な文章では前置詞が前へ出ます。試験では「前置詞を先に出す形」と「後ろに残す形」の両方を読めることが要求されます。",
+            },
+            {
+              type: 'table',
+              headers: ['表現', '例文', 'ニュアンス'],
+              rows: [
+                ['前置詞＋which', "This is the house in which I live.", 'もっとも格式ばった形。学術論文や入試長文で頻出'],
+                ['前置詞＋whom', "She has three children, three of whom are doctors.", '非制限用法。数を含めた情報追加に便利'],
+                ['whose', "This is the author whose book I read.", '所有の関係詞。前置詞を前に出せない'],
+                ['of which ＋ 名詞', "a mountain the top of which is covered with snow", "whose の代わりに使える堅い表現"],
+              ],
+            },
+            {
+              type: 'derivation',
+              title: '前置詞はなぜ前へ移るのか——2段階変換の導出',
+              steps: [
+                {
+                  label: 'Step 1: 2つの文を用意する',
+                  tex: '\\text{This is the house.} \\quad \\text{I live in it.}',
+                  note: 'it = the house。2文を1文につなぐのが関係詞の仕事です。',
+                },
+                {
+                  label: 'Step 2: 重なる語を関係代名詞に置き換える',
+                  tex: '\\text{This is the house } \\underline{\\text{which}} \\text{ I live in.}',
+                  note: '目的格 which が置き換わり、前置詞 in は元の位置に残ります。',
+                },
+                {
+                  label: 'Step 3: 前置詞を関係代名詞の直前へ繰り上げる',
+                  tex: '\\text{This is the house } \\underline{\\text{in which}} \\text{ I live.}',
+                  note: '前置詞の目的語になるのは関係代名詞だけなので、in の直後へ which を整列させます。「前置詞＋which」をひとつの塊として読むのがコツです。',
+                },
+              ],
+            },
+            { type: 'heading', level: 3, content: '複合関係詞' },
+            {
+              type: 'text',
+              content: '**複合関係詞**は「先行詞を含んだ関係詞」です。先行詞を持たず名詞の働きも兼ねるため、「〜する人なら誰でも」「〜することなら何でも」という訳になります。さらに譲歩の副詞節を作る用法があるのが最大の特徴で、読解では「譲歩＝筆者の主張の手前の下準備」というサインになります。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**whoever** = 誰が〜しても／〜する人なら誰でも',
+                '**whatever** = 何が〜しても／〜することなら何でも（= anything that）',
+                '**whichever** = （限られた選択肢の中から）どれを選んでも',
+                '**whenever** = いつ〜しても',
+                '**wherever** = どこへ（に）〜しても',
+                '**however** = どんなに〜でも（形容詞・副詞の直後に置く）',
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題（3用法の見分け）',
+              body: '(1) Give it to whoever wants it. (2) Whatever happens, do not give up. (3) I will give you whatever you need. の whoever / whatever の働きをそれぞれ言え。',
+              answer:
+                '(1) **to の目的語であり節内では主語**——複合関係代名詞（〜する人なら誰でも）。(2) **譲歩の複合関係副詞**（何が起こっても）。(3) **need の目的語を内包する複合関係代名詞**（あなたに必要なことは何でも）。直後に名詞があれば副詞節、なければ代名詞と判断する。',
+            },
+            {
+              type: 'note',
+              variant: 'warn',
+              content: '**however** だけは特別で、必ず however ＋ 形容詞/副詞 ＋ S V の語順になります。However hard it is（どんなに難しくても）のように、修飾する語をすぐ後ろに置きます。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: "This is the office in ___ my father works. の空欄に入る語を答えよ。",
+                  answer: '**which**。前置詞 in の目的語だが中身は物・場所なので whom は不可。「父が勤めている事務所」',
+                },
+                {
+                  body: "___ you may go, I will follow you. の空欄に入る語は？",
+                  hint: '「どこへ行こうとも」の意味にする。',
+                  answer: '**Wherever**。「君がどこへ行こうとも、私は君についていく」',
+                },
+                {
+                  body: "She has two sons, both of ___ are doctors. の空欄を埋め、全体を訳せ。（発展）",
+                  hint: '人を指す前置詞＋関係代名詞。',
+                  answer: '**whom**。「彼女には息子が2人いて、そのどちらも医者である」。both of whom で非制限用法の情報追加。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ',
+              questions: [
+                {
+                  question: '「〜することは何でも（= all that）」を表す語は？',
+                  choices: ['whatever', 'whichever', 'whoever'],
+                  answerIndex: 0,
+                  explanation: 'whatever は the thing(s) which に相当します。選択肢が限定されている場合は whichever を使います。',
+                },
+                {
+                  question: '前置詞の直後に置ける関係代名詞は？',
+                  choices: ['which / whom のみ', 'that / who も可', 'whose のみ'],
+                  answerIndex: 0,
+                  explanation: 'that は前置詞の直後に置けません。in that ...（〜という点では）は熟語的な別表現です。',
+                },
+                {
+                  question: 'However hard I tried, I could not open it. の however の働きは？',
+                  choices: ['疑問副詞', '譲歩の複合関係副詞', '程度を表す通常の副詞'],
+                  answerIndex: 1,
+                  explanation: '「どんなに頑張っても開かなかった」という譲歩です。however の直後に形容詞 hard が来ている点に注目。',
+                },
+              ],
+            },
+          ],
+        },
+        {
           id: 'subjunctive-comparison',
           title: '仮定法と比較',
           summary: '仮定法過去・過去完了と、比較構文のパターン。',
@@ -263,6 +383,105 @@ export const seniorEnglish: Subject = {
               type: 'note',
               variant: 'tip',
               content: '書けないときは「I think that S + V」の骨格に、学習した構文（分詞構文・関係代名詞）を1つずつ組み込むと、文法力をアピールできます。',
+            },
+          ],
+        },
+        {
+          id: 'discourse-markers',
+          title: '長文頻出のディスコースマーカーと読み取り方',
+          summary: 'However・Therefore などの論理標識を機能別に整理し、設問解法に直結させる。',
+          objectives: [
+            'ディスコースマーカーを6つの機能に分類できる',
+            'マーカーから筆者の主張や空所補充の答えを予測できる',
+            '同義のマーカーのフォーマル度の違いを説明できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: 'なぜマーカーが最優先なのか' },
+            {
+              type: 'text',
+              content: 'ディスコースマーカー（論理標識）は**文と文の関係を宣言する看板**です。単語を全部知らなくても、この看板さえ読めれば「ここから話が逆転する」「ここで結論が来る」が分かります。長文読解では未知語への対処より先に、まずマーカーに印をつけるのが効率的です。',
+            },
+            {
+              type: 'table',
+              headers: ['機能', '代表的な語', '読み取りのポイント'],
+              rows: [
+                ['逆接', "however / but / yet / nevertheless / still", '直前の内容が打ち消される。**筆者の主張は however の後ろ**'],
+                ['原因・根拠', "because / since / as / for", '理由節が主節の前後どちらでも使える。for は文頭に置けない'],
+                ['結論・結果', "therefore / thus / hence / consequently / as a result", '**結論＝設問の狙いどころ**。後ろに強調の印をつける'],
+                ['添加', "moreover / furthermore / in addition / besides", '前の内容に重ねる。同じ方向の理由が2つ並ぶサイン'],
+                ['対比', "on the other hand / in contrast / whereas", '2つの対象を差をつけて提示。比較問題の出元'],
+                ['言い換え・例示', "in other words / namely / that is (i.e.) / for instance", '難語の後に来たら**同義表現のヒント**。抽象→具体の変換点'],
+              ],
+            },
+            {
+              type: 'table',
+              headers: ['カテゴリ', 'カジュアル寄り', 'アカデミック寄り'],
+              rows: [
+                ['逆接', "but / so", "however / nevertheless"],
+                ['添加', "also", "moreover / furthermore"],
+                ['例示', "for example", "for instance / namely / such as"],
+                ['結論', "so", "therefore / thus / consequently"],
+              ],
+            },
+            { type: 'heading', level: 3, content: '設問別の使い方' },
+            {
+              type: 'list',
+              items: [
+                '**空所補充**: 空所の前後を読み、逆接なら however 系・結果なら therefore 系の語群から選ぶ',
+                '**内容一致**: however や therefore の直後の文は選択肢の根拠になりやすい——優先的に確認する',
+                '**下線部和訳**: For one thing... For another... のような対のマーカーを見つけたら、答案にもその構造を反映する',
+                '**要約**: 各パラグラフ冒頭のマーカーを拾うだけで、パラグラフ間の論理の流れ図ができる',
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題（空所補充）',
+              body: '空所に入る語として最も適切なものは？　Many people believe exercise is only for the young. ( ), recent studies show it benefits older adults even more.',
+              answer:
+                '**However**。前文「若者だけのもの」と後文「高齢者により効果的」は矛盾しない補足ではなく、常識の否定を伴う反対方向の内容。逆接のマーカーが必要です。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: '次の語のうち、文頭に置けないものをすべて挙げよ。because / so / for / but。',
+                  hint: '等位接続詞か従属接続詞かを考える。',
+                  answer: '**for**（等位接続詞なので文頭に来ない）。but は非形式的ながら会話では文頭可、so は口語で文頭によく使われます。',
+                },
+                {
+                  body: 'In other words の直前に難しい抽象表現があった場合、直後には何が来ると予測できるか。',
+                  answer: '同じ内容の**平易な言い換え**。未知語があっても直後の平易な文で意味を拾える。逆に直後が具体例なら、for instance 系が来ているはず。',
+                },
+                {
+                  body: '筆者の主張を見つけたいとき、最初に探すべきマーカーは逆接系と結論系のどちらか。理由も添えて答えよ。（発展）',
+                  answer: '**逆接系が先**。「通説→しかし→自説」の型では however の後ろに主張が現れる。結論系（therefore）はその主張から導かれる帰結を示すので第二の手がかり。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ',
+              questions: [
+                {
+                  question: '筆者の主張が書かれている可能性が最も高い位置は？',
+                  choices: ['however の後ろ', 'for example の後ろ', 'namely の後ろ'],
+                  answerIndex: 0,
+                  explanation: '逆接のマーカーは直前の内容を打ち消して自説へ転換する合図です。例示・言い換えは主張を支える補足です。',
+                },
+                {
+                  question: 'moreover と同じ機能グループはどれ？',
+                  choices: ['添加', '対比', '結論'],
+                  answerIndex: 0,
+                  explanation: 'moreover・furthermore・in addition はすべて「さらに」の添加です。',
+                },
+                {
+                  question: '学術的な文章で結論を導くときに好まれる表現は？',
+                  choices: ['so', 'thus / therefore', 'anyway'],
+                  answerIndex: 1,
+                  explanation: 'thus・therefore・consequently がフォーマルな結論の定番。so は会話向きです。',
+                },
+              ],
             },
           ],
         },
