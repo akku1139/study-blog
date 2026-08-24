@@ -39,6 +39,37 @@ export const universityPhysics: Subject = {
             { type: 'formula', tex: 'L(q, \\dot{q}, t) = T - V \\quad (\\text{運動エネルギー} - \\text{位置エネルギー})', display: true },
             { type: 'formula', tex: '\\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{q}_i} - \\frac{\\partial L}{\\partial q_i} = 0 \\qquad (i = 1, \\dots, n)', display: true },
             {
+              type: 'derivation',
+              title: 'オイラー＝ラグランジュ方程式の導出——作用を停留させる条件',
+              steps: [
+                {
+                  label: 'Step 1: 作用積分を定義',
+                  tex: 'S[q] = \\int_{t_1}^{t_2} L(q, \\dot{q})\\, dt',
+                  note: '実際の運動 q(t) はこの積分 S を停留（微小な変化に対して1次の変化なし）にする。',
+                },
+                {
+                  label: 'Step 2: 経路を少しだけ変える',
+                  tex: 'q(t) \\to q(t) + \\varepsilon\\eta(t), \\quad \\eta(t_1) = \\eta(t_2) = 0',
+                  note: '両端は固定（始点・終点は同じ）なので、変化 η は両端でゼロという関数。',
+                },
+                {
+                  label: 'Step 3: 停留条件 dS/dε = 0 を書く',
+                  tex: '\\delta S = \\int \left( \\frac{\\partial L}{\\partial q}\\eta + \\frac{\\partial L}{\\partial \\dot{q}}\\dot{\\eta} \right) dt = 0',
+                  note: '部分積分で第二項を変形すると、η の係数だけが残る形になる。',
+                },
+                {
+                  label: 'Step 4: 部分積分と任意性',
+                  tex: '\\int \\frac{\\partial L}{\\partial \\dot{q}}\\dot{\\eta}\,dt = \\left[ \\frac{\\partial L}{\\partial \\dot{q}}\\eta \\right]_{t_1}^{t_2} - \\int \\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)\\eta\,dt',
+                  note: '境界項は η が端点で 0 なので消える。η を任意にとれるため、残った積分が常に0なら係数そのものが0でなければならない。',
+                },
+                {
+                  label: 'Step 5: 結論',
+                  tex: '\\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{q}} - \\frac{\\partial L}{\\partial q} = 0',
+                  note: 'これが運動方程式。「ニュートンの力のつり合い」と同じ内容を、スカラー量 L だけで表現したものです。',
+                },
+              ],
+            },
+            {
               type: 'text',
               content:
                 'この**オイラー＝ラグランジュ方程式**が、$q_i$ ごとの運動方程式そのものです。「実際の運動は、作用積分 $S = \\int L \\, dt$ を停留（極小とは限らない）にする」——この**最小作用の原理**から変分法で導かれます。',

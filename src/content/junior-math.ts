@@ -541,6 +541,27 @@ export const juniorMath: Subject = {
             },
             { type: 'formula', tex: '\text{面積比} = (\text{相似比})^2, \qquad \text{体積比} = (\text{相似比})^3', display: true },
             {
+              type: 'derivation',
+              title: 'なぜ面積は2乗、体積は3乗になるのか',
+              steps: [
+                {
+                  label: 'Step 1: 長さが k 倍の長方形',
+                  tex: '\\text{たて } a \\to ka, \\quad \\text{よこ } b \\to kb',
+                  note: '相似比 k の拡大では、すべての「長さ」が等倍率で伸びる。',
+                },
+                {
+                  label: 'Step 2: 面積を計算',
+                  tex: '(ka)(kb) = k^2 ab',
+                  note: '縦と横、**2つの長さの積**なので k² 倍。三角形でも同じ（底辺×高さ÷2 の両方が k 倍）。',
+                },
+                {
+                  label: 'Step 3: 体積は「3つの長さの積」',
+                  tex: '(ka)(kb)(kc) = k^3 abc',
+                  note: '直方体ならたて×よこ×高さ。だから体積比は相似比の3乗になる。',
+                },
+              ],
+            },
+            {
               type: 'example',
               title: '例題',
               body: '相似な2つの立体の体積比が $8 : 27$ のとき、相似比と表面積比を求めよ。',
@@ -615,6 +636,32 @@ export const juniorMath: Subject = {
           blocks: [
             { type: 'heading', level: 3, content: '定理' },
             { type: 'formula', tex: 'a^2 + b^2 = c^2 \\quad (c \\text{ は斜辺})', display: true },
+            {
+              type: 'derivation',
+              title: '三平方の定理の証明——正方形の組み替えで見る',
+              steps: [
+                {
+                  label: 'Step 1: 大きな正方形を用意する',
+                  tex: '\\text{一辺 } (a+b) \\text{ の正方形}',
+                  note: 'この中に、直角三角形（a, b, c）を4つ、隙間なく c をはさむように置く。',
+                },
+                {
+                  label: 'Step 2: 配置その1 — 内側に c² の正方形',
+                  tex: '\\text{全体} = 4 \\times \\frac{ab}{2} + c^2',
+                  note: '内側にできるのは一辺 c の正方形（直角三角形4枚＋それ）。',
+                },
+                {
+                  label: 'Step 3: 配置その2 — 同じ正方形を別の切り方で',
+                  tex: '\\text{全体} = 4 \\times \\frac{ab}{2} + a^2 + b^2',
+                  note: '今度は三角形を2つずつペアにして長方形に見ると、残りが a² と b² の2つの正方形になる。',
+                },
+                {
+                  label: 'Step 4: 等置して整理',
+                  tex: '4 \\cdot \\frac{ab}{2} + c^2 = 4 \\cdot \\frac{ab}{2} + a^2 + b^2 \\;\\Rightarrow\\; c^2 = a^2 + b^2',
+                  note: '同じ大きさの正方形を2通りに分けたにすぎないので等しい。「図を動かしただけで定理が従う」有名な証明です。',
+                },
+              ],
+            },
             {
               type: 'text',
               content: '直角をはさむ2辺の**正方形の面積の和**が、斜辺の正方形の面積と等しい、というのが幾何的な意味です。次の図で「赤＋緑＝青」が成り立つことを確認しましょう。',

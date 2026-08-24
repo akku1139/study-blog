@@ -466,6 +466,31 @@ export const differentialEquationsUnit: Unit = {
         { type: 'heading', level: 3, content: '変数分離形' },
         { type: 'formula', tex: '\\frac{dy}{dx} = f(x)g(y) \\;\\Rightarrow\\; \\int \\frac{dy}{g(y)} = \\int f(x)\\,dx', display: true },
         {
+          type: 'derivation',
+          title: '変数分離はなぜ「dy と dx を分ける」ことで解けるのか',
+          steps: [
+            {
+              label: 'Step 1: 元の方程式',
+              tex: '\\frac{dy}{dx} = f(x)g(y)',
+            },
+            {
+              label: 'Step 2: g(y) で割る',
+              tex: '\\frac{1}{g(y)}\\frac{dy}{dx} = f(x)',
+              note: '左辺は合成関数の微分の形になっていることに注目する。',
+            },
+            {
+              label: 'Step 3: 合成関数の微分として認識',
+              tex: '\\frac{d}{dx}\\left[ G(y(x)) \\right] = f(x) \\quad (G\'(y) = 1/g(y))',
+              note: 'G を 1/g の原始関数とすると、左辺はまさに連鎖律による微分。ここが核心です。',
+            },
+            {
+              label: 'Step 4: 両辺を x で積分',
+              tex: 'G(y) = \\int f(x)\\,dx + C \\quad\\Longleftrightarrow\\quad \\int \\frac{dy}{g(y)} = \\int f(x)\\,dx',
+              note: '形式的に「dy と dx を分けてそれぞれ積分」した形と一致する。だから分離変数は正当な手続きです。',
+            },
+          ],
+        },
+        {
           type: 'example',
           title: '例題（放射壊変）',
           body: '$\\dfrac{dN}{dt} = -\\lambda N$ を解け。',
