@@ -81,6 +81,33 @@ export const seniorEnglish: Subject = {
           summary: '仮定法過去・過去完了と、比較構文のパターン。',
           blocks: [
             { type: 'heading', level: 3, content: '仮定法' },
+
+            {
+              type: 'derivation',
+              title: 'なぜ「過去形」が現実と違うことを表すのか——距離の一貫性',
+              steps: [
+                {
+                  label: 'Step 1: 時制の距離',
+                  tex: '\\text{現在形 } \\to \\text{ 過去形} = \\text{時間的に遠ざかる}',
+                  note: 'I live in Tokyo. → I lived in Tokyo. 過去形は「今ではない場所」へ話題を移す装置です。',
+                },
+                {
+                  label: 'Step 2: 現実からの距離にも同じ装置を使う',
+                  tex: '\\text{If I am rich (現実の可能性)} \\to \\text{If I were rich (非現実)}',
+                  note: '時間だけでなく**現実との心理的な距離**も「一段引く」ことで表せる。これが仮定法過去の正体。',
+                },
+                {
+                  label: 'Step 3: 二重の距離＝仮定法過去完了',
+                  tex: '\\text{If I had been rich} = \\text{過去という時点からさらに引く}',
+                  note: '「過去の時点ですでに〜ではなかった」という二重の反事実。距離が2段なので、取り返しのつかない過去の後悔を表現できます。',
+                },
+                {
+                  label: 'Step 4: 主節も同じ距離だけ引く',
+                  tex: '\\text{would have + 過去分詞}',
+                  note: 'if 節と主節は必ずセットで同じ距離を使う。「If S had p.p., S would have p.p.」の形が対称になるのはこのためです。',
+                },
+              ],
+            },
             {
               type: 'table',
               headers: ['種類', '形', '意味'],

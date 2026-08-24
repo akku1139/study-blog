@@ -467,6 +467,32 @@ export const differentialEquationsUnit: Unit = {
         { type: 'formula', tex: '\\frac{dy}{dx} = f(x)g(y) \\;\\Rightarrow\\; \\int \\frac{dy}{g(y)} = \\int f(x)\\,dx', display: true },
         {
           type: 'derivation',
+          title: 'なぜ「どんな分布でも」正規分布に収束するのか（CLT の骨子）',
+          steps: [
+            {
+              label: 'Step 1: 現実の量は無数のゆらぎの合計',
+              tex: 'X = X_1 + X_2 + \\cdots + X_n',
+              note: '測定誤差・身長・売上などは、小さな要因が積み重なった結果として現れる。',
+            },
+            {
+              label: 'Step 2: 各要因の分布は何でもよい',
+              tex: '\\text{平均 } \\mu \\text{ と分散 } \\sigma^2 \\text{ が有限であることだけが必要}',
+              note: '元の形が一様分布だろうが二項分布だろうが構わない点が強力。',
+            },
+            {
+              label: 'Step 3: 規格化して n → ∞',
+              tex: '\\frac{X - n\\mu}{\\sigma\\sqrt{n}} \\xrightarrow{d} N(0, 1)',
+              note: '特性関数（フーリエ変換）で書くと、log の展開で二次まで残り、高次が消える——釣鐘型だけが生き残る。',
+            },
+            {
+              label: 'Step 4: ガルトン板で直感する',
+              tex: '\\text{二項分布 } B(n, p) \\to N(np, np(1-p))',
+              note: '左右に等確率で分岐する過程の重ね合わせ。組み合わせの数 $\\binom{n}{k}$ がスターリング近似でガウス型になるため、「ゆらぎの総和＝正規分布」は数学的な必然です。',
+            },
+          ],
+        },
+        {
+          type: 'derivation',
           title: '変数分離はなぜ「dy と dx を分ける」ことで解けるのか',
           steps: [
             {

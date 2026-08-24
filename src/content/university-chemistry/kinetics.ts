@@ -23,6 +23,32 @@ export const kineticsUnit: Unit = {
         },
         { type: 'formula', tex: 'v = k[A]^m[B]^n, \\qquad \\ln k = -\\frac{E_a}{RT} + \\ln A', display: true },
         {
+          type: 'derivation',
+          title: 'アレニウスの式はなぜ指数関数の形をしているのか——ボルツマン因子から',
+          steps: [
+            {
+              label: 'Step 1: 反応には「壁」がある',
+              tex: '\\text{反応するには } E_a \\text{（活性化エネルギー）以上の運動エネルギーが必要}',
+              note: '分子がただぶつかるだけでは反応しない。結合を切って組替えるための「登るべき坂」が存在する。',
+            },
+            {
+              label: 'Step 2: エネルギー分布はボルツマン因子',
+              tex: '\\frac{N(E > E_a)}{N_{total}} = e^{-E_a/k_B T}',
+              note: '統計力学の結果、温度 T で「$E_a$ 以上のエネルギーをもつ分子の割合」はこの指数で与えられる。',
+            },
+            {
+              label: 'Step 3: 速度定数はその割合に比例',
+              tex: 'k \\propto e^{-E_a/k_BT}',
+              note: '反応するかどうかは「十分なエネルギーを持つ分子がどれだけいるか」で決まるため。',
+            },
+            {
+              label: 'Step 4: mol 単位に書き直す（R = N_A k_B）',
+              tex: '\\ln k = -\\frac{E_a}{RT} + \\text{定数} = -\\frac{E_a}{RT} + \\ln A',
+              note: '対数をとると直線関係になるので、実験データの $\\ln k$ vs $1/T$ の傾きから $E_a$ を求められる——これがアレニウスプロットです。',
+            },
+          ],
+        },
+        {
           type: 'list',
           items: [
             '**反応次数 m, n**: 実験で決める（化学量論係数とは無関係！）',
