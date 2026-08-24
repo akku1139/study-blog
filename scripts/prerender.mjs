@@ -23,9 +23,9 @@ const SITE_URL = (process.env.SITE_URL ?? 'https://study-blog.pages.dev').replac
 function pageMeta(route) {
   if (route === '/') {
     return {
-      title: `${SITE_NAME} — 中学・高校・大学 教科書＆プレイグラウンド`,
+      title: `${SITE_NAME} — 中学・高校・大学の学習内容に沿った 自学習サイト＆プレイグラウンド`,
       description:
-        '中学・高校の学習指導要領と大学教養課程に対応したオンライン教材。数式・図解・グラフやシミュレーションで学べる教科書。',
+        '学校の学習内容に沿って自学習できるオンライン教材。数式・図解・グラフやシミュレーションで学べる詳細な解説を収録。',
     };
   }
   if (route === '/toc') {

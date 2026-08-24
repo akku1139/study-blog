@@ -11,7 +11,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="layout">
       <header className="site-header">
         <Link to="/" className="site-title">📚 学習ノート</Link>
-        <span className="site-tagline">中学・高校・大学 学習指導要領対応</span>
+        <span className="site-tagline">中学・高校・大学の学習内容に沿った自学習サイト</span>
         <nav className="site-nav">
           <Link to="/exam-prep">🎯 直前対策</Link>
           <Link to="/drills">⚡ 無限ドリル</Link>
@@ -21,7 +21,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <footer className="site-footer">
         <p>
-          学習ノート — 学習指導要領対応のオンライン教材（教科書 + プレイグラウンド）
+          学習ノート — 学校の授業内容に沿って学べる自学習サイト（解説＋プレイグラウンド）
           {' · '}
           <a href="https://github.com/akku1139/study-blog" target="_blank" rel="noopener noreferrer">
             GitHub（AGPL-3.0）
