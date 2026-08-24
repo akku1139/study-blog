@@ -307,6 +307,254 @@ export const juniorEnglish: Subject = {
             },
           ],
         },
+        {
+          id: 'comparative-superlative',
+          title: '比較のすべて——原級・比較級・最上級',
+          summary: '規則変化と不規則変化を整理し、as ... as の否定形や比較級を強める言葉まで使いこなす。',
+          objectives: [
+            '形容詞・副詞の原級・比較級・最上級を規則どおり作れる',
+            'good / bad / many などの不規則変化を正確に書ける',
+            'as ... as の否定形や much / far などによる強調を使い分けられる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '3つの形の基本' },
+            {
+              type: 'text',
+              content: '形容詞・副詞には「同等」を表す原級、「優っている」を表す比較級、「いちばん」を表す最上級の3つの形があります。比較級は than、最上級は the とセットで使うのが鉄則です。変化のルールは語の長さ（音節数）で決まるので、まず短い語からパターンで覚えましょう。',
+            },
+            {
+              type: 'table',
+              headers: ['タイプ', '変化の例', 'ポイント'],
+              rows: [
+                ['er / est をつける', 'fast → faster → fastest', 'tall, old, young など1音節の短い語'],
+                ['e をつけるだけ', 'nice → nicer → nicest', 'large, wide など e で終わる語'],
+                ['y を i に変える', 'easy → easier → easiest', 'happy, early など「子音字 + y」の語'],
+                ['子音字を重ねる', 'big → bigger → biggest', 'hot, thin など「短母音 + 子音字」で終わる語'],
+                ['more / most を前におく', 'careful → more careful → most careful', 'careful, famous, useful など長い語'],
+              ],
+            },
+            { type: 'heading', level: 3, content: '不規則変化' },
+            {
+              type: 'table',
+              headers: ['原級', '比較級', '最上級'],
+              rows: [
+                ['good / well', 'better', 'best'],
+                ['bad / badly / ill', 'worse', 'worst'],
+                ['many / much', 'more', 'most'],
+                ['little', 'less', 'least'],
+                ['far', 'farther / further', 'farthest / furthest'],
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'warn',
+              content: 'farther は物理的な距離、further は「さらに（追加の）」という抽象的な意味で使われることが多いです。further information（追加情報）のような使い方とセットで覚えましょう。',
+            },
+            { type: 'heading', level: 3, content: '原級を使う構文' },
+            {
+              type: 'text',
+              content: '「AはBと同じくらい〜だ」は **A is as 形容詞 as B.** の形です。否定するときは **not as ... as**（または not so ... as）で「Bほどではない」の意味になります。さらに「AはBの3倍だ」のような倍数表現は、as の直前に three times を置いて表します。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**Ken is as tall as Jack.**（ケンはジャックと同じくらい背が高い）',
+                '**This book is not as interesting as that one.**（この本はあの本ほど面白くない）',
+                '**This room is three times as large as that room.**（この部屋はあの部屋の3倍広い）',
+              ],
+            },
+            { type: 'heading', level: 3, content: '比較級を強める言葉' },
+            {
+              type: 'text',
+              content: '比較級を強めるときは much, far, even, still, a lot, a little などを比較級の直前におきます。日本語の感覚で very を使いたくなりますが、**very は比較級を強められません**（×very better）。最上級を強めたいときは by far を使います。',
+            },
+            {
+              type: 'table',
+              headers: ['強める語', 'ニュアンス', '例'],
+              rows: [
+                ['much / far', 'ずっと', 'much faster（ずっと速い）'],
+                ['even / still', 'さらに・いっそう', 'even better（さらに良い）'],
+                ['a little / a bit', '少し', 'a little taller（少し背が高い）'],
+                ['by far', '圧倒的に（最上級向け）', 'by far the best player'],
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: '「私の兄は私よりずっと背が高い。」を英語にせよ。',
+              answer: '**My brother is much taller than I (me).** 比較級 taller を much で強めます。very には置き換えられない点が答案での差になります。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: 'Tokyo is ___ (large) than Osaka. 空欄に適する形を入れよ。',
+                  answer: '**larger**。1音節語なので er をつける。more large は誤り。',
+                },
+                {
+                  body: '「彼女はクラスでいちばん上手に歌う。」を英語にせよ。',
+                  answer: '**She sings (the) best in her class.** well の最上級は best。人を含む範囲を表すときは in を使う。',
+                },
+                {
+                  body: 'Today is ___ hotter than yesterday. 空欄に入る語を1つ挙げ、very が不可の理由も述べよ。',
+                  answer: '**much / far / even** など。very は原級（as ... as の中など）を強める語で、比較級とは組み合わないため。',
+                },
+                {
+                  body: 'No other mountain in Japan is ___ than Mt. Fuji. 最上級と同じ意味になるよう空欄を埋めよ。',
+                  answer: '**higher**。「No other A is 比較級 than B」で「Bほど高い山はない＝Bがいちばん高い」。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（比較）',
+              questions: [
+                {
+                  question: '「私は思っていたほど疲れていなかった」に合う形は？',
+                  choices: ['I was not as tired as I thought.', 'I was not more tired as I thought.', 'I was not tireder than I thought.'],
+                  answerIndex: 0,
+                  explanation: '「ほど〜でない」は not as ... as で表します。tired の比較級は more tired ですが、ここでは原級の否定が自然です。',
+                },
+                {
+                  question: 'badly の最上級は？',
+                  choices: ['baddest', 'worst', 'most badly'],
+                  answerIndex: 1,
+                  explanation: 'bad / badly / ill の比較級は worse、最上級は worst という不規則変化です。',
+                },
+                {
+                  question: 'much happier の much の働きは？',
+                  choices: ['very と同じで原級を強めている', '比較級を強めている', '名詞 happier を修飾している'],
+                  answerIndex: 1,
+                  explanation: 'much は比較級・最上級を強められる副詞です。very は比較級を強められない点とセットで覚えましょう。',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: 'infinitive-usages-detail',
+          title: '不定詞の3用法を深く',
+          summary: '名詞的・形容詞的・副詞的の判別手順を身につけ、疑問詞＋不定詞と動名詞との使い分けまで整理する。',
+          objectives: [
+            '判別の手順に沿って文中の不定詞の用法を判定できる',
+            '疑問詞＋不定詞の形を名詞的に使える',
+            'stop / remember / forget の後の to do と doing の意味の違いを説明できる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '3用法のおさらい' },
+            {
+              type: 'table',
+              headers: ['用法', '働き', '例文', '訳'],
+              rows: [
+                ['名詞的用法', '主語・目的語・補語になる', '**To swim** here is fun.', 'ここで泳ぐことは楽しい'],
+                ['形容詞的用法', '名詞を後ろから修飾', 'I have homework **to do**.', 'やるべき宿題'],
+                ['副詞的用法', '動詞を修飾（目的・原因・結果など）', 'I got up early **to catch** the bus.', 'バスに間に合うように'],
+              ],
+            },
+            { type: 'heading', level: 3, content: '判別の手順（4ステップ）' },
+            {
+              type: 'list',
+              ordered: true,
+              items: [
+                '**ステップ1**: to do の直後に名詞があるか確認する → あれば形容詞的用法の可能性大',
+                '**ステップ2**: to do を「すること」に置き換えて意味が通るか試す → 通れば名詞的用法',
+                '**ステップ3**: 「〜するために」「〜してみたら」など訳語を足して自然か試す → 自然なら副詞的用法',
+                '**ステップ4**: 迷ったら動詞の種類に注目する。want や hope の直後の to do は目的語（名詞的用法）と決まっている',
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'tip',
+              content: 'to tell the truth（正直に言えば）のような独立不定詞は、慣用的な塊として丸ごと覚えるのが近道です。高校編の「不定詞・分詞・動名詞」レッスンにも発展内容があります。',
+            },
+            { type: 'heading', level: 3, content: '疑問詞＋不定詞' },
+            {
+              type: 'text',
+              content: 'what to do, where to go, how to cook のような「疑問詞＋不定詞」は、まとめて「〜すること／〜のやり方」という名詞のかたまりになります。know, tell, ask, decide などの動詞とセットで使われるのが典型です。特に how to は「〜の方法」という日常頻出の形なので、口語でも必ず押さえておきましょう。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**I did not know what to say.**（何と言えばいいか分からなかった）',
+                '**Please tell me where to get off.**（どこで降りればいいか教えてください）',
+                '**She learned how to ride a bike.**（自転車の乗り方を覚えた）',
+              ],
+            },
+            { type: 'heading', level: 3, content: 'stop / remember / forget は要注意' },
+            {
+              type: 'text',
+              content: '同じ動詞でも、後ろに to do が来るか doing が来るかで意味が変わることがあります。ポイントは時間の向きです。**to do はこれから先の動作**、**doing はすでに起こった（または進行中の）動作**を指します。次の表を対になって声に出して覚えましょう。',
+            },
+            {
+              type: 'table',
+              headers: ['動詞', '+ to do（未来向き）', '+ doing（過去向き）'],
+              rows: [
+                ['stop', 'stop to do = するために立ち止まる', 'stop doing = するのをやめる'],
+                ['remember', 'remember to do = 忘れずにする', 'remember doing = したことを覚えている'],
+                ['forget', 'forget to do = 忘れて（結局）しない', 'forget doing = したことを忘れる'],
+                ['try（発展）', 'try to do = しようと努力する', 'try doing = 試しにしてみる'],
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'warn',
+              content: '**He stopped smoking.**（タバコをやめた）と **He stopped to smoke.**（タバコを吸うために立ち止まった）は全く別の場面です。stop to do の to do は目的語ではなく「目的を表す副詞的用法」なので、構造から理解しておくと混ぜません。',
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: '「私は電気を消し忘れた。」を英語にせよ。',
+              answer: '**I forgot to turn off the light.** やるはずだった動作だから to do。I forgot turning off the light. とすると「消したことを忘れていた」という奇妙な文になります。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: 'He stopped ___ (drink) coffee at night. 「夜のコーヒーをやめた」の意味になる形は？',
+                  answer: '**drinking**。stop の目的語は動名詞。to drink にすると「飲むために立ち止まった」になり文意が変わる。',
+                },
+                {
+                  body: 'Did you remember ___ (lock) the door? 「鍵をかけたかどうか確認した？」の意味にするには？',
+                  answer: '**to lock**。remember to do は「忘れずに〜する」。Did you remember locking ...? だと「したことを覚えているか」になる。',
+                },
+                {
+                  body: 'She was surprised ___ (hear) the news. 「知らせを聞いて驚いた」の空欄を埋めよ。',
+                  answer: '**to hear**。be surprised to do の形。感情の原因を表す副詞的用法。',
+                },
+                {
+                  body: '「どうやってこのアプリを使えばいいか知っていますか」を how to を使って英語に。',
+                  answer: '**Do you know how to use this app?** how to use が know の目的語（名詞的用法）。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（不定詞）',
+              questions: [
+                {
+                  question: '「My dream is to become a pilot.」の to become の用法は？',
+                  choices: ['名詞的用法（補語）', '形容詞的用法', '副詞的用法'],
+                  answerIndex: 0,
+                  explanation: 'is の補語として「パイロットになること」を表すので名詞的用法です。',
+                },
+                {
+                  question: 'I have no time to watch TV. の to watch の用法は？',
+                  choices: ['名詞的用法', '形容詞的用法（time を修飾）', '副詞的用法'],
+                  answerIndex: 1,
+                  explanation: 'time を後ろから修飾する形容詞的用法。「テレビを見る時間がない」。',
+                },
+                {
+                  question: 'Remember buying stamps. の意味は？',
+                  choices: ['切手を買うのを忘れないで', '切手を買ったことを覚えている', '切手を買いに行こう'],
+                  answerIndex: 1,
+                  explanation: 'remember + doing は「〜したことを覚えている」。doing はすでに起こった動作を指します。',
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],

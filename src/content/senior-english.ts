@@ -260,6 +260,311 @@ export const seniorEnglish: Subject = {
           ],
         },
         {
+          id: 'participle-clauses-detail',
+          title: '分詞構文と独立分詞',
+          summary: '接続詞つきの文からの書き換えで分詞構文の正体をつかみ、訳し分け・完了形・with 構文まで拡張する。',
+          objectives: [
+            '2文1組の文を分詞構文に書き換えられる',
+            '時・理由・条件・譲歩の訳し分けを文脈から判断できる',
+            'being / having been の形と with + O + C 構文を使いこなせる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '分詞構文の正体' },
+            {
+              type: 'text',
+              content: '分詞構文は「接続詞＋主語＋be動詞」を丸ごと取り去ってできた副詞節のかたちをしています。取り除かれた部分は文脈から復元できるので、意味は元の副詞節と同じです。だからこそ分詞構文を見たら「接続詞が隠れている」と意識し、訳し分けを行うのが読解の基本になります。',
+            },
+            {
+              type: 'derivation',
+              title: '2文から分詞構文への書き換え手順',
+              steps: [
+                {
+                  label: 'Step 1: 接続詞つきの副詞節をもつ文を用意する',
+                  tex: '\\text{As I was tired, I went to bed early.}',
+                  note: '接続詞 as・主語 I・be動詞 was の3点セットが分詞構文のもとになります。',
+                },
+                {
+                  label: 'Step 2: 接続詞・主語・be動詞を取り除く',
+                  tex: '\\text{Being tired, I went to bed early.}',
+                  note: '形容詞 tired の前の being は省略可能なので、Tired, I went to bed early. とも言えます。',
+                },
+                {
+                  label: 'Step 3: 受動の場合',
+                  tex: '\\text{As it was written in easy English} \\to \\text{(Being) Written in easy English}',
+                  note: 'was written が being written になり、being はしばしば省略されます。',
+                },
+                {
+                  label: 'Step 4: 完了の場合',
+                  tex: '\\text{After he had finished lunch} \\to \\text{Having finished lunch}',
+                  note: 'had + 過去分詞が having + 過去分詞に対応。「〜した後で」と時間の前後関係が明示されます。',
+                },
+              ],
+            },
+            { type: 'heading', level: 3, content: '訳し分けの4類型＋付帯状況' },
+            {
+              type: 'table',
+              headers: ['意味', '隠れている接続詞', '例文と訳し方'],
+              rows: [
+                ['時', 'when / while', '**Walking** along the street, I met her.（歩いている**とき**彼女に会った）'],
+                ['理由', 'because / as / since', '**Feeling** sick, she left early.（気分が悪かった**ので**早退した）'],
+                ['条件', 'if', '**Turning** right, you will see the station.（曲がっ**たら**駅が見える）'],
+                ['譲歩', 'although / though', '**Living** alone, he is never lonely.（一人暮らし**だが**決して寂しくない）'],
+                ['付帯状況', 'and でつながる同時進行', 'He sat there, **reading** a magazine.（座って、雑誌を読んでいた）'],
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'tip',
+              content: '訳し分けに迷ったら「理由」か「時」から試すのが実戦的です。特に文頭の分詞構文は理由の用法が頻出で、「〜なので」と入れて意味が通ればそれで十分です。',
+            },
+            { type: 'heading', level: 3, content: 'being と having been' },
+            {
+              type: 'text',
+              content: '進行や受動のニュアンスを明示したいときは being を残します。完了を表すには having + 過去分詞、完了の受動なら having been + 過去分詞です。having been は硬い文章でよく使われますが、意味は「すでに〜されていたので」で、多くの場合 原因・時間を表します。否定の not は分詞の直前に置く点も重要です。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**Having lived** in Kyoto, she knows the city well.（京都に住んでいたことがあるので）＝完了・理由',
+                '**Having been** invited, I could not refuse.（招待されていたので断れなかった）＝完了受動',
+                '**Not knowing** what to say, I stayed silent.（何と言えばいいか分からず黙っていた）＝否定の not は直前',
+              ],
+            },
+            { type: 'heading', level: 3, content: '独立分詞構文' },
+            {
+              type: 'text',
+              content: '分詞構文の主語が主節の主語と違うときは、分詞の主語をそのまま残します。これを独立分詞構文と呼びます。また Judging from（〜から判断すると）や Speaking of（〜といえば）のように、主語を持たない慣用表現として固定したものも多数あります。試験では慣用表現の暗記と、主語不一致への気づきの両方が問われます。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**Weather permitting,** we will play tennis.（天気が許せば）permitting の主語は weather',
+                '**Judging from** his accent, he is from Osaka.（アクセントから判断すると）',
+                '**Speaking of** trips, have you ever been to Okinawa?（旅行といえば）',
+              ],
+            },
+            { type: 'heading', level: 3, content: 'with + O + C 構文' },
+            {
+              type: 'text',
+              content: '「OがCの状態で」という付帯状況を表すのに、with + 目的語 + 補語の形がよく使われます。補語には分詞・形容詞・前置詞句が入ります。with を取ると独立分詞構文に近い意味になり、場面の臨場感が増すので小説やエッセイで好んで使われます。補語にどの形が入るかは、OとCの意味上の関係で決まります。',
+            },
+            {
+              type: 'table',
+              headers: ['型', '例文', '意味'],
+              rows: [
+                ['with + O + 過去分詞（受動）', 'He stood there **with his eyes closed.**', '目を閉じたまま立っていた'],
+                ['with + O + 現在分詞（能動・進行）', 'The night deepened **with stars shining.**', '星が輝いて夜が更けた'],
+                ['with + O + 形容詞', 'She slept **with the window open.**', '窓を開けたまま眠った'],
+                ['with + O + 前置詞句', 'He came in **with a bag on his back.**', '鞄を背負って入ってきた'],
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: 'As I did not know her address, I could not visit her. を分詞構文に書き換えよ。',
+              answer: '**Not knowing her address, I could not visit her.** 否定の not は分詞の直前に置きます。did not know の否定を受け継いで Not knowing となります。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: 'When it is seen from the top of the hill, the town looks beautiful. を分詞構文に。',
+                  answer: '**Seen from the top of the hill, the town looks beautiful.** 受動なので being を省略して Seen から始めるのが普通。',
+                },
+                {
+                  body: 'Having finished all my homework, I played video games. の Having finished の意味は？',
+                  answer: '「宿題をすべて**済ませた後で（済ませたので）**」。完了分詞は時間の前後関係を明示する。After I had finished に相当。',
+                },
+                {
+                  body: '「彼は帽子をかぶったまま教室に入ってきた。」を with 構文で英語に。',
+                  answer: '**He came into the classroom with a cap on.**（with a cap on his head も可）with + O + 前置詞句の型。',
+                },
+                {
+                  body: '**Living** in a small town, I rarely go to concerts. の Living の訳し分けを2通り示せ。',
+                  answer: '「小さな町に住んでいる**ので**（理由）」が自然。時の「住んでいる**とき**」とも読めるが、rarely go との論理関係では理由が妥当。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（分詞構文）',
+              questions: [
+                {
+                  question: 'Written in simple words, the manual is easy to read. の Written はどう解釈すべき？',
+                  choices: ['受動の分詞構文（やさしい言葉で書かれているので）', '進行を表す分詞構文', 'manual を修飾する形容詞にすぎない'],
+                  answerIndex: 0,
+                  explanation: '書くのは人・書かれるのはマニュアルという受動の関係。理由「〜なので」と訳すのが自然です。',
+                },
+                {
+                  question: '完了を表す分詞構文の形は？',
+                  choices: ['have + 過去分詞', 'having + 過去分詞', 'been + 過去分詞'],
+                  answerIndex: 1,
+                  explanation: 'had + 過去分詞に対応して having + 過去分詞を使います。完了受動なら having been + 過去分詞。',
+                },
+                {
+                  question: 'He sat with his legs crossed. の crossed が過去分詞なのはなぜ？',
+                  choices: ['legs が交差「される」関係（受動）だから', '動作が進行中だから', '命令の意味が含まれるから'],
+                  answerIndex: 0,
+                  explanation: '脚と交差するの関係は受動なので過去分詞。with + O + 過去分詞の典型例です。',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: 'noun-clauses-and-inversion',
+          title: '名詞節と倒置',
+          summary: 'that 節・wh 語の名詞節を読み分け、否定副詞・So/Such・仮定法で起こる倒置を書き換えられるようにする。',
+          objectives: [
+            'that 節・wh 語導出名詞節の働き（主語・目的語・補語）を判定できる',
+            '否定副詞を文頭に出した倒置の形を再現できる',
+            'So/Such 倒置と仮定法の If 省略倒置を書き換えられる',
+          ],
+          blocks: [
+            { type: 'heading', level: 3, content: '名詞節の3系統' },
+            {
+              type: 'text',
+              content: '節全体が1つの名詞として働くとき、その節を名詞節と呼びます。主語・目的語・補語のどれかの役目を果たし、「〜ということ」「〜かどうか」「〜のこと」と訳されます。導入語によって意味と語順が変わるので、まず3系統に分けて押さえましょう。',
+            },
+            {
+              type: 'table',
+              headers: ['導入語', '意味・注意点', '例文'],
+              rows: [
+                ['that', '「〜ということ」。目的語位置では省略可', 'I believe **that he is honest.**'],
+                ['whether / if', '「〜かどうか」。whether は or not と一緒に使える', 'I wonder **whether it will rain.**'],
+                ['wh 語（who, where, when など）', '疑問詞本来の意味が残る。節内は平叙文の語順', 'Tell me **where he lives.**'],
+                ['what（複合関係代名詞）', '= the thing which「〜すること」。先行詞不要', '**What he said** is true.'],
+              ],
+            },
+            {
+              type: 'text',
+              content: 'wh 語導出名詞節の語順は落とし穴です。Where does he live?（疑問文）が Tell me の後ろでは Where he lives と平叙文の語順になり、does は消えます。また what が「〜すること」の意味で使われるとき、関係代名詞と違って先行詞を必要としない点も大事です。試験では語順の誤りを狙った設問が定番です。',
+            },
+            {
+              type: 'note',
+              variant: 'warn',
+              content: '第5文型で that 節を目的語にするときは、**We found it strange that ...** のような形式目的語 it を使う形が重要です。that 節をそのまま置かず、it を先に出すのが普通です。',
+            },
+            { type: 'heading', level: 3, content: '否定副詞の倒置' },
+            {
+              type: 'text',
+              content: 'never, seldom, hardly, little などの否定・準否定の副詞を文頭に置くと、主語と助動詞の語順が逆になります（倒置）。強調したい語を前に出すことで、筆者の感情や主張が際立ちます。読解では「文頭の否定語＋疑問文型の語順」を見たら倒置だと即座に認識しましょう。',
+            },
+            {
+              type: 'table',
+              headers: ['導入語', '倒置の例文', '平叙文に戻すと'],
+              rows: [
+                ['Never', '**Never have I seen** such a sunset.', 'I have never seen such a sunset.'],
+                ['Little', '**Little did he know** the truth.', 'He little knew the truth.'],
+                ['Hardly ... when', '**Hardly had I sat down when** the phone rang.', 'I had hardly sat down when the phone rang.'],
+                ['Not until', '**Not until yesterday did I notice** the change.', 'I did not notice the change until yesterday.'],
+                ['No sooner ... than', '**No sooner had we left than** it started to rain.', 'We had no sooner left than it started to rain.'],
+              ],
+            },
+            {
+              type: 'derivation',
+              title: '倒置の仕組み——疑問文と同じ語順',
+              steps: [
+                {
+                  label: 'Step 1: 平叙文',
+                  tex: '\\text{I have never seen such a beautiful sunset.}',
+                  note: '普通の語順です。',
+                },
+                {
+                  label: 'Step 2: 強調したい否定語を文頭へ',
+                  tex: '\\text{Never I have seen ...} \\quad (\\times)',
+                  note: '否定語を文頭に置いただけでは強調になりません。これでは誤りです。',
+                },
+                {
+                  label: 'Step 3: 助動詞を主語の前に出して完成',
+                  tex: '\\text{Never have I seen such a beautiful sunset.}',
+                  note: '疑問文 Have you ...? と同じ語順にすることで「強調」のサインになります。',
+                },
+              ],
+            },
+            { type: 'heading', level: 3, content: 'So / Such の倒置' },
+            {
+              type: 'text',
+              content: '**So + 形容詞（副詞）**や **Such + 名詞句**を文頭に持ってくると倒置が起きます。もとは so ... that（とても〜なので…）という結果構文です。So difficult was the exam that few students passed. は The exam was so difficult that ... の強調形で、「あまりに難しかったので合格者はほとんどいなかった」という訳になります。',
+            },
+            {
+              type: 'list',
+              items: [
+                '**So loud was the music that** I could not sleep.（音楽がうるさすぎて眠れなかった）',
+                '**Such was his kindness that** everyone respected him.（彼はなんと親切だったので皆に敬愛された）',
+                '**Not only did he apologize, but he also paid** for the damage.（謝っただけでなく弁償もした）',
+              ],
+            },
+            { type: 'heading', level: 3, content: '仮定法での倒置——If の省略' },
+            {
+              type: 'text',
+              content: '仮定法の if は、were・had・should が主語の前に出ると省略できます。Had I known the truth, I would have acted differently. は If I had known ... の倒置で、「本当のことを知っていたら違う行動を取っていただろう」の意味です。Were I you（もしあなたの立場なら）や Should you need help（万一助けが必要なら）もセットで覚えましょう。',
+            },
+            {
+              type: 'table',
+              headers: ['倒置形', 'If を使った形', '意味'],
+              rows: [
+                ['**Were I** you, ...', 'If I were you, ...', 'もしあなたの立場なら'],
+                ['**Had I known**, ...', 'If I had known, ...', 'もし知っていたら（仮定法過去完了）'],
+                ['**Should it rain**, ...', 'If it should rain, ...', '万一雨が降ったら（仮定法未来）'],
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題',
+              body: 'I did not realize the value of health until I got sick. を Not until で始まる文に書き換えよ。',
+              answer: '**Not until I got sick did I realize the value of health.** Not until 以下が文頭に出ると、主節は疑問文と同じ語順 did I realize になります。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: 'He had hardly arrived when the meeting started. を Hardly で始まる文に。',
+                  answer: '**Hardly had he arrived when the meeting started.** had が主語 He の前に出る。',
+                },
+                {
+                  body: 'The problem was so hard that nobody could solve it. を So で始めて書き換えよ。',
+                  answer: '**So hard was the problem that nobody could solve it.** was が主語 the problem の前に出る。',
+                },
+                {
+                  body: 'If I had taken the earlier train, I would have been in time. の if を省略せよ。',
+                  answer: '**Had I taken the earlier train, I would have been in time.** had + 主語 の倒置で if が消える。',
+                },
+                {
+                  body: 'I do not know what I should do next. を 疑問詞＋不定詞 に書き換えよ。（総合）',
+                  answer: '**I do not know what to do next.** should do が to do に縮約される。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（名詞節・倒置）',
+              questions: [
+                {
+                  question: 'Tell me where does he live. を直すと？',
+                  choices: ['Tell me where he lives.', 'Tell me where lives he.', 'Tell me where he live.'],
+                  answerIndex: 0,
+                  explanation: '名詞節の中は疑問文ではなく平叙文の語順。where he lives となり does は消えます。',
+                },
+                {
+                  question: 'Never ___ such a delicious cake. 空欄に入る組み合わせは？',
+                  choices: ['I have eaten', 'have I eaten', 'I ate have'],
+                  answerIndex: 1,
+                  explanation: '否定語 Never が文頭にあるので倒置して have I eaten とします。',
+                },
+                {
+                  question: 'Had I been there, I could have helped you. の意味は？',
+                  choices: ['そこにいたので助けられた', 'もしそこにいたら、あなたを助けられたのに', 'そこにいなければあなたを助けられなかっただろう'],
+                  answerIndex: 1,
+                  explanation: 'Had I been there = If I had been there の If 省略倒置。仮定法過去完了の反事実です。',
+                },
+              ],
+            },
+          ],
+        },
+        {
           id: 'academic-vocabulary',
           title: '英単語・熟語ドリル',
           summary: '入試頻出の単語・熟語を接頭辞パターンとあわせて暗記する。',
