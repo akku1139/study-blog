@@ -62,7 +62,7 @@ export function LessonPage() {
           <strong>この単元の目標</strong>
           <ul>
             {lesson.objectives.map((o, i) => (
-              <li key={i}>{renderMathInText(o)}</li>
+              <li key={i}>{renderInline(o)}</li>
             ))}
           </ul>
         </div>
