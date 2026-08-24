@@ -27,7 +27,7 @@ for (const subject of subjects) {
       for (const b of lesson.blocks) {
         switch (b.type) {
           case 'text':
-            fail += validateTex(b.content, where);
+            fail += validateTex(b.content, where).length;
             break;
           case 'heading':
             break;
@@ -48,34 +48,34 @@ for (const subject of subjects) {
                 console.log(`${where}/derivation "${b.title}": ${(e as Error).message} in "${st.tex?.slice(0, 80)}"`);
                 fail++;
               }
-              if (st.note) fail += validateTex(st.note, `${where}/derivation-note`);
+              if (st.note) fail += validateTex(st.note, `${where}/derivation-note`).length;
             }
             break;
           case 'list':
-            for (const it of b.items) fail += validateTex(it, where);
+            for (const it of b.items) fail += validateTex(it, where).length;
             break;
           case 'example':
-            fail += validateTex(b.body, where);
-            if (b.answer) fail += validateTex(b.answer, where);
+            fail += validateTex(b.body, where).length;
+            if (b.answer) fail += validateTex(b.answer, where).length;
             break;
           case 'note':
-            fail += validateTex(b.content, where);
+            fail += validateTex(b.content, where).length;
             break;
           case 'table':
-            for (const row of b.rows) for (const cell of row) fail += validateTex(cell, where);
+            for (const row of b.rows) for (const cell of row) fail += validateTex(cell, where).length;
             break;
           case 'practice':
             for (const pr of b.problems) {
-              fail += validateTex(pr.body, where);
-              if (pr.answer) fail += validateTex(pr.answer, where);
-              if (pr.hint) fail += validateTex(pr.hint, where);
+              fail += validateTex(pr.body, where).length;
+              if (pr.answer) fail += validateTex(pr.answer, where).length;
+              if (pr.hint) fail += validateTex(pr.hint, where).length;
             }
             break;
           case 'quiz':
             for (const q of b.questions) {
-              fail += validateTex(q.question, where);
-              for (const c of q.choices) fail += validateTex(c, where);
-              if (q.explanation) fail += validateTex(q.explanation, where);
+              fail += validateTex(q.question, where).length;
+              for (const c of q.choices) fail += validateTex(c, where).length;
+              if (q.explanation) fail += validateTex(q.explanation, where).length;
             }
             break;
           default:

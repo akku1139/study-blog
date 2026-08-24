@@ -151,6 +151,138 @@ export const linearAlgebraUnit: Unit = {
         },
       ],
     },
+    {
+      id: 'eigenvalue-applications',
+      title: '固有値の応用——冪計算・フィボナッチ・マルコフ連鎖',
+      summary: '対角化を実戦で使う。行列の冪、フィボナッチ数列の閉形式、マルコフ連鎖の定常分布。',
+      objectives: [
+        '対角化により行列の冪 A^k を効率よく計算できる',
+        '固有値からフィボナッチ数列の一般項（ビネーの公式）を導ける',
+        'マルコフ連鎖の定常分布が固有ベクトル問題として求まることを説明できる',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: '対角化による冪計算' },
+        {
+          type: 'text',
+          content:
+            '対角化 $A = PDP^{-1}$ ができれば、行列の冪は**対角成分の冪**に分解されます。$D^k$ の計算は対角成分をそれぞれ k 乗するだけで済み、k 回の行列積を手で計算する必要がありません。この仕組みは漸化式・離散時間システム・差分方程式における「n ステップ後の状態」を求める標準技術です。',
+        },
+        { type: 'formula', tex: 'A = PDP^{-1} \\;\\Longrightarrow\\; A^k = P D^k P^{-1}', display: true },
+        {
+          type: 'derivation',
+          title: 'フィボナッチ数列の一般項（ビネーの公式）を固有値で導く',
+          steps: [
+            {
+              label: 'Step 1: 漸化式を 2 元の線形系に書き換える',
+              tex: '\\begin{pmatrix} F_{n+1} \\\\ F_n \\end{pmatrix} = A \\begin{pmatrix} F_n \\\\ F_{n-1} \\end{pmatrix}, \\qquad A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}',
+              note: '隣接 2 項を状態ベクトルとみなせば、n ステップ後の状態は $A^n$ の適用で決まる。',
+            },
+            {
+              label: 'Step 2: 固有方程式を解く',
+              tex: '\\det(A - \\lambda I) = \\lambda^2 - \\lambda - 1 = 0 \\quad\\Longrightarrow\\quad \\lambda = \\frac{1 \\pm \\sqrt{5}}{2}',
+              note: '黄金比 $\\varphi = (1 + \\sqrt{5})/2 \\approx 1.618$ と $\\psi = (1 - \\sqrt{5})/2$ が姿を現す。',
+            },
+            {
+              label: 'Step 3: 対角化して n 乗を明示する',
+              tex: 'A^n = P \\begin{pmatrix} \\varphi^n & 0 \\\\ 0 & \\psi^n \\end{pmatrix} P^{-1} \\;\\Longrightarrow\\; F_n = c_1 \\varphi^n + c_2 \\psi^n',
+              note: '解は固有モード $\\varphi^n$ と $\\psi^n$ の線形結合として書ける（重ね合わせの原理）。',
+            },
+            {
+              label: 'Step 4: 初期条件 F_0 = 0, F_1 = 1 で係数を決める',
+              tex: 'F_n = \\frac{\\varphi^n - \\psi^n}{\\varphi - \\psi} = \\frac{1}{\\sqrt{5}} \\left\\{ \\left( \\frac{1 + \\sqrt{5}}{2} \\right)^n - \\left( \\frac{1 - \\sqrt{5}}{2} \\right)^n \\right\\}',
+              note: '整数の数列が無理数の冪の差で厳密に表われる——線形漸化式の美しい帰結。',
+            },
+          ],
+        },
+        { type: 'heading', level: 3, content: 'マルコフ連鎖の定常分布' },
+        {
+          type: 'text',
+          content:
+            '各時刻で状態が確率的に遷移する過程は、列和が 1 の**遷移行列** $M$ と状態分布ベクトル $p_n$ により $p_{n+1} = Mp_n$ と書けます。それ以上変化しない分布（**定常分布** $\\pi$）は $M\\pi = \\pi$ を満たす、すなわち**固有値 1 の固有ベクトル**です。天気の推移・市場シェア・検索エンジンのページランクなど、「長期的にどこに落ち着くか」という問いがすべてこの形に落ちます。',
+        },
+        {
+          type: 'derivation',
+          title: 'なぜ遷移行列は必ず固有値 1 をもつのか',
+          steps: [
+            {
+              label: 'Step 1: 遷移行列の構造',
+              tex: 'p_{n+1} = M p_n, \\qquad m_{ij} \\ge 0, \\quad \\text{各列の和は } 1',
+              note: '列 j は「状態 j にいるなら次の瞬間どこかに必ず移る」確率の配分を表す。',
+            },
+            {
+              label: 'Step 2: 左から 1 ベクトルを掛ける',
+              tex: '\\mathbf{1}^T M = \\mathbf{1}^T, \\qquad \\mathbf{1} = (1, 1, \\dots, 1)^T',
+              note: '列和がすべて 1 という条件を、行ベクトルとの積で書いたもの。',
+            },
+            {
+              label: 'Step 3: 転置して右固有ベクトルの関係へ',
+              tex: '(M - I)^T \\mathbf{1} = 0 \\;\\Longrightarrow\\; \\det(M - I) = \\det\\left( (M - I)^T \\right) = 0',
+              note: '転置しても行列式は不変なので、M 自身も固有値 1 をもつことが従う。',
+            },
+            {
+              label: 'Step 4: 定常分布の正体',
+              tex: 'M \\pi = \\pi, \\qquad \\text{成分の和が } 1 \\text{ になるよう規格化}',
+              note: '固有値 1 の固有ベクトルを総和 1 に正規化したものが定常分布。他の固有値が $|\\lambda| < 1$ ならその成分は $M^n$ の反復で消え、どんな初期分布も $\\pi$ に近づく。',
+            },
+          ],
+        },
+        {
+          type: 'example',
+          title: '例題（通勤手段の移り変わり）',
+          body: 'ある会社の通勤者は電車組と車組に分かれている。毎月、電車組の 20% が車組へ、車組の 10% が電車組へ移動する。十分長い期間のあとの定常分布を求めよ。',
+          answer:
+            '遷移行列は $M = \\begin{pmatrix} 0.8 & 0.1 \\\\ 0.2 & 0.9 \\end{pmatrix}$（列が現在の状態）。$M\\pi = \\pi$ より $0.1\\pi_2 = 0.2\\pi_1$、つまり $\\pi_2 = 2\\pi_1$。$\\pi_1 + \\pi_2 = 1$ と合わせて **$\\pi = (1/3, \\, 2/3)$**：最終的に電車組 3 分の 1、車組 3 分の 2 に落ち着く。',
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '$A = \\begin{pmatrix} 3 & 1 \\\\ 0 & 2 \\end{pmatrix}$ の固有値を求め、$A^4$ を対角化で計算せよ。',
+              hint: '三角行列の固有値は対角成分。$A^4 = PD^4P^{-1}$。',
+              answer:
+                '固有値は **3, 2**。$P = \\begin{pmatrix} 1 & 1 \\\\ 0 & -1 \\end{pmatrix}$ として $A^4 = P \\begin{pmatrix} 81 & 0 \\\\ 0 & 16 \\end{pmatrix} P^{-1} = \\begin{pmatrix} 81 & 65 \\\\ 0 & 16 \\end{pmatrix}$',
+            },
+            {
+              body: 'ビネーの公式で $F_{10}$ を計算し、漸化式で得られる 55 と一致することを確かめよ。',
+              hint: '$\\varphi^{10} \\approx 122.99$, $\\psi^{10} \\approx 0.008$。',
+              answer:
+                '$F_{10} = (\\varphi^{10} - \\psi^{10})/\\sqrt{5} \\approx 122.98/2.236 \\approx$ **55**。$|\\psi| < 1$ なので $\\psi^n$ の項はすぐ消え、実質 $\\varphi^n/\\sqrt{5}$ を四捨五入したものがフィボナッチ数になる。',
+            },
+            {
+              body: '今日雨なら明日も雨の確率が 0.6、今日晴なら明日は雨の確率が 0.3 である。定常的な雨の確率を求めよ。',
+              hint: '$0.6\\pi_R + 0.3\\pi_S = \\pi_R$ と $\\pi_R + \\pi_S = 1$ を連立する。',
+              answer:
+                '$0.6\\pi_R + 0.3(1 - \\pi_R) = \\pi_R \\Rightarrow 0.3 = 0.7\\pi_R \\Rightarrow$ **$\\pi_R = 3/7 \\approx 0.43$**',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（固有値の応用）',
+          questions: [
+            {
+              question: '対角化可能な行列 A に対する A^k の計算式はどれか。',
+              choices: ['$A^k = PD^kP^{-1}$', '$A^k = D^kP$', '$A^k = kA$'],
+              answerIndex: 0,
+              explanation: '対角化の利点は冪が対角行列の冪に分解されること。$D^k$ は成分ごとの冪だけで済みます。',
+            },
+            {
+              question: 'マルコフ連鎖の定常分布を求める問題は、線形代数では何に相当するか。',
+              choices: ['遷移行列の固有値 1 に属する固有ベクトルを求める問題', '行列式を最大化する問題', '固有値をすべて足し合わせる問題'],
+              answerIndex: 0,
+              explanation: '分布が動かない状態 Mπ = π は、そのまま固有値 1 の固有ベクトル方程式です。',
+            },
+            {
+              question: 'フィボナッチ数列の一般項に登場する特殊な数は？',
+              choices: ['黄金比（1 + √5）/2', '円周率 π', 'ネイピア数 e'],
+              answerIndex: 0,
+              explanation: '漸化式の係数行列の固有値として黄金比 φ と ψ が現れ、一般項はその冪の差で書けます。',
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
@@ -297,6 +429,245 @@ export const analysisUnit: Unit = {
           body: '$\\displaystyle \\sum_{n=1}^{\\infty} \\frac{n}{2^n}$ は収束するか。収束するなら和を求めよ。',
           answer:
             '比判定：$\\frac{a_{n+1}}{a_n} = \\frac{n+1}{2n} \\to \\frac{1}{2} < 1$ で**収束**。和は $\\sum n x^n = \\frac{x}{(1-x)^2}$ に $x = 1/2$ を代入して **2**',
+        },
+      ],
+    },
+    {
+      id: 'multivariable-extrema',
+      title: '多変数関数の極値とラグランジュの未定乗数法',
+      summary: 'ヘッセ行列による極値の判別、制約付き最適化を未定乗数法で解く。',
+      objectives: [
+        '二次偏導関数からヘッセ行列をつくり、極大・極小・鞍点を判別できる',
+        '制約つき最大化・最小化をラグランジュの未定乗数法で解ける',
+        '未定乗数法の幾何学的意味（勾配の平行条件）を説明できる',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: '極値問題の準備——テイラー近似とヘッセ行列' },
+        {
+          type: 'text',
+          content:
+            '多変数関数 $f(x, y)$ の極値候補は、一次の微分がすべて消える**停留点** $\\nabla f = \\mathbf{0}$ に限ります。その点が本当に山の頂上か谷底か、それとも馬の鞍のような**鞍点**かを見分けるのが二次微分の情報、すなわち**ヘッセ行列**です。1 変数のとき「$f^{\prime} = 0$ かつ $f^{\prime\prime} > 0$ なら極小」だったのと同じ役割を、行列が引き継いでいます。',
+        },
+        { type: 'formula', tex: 'H = \\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{yx} & f_{yy} \\end{pmatrix}, \\qquad D = \\det H = f_{xx} f_{yy} - (f_{xy})^2', display: true },
+        {
+          type: 'list',
+          items: [
+            '$D > 0$ かつ $f_{xx} > 0$：**極小**（ヘッセ行列が正定値＝どの方向に歩いても増える）',
+            '$D > 0$ かつ $f_{xx} < 0$：**極大**（負定値＝どの方向に歩いても減る）',
+            '$D < 0$：**鞍点**（ある方向では増え、別の方向では減る）',
+            '$D = 0$：この判定では決められない（高次の項を調べる必要がある）',
+          ],
+        },
+        {
+          type: 'derivation',
+          title: 'なぜ判別式 D で極値がわかるのか——2 次のテイラー展開',
+          steps: [
+            {
+              label: 'Step 1: 停留点のまわりで 2 次まで展開する',
+              tex: '\\Delta f = f(a + h, b + k) - f(a, b) \\approx \\frac{1}{2}\\left( f_{xx} h^2 + 2 f_{xy} hk + f_{yy} k^2 \\right)',
+              note: '停留点では一次の項（勾配）が消えるので、増減は 2 次の項だけで決まる。',
+            },
+            {
+              label: 'Step 2: 平方完成する',
+              tex: '2\\Delta f \\approx f_{xx} \\left( h + \\frac{f_{xy}}{f_{xx}} k \\right)^2 + \\frac{f_{xx} f_{yy} - (f_{xy})^2}{f_{xx}} k^2',
+              note: '1 変数の 2 次関数の平方完成と同じ発想。第 1 項は常に $f_{xx}$ と同じ符号。',
+            },
+            {
+              label: 'Step 3: 符号を読み取る',
+              tex: 'D = f_{xx} f_{yy} - (f_{xy})^2 > 0, \\; f_{xx} > 0 \\quad\\Longrightarrow\\quad \\Delta f > 0 \\text{ （任意の方向で増える＝極小）}',
+              note: '両項が正なのでどの $(h, k) \\neq (0,0)$ でも増える。$D < 0$ なら第 2 項が逆符号になり方向によって増減が変わる＝鞍点。',
+            },
+          ],
+        },
+        { type: 'heading', level: 3, content: 'ラグランジュの未定乗数法' },
+        { type: 'formula', tex: '\\nabla f = \\lambda \\nabla g, \\qquad g(x, y) = 0', display: true },
+        {
+          type: 'derivation',
+          title: 'なぜ「勾配が平行」でよいのか——等高線の幾何学',
+          steps: [
+            {
+              label: 'Step 1: 制約は曲線、目的関数は等高線',
+              tex: '\\text{制約 } g(x, y) = 0 \\text{ は曲線、} f(x, y) = c \\text{ は等高線族}',
+              note: '曲線上を動きながら f の値をできるだけ大きくしたい状況を考える。',
+            },
+            {
+              label: 'Step 2: 勾配は等高線に垂直',
+              tex: '\\nabla f \\perp f(x,y)=c, \\qquad \\nabla g \\perp g(x,y)=0',
+              note: '勾配ベクトルの定義から、関数が最も急増加する方向は等高線の法線方向。',
+            },
+            {
+              label: 'Step 3: 制約曲線に沿った方向微分が消える',
+              tex: '\\frac{d}{dt} f(\\mathbf{r}(t)) = \\nabla f \\cdot \\mathbf{r}^{\prime}(t) = 0, \\qquad \\mathbf{r}^{\prime}(t) \\parallel \\text{接線}',
+              note: '制約曲線に沿って動いている間、極值では f の値が一時的に変化しなくなる。つまり ∇f は曲線の接線と直交。',
+            },
+            {
+              label: 'Step 4: 接線に垂直なベクトルは ∇g しかない',
+              tex: '\\nabla f \\parallel \\nabla g \\quad\\Longleftrightarrow\\quad \\nabla f = \\lambda \\nabla g',
+              note: '∇g も制約曲線の法線だから、∇f はそのスカラー倍。比例定数 λ が「未定乗数」。これと制約式を連立すれば未知数 3 本・方程式 3 本となり解ける。',
+            },
+          ],
+        },
+        {
+          type: 'example',
+          title: '例題（制約つき最大値）',
+          body: '周囲の長さが 20 m の長方形のうち、面積を最大にするものを未定乗数法で求めよ。',
+          answer:
+            '$f(x,y) = xy$, 制約 $g = x + y - 10 = 0$。$\\nabla f = \\lambda \\nabla g$ より $y = \\lambda$, $x = \\lambda$、ゆえに $x = y = 5$。面積は **25 平方メートル**（正方形が最適）。',
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '$f(x, y) = x^3 + y^3 - 3xy$ の極値を求めよ。',
+              hint: '$f_x = 3x^2 - 3y = 0$, $f_y = 3y^2 - 3x = 0$。実数解は $(0,0)$ と $(1,1)$。',
+              answer:
+                '$D = f_{xx} f_{yy} - f_{xy}^2 = 6x \\cdot 6y - (-3)^2$。$(0,0)$ では $D = -9 < 0$ で**鞍点**。$(1,1)$ では $D = 36 - 9 = 27 > 0$, $f_{xx} = 6 > 0$ で**極小値 $-1$**',
+            },
+            {
+              body: '$f(x, y) = x + y$ を円周 $x^2 + y^2 = 4$ 上で最大・最小にせよ。',
+              hint: '$1 = \\lambda 2x$, $1 = \\lambda 2y$ より $x = y$。',
+              answer:
+                '$x = y = \\sqrt{2}$ で**最大 $2\\sqrt{2}$**、$x = y = -\\sqrt{2}$ で**最小 $-2\\sqrt{2}$**。（コーシー・シュワルツの等号条件と一致）',
+            },
+            {
+              body: '体積 V が一定の直方体のうち表面積を最小にするものの形状を述べよ。',
+              hint: '$xyz = V$ の下で $2(xy + yz + zx)$ を最小化。',
+              answer:
+                '**立方体（すべての辺が等しい）**。対称性から $x = y = z$ が解となり、これは不等式 $(xy + yz + zx)/3 \\ge (x^2y^2z^2)^{1/3}$ の等号ケースにも対応する。',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（極値と未定乗数法）',
+          questions: [
+            {
+              question: '停留点で D < 0 のとき、その点は何と呼ばれるか。',
+              choices: ['鞍点', '極大点', '変曲点'],
+              answerIndex: 0,
+              explanation: '方向によって増えたり減ったりする点で、極値ではありません。曲面を鞍に見立てた呼び名です。',
+            },
+            {
+              question: 'ラグランジュの未定乗数法の条件 ∇f = λ∇g は何を表すか。',
+              choices: ['f の勾配が制約面の勾配と平行', 'f と g が等しい', 'g の値を λ 倍する'],
+              answerIndex: 0,
+              explanation: '極値では制約曲線に沿った f の変化が止まり、∇f が制約曲線の法線 ∇g と同方向になります。',
+            },
+            {
+              question: 'ヘッセ行列が正定値であることと極小の関係は？',
+              choices: ['正定値なら極小である', '正定値なら極大である', '無関係である'],
+              answerIndex: 0,
+              explanation: 'どの方向へ離れても 2 次の項が正になる＝必ず増えるので、その点は谷底（極小）です。',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'multiple-integrals',
+      title: '重積分——累次積分・領域の読み替え・座標変換',
+      summary: '2 重積分の計算技術。積分順序の交換、極座標への変換とヤコビアン r、面積・体積への応用。',
+      objectives: [
+        '矩形領域・非矩形領域上の 2 重積分を累次積分として実行できる',
+        '積分順序の交換が必要になる場面を判断し、実際に書き換えられる',
+        '極座標変換（dxdy = r dr dθ）を使って円に関する積分を処理できる',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: '重積分の意味と累次積分' },
+        {
+          type: 'text',
+          content:
+            '2 重積分 $\\iint_D f(x, y)\\, dA$ は、平面上の領域 D の上に立つ柱の**体積**（$f \\ge 0$ のとき）、あるいは密度分布 $f$ から D の総質量を求める操作です。計算は**累次積分**に落とします。内側の積分で片方の変数を固定して切り出し、その結果を外側の変数で積算する——「薄く切って、切れ目ごとに足し上げる」2 段構えです。',
+        },
+        { type: 'formula', tex: '\\iint_D f(x, y)\\, dx\\, dy = \\int_a^b \\left[ \\int_{p(x)}^{q(x)} f(x, y)\\, dy \\right] dx', display: true },
+        { type: 'heading', level: 3, content: '積分順序の交換' },
+        {
+          type: 'text',
+          content:
+            '内側の原始関数が初等関数で書けないことがあります。たとえば $e^{-y^2}$ は $y$ について積分できませんが、先に $x$ で積分すると話が変わります。領域を「縦割り」から「横割り」に読み替えて積分の順序を入れ替えるのが**区画法（フビニの定理）**の力で、これができるには被積分関数が連続であれば十分です。',
+        },
+        {
+          type: 'derivation',
+          title: '極座標での面積要素 dxdy = r dr dθ の由来',
+          steps: [
+            {
+              label: 'Step 1: 極座標での位置',
+              tex: 'x = r \\cos\\theta, \\qquad y = r \\sin\\theta',
+              note: '平面の点を「原点からの距離 r」と「角度 θ」で指定し直す。',
+            },
+            {
+              label: 'Step 2: 微小変化の接ベクトル',
+              tex: '\\frac{\\partial (x, y)}{\\partial r} = (\\cos\\theta, \\sin\\theta), \\qquad \\frac{\\partial (x, y)}{\\partial \\theta} = (-r \\sin\\theta, r \\cos\\theta)',
+              note: 'r 方向に動けば単位ベクトルだけ進むが、θ 方向に動くと半径 r の円弧に沿って動く。',
+            },
+            {
+              label: 'Step 3: 小さな平行四辺形の面積＝外積の絶対値',
+              tex: 'dA = \\left| \\det \\begin{pmatrix} \\cos\\theta & -r \\sin\\theta \\\\ \\sin\\theta & r \\cos\\theta \\end{pmatrix} \\right| dr\\, d\\theta = r\\, dr\\, d\\theta',
+              note: 'この行列がヤコビアン。角度方向の辺の長さが半径 r に比例して伸びるため、因子 r が現れる——扇形の面積 πr² × (θ/π) という中学レベルの事実と一致します。',
+            },
+          ],
+        },
+        {
+          type: 'example',
+          title: '例題（ガウス積分）',
+          body: 'ガウス積分 $\\displaystyle \\int_{-\\infty}^{\\infty} e^{-x^2}\\, dx$ を求めよ。',
+          answer:
+            '2 乗して極座標変換：$I^2 = \\iint e^{-(x^2+y^2)}\\, dxdy = \\int_0^{2\\pi}\\!\\!\\int_0^{\\infty} e^{-r^2} r\\, dr\\, d\\theta = 2\\pi \\cdot \\frac{1}{2} = \\pi$。よって $I = \\sqrt{\\pi}$。1 変数では不可能だった計算が、次元を上げて座標変換することで解ける好例。',
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '$\\displaystyle \\int_0^1 \\!\\! \\int_0^1 (x^2 + y)\\, dy\\, dx$ を計算せよ。',
+              hint: '内側から。x を固定して y で積分。',
+              answer:
+                '内側：$\\int_0^1 (x^2 + y)\\, dy = x^2 + \\frac{1}{2}$。外側：$\\int_0^1 \\left( x^2 + \\frac{1}{2} \\right) dx = \\frac{1}{3} + \\frac{1}{2} =$ **$\\frac{5}{6}$**',
+            },
+            {
+              body: '$\\displaystyle \\int_0^2 \\!\\! \\int_x^2 \\sin(y^2)\\, dy\\, dx$ の積分順序を交換して計算せよ。',
+              hint: '領域は 0 ≤ x ≤ y ≤ 2。横割りに読み替える。',
+              answer:
+                '順序を入れ替えると $\\int_0^2 \\!\\! \\int_0^y \\sin(y^2)\\, dx\\, dy = \\int_0^2 y \\sin(y^2)\\, dy = \\left[ -\\frac{\\cos(y^2)}{2} \\right]_0^2 = \\frac{1 - \\cos 4}{2}$',
+            },
+            {
+              body: '半径 R の円板の面積を極座標の重積分で求めよ。',
+              hint: '$\\iint_D r\\, dr\\, d\\theta$、$0 \\le r \\le R$, $0 \\le \\theta \\le 2\\pi$。',
+              answer:
+                '$\\int_0^{2\\pi} \\!\\! \\int_0^R r\\, dr\\, d\\theta = 2\\pi \\cdot \\frac{R^2}{2} =$ **$\\pi R^2$**。円周率の公式が重積分から自然に出てくる。',
+            },
+            {
+              body: 'z = x² + y² と z = 4 で囲まれた放物面の皿の体積を求めよ。',
+              hint: '高さは 4 − (x² + y²)。円板 x² + y² ≤ 4 上で積分し極座標へ。',
+              answer:
+                '$V = \\iint (4 - x^2 - y^2)\\, dxdy = \\int_0^{2\\pi}\\!\\!\\int_0^2 (4 - r^2) r\\, dr\\, d\\theta = 2\\pi \\left[ 2r^2 - \\frac{r^4}{4} \\right]_0^2 = 2\\pi(8 - 4) =$ **$8\\pi$**',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（重積分）',
+          questions: [
+            {
+              question: '極座標に変換したときの面積要素はどれか。',
+              choices: ['$r\\, dr\\, d\\theta$', '$dr\\, d\\theta$', '$r^2\\, dr\\, d\\theta$'],
+              answerIndex: 0,
+              explanation: '角度方向の微小長さが半径 r に比例するため、ヤコビアンから因子 r が現れます。',
+            },
+            {
+              question: '積分順序を交換したくなる典型的な理由は？',
+              choices: ['内側の積分が初等関数で書けないから', '計算時間を減らすため', '領域が円だから'],
+              answerIndex: 0,
+              explanation: 'e^{-y²} や sin(y²)/y のように原始関数をもたない被積分関数は、順序の交換で突破します。',
+            },
+            {
+              question: 'f ≥ 0 のとき ∬_D f dA は何を表すか。',
+              choices: ['曲面 z = f(x, y) と領域 D で挟まれた柱の体積', '領域 D の周囲の長さ', 'f の最大値'],
+              answerIndex: 0,
+              explanation: '各点 (x, y) の高さ f(x, y) の柱を領域全体で足し合わせたもの＝体積です。',
+            },
+          ],
         },
       ],
     },
@@ -639,6 +1010,144 @@ export const differentialEquationsUnit: Unit = {
               choices: ['離散コサイン変換（DCT）', 'ラプラス変換', 'ガンマ関数'],
               answerIndex: 0,
               explanation: '画像ブロックを周波数成分に分解し、目立たない高周波を粗く量子化することで圧縮します。',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'laplace-transform',
+      title: 'ラプラス変換——微分方程式を代数方程式に変える',
+      summary: '時間領域の微分方程式を s 領域の代数計算に落とす積分変換。部分分数展開で元に戻す。',
+      objectives: [
+        'ラプラス変換の定義と基本公式（線形性・指数・冪・三角関数）を使いこなせる',
+        '微分の性質により初期値問題が代数方程式に帰着することを説明できる',
+        '部分分数展開で逆ラプラス変換を実行して微分方程式を解ける',
+      ],
+      blocks: [
+        { type: 'heading', level: 3, content: 'ラプラス変換とは' },
+        {
+          type: 'text',
+          content:
+            'ラプラス変換は、時間の関数 $f(t)$ を複素数 $s$ の関数 $F(s)$ へ写しかえる**積分変換**です。目的は微分方程式の攻略。変換の世界では**微分が「$s$ を掛ける操作」に置き換わり**、面倒な微分方程式が一次方程式（代数方程式）に変わります。さらに初期値が変換の時点で式の中に組み込まれるため、「一般解を出してから定数を決める」という手順が丸ごと不要になります。',
+        },
+        { type: 'formula', tex: '\\mathcal{L}\\{f\\}(s) = F(s) = \\int_0^{\\infty} e^{-st} f(t)\\, dt \\qquad (\\text{Re}\\, s \\text{ が十分大きいとき収束})', display: true },
+        { type: 'heading', level: 3, content: '基本公式表' },
+        {
+          type: 'table',
+          headers: ['f(t)', 'F(s) = L{f}'],
+          rows: [
+            ['$1$', '$\\dfrac{1}{s}$'],
+            ['$e^{at}$', '$\\dfrac{1}{s-a}$'],
+            ['$t^n$（n は非負整数）', '$\\dfrac{n!}{s^{n+1}}$'],
+            ['$\\sin \\omega t$', '$\\dfrac{\\omega}{s^2 + \\omega^2}$'],
+            ['$\\cos \\omega t$', '$\\dfrac{s}{s^2 + \\omega^2}$'],
+          ],
+        },
+        { type: 'formula', tex: "\\mathcal{L}\\{af + bg\\} = aF + bG, \\qquad \\mathcal{L}\\{f'\\} = sF(s) - f(0)", display: true },
+        {
+          type: 'derivation',
+          title: '微分の性質 L{f-prime} = sF − f(0) を部分積分で導く',
+          steps: [
+            {
+              label: 'Step 1: 定義に f の代わりに f-prime を入れる',
+              tex: "\\mathcal{L}\\{f'\\} = \\int_0^{\\infty} e^{-st} f^{\\prime}(t)\\, dt",
+              note: '右辺を部分積分にかけるのが方針。u = e^{-st}, dv = f-prime dt と置く。',
+            },
+            {
+              label: 'Step 2: 部分積分を実行する',
+              tex: '\\int_0^{\\infty} e^{-st} f^{\\prime}(t)\\, dt = \\Bigl[ e^{-st} f(t) \\Bigr]_0^{\\infty} + s \\int_0^{\\infty} e^{-st} f(t)\\, dt',
+              note: '∫u dv = uv − ∫ v du で、du = −s e^{-st} dt だから第 2 項に +s が現れる。',
+            },
+            {
+              label: 'Step 3: 境界項を評価して結論',
+              tex: '\\Bigl[ e^{-st} f(t) \\Bigr]_0^{\\infty} = 0 - f(0) \\quad\\Longrightarrow\\quad \\mathcal{L}\\{f^{\\prime}\\} = sF(s) - f(0)',
+              note: 'f が指数オーダーで増えるにとどまり Re s > 0 なら t → ∞ で e^{-st} f(t) → 0。二階の導関数にも繰り返せば L{f-double-prime} = s²F − s f(0) − f-prime(0)。微分が掛け算に変わる正体はこの部分積分です。',
+            },
+          ],
+        },
+        {
+          type: 'derivation',
+          title: 'sin の変換公式——複素指数を許すだけで出てくる',
+          steps: [
+            {
+              label: 'Step 1: 指数関数の変換を複素数 a に拡張',
+              tex: '\\int_0^{\\infty} e^{-st} e^{at}\\, dt = \\left[ \\frac{e^{-(s-a)t}}{-(s-a)} \\right]_0^{\\infty} = \\frac{1}{s - a}',
+              note: 'a を虚数 iω まで認めても収束の議論は同じ（Re s > Re a）。',
+            },
+            {
+              label: 'Step 2: オイラーの公式で sin を分解',
+              tex: '\\sin \\omega t = \\frac{e^{i\\omega t} - e^{-i\\omega t}}{2i}',
+              note: '三角関数を複素指数の組に読み替える。線形性ですぐ変換できる。',
+            },
+            {
+              label: 'Step 3: 代入して通分',
+              tex: '\\mathcal{L}\\{\\sin \\omega t\\} = \\frac{1}{2i} \\left( \\frac{1}{s - i\\omega} - \\frac{1}{s + i\\omega} \\right) = \\frac{\\omega}{s^2 + \\omega^2}',
+              note: '分母の差が 2iω になり 2i と打ち消し合う。cos も同様に s/(s² + ω²)。公式表を丸暗記しなくても導出は 3 行で終わります。',
+            },
+          ],
+        },
+        { type: 'heading', level: 3, content: '微分方程式への応用——解く流れ' },
+        {
+          type: 'list',
+          items: [
+            '両辺をラプラス変換する → 微分方程式が $Y(s)$ の**代数方程式**になる',
+            '$Y(s)$ について解く → 有理関数（多項式の比）になる',
+            '**部分分数展開**で基本公式表の形に分解する',
+            '逆変換して $y(t)$ を得る——初期値は最初から反映済み',
+          ],
+        },
+        {
+          type: 'example',
+          title: '例題（一階線形の初期値問題）',
+          body: "$y' + 2y = e^{3t}$, $y(0) = 0$ をラプラス変換で解け。",
+          answer:
+            '変換すると $(s + 2)Y = \\dfrac{1}{s - 3}$ より $Y = \\dfrac{1}{(s - 3)(s + 2)}$。部分分数展開 $Y = \\dfrac{1}{5}\\left( \\dfrac{1}{s - 3} - \\dfrac{1}{s + 2} \\right)$ から **$y = \\dfrac{1}{5}\\left( e^{3t} - e^{-2t} \\right)$**。強制項のモード $e^{3t}$ と固有モード（過渡応答）$e^{-2t}$ が分解されて現れる。',
+        },
+        {
+          type: 'practice',
+          title: '練習問題',
+          problems: [
+            {
+              body: '$\\mathcal{L}\\{3t^2 + 2e^{-t}\\}$ を求めよ。',
+              hint: '線形性。$\\mathcal{L}\\{t^2\\} = 2!/s^3$。',
+              answer: '$\\dfrac{6}{s^3} + \\dfrac{2}{s + 1}$（Re s > 0）',
+            },
+            {
+              body: '$F(s) = \\dfrac{1}{(s + 1)(s + 3)}$ の逆ラプラス変換を求めよ。',
+              hint: '$\\dfrac{1}{(s+1)(s+3)} = \\dfrac{A}{s+1} + \\dfrac{B}{s+3}$ とおいて分子を比較。',
+              answer:
+                '$A = B = \\dfrac{1}{2}$ となるので **$f(t) = \\dfrac{1}{2}\\left( e^{-t} - e^{-3t} \\right)$**。ヘビサイドの公式 $A = \\lim_{s \\to -1}(s+1)F(s)$ でもすぐ出る。',
+            },
+            {
+              body: "$y'' + 4y = 0$, $y(0) = 1$, $y'(0) = 0$ を解け。",
+              hint: "$\\mathcal{L}\\{y''\\} = s^2 Y - s\\,y(0) - y'(0)$。",
+              answer:
+                '$(s^2 + 4)Y = s$ より $Y = \\dfrac{s}{s^2 + 4}$。公式表に戻して **$y = \\cos 2t$**。微分方程式を一度も積分せずに解けたことに注意。',
+            },
+          ],
+        },
+        {
+          type: 'quiz',
+          title: '確認クイズ（ラプラス変換）',
+          questions: [
+            {
+              question: 'ラプラス変換が微分方程式を解きやすくする理由は？',
+              choices: ['微分が s を掛ける操作に変わり、代数方程式になるから', '解が常に多項式になるから', '無限遠の境界条件が消えるから'],
+              answerIndex: 0,
+              explanation: "L{f'} = sF − f(0) のように微分が積み上がり、未知関数 Y(s) についての一次方程式に落ちます。",
+            },
+            {
+              question: '$\\mathcal{L}\\{1\\}$ はいくつか。',
+              choices: ['$1/s$', '$s$', '$1/(s-1)$'],
+              answerIndex: 0,
+              explanation: '∫₀^∞ e^{-st} dt = 1/s（Re s > 0）。等比級数の和と同じ極限です。',
+            },
+            {
+              question: '初期値 f(0) はいつ登場するか。',
+              choices: ['変換した時点で式の中に組み込まれる', '最後に数値を代入するとき', 'ラプラス変換では扱えない'],
+              answerIndex: 0,
+              explanation: '微分の性質に −f(0) という項として最初から現れるので、一般解→定数決定の手順が省略できます。',
             },
           ],
         },
