@@ -34,7 +34,13 @@ function pageMeta(route) {
   if (route === '/drills') {
     return {
       title: `無限ドリル | ${SITE_NAME}`,
-      description: '数学・情報I・化学の計算問題をランダム生成して無限に解けるトレーナー。14トピック収録。',
+      description: '数学・情報I・化学・英語・歴史の計算問題をランダム生成して無限に解けるトレーナー。全20トピック収録。',
+    };
+  }
+  if (route === '/exam-prep') {
+    return {
+      title: `共通テスト直前チェック | ${SITE_NAME}`,
+      description: '大学入学共通テストの科目別得点源チェックリスト。頻出要点と直前の復習戦略、当日の作戦を整理。',
     };
   }
   if (route === null) {
@@ -71,7 +77,7 @@ async function writePage(file, html, meta) {
 
 /** 全ルート（トップ + 目次 + 科目一覧 + 各レッスン）を列挙 */
 function enumerateRoutes() {
-  const routes = ['/', '/toc', '/drills'];
+  const routes = ['/', '/toc', '/drills', '/exam-prep'];
   for (const s of subjects) {
     routes.push(`/subject/${s.id}`);
     for (const u of s.units) {
