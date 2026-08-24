@@ -94,6 +94,32 @@ export const statesUnit: Unit = {
         { type: 'heading', level: 3, content: '酸と塩基' },
         { type: 'formula', tex: '\\mathrm{pH} = -\\log[H^+], \\qquad [H^+][OH^-] = K_w = 10^{-14}', display: true },
         {
+          type: 'derivation',
+          title: 'pH はなぜ「−log」なのか',
+          steps: [
+            {
+              label: 'Step 1: 水素イオン濃度の範囲は広い',
+              tex: '[H^+] = 1 \\sim 10^{-14} \\text{ mol/L}',
+              note: '酸性〜アルカリ性まで、濃度は14桁にも及ぶ。このままでは比較しにくい。',
+            },
+            {
+              label: 'Step 2: 桁を「数」にするために対数をとる',
+              tex: '\\log[H^+] \\in [-14, 0]',
+              note: 'log をとると桁数そのものが値になる。10^{-7} → −7 のように扱いやすい小さな数になる。',
+            },
+            {
+              label: 'Step 3: 符号を反転して正の数に',
+              tex: '\\mathrm{pH} = -\\log[H^+]',
+              note: '「−」を付けたのは単に見やすさのため。酸性ほど [H⁺] が大きく pH が小さくなる——直感的に「強い酸＝小さい数字」として覚えられる。',
+            },
+            {
+              label: 'Step 4: pH が1違うと濃度は10倍',
+              tex: '\\mathrm{pH} = 3 \\text{ と } 5 \\Rightarrow \\frac{[H^+]_{pH3}}{[H^+]_{pH5}} = \\frac{10^{-3}}{10^{-5}} = 100',
+              note: '対数スケールなので、pH 差2は実質100倍の差。試験での換算ミスが起きやすい点です。',
+            },
+          ],
+        },
+        {
           type: 'text',
           content:
             '中和点では **酸の mol ＝ 塩基の mol**（価数に注意：H₂SO₄ は2価）。滴定曲線で当量点付近で pH が急変する様子が指示薬選択の根拠です。',

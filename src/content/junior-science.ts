@@ -91,6 +91,32 @@ export const juniorScience: Subject = {
             { type: 'heading', level: 3, content: 'オームの法則' },
             { type: 'formula', tex: 'V = IR \\quad (I = \\frac{V}{R}, \\; R = \\frac{V}{I})', display: true },
             {
+              type: 'derivation',
+              title: 'オームの法則 V = IR はどこから来るか——電流の正体から',
+              steps: [
+                {
+                  label: 'Step 1: 電流とは何か',
+                  tex: '\\text{電流 } I = \\text{導線の中を流れる電荷の量/秒}',
+                  note: '電子がたくさん流れるほど電流は大きい。電子は導線の原子にぶつかりながら（抵抗を受けながら）進む。',
+                },
+                {
+                  label: 'Step 2: 電圧は「押す力」',
+                  tex: '\\text{電圧 } V = \\text{電荷1つあたりに与えられるエネルギー}',
+                  note: 'V が大きいほど電子は強く押される。ぶつかりながら進むので、押す力に比例した速さでしか進めない。',
+                },
+                {
+                  label: 'Step 3: 抵抗は「流れにくさ」',
+                  tex: '\\text{同じ } V \\text{でも、} R \\text{ が大きいほど } I \\text{ は小さい}',
+                  note: '原子との衝突が多い（細い・長い・材質が混雑な）導線ほど電流は流れにくい。',
+                },
+                {
+                  label: 'Step 4: 比例関係としてまとめる',
+                  tex: 'I \\propto \\frac{V}{R} \\quad\\Rightarrow\\quad I = \\frac{V}{R}, \\; V = IR',
+                  note: '実験的に金属ではこの比例が厳密に成り立つことが知られており、グラフは原点を通る直線（傾き 1/R）になります。',
+                },
+              ],
+            },
+            {
               type: 'text',
               content: '金属などの導線では、電圧を 2 倍にすると電流も 2 倍になる——この比例関係が**オームの法則**です。グラフにすると電圧 $V$ を横軸、電流 $I$ を縦軸としたとき原点を通る直線になり、傾きは $1/R$。',
             },
@@ -120,6 +146,27 @@ export const juniorScience: Subject = {
               content: '電流が流れると発熱する（**ジュール熱**）。発熱量は電力と時間に比例します。',
             },
             { type: 'formula', tex: 'P = VI = I^2 R = \\frac{V^2}{R}, \\qquad H = Pt \\; [\\text{J}]', display: true },
+            {
+              type: 'derivation',
+              title: 'なぜジュール熱が I²R という「2乗」になるのか',
+              steps: [
+                {
+                  label: 'Step 1: 電力＝電圧×電流',
+                  tex: 'P = VI',
+                  note: '電圧 V は「電荷1つあたりのエネルギー」、電流 I は「1秒あたりの電荷」。掛けると1秒あたりのエネルギーになる。',
+                },
+                {
+                  label: 'Step 2: オームの法則を代入',
+                  tex: 'V = IR \\;\\Rightarrow\\; P = (IR)I = I^2 R',
+                  note: '電流を2回掛ける形になるのがポイント。電流が2倍になると発熱は4倍——配線が太いのはこのためです。',
+                },
+                {
+                  label: 'Step 3: 別の形にも書ける',
+                  tex: 'I = \\frac{V}{R} \\;\\Rightarrow\\; P = V \\cdot \\frac{V}{R} = \\frac{V^2}{R}',
+                  note: '同じ式が「I²R」と「V²/R」の両方で書ける。送電問題では損失 $I^2R$ を減らすため高電圧化する。',
+                },
+              ],
+            },
             {
               type: 'example',
               title: '例題',
@@ -297,6 +344,32 @@ export const juniorScience: Subject = {
               content: '塩酸に水酸化ナトリウム水溶液を加えると、$H^+$ と $OH^-$ が結びついて水になり、中性へ向かいます。',
             },
             { type: 'formula', tex: '\\text{HCl} + \\text{NaOH} \\rightarrow \\text{NaCl} + \\text{H}_2\\text{O}', display: true },
+            {
+              type: 'derivation',
+              title: '中和の本体は「H⁺ と OH⁻ が水になる」だけ——イオン反応式の導出',
+              steps: [
+                {
+                  label: 'Step 1: 塩酸と水酸化ナトリウムは水中でどう存在するか',
+                  tex: '\\text{HCl} \\rightarrow H^+ + Cl^-, \\qquad \\text{NaOH} \\rightarrow Na^+ + OH^-',
+                  note: '両方とも水中では完全にイオンに分かれている。',
+                },
+                {
+                  label: 'Step 2: 混ぜた後の様子',
+                  tex: 'H^+, \; Cl^-, \; Na^+, \; OH^- \\text{ が混在する}',
+                  note: 'ここで $H^+$ と $OH^-$ は結合したがる（安定な水をつくる）。$Na^+$ と $Cl^-$ は水中ではそのまま。',
+                },
+                {
+                  label: 'Step 3: 反応しないイオンを消す（イオン反応式）',
+                  tex: 'H^+ + OH^- \\rightarrow H_2O',
+                  note: 'これが中和の本体。NaCl は「生成している」というより、水中に残ったイオンの呼び名に近い。',
+                },
+                {
+                  label: 'Step 4: 蒸発すると塩として析出',
+                  tex: '\\text{Na}^+(aq) + \\text{Cl}^-(aq) \\xrightarrow{\\text{蒸発}} \\text{NaCl}(s)',
+                  note: '水を蒸発させると残ったイオンが結晶化して食塩になる——化学反応式 NaCl 生成の正体です。',
+                },
+              ],
+            },
             {
               type: 'text',
               content: '生成する NaCl（塩化ナトリウム＝食塩）のように、**中和で生じる物質を塩**といいます。中和の様子は pH 計や指示薬の色変化でとらえられます。',
