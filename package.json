@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
+    "selftest": "npx -y tsx scripts/drill-selftest.ts && npx -y tsx scripts/content-selftest.ts",
     "preview": "vite preview"
   },
   "dependencies": {
