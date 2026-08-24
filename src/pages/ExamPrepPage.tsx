@@ -68,7 +68,7 @@ const SECTIONS: Section[] = [
             point: '特別な角の値',
             detail:
               '$\\sin 30°=1/2, \\cos 60°=1/2, \\tan 45°=1$ など、30°/45°/60° の表は即答レベル。加法定理で 15°/75° も出せるように。',
-            link: { subject: 'university-cs', lesson: 'complexity-basics', label: '' },
+            link: { subject: 'senior-math', lesson: 'trig-functions', label: '弧度法と三角関数' },
           },
           {
             point: '正弦定理・余弦定理の使い分け',
@@ -133,12 +133,12 @@ const SECTIONS: Section[] = [
           {
             point: '運動方程式 ma = F の立て方',
             detail: '**物体を切り出して**、はたらく力を全部矢印で書いてから成分分解。斜面なら摩擦と重力の斜面成分 $mg\\sin\\theta$。',
-            link: { subject: 'senior-physics-basic', lesson: 'projectile-motion', label: '物体の運動' },
+            link: { subject: 'senior-physics', lesson: 'projectile-motion', label: '物体の運動' },
           },
           {
             point: '力学的エネルギー保存と運動量保存',
             detail: '衝突は運動量保存（エネルギーは損失しうる）、ばねや自由落下はエネルギー保存。',
-            link: { subject: 'senior-physics', lesson: 'momentum-impulse', label: '運動量と力積' },
+            link: { subject: 'senior-physics-full', lesson: 'momentum-impulse', label: '運動量と力積' },
           },
         ],
       },
@@ -149,7 +149,7 @@ const SECTIONS: Section[] = [
           {
             point: '$v = f\\lambda$ と定在波',
             detail: '弦の固定端は節、自由端は腹。n 番の固有振動の波長を図から読み取る練習が最短。',
-            link: { subject: 'senior-physics', lesson: 'wave-basics', label: '波の基礎' },
+            link: { subject: 'senior-physics-full', lesson: 'wave-basics', label: '波の基礎' },
           },
           {
             point: 'ドップラー効果の公式',
@@ -165,7 +165,7 @@ const SECTIONS: Section[] = [
           {
             point: 'オームの法則と合成抵抗',
             detail: '直列は足す、並列は逆数の和。コンデンサーの蓄積電荷 Q=CV、エネルギー U=½CV²。',
-            link: { subject: 'senior-physics', lesson: 'circuits-magnetism', label: '直流回路と電磁誘導' },
+            link: { subject: 'senior-physics-full', lesson: 'circuits-magnetism', label: '直流回路と電磁誘導' },
           },
           {
             point: 'ローレンツ力と円運動',
@@ -302,7 +302,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    subjectId: 'senior-social-studies',
+    subjectId: 'senior-social',
     title: '地理歴史・公民',
     icon: '🌍',
     color: '#65a30d',
@@ -315,12 +315,12 @@ const SECTIONS: Section[] = [
           {
             point: '産業革命 → 帝国主義 → 世界大戦の因果',
             detail: '市場と原料の獲得が列強の世界分割を生み、その不均衡が二度の大戦につながる一本の線。',
-            link: { subject: 'senior-social-studies', lesson: 'industrial-revolution', label: '産業革命と世界システム' },
+            link: { subject: 'senior-social', lesson: 'industrial-revolution', label: '産業革命と世界システム' },
           },
           {
             point: '日本の近代化',
             detail: '開国 → 富国強兵・殖産興業 → 大正デモクラシー → 戦時体制。条約改正と憲政の発展が主題。',
-            link: { subject: 'senior-social-studies', lesson: 'japan-modernization', label: '日本の近代化' },
+            link: { subject: 'senior-social', lesson: 'japan-modernization', label: '日本の近代化' },
           },
         ],
       },
@@ -336,7 +336,7 @@ const SECTIONS: Section[] = [
           {
             point: '人口統計の指標',
             detail: '自然増減＝出生 − 死亡。人口転換モデル、都市化率の読み取り。',
-            link: { subject: 'senior-social-studies', lesson: 'population-urbanization', label: '人口と都市化' },
+            link: { subject: 'senior-social', lesson: 'population-urbanization', label: '人口と都市化' },
           },
         ],
       },
@@ -352,7 +352,7 @@ const SECTIONS: Section[] = [
           {
             point: '需給と価格、景気変動',
             detail: '需要増 → 価格上昇。GDP の三面等価、財政政策・金融政策の方向性。',
-            link: { subject: 'senior-social-studies', lesson: 'democracy-market', label: '民主政治と市場経済' },
+            link: { subject: 'senior-social', lesson: 'democracy-market', label: '民主政治と市場経済' },
           },
         ],
       },
