@@ -21,6 +21,7 @@ import { universityChemistry } from './university-chemistry/index';
 import { universityPhysics } from './university-physics';
 import { universityCS } from './university-cs';
 import { triviaSubject } from './trivia';
+import { whySubject } from './trivia-qa/index';
 
 /** 全教科・科目のレジストリ。ここに追加するだけでサイトに反映される。 */
 export const subjects: Subject[] = [
@@ -46,6 +47,7 @@ export const subjects: Subject[] = [
   universityPhysics,
   universityCS,
   triviaSubject,
+  whySubject,
 ];
 
 
