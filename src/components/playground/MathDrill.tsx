@@ -729,7 +729,7 @@ export function MathDrill({ initial }: { initial?: Record<string, unknown> }) {
         <p className="widget-note"><strong>ヒント:</strong> {renderInlineSafe(problem.hint)}</p>
       )}
       {showAnswer && (
-        <div className="drill-answer">{renderMathInText(`**解答:** ${problem.answer}`)}</div>
+        <div className="drill-answer">{renderInlineSafe(`**解答:** ${problem.answer}`)}</div>
       )}
       <p className="widget-note">紙に解いてから「答えを見る」で採点しよう。問題は無限に生成できます。</p>
     </div>

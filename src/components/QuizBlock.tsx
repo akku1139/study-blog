@@ -18,7 +18,7 @@ export function QuizBlock({ title, questions }: { title?: string; questions: Qui
         const correct = q.answerIndex;
         return (
           <div key={qi} className="quiz-question">
-            <p className="quiz-q-text">{renderMathInText(`**問${qi + 1}.** ${q.question}`)}</p>
+            <p className="quiz-q-text">{renderInline(`**問${qi + 1}.** ${q.question}`)}</p>
             <div className="quiz-choices">
               {q.choices.map((c, ci) => {
                 let cls = 'quiz-choice';
@@ -38,7 +38,7 @@ export function QuizBlock({ title, questions }: { title?: string; questions: Qui
             {answered && (
               <div className={`quiz-feedback ${selected === correct ? 'ok' : 'ng'}`}>
                 {selected === correct ? '⭕ 正解！' : `❌ 不正解。正解は ${String.fromCharCode(65 + correct)} です。`}
-                {q.explanation && <span className="quiz-explanation">{renderMathInText(q.explanation)}</span>}
+                {q.explanation && <span className="quiz-explanation">{renderInline(q.explanation)}</span>}
               </div>
             )}
           </div>
