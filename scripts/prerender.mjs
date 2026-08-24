@@ -17,7 +17,7 @@ const template = await readFile(join(dist, 'index.html'), 'utf8');
 const SITE_NAME = '学習ノート';
 
 // 本番 URL（Cloudflare Pages）。sitemap.xml / robots.txt の正規 URL に使う。
-const SITE_URL = (process.env.SITE_URL ?? 'https://study-blog.pages.dev').replace(/\/$/, '');
+const SITE_URL = (process.env.SITE_URL ?? 'https://another-textbook.pages.dev').replace(/\/$/, '');
 
 /** ルートごとの <title> と meta description。route === null は 404 ページ */
 function pageMeta(route) {
