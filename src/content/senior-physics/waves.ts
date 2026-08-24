@@ -18,6 +18,26 @@ export const wavesUnit: Unit = {
         { type: 'heading', level: 3, content: '波の基本式' },
         { type: 'formula', tex: 'v = f\\lambda = \\frac{\\lambda}{T}', display: true },
         {
+          type: 'derivation',
+          title: 'v = fλ の導出——「1周期で1波長進む」だけ',
+          steps: [
+            {
+              label: 'Step 1: 波の1周期に注目する',
+              tex: '\\text{時間 } T \\text{（1周期）のあいだに、波は } 1\\text{波長分}（\\lambda）\\text{ 進む}',
+              note: '山が1つ隣の山の場所へ移動するのにかかる時間が T。進んだ距離は λ。',
+            },
+            {
+              label: 'Step 2: 速さ＝距離÷時間',
+              tex: 'v = \\frac{\\lambda}{T}',
+            },
+            {
+              label: 'Step 3: 周期と振動数の関係を代入',
+              tex: 'f = \\frac{1}{T} \\quad\\Rightarrow\\quad v = f\\lambda',
+              note: 'この式は**媒質が決める v と源が決める f をつなぐ橋**。屈折では v が変わるので λ が変わり、f は不変——ここを逆に覚えると全て崩れます。',
+            },
+          ],
+        },
+        {
           type: 'text',
           content: '媒質中を**位相**が伝わるのが波。媒質自身は移動しない点が重要です。横波（変位⊥進行方向：弦・光）と縦波（変位∥進行方向：音）があります。',
         },
@@ -68,6 +88,27 @@ export const wavesUnit: Unit = {
       blocks: [
         { type: 'heading', level: 3, content: 'ドップラー効果' },
         { type: 'formula', tex: "f' = \\frac{v - v_O}{v - v_S} f \\quad (v: \\text{音速})", display: true },
+        {
+          type: 'derivation',
+          title: 'ドップラー効果の式はなぜ分数になるのか',
+          steps: [
+            {
+              label: 'Step 1: 音源が静止・観測者が近づく場合',
+              tex: "f' = \\frac{v + v_O}{\\lambda} = \\frac{v + v_O}{v/f}",
+              note: '観測者は音の波を「自分も進みながら」数える。1秒間に迎える山の数が増える（分子が大きくなる）。',
+            },
+            {
+              label: 'Step 2: 観測者静止・音源が近づく場合',
+              tex: "\\lambda' = \\frac{v - v_S}{f} \\;\\Rightarrow\\; f' = \\frac{v}{\\lambda'}",
+              note: '音源が前へ進むと波が前方で圧縮される。波長そのものが縮む（分母が小さくなる）。',
+            },
+            {
+              label: 'Step 3: 一般形にまとめる',
+              tex: "f' = \\frac{v \\pm v_O}{v \\mp v_S} f",
+              note: '近づく方向なら分子プラス・分母マイナス（どちらも周波数を上げる方向）。離れるときは符号が反転。「近づくと高くなる」さえ押さえれば符号ミスは防げます。',
+            },
+          ],
+        },
         {
           type: 'text',
           content: '**発音体が近づく・観測者が近づく**と振動数は上がります。符号の向き（近づき→分子分母とも減）を図で確認して代入するのが安全です。',
