@@ -42,6 +42,13 @@ export type Block =
   | { type: 'text'; content: string }                       // 段落。**太字** 対応
   | { type: 'heading'; level: 3 | 4; content: string }
   | { type: 'formula'; tex: string; display?: boolean }      // KaTeX 数式
+  | {
+      /** 導出ブロック: 公式を「なぜ成り立つか」から導く段階的な計算 */
+      type: 'derivation';
+      title: string;
+      /** 各ステップの説明と数式。steps[i].tex は表示数式として描画される */
+      steps: Array<{ label?: string; tex: string; note?: string }>;
+    }
   | { type: 'list'; ordered?: boolean; items: string[] }
   | { type: 'example'; title: string; body: string; answer?: string }
   | { type: 'note'; variant: 'tip' | 'warn' | 'info'; content: string }

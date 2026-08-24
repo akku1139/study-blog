@@ -19,6 +19,32 @@ export const statesUnit: Unit = {
         { type: 'heading', level: 3, content: '理想気体の状態方程式' },
         { type: 'formula', tex: 'pV = nRT, \\qquad \\frac{p_1 V_1}{T_1} = \\frac{p_2 V_2}{T_2}', display: true },
         {
+          type: 'derivation',
+          title: '理想気体の状態方程式 pV = nRT の組み立て方',
+          steps: [
+            {
+              label: 'Step 1: ボイルの法則（温度一定）',
+              tex: 'pV = \text{一定}',
+              note: '圧力を2倍にすると体積は半分。分子が同じ頻度でより狭い壁にぶつかるため。',
+            },
+            {
+              label: 'Step 2: シャルルの法則（圧力一定）',
+              tex: '\frac{V}{T} = \text{一定}',
+              note: '温度上昇 → 分子の運動が激しくなり、同じ圧力を保つには体積が膨らむ必要がある。',
+            },
+            {
+              label: 'Step 3: 両者を1本に統合',
+              tex: '\frac{pV}{T} = \text{一定}',
+              note: '「pV は T に比例」という形で2つの法則を同時に満たす式。比例定数が残る。',
+            },
+            {
+              label: 'Step 4: 物質量 n まで拡張',
+              tex: 'pV = nRT',
+              note: '比例定数は気体 1 mol あたりの値 R（=8.31 J/(mol·K)）に n を掛けたもの。アボガドロの法則「同温同圧では同数の分子が同体積」から R がすべての気体で共通だとわかる。',
+            },
+          ],
+        },
+        {
           type: 'text',
           content:
             '**モル分率**を使うと混合気体の分圧は $p_i = x_i P$（ドルトンの分圧の法則）。気体反応の計算はすべて「mol に直す」のが基本戦略です。',

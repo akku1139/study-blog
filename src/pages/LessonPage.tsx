@@ -117,6 +117,8 @@ function BlockView({ block, index }: { block: Block; index: number }) {
       ) : (
         <h4 id={`sec-${index}`}>{block.content}</h4>
       );
+    case 'derivation':
+      return <DerivationView title={block.title} steps={block.steps} />;
     case 'formula':
       return block.display ? (
         <div className="formula-display">{renderMathInText(`$$${block.tex}$$`)}</div>
@@ -230,6 +232,30 @@ export function HomePage() {
           </section>
         );
       })}
+    </div>
+  );
+}
+
+/** 導出ブロック: 「なぜ」から公式を組み立てる段階的な計算を見せる */
+function DerivationView({
+  title,
+  steps,
+}: {
+  title: string;
+  steps: Array<{ label?: string; tex: string; note?: string }>;
+}) {
+  return (
+    <div className="derivation">
+      <p className="derivation-title">🔍 {title}</p>
+      <ol className="derivation-steps">
+        {steps.map((st, i) => (
+          <li key={i}>
+            {st.label && <span className="derivation-label">{st.label}</span>}
+            {st.tex && <div className="formula-display">{renderMathInText(`$$${st.tex}$$`)}</div>}
+            {st.note && <p className="derivation-note">{renderInline(st.note)}</p>}
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }

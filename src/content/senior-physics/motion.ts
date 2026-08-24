@@ -37,6 +37,32 @@ export const motionUnit: Unit = {
         },
         { type: 'formula', tex: 'x = A\\sin\\omega t, \\qquad T = 2\\pi\\sqrt{\\frac{m}{k}}', display: true },
         {
+          type: 'derivation',
+          title: '単振動の周期 T = 2π√(m/k) はどこから出てくるか',
+          steps: [
+            {
+              label: 'Step 1: 運動方程式を立てる',
+              tex: 'm\\ddot{x} = -kx',
+              note: '復元力 F = −kx（バネのフックの法則）を運動方程式に代入。負号は「変位と逆向き」を表す。',
+            },
+            {
+              label: 'Step 2: 正弦関数が解であることを確認',
+              tex: 'x = A\\sin(\\omega t) \\Rightarrow \\ddot{x} = -\\omega^2 A\\sin(\\omega t) = -\\omega^2 x',
+              note: 'sin を2回微分すると符号が変わって元に戻る——これが振動の数学的起源。',
+            },
+            {
+              label: 'Step 3: 係数比較で ω を決める',
+              tex: '-m\\omega^2 x = -kx \\Rightarrow \\omega^2 = \\frac{k}{m}',
+              note: '任意の x で成り立つには係数が等しくなければならない。',
+            },
+            {
+              label: 'Step 4: 周期に翻訳',
+              tex: 'T = \\frac{2\\pi}{\\omega} = 2\\pi\\sqrt{\\frac{m}{k}}',
+              note: '重いほど遅く、硬いバネほど速い。単振り子では k/m の代わりに g/l が入り T = 2π√(l/g)。振幅 A が式に現れないのが「等時性」の正体です。',
+            },
+          ],
+        },
+        {
           type: 'list',
           items: [
             '**速度**: 変位が 0（中心）で最大、端（振幅）で 0',

@@ -34,6 +34,27 @@ export const seniorMath: Subject = {
             },
             { type: 'formula', tex: 'y = ax^2 + bx + c = a\\left(x + \\frac{b}{2a}\\right)^2 + \\frac{4ac - b^2}{4a}', display: true },
             {
+              type: 'derivation',
+              title: '平方完成はなぜ「頂点の形」になるのか——導出',
+              steps: [
+                {
+                  label: 'Step 1: x² の項にまとめる',
+                  tex: 'ax^2 + bx = a\left(x^2 + \frac{b}{a}x\right)',
+                  note: 'まず $x^2$ の係数 a を括り出す。中身は「$x^2$ ＋ (一次の係数/a)」という形になる。',
+                },
+                {
+                  label: 'Step 2: 完全平方をつくる',
+                  tex: 'x^2 + \frac{b}{a}x = \left(x + \frac{b}{2a}\right)^2 - \left(\frac{b}{2a}\right)^2',
+                  note: '「一次の係数の半分」を足して2乗し、余分に加えた分を引いて帳消しにする。これが完全平方の核心。',
+                },
+                {
+                  label: 'Step 3: 元に戻す',
+                  tex: 'y = a\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a} + c = a\left(x + \frac{b}{2a}\right)^2 + \frac{4ac - b^2}{4a}',
+                  note: '$-\\frac{b^2}{4a}$ を a 倍すると $-\\frac{b^2}{4a}$、c と通分して定数項が揃う。頂点は $(x, y) = (-\\frac{b}{2a}, \\frac{4ac-b^2}{4a})$。',
+                },
+              ],
+            },
+            {
               type: 'example',
               title: '例題（平方完成）',
               body: '$y = x^2 - 4x + 1$ を平方完成せよ。',
@@ -116,6 +137,27 @@ export const seniorMath: Subject = {
               widget: { id: 'trig-circle', caption: 'プレイグラウンド: θ を動かして sin・cos の符号の変化を確かめよう' },
             },
             { type: 'formula', tex: '\\sin^2\\theta + \\cos^2\\theta = 1', display: true },
+            {
+              type: 'derivation',
+              title: 'なぜ sin²θ + cos²θ = 1 が成り立つのか——単位円からの導出',
+              steps: [
+                {
+                  label: 'Step 1: 単位円上の点',
+                  tex: 'P(\cos\theta, \sin\theta) \quad (\text{半径 } 1)',
+                  note: '原点 O、点 P、そして x 軸上の P の足元 Q で直角三角形 OPQ ができる。',
+                },
+                {
+                  label: 'Step 2: 三平方の定理を適用',
+                  tex: 'OP^2 = OQ^2 + PQ^2',
+                  note: 'OP は半径なので 1。OQ は P の x 座標＝cos θ、PQ は y 座標＝sin θ。',
+                },
+                {
+                  label: 'Step 3: 代入',
+                  tex: '1^2 = \cos^2\theta + \sin^2\theta',
+                  note: 'つまりこの等式は「半径 1 の円に内接する直角三角形の三平方」そのもの。θ がどんな値でも幾何学的に必ず成立します。',
+                },
+              ],
+            },
             { type: 'formula', tex: '\\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta}', display: true },
             { type: 'heading', level: 3, content: '正弦定理' },
             { type: 'formula', tex: '\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C} = 2R', display: true },
@@ -126,6 +168,31 @@ export const seniorMath: Subject = {
             { type: 'diagram', diagram: 'sine-rule-triangle', caption: '三角形の角と対辺の対応、2つの定理の使い分け' },
             { type: 'heading', level: 3, content: '余弦定理' },
             { type: 'formula', tex: 'a^2 = b^2 + c^2 - 2bc\\cos A', display: true },
+            {
+              type: 'derivation',
+              title: '余弦定理の導出——座標平面に置いて三平方を使うだけ',
+              steps: [
+                {
+                  label: 'Step 1: 配置を決める',
+                  tex: 'A(0,0), \quad B(c, 0), \quad C(b\cos A, b\sin A)',
+                  note: 'A を原点に、AB を x 軸に沿って置く。AC = b が角 A の方向に伸びるので C の座標はこう書ける（三角比の定義そのもの）。',
+                },
+                {
+                  label: 'Step 2: BC の距離を二乗差で計算',
+                  tex: 'a^2 = BC^2 = (b\cos A - c)^2 + (b\sin A - 0)^2',
+                  note: '2点間の距離の公式（実質は三平方の定理）。',
+                },
+                {
+                  label: 'Step 3: 展開と整理',
+                  tex: '= b^2\cos^2 A - 2bc\cos A + c^2 + b^2\sin^2 A',
+                },
+                {
+                  label: 'Step 4: sin²+cos² = 1 でまとめる',
+                  tex: 'a^2 = b^2(\cos^2 A + \sin^2 A) + c^2 - 2bc\cos A = b^2 + c^2 - 2bc\cos A',
+                  note: 'A = 90° なら cos A = 0 となり、三平方の定理 $a^2 = b^2+c^2$ に戻る——余弦定理は三平方の「鈍角・鋭角への一般化」です。',
+                },
+              ],
+            },
             {
               type: 'text',
               content: '**2辺とそのはさむ角**から第3辺を求めるとき、あるいは**3辺から角度**を求めるときに有効。A = 90° とすると三平方の定理に一致します。',
@@ -408,6 +475,32 @@ export const seniorMath: Subject = {
             },
             { type: 'heading', level: 3, content: '加法定理' },
             { type: 'formula', tex: '\\sin(\\alpha \\pm \\beta) = \\sin\\alpha\\cos\\beta \\pm \\cos\\alpha\\sin\\beta', display: true },
+            {
+              type: 'derivation',
+              title: '加法定理の導出——正弦定理からの距離計算',
+              steps: [
+                {
+                  label: 'Step 1: 単位円上に2点をとる',
+                  tex: 'P(\cos\alpha, \sin\alpha), \quad Q(\cos(\alpha+\beta), \sin(\alpha+\beta))',
+                  note: 'OP と OQ のなす角は β。',
+                },
+                {
+                  label: 'Step 2: 余弦定理で PQ² を表す（その1）',
+                  tex: 'PQ^2 = OP^2 + OQ^2 - 2 \cdot OP \cdot OQ \cdot \cos\beta = 1 + 1 - 2\cos\beta = 2 - 2\cos\beta',
+                  note: '三角形 OPQ に余弦定理。OP=OQ=1 なので極めて簡単になる。',
+                },
+                {
+                  label: 'Step 3: 座標の差からも PQ² を書く（その2）',
+                  tex: 'PQ^2 = (\cos(\alpha+\beta) - \cos\alpha)^2 + (\sin(\alpha+\beta) - \sin\alpha)^2',
+                  note: '展開して $\cos^2+\sin^2$ の項をまとめると、$2 - 2\{\cos(\alpha+\beta)\cos\alpha + \sin(\alpha+\beta)\sin\alpha\}$。',
+                },
+                {
+                  label: 'Step 4: (その1)=(その2) から cos の加法定理が得られる',
+                  tex: '\cos(\alpha+\beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta',
+                  note: '両辺の 2 を消して整理。α を −β で置き換えると sin の加法定理も同時に出ます（sin は奇関数であることを使う）。',
+                },
+              ],
+            },
             { type: 'formula', tex: '\\cos(\\alpha \\pm \\beta) = \\cos\\alpha\\cos\\beta \\mp \\sin\\alpha\\sin\\beta', display: true },
             {
               type: 'example',
@@ -568,6 +661,31 @@ export const seniorMath: Subject = {
             { type: 'heading', level: 3, content: '導関数の計算規則' },
             { type: 'formula', tex: "(x^n)' = n x^{n-1}, \\qquad (fg)' = f'g + fg'", display: true },
             {
+              type: 'derivation',
+              title: "$(x^n)' = nx^{n-1}$ の導出——定義から二項定理まで",
+              steps: [
+                {
+                  label: 'Step 1: 微分係数の定義を適用',
+                  tex: "f'(x) = \lim_{h \to 0} \frac{(x+h)^n - x^n}{h}",
+                },
+                {
+                  label: 'Step 2: 二項定理で展開',
+                  tex: '(x+h)^n = x^n + nx^{n-1}h + \binom{n}{2}x^{n-2}h^2 + \cdots + h^n',
+                  note: '$h$ を括り出せる項だけ注目する。',
+                },
+                {
+                  label: 'Step 3: 分子を整理',
+                  tex: '\frac{(x+h)^n - x^n}{h} = nx^{n-1} + \binom{n}{2}x^{n-2}h + \cdots + h^{n-1}',
+                  note: '最初の項以外はすべて h を因子にもつ。',
+                },
+                {
+                  label: 'Step 4: h → 0 の極限',
+                  tex: "\lim_{h \to 0}\left[ nx^{n-1} + (\text{h を含む項}) \right] = nx^{n-1}",
+                  note: '残るのは最初の項だけ。これが「次数が1つ落ちて係数がかかる」理由の正体です。',
+                },
+              ],
+            },
+            {
               type: 'example',
               title: '例題',
               body: "$f(x) = x^3 - 3x^2 + 2$ の増減表をかいて極値を求めよ。",
@@ -662,6 +780,31 @@ export const seniorMath: Subject = {
             },
             { type: 'heading', level: 3, content: '定積分と面積' },
             { type: 'formula', tex: '\\int_a^b f(x)\\,dx = [F(x)]_a^b = F(b) - F(a)', display: true },
+            {
+              type: 'derivation',
+              title: '$\\int x^n dx = \\frac{x^{n+1}}{n+1}$ の導出——微分の逆をたどる',
+              steps: [
+                {
+                  label: 'Step 1: 「微分したら xⁿ」になる関数を探す',
+                  tex: '\frac{d}{dx} x^{m} = m x^{m-1}',
+                  note: "$(x^m)' = mx^{m-1}$ の公式を逆向きに使う。",
+                },
+                {
+                  label: 'Step 2: 次数の条件を合わせる',
+                  tex: 'm - 1 = n \;\Rightarrow\; m = n+1',
+                },
+                {
+                  label: 'Step 3: 係数を調整',
+                  tex: '\frac{d}{dx}\left[ \frac{x^{n+1}}{n+1} \right] = \frac{(n+1)x^n}{n+1} = x^n',
+                  note: '掛けた定数は微分しても残るので、1/(n+1) を掛けておけば打ち消し合う。',
+                },
+                {
+                  label: 'Step 4: 積分定数',
+                  tex: '\int x^n dx = \frac{x^{n+1}}{n+1} + C',
+                  note: '定数 C を加えても微分すれば消えるため、原始関数は無数にある。これが「+C」が必要な理由。',
+                },
+              ],
+            },
             {
               type: 'text',
               content: 'x 軸の上側にある部分では面積を、下側では面積にマイナスをつけた値を足し合わせます。次の図のように、細い長方形の面積の和を無限に細かくする（区分求積法）イメージが元になっています。',

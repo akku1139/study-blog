@@ -31,6 +31,31 @@ export const emUnit: Unit = {
         { type: 'heading', level: 3, content: 'コンデンサー' },
         { type: 'formula', tex: 'Q = CV, \\qquad U = \\frac{1}{2}CV^2, \\qquad C = \\varepsilon\\frac{S}{d}', display: true },
         {
+          type: 'derivation',
+          title: 'なぜコンデンサーのエネルギーが ½CV² になるのか',
+          steps: [
+            {
+              label: 'Step 1: 充電に必要な仕事を考える',
+              tex: 'dW = V(q)\\,dq',
+              note: '電荷を少しずつ運ぶときの仕事＝その瞬間の電圧 × 運ぶ電荷。電圧は充電が進むほど上がる点がポイント。',
+            },
+            {
+              label: 'Step 2: 電圧は電荷に比例（V = q/C）',
+              tex: 'V(q) = \\frac{q}{C}',
+              note: 'Q = CV を書き換えたもの。q = 0 で V = 0、満充電で最大。',
+            },
+            {
+              label: 'Step 3: 0 から Q まで積分',
+              tex: 'W = \\int_0^Q \\frac{q}{C}\\,dq = \\frac{Q^2}{2C}',
+            },
+            {
+              label: 'Step 4: Q = CV を代入',
+              tex: 'U = W = \\frac{(CV)^2}{2C} = \\frac{1}{2}CV^2',
+              note: '「だんだん強くなる抵抗力に逆らって運ぶ」から平均が半分——比例関係の積分は必ず ½ を生む。重力の位置エネルギー mgh（h を徐々に上げる）と同じ構造です。',
+            },
+          ],
+        },
+        {
           type: 'list',
           items: [
             '**並列**: 容量の和 $C = C_1 + C_2$（電圧は共通）',

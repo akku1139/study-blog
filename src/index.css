@@ -278,3 +278,42 @@ th { background: #f1f5f9; }
 .vocab-mean strong { font-size: 1.15rem; }
 .vocab-ex { color: #334155; font-style: italic; font-size: 0.95rem; margin: 6px 0 0; }
 .btn-warn { background: #d97706 !important; }
+
+/* ---------- 導出ブロック（公式の導出過程） ---------- */
+.derivation {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #6366f1;
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin: 18px 0;
+}
+.derivation-title {
+  font-weight: 700;
+  color: #4338ca;
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+}
+.derivation-steps {
+  margin: 0;
+  padding-left: 22px;
+}
+.derivation-steps > li {
+  margin-bottom: 10px;
+}
+.derivation-label {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  background: #eef2ff;
+  border-radius: 999px;
+  padding: 1px 10px;
+  margin-bottom: 4px;
+}
+.derivation-note {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+.formula-display { overflow-x: auto; }
