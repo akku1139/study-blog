@@ -54,12 +54,12 @@ export const universityPhysics: Subject = {
                 },
                 {
                   label: 'Step 3: 停留条件 dS/dε = 0 を書く',
-                  tex: '\\delta S = \\int \left( \\frac{\\partial L}{\\partial q}\\eta + \\frac{\\partial L}{\\partial \\dot{q}}\\dot{\\eta} \right) dt = 0',
+                  tex: '\\delta S = \\int \\left( \\frac{\\partial L}{\\partial q}\\eta + \\frac{\\partial L}{\\partial \\dot{q}}\\dot{\\eta} \\right) dt = 0',
                   note: '部分積分で第二項を変形すると、η の係数だけが残る形になる。',
                 },
                 {
                   label: 'Step 4: 部分積分と任意性',
-                  tex: '\\int \\frac{\\partial L}{\\partial \\dot{q}}\\dot{\\eta}\,dt = \\left[ \\frac{\\partial L}{\\partial \\dot{q}}\\eta \\right]_{t_1}^{t_2} - \\int \\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)\\eta\,dt',
+                  tex: '\\int \\frac{\\partial L}{\\partial \\dot{q}}\\dot{\\eta}\\,dt = \\left[ \\frac{\\partial L}{\\partial \\dot{q}}\\eta \\right]_{t_1}^{t_2} - \\int \\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)\\eta\\,dt',
                   note: '境界項は η が端点で 0 なので消える。η を任意にとれるため、残った積分が常に0なら係数そのものが0でなければならない。',
                 },
                 {

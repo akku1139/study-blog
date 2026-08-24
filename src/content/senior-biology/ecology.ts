@@ -71,7 +71,7 @@ export const ecologyUnit: Unit = {
           ],
         },
         { type: 'heading', level: 3, content: '生態系の機能' },
-        { type: 'formula', tex: '\\text{生産者} \\rightarrow \\text{一次消費者} \\rightarrow \\text{二次消費者}, \\qquad \\text{各栄養段階間の効率 } \\approx 10\\text{%}', display: true },
+        { type: 'formula', tex: '\\text{生産者} \\rightarrow \\text{一次消費者} \\rightarrow \\text{二次消費者}, \\qquad \\text{各栄養段階間の効率 } \\approx 10\\text{\\%}', display: true },
         {
           type: 'list',
           items: [

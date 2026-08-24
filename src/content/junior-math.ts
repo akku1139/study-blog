@@ -539,7 +539,7 @@ export const juniorMath: Subject = {
               type: 'text',
               content: '相似な2つの図形では、**対応する辺の比＝対応する高さの比＝相似比**。そして次の重要な関係が成り立ちます。',
             },
-            { type: 'formula', tex: '\text{面積比} = (\text{相似比})^2, \qquad \text{体積比} = (\text{相似比})^3', display: true },
+            { type: 'formula', tex: '\\text{面積比} = (\\text{相似比})^2, \\qquad \\text{体積比} = (\\text{相似比})^3', display: true },
             {
               type: 'derivation',
               title: 'なぜ面積は2乗、体積は3乗になるのか',
@@ -565,7 +565,7 @@ export const juniorMath: Subject = {
               type: 'example',
               title: '例題',
               body: '相似な2つの立体の体積比が $8 : 27$ のとき、相似比と表面積比を求めよ。',
-              answer: '$\sqrt[3]{8} : \sqrt[3]{27} = $ **$2 : 3$**（相似比）。表面積比は $2^2 : 3^2 =$ **$4 : 9$**。',
+              answer: '$\\sqrt[3]{8} : \\sqrt[3]{27} = $ **$2 : 3$**（相似比）。表面積比は $2^2 : 3^2 =$ **$4 : 9$**。',
             },
             { type: 'heading', level: 3, content: 'パップスの定理（相似な三角形をつくる）' },
             {

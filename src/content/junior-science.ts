@@ -270,10 +270,10 @@ export const juniorScience: Subject = {
                 {
                   body: '水 $H_2O$ の水素 1 個と酸素 1 個の質量比はおよそ $1:8$ である。水 9 g 中に含まれる酸素の質量を求めよ。',
                   hint: '9 g を 1:8 の比で分ける。',
-                  answer: '$9 \div (1+8) \times 8 = $ **8 g**。',
+                  answer: '$9 \\div (1+8) \\times 8 = $ **8 g**。',
                 },
                 {
-                  body: '$4H_2 + 2O_2 \rightarrow 4H_2O$ を最も簡単な係数に直せ。',
+                  body: '$4H_2 + 2O_2 \\rightarrow 4H_2O$ を最も簡単な係数に直せ。',
                   answer: '**$2H_2 + O_2 \\rightarrow 2H_2O$**（各係数を 2 で割る）。',
                 },
                 {
@@ -355,7 +355,7 @@ export const juniorScience: Subject = {
                 },
                 {
                   label: 'Step 2: 混ぜた後の様子',
-                  tex: 'H^+, \; Cl^-, \; Na^+, \; OH^- \\text{ が混在する}',
+                  tex: 'H^+, \\; Cl^-, \\; Na^+, \\; OH^- \\text{ が混在する}',
                   note: 'ここで $H^+$ と $OH^-$ は結合したがる（安定な水をつくる）。$Na^+$ と $Cl^-$ は水中ではそのまま。',
                 },
                 {

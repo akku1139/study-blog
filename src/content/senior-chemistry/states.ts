@@ -24,17 +24,17 @@ export const statesUnit: Unit = {
           steps: [
             {
               label: 'Step 1: ボイルの法則（温度一定）',
-              tex: 'pV = \text{一定}',
+              tex: 'pV = \\text{一定}',
               note: '圧力を2倍にすると体積は半分。分子が同じ頻度でより狭い壁にぶつかるため。',
             },
             {
               label: 'Step 2: シャルルの法則（圧力一定）',
-              tex: '\frac{V}{T} = \text{一定}',
+              tex: '\\frac{V}{T} = \\text{一定}',
               note: '温度上昇 → 分子の運動が激しくなり、同じ圧力を保つには体積が膨らむ必要がある。',
             },
             {
               label: 'Step 3: 両者を1本に統合',
-              tex: '\frac{pV}{T} = \text{一定}',
+              tex: '\\frac{pV}{T} = \\text{一定}',
               note: '「pV は T に比例」という形で2つの法則を同時に満たす式。比例定数が残る。',
             },
             {
