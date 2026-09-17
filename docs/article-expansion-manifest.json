@@ -402,5 +402,21 @@
   {
     "subject": "senior-chemistry",
     "id": "sch-reaction-rate-data"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-kanbun-structure-logic"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-classical-subject-context"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-classical-emotion-evidence"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-kanbun-dialogue-reading"
   }
 ]
