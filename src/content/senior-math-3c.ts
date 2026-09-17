@@ -1,4 +1,5 @@
 import type { Subject } from './types';
+import { math3CDetailUnits } from './math3c-detail-units.ts';
 
 // ============================================================
 // 高校数学III・C（学習指導要領 第2章 第4節「数学」: 数学III／数学C）
@@ -9,7 +10,7 @@ export const seniorMath3C: Subject = {
   stage: 'senior',
   name: '高校数学（数学III・C）',
   description:
-    '数学IIIの極限・微分法・積分法と、数学Cのベクトルを学ぶ。関連する数学Bの数列・統計的な推測も復習する。',
+    '数学IIIの関数・極限・微分法・積分法と、数学Cのベクトル・平面上の曲線・複素数平面を、導出と解説付き演習で学ぶ。数学Bの数列・統計も復習する。',
   icon: '∑',
   color: '#4338ca',
   units: [
@@ -895,6 +896,22 @@ export const seniorMath3C: Subject = {
               type: 'widget',
               widget: { id: 'derivative-tangent', caption: 'プレイグラウンド: 接線の傾きと極値の関係（数学IIからの発展）' },
             },
+            {
+              type: 'practice',
+              title: '定義域と符号まで確認する微分',
+              problems: [
+                {
+                  body: '$f(x)=x\\log x$（$x>0$、$\\log$ は自然対数）の最小値を求めよ。',
+                  hint: '積の微分を使い、導関数が負から正に変わる点を調べます。',
+                  answer: '$f\'(x)=\\log x+1$ より、$0<x<e^{-1}$ で負、$x>e^{-1}$ で正。したがって $x=e^{-1}$ で最小値 $-e^{-1}$ をとります。$f\'(x)=0$ を解くだけでなく、定義域全体での増減を確認することが大切です。',
+                },
+                {
+                  body: '$y=e^{2x}\\sin x$ の $x=0$ における接線を求めよ。',
+                  hint: '積と合成関数の微分を組み合わせ、接点と傾きを別々に求めます。',
+                  answer: '$y\'=e^{2x}(2\\sin x+\\cos x)$。$x=0$ で $y=0$、$y\'=1$ なので接線は $y=x$。$e^{2x}$ の微分では内側の $2x$ の導関数 2 を掛け忘れないようにします。',
+                },
+              ],
+            },
             { type: 'heading', level: 3, content: '積分と体積' },
             { type: 'formula', tex: '\\int_a^b f(x)\\,dx, \\qquad V = \\pi \\int_a^b \\left\\{ f(x) \\right\\}^2 dx \\; (\\text{x軸まわり})', display: true },
             {
@@ -933,5 +950,6 @@ export const seniorMath3C: Subject = {
         },
       ],
     },
+    ...math3CDetailUnits,
   ],
 };

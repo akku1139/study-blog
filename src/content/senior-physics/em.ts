@@ -1,4 +1,10 @@
 import type { Unit } from '../types';
+import { electrostaticsLessons } from './electrostatics-detail.ts';
+import { capacitorLessons } from './capacitors-detail.ts';
+import { dcCircuitLessons } from './dc-circuits-detail.ts';
+import { magnetismLessons } from './magnetism-detail.ts';
+import { inductionLessons } from './induction-detail.ts';
+import { inductanceAcLessons } from './inductance-ac-detail.ts';
 
 /** 物理 第3項目「電気と磁気」 */
 export const emUnit: Unit = {
@@ -27,6 +33,12 @@ export const emUnit: Unit = {
         {
           type: 'text',
           content: '電位 V は単位電荷あたりの位置エネルギー。電場は電位が下がる方向を向き、正電荷への力はその向き、負電荷への力は逆向きです。外力でゆっくり運ぶときの仕事は $W_{\\text{外力}}=q(V_B-V_A)$ で、電場の仕事とは符号が逆。一様電場では $E_x=-\\Delta V/\\Delta x$、電場に沿って距離 d 離れた2点の電位差の大きさは Ed です。1 eV は電気素量 e の電荷が 1 V の電位差で得るエネルギーで、約 1.60×10⁻¹⁹ J。',
+        },
+        {
+          type: 'example',
+          title: '電位差で加速される電子——負号を仕事から判断する',
+          body: '電子（電荷 $-e$）が静止状態から、電位が 200 V 高い点へ移動した。電気力以外の力を無視して、運動エネルギーの増加を求めよ。$e=1.60\\times10^{-19}$ C とする。',
+          answer: '電位が上がっても、負電荷の位置エネルギーは下がります。$\\Delta U=q\\Delta V=(-1.60\\times10^{-19})\\times200=-3.20\\times10^{-17}$ J。エネルギー保存より $\\Delta K=-\\Delta U=3.20\\times10^{-17}$ J（200 eV）。正電荷と電子で加速される向きが逆になることも確認できます。',
         },
         { type: 'heading', level: 3, content: 'コンデンサー' },
         { type: 'formula', tex: 'Q = CV, \\qquad U = \\frac{1}{2}CV^2, \\qquad C = \\varepsilon\\frac{S}{d}', display: true },
@@ -343,5 +355,11 @@ export const emUnit: Unit = {
         },
       ],
     },
+    ...electrostaticsLessons,
+    ...capacitorLessons,
+    ...dcCircuitLessons,
+    ...magnetismLessons,
+    ...inductionLessons,
+    ...inductanceAcLessons,
   ],
 };

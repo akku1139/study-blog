@@ -1,4 +1,5 @@
 import type { Subject } from './types';
+import { math2DetailUnits } from './math2-detail-units.ts';
 
 // ============================================================
 // 高校数学I・II（学習指導要領 第2章 第4節「数学」に対応）
@@ -8,7 +9,7 @@ export const seniorMath: Subject = {
   id: 'senior-math',
   stage: 'senior',
   name: '高校数学（数学I・II）',
-  description: '数学I：二次関数・図形と計量・データの分析。数学II：三角関数・微分積分。',
+  description: '数学Iの数と式・二次関数・図形と計量・データ分析から、数学IIの式と証明・図形と方程式・三角関数・指数対数・微分積分まで、導出と解説付き演習で学ぶ。',
   icon: '∫',
   color: '#7c3aed',
   units: [
@@ -1181,5 +1182,6 @@ export const seniorMath: Subject = {
         },
       ],
     },
+    ...math2DetailUnits,
   ],
 };
