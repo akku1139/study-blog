@@ -60,6 +60,7 @@ import { lesson as lesson57 } from './jj-kanji-strategy.ts';
 import { lesson as lesson58 } from './jj-essay-writing.ts';
 import { lesson as lesson59 } from './jso-primary-sources.ts';
 import { lesson as lesson60 } from './sch-synthetic-polymers.ts';
+import { lesson as sentenceRevision } from './jj-sentence-revision.ts';
 
 // 既存記事を変更せず、科目末尾に新しい学習単元を追加する。
 const extraUnits: Record<string, Unit> = {
@@ -85,7 +86,7 @@ const extraUnits: Record<string, Unit> = {
     id: 'junior-japanese-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson8, lesson9, lesson57, lesson58],
+    lessons: [lesson8, lesson9, lesson57, lesson58, sentenceRevision],
   },
   'junior-english': {
     id: 'junior-english-additional-studies',
