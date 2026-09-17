@@ -1,0 +1,1670 @@
+[
+  {
+    "subject": "junior-math",
+    "unit": "j1-num",
+    "id": "positive-negative",
+    "title": "正負の数"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j1-num",
+    "id": "letters-expressions",
+    "title": "文字と式"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j1-func",
+    "id": "proportional",
+    "title": "比例・反比例"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j2-algebra",
+    "id": "linear-equations",
+    "title": "連立方程式"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j3-quadratic",
+    "id": "quadratic-function",
+    "title": "二次関数とグラフ"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j23-similarity",
+    "id": "proof-triangles",
+    "title": "三角形の合同条件と証明の書き方"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j23-similarity",
+    "id": "similarity-ratio",
+    "title": "相似な図形と面積比・体積比"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j3-geometry",
+    "id": "pythagorean",
+    "title": "三平方の定理"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j3-probability",
+    "id": "probability-basics",
+    "title": "確率"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "j3-probability",
+    "id": "sampling-survey",
+    "title": "標本調査と統計的な見方"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "jm-extension",
+    "id": "proportional-graphs-detail",
+    "title": "比例・反比例のグラフと式の読み方（詳細版）"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "jm-extension",
+    "id": "probability-applications",
+    "title": "確率の応用——サイコロ2個と余事象"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "jm-extension",
+    "id": "figure-transformations",
+    "title": "図形の移動——平行移動・対称移動・回転移動"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "jm-extension",
+    "id": "factorization-methods",
+    "title": "因数分解のすべて——たすきがけ・grouping・置換"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "jm-extension",
+    "id": "square-roots",
+    "title": "根号を含む式の計算——有理化と二重根号"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "jm-extension",
+    "id": "functions-comparison",
+    "title": "一次関数と二次関数の比較——変化率・共有点・面積最大"
+  },
+  {
+    "subject": "junior-math",
+    "unit": "jm-extension",
+    "id": "statistics-junior",
+    "title": "資料の整理——ヒストグラム・箱ひげ図・代表値の使い分け"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-force",
+    "id": "force-motion",
+    "title": "力のつり合いと物体の運動"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-electric",
+    "id": "ohm-law-circuits",
+    "title": "オームの法則と回路"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-chem",
+    "id": "atoms-molecules",
+    "title": "原子・分子と化学変化"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-chem",
+    "id": "atoms-molecules-practice",
+    "title": "練習: 原子・分子と化学変化"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-chem",
+    "id": "ions-neutralization",
+    "title": "イオンと水溶液の性質"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-bio",
+    "id": "photosynthesis-energy-flow",
+    "title": "光合成と呼吸——エネルギーの流れ"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "j23-chem-calc",
+    "id": "chemical-reaction-formula",
+    "title": "化学変化と式量・物質量（高校への発展）"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "j23-chem-calc",
+    "id": "motion-energy-junior",
+    "title": "仕事とエネルギー"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-earth",
+    "id": "earth-quakes-volcanoes",
+    "title": "地震と火山——大地の活動"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-earth",
+    "id": "weather-atmosphere",
+    "title": "気象——大気の動きと天気の変化"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-extension",
+    "id": "animal-body-systems",
+    "title": "動物の体のつくりとはたらき——消化・呼吸・循環"
+  },
+  {
+    "subject": "junior-science",
+    "unit": "js-extension",
+    "id": "plant-life-classification",
+    "title": "植物の生活と種類——光合成以外のはたらきと分類"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-geo",
+    "id": "world-climate",
+    "title": "世界の気候と自然環境"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-history-ancient",
+    "id": "ancient-japan",
+    "title": "古代国家の成立——大化の改新から武士の世へ"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-history-ancient",
+    "id": "renaissance-world",
+    "title": "世界史の扉——ルネサンスと大航海時代"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-geo-industry",
+    "id": "industry-trade",
+    "title": "産業と貿易——世界とつながる日本"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-history",
+    "id": "modern-japan",
+    "title": "近代日本の歴史（幕末〜戦後）"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-history",
+    "id": "ed-period",
+    "title": "江戸時代の政治と暮らし"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-civics",
+    "id": "economy-basics",
+    "title": "市場経済と日本国憲法"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-civics",
+    "id": "democracy-election",
+    "title": "民主政治と選挙のしくみ"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-civics",
+    "id": "japan-geography",
+    "title": "日本の自然環境と産業 — 山がちな国土のくらし"
+  },
+  {
+    "subject": "junior-social",
+    "unit": "js-civics",
+    "id": "postwar-japan",
+    "title": "戦後日本の歩み — 占領から高度経済成長、そして現在へ"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-reading",
+    "id": "critical-reading",
+    "title": "説明文・評論文の読み方"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-reading",
+    "id": "narrative-reading",
+    "title": "小説（物語文）の読み方"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-reading",
+    "id": "critical-reading-practice",
+    "title": "読解ドリル: 説明文を実戦で読む"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-writing-speaking",
+    "id": "composition",
+    "title": "意見文を書く"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-writing-speaking",
+    "id": "bunsho-taikei",
+    "title": "文章の体裁と構成技法"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-language",
+    "id": "kango-gogen",
+    "title": "漢語・和語・外来語——語種の使い分け"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-language",
+    "id": "kanji-structure",
+    "title": "漢字の成り立ちと覚えるコツ"
+  },
+  {
+    "subject": "junior-japanese",
+    "unit": "jj-language",
+    "id": "grammar",
+    "title": "文法：文の成分と品詞"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-grammar",
+    "id": "verb-tenses",
+    "title": "動詞の時制と文型"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-grammar",
+    "id": "passive-gerund",
+    "title": "受動態・不定詞・動名詞"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-communication",
+    "id": "daily-expressions",
+    "title": "場面別の表現集"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-communication",
+    "id": "core-vocabulary",
+    "title": "英単語コアドリル"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-grammar3",
+    "id": "relative-pronoun",
+    "title": "関係代名詞 who / which / that"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-grammar3",
+    "id": "present-perfect-detail",
+    "title": "現在完了の4つの意味"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-grammar3",
+    "id": "comparative-superlative",
+    "title": "比較のすべて——原級・比較級・最上級"
+  },
+  {
+    "subject": "junior-english",
+    "unit": "je-grammar3",
+    "id": "infinitive-usages-detail",
+    "title": "不定詞の3用法を深く"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s1-quadratic",
+    "id": "quadratic-graph-senior",
+    "title": "二次関数のグラフと最大・最小"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s1-quadratic",
+    "id": "quadratic-inequality",
+    "title": "二次不等式"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s1-trig",
+    "id": "trig-ratio",
+    "title": "三角比と正弦定理・余弦定理"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s1-trig",
+    "id": "circle-inscribed",
+    "title": "円に内接する四角形と三角形の五心"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s1-numbers",
+    "id": "numbers-expressions",
+    "title": "実数・絶対値と式の変形"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s1-data",
+    "id": "data-analysis",
+    "title": "分散・標準偏差と相関"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-functions",
+    "id": "trig-functions",
+    "title": "弧度法と三角関数"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-functions",
+    "id": "exp-log-functions",
+    "title": "指数関数と対数関数"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-calculus",
+    "id": "derivative",
+    "title": "微分係数と導関数"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-calculus",
+    "id": "integral",
+    "title": "不定積分と定積分"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-calculus",
+    "id": "derivative-applications",
+    "title": "微分の応用——接線・法線と速度・加速度"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-algebra-detail",
+    "id": "m2-polynomial-division",
+    "title": "整式の除法と剰余定理・因数定理"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-algebra-detail",
+    "id": "m2-complex-equations",
+    "title": "複素数の計算と二次方程式の解"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-algebra-detail",
+    "id": "m2-identities-inequalities",
+    "title": "恒等式・等式の証明と不等式の証明"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-coordinate-detail",
+    "id": "m2-lines-circles",
+    "title": "内分点・直線と円の方程式"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-coordinate-detail",
+    "id": "m2-locus-region",
+    "title": "軌跡と領域：逆向きの確認と境界"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-functions-detail",
+    "id": "trig-harmonic-addition",
+    "title": "加法定理から倍角・半角・和積・合成へ"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-functions-detail",
+    "id": "trig-equation-inequality",
+    "title": "三角方程式・不等式と角の区間管理"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-functions-detail",
+    "id": "m2-exponential-equations",
+    "title": "指数の拡張と指数方程式・不等式"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-functions-detail",
+    "id": "m2-logarithmic-applications",
+    "title": "対数方程式・不等式と常用対数の応用"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-calculus-detail",
+    "id": "m2-cubic-analysis",
+    "title": "三次関数の増減・極値と方程式の実数解"
+  },
+  {
+    "subject": "senior-math",
+    "unit": "s2-calculus-detail",
+    "id": "m2-integral-area",
+    "title": "2曲線で囲まれる面積と1/6公式"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sa-counting",
+    "id": "permutations-combinations",
+    "title": "順列・組合せ"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sa-counting",
+    "id": "probability",
+    "title": "確率"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sa-counting",
+    "id": "counting-advanced",
+    "title": "場合の数の応用"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sa-counting",
+    "id": "conditional-probability",
+    "title": "条件付き確率とベイズの定理"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sa-counting",
+    "id": "expected-value",
+    "title": "期待値と分散"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sa-geometry",
+    "id": "triangle-circle-properties",
+    "title": "三角形と円の性質"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sb-linear-transform",
+    "id": "linear-transforms",
+    "title": "1次変換と行列"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sb-linear-transform",
+    "id": "matrix-applications",
+    "title": "行列の応用"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sc-complex",
+    "id": "conics-complex",
+    "title": "二次曲線と複素数平面"
+  },
+  {
+    "subject": "senior-math-ab",
+    "unit": "sc-complex",
+    "id": "conic-sections-detail",
+    "title": "二次曲線の詳細"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-vector",
+    "id": "vector-basics",
+    "title": "ベクトルと内積"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-vector",
+    "id": "vector-applications",
+    "title": "ベクトルの図形への応用"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-vector",
+    "id": "space-vectors",
+    "title": "空間ベクトルと平面の方程式"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-sequence",
+    "id": "sequences",
+    "title": "数列と漸化式"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-sequence",
+    "id": "statistical-inference",
+    "title": "統計的な推測"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-sequence",
+    "id": "sequence-recurrence",
+    "title": "漸化式と帰納的定義"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-sequence",
+    "id": "sequence-limit",
+    "title": "無限等比級数と極限"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3c-sequence",
+    "id": "statistical-regression",
+    "title": "統計的な推測の詳細"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-limit-differential",
+    "id": "calculus3",
+    "title": "微分法の拡張と応用"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-functions-limits-detail",
+    "id": "m3-inverse-composite",
+    "title": "分数関数・無理関数と逆関数・合成関数"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-functions-limits-detail",
+    "id": "m3-function-limits",
+    "title": "関数の極限と連続：左右・有理化・はさみうち"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-differentiation-detail",
+    "id": "m3-derivative-rules",
+    "title": "いろいろな関数の微分と対数微分法"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-differentiation-detail",
+    "id": "m3-curve-analysis",
+    "title": "第二次導関数と曲線の形・最大最小"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-integration-detail",
+    "id": "m3-substitution-integral",
+    "title": "基本積分と置換積分――合成関数の微分を逆にたどる"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-integration-detail",
+    "id": "m3-parts-integral",
+    "title": "部分積分と部分分数――積と分数を積分しやすくする"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-integration-detail",
+    "id": "m3-area-volume",
+    "title": "積分で求める面積と体積"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "s3-integration-detail",
+    "id": "m3-integral-limit",
+    "title": "区分求積法・和の極限と積分による評価"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "sc-vectors-detail",
+    "id": "mc-vector-intersections",
+    "title": "位置ベクトルで解く内外分と交点"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "sc-vectors-detail",
+    "id": "mc-space-metric",
+    "title": "空間ベクトルで測る垂線・距離・球"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "sc-curves-detail",
+    "id": "mc-conics-comparison",
+    "title": "二次曲線を比較して解く ― 標準形・平行移動・接線"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "sc-curves-detail",
+    "id": "mc-parametric-curves",
+    "title": "媒介変数表示 — 点の動きから曲線を表す"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "sc-curves-detail",
+    "id": "mc-polar-curves",
+    "title": "極座標と極方程式 — 距離と角で図形を表す"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "sc-complex-detail",
+    "id": "mc-complex-polar",
+    "title": "複素数平面と極形式"
+  },
+  {
+    "subject": "senior-math-3c",
+    "unit": "sc-complex-detail",
+    "id": "mc-complex-geometry",
+    "title": "複素数と図形"
+  },
+  {
+    "subject": "senior-physics",
+    "unit": "sp-motion",
+    "id": "projectile-motion",
+    "title": "放物運動"
+  },
+  {
+    "subject": "senior-physics",
+    "unit": "sp-motion",
+    "id": "energy-application",
+    "title": "力学的エネルギー保存の応用——単振り子とばねの複合問題"
+  },
+  {
+    "subject": "senior-physics",
+    "unit": "sp-basic-waves",
+    "id": "sp-wave-sound-basics",
+    "title": "波と音——周期・波長・重ね合わせ"
+  },
+  {
+    "subject": "senior-physics",
+    "unit": "sp-basic-electricity",
+    "id": "sp-dc-electric-power",
+    "title": "直流回路と電力——電荷とエネルギーの収支"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-motion2",
+    "id": "circular-motion",
+    "title": "円運動と単振動"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-motion2",
+    "id": "momentum-impulse",
+    "title": "運動量と力積"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-motion2",
+    "id": "energy-work",
+    "title": "仕事と力学的エネルギー"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-motion2",
+    "id": "gravity-and-planets",
+    "title": "万有引力と惑星の運動"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-motion2",
+    "id": "rigid-equilibrium",
+    "title": "剛体のつり合いと重心"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-waves",
+    "id": "wave-basics",
+    "title": "波の伝わり方と重ね合わせ"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-waves",
+    "id": "sound-light",
+    "title": "音と光"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-waves",
+    "id": "resonance-tube",
+    "title": "音の共鳴と気柱の振動"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-waves",
+    "id": "interference-of-light",
+    "title": "光の干渉と回折"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "electric-field-potential",
+    "title": "電場・電位とコンデンサー"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "circuits-magnetism",
+    "title": "直流回路・電流と磁場・電磁誘導"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "ac-impedance",
+    "title": "交流回路とインピーダンス"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-field-superposition",
+    "title": "電場と電位の重ね合わせ：2点電荷の符号とゼロ点"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-conductor-equilibrium",
+    "title": "静電誘導・導体の静電平衡・接地"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-capacitor-conditions",
+    "title": "コンデンサーの電池接続と切離し"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-capacitor-networks",
+    "title": "コンデンサーの直並列と充電済み接続"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-kirchhoff-circuits",
+    "title": "キルヒホッフの法則：向きを決めて回路を解く"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-internal-resistance",
+    "title": "起電力・端子電圧と内部抵抗：電力と効率"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-current-magnetic-field",
+    "title": "電流がつくる磁場——直線電流・円形電流・ソレノイド"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-magnetic-force-motion",
+    "title": "磁場から受ける力——電流にはたらく力とローレンツ力"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-flux-lenz",
+    "title": "電磁誘導① 磁束とファラデーの法則・レンツの法則"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-moving-rod",
+    "title": "電磁誘導② 導体棒の運動起電力とレール回路"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-self-induction",
+    "title": "自己誘導と磁場のエネルギー"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-em",
+    "id": "em-ac-power-transformer",
+    "title": "交流の実効値・電力と理想変圧器"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-atomic",
+    "id": "wave-particle-duality",
+    "title": "粒子性と波動性"
+  },
+  {
+    "subject": "senior-physics-full",
+    "unit": "sp-atomic",
+    "id": "atom-nucleus",
+    "title": "原子の構造と原子核"
+  },
+  {
+    "subject": "senior-science",
+    "unit": "ss-chem",
+    "id": "mole",
+    "title": "物質の量（モル）"
+  },
+  {
+    "subject": "senior-science",
+    "unit": "ss-chem",
+    "id": "periodic-table-atomic",
+    "title": "周期表と原子の構造"
+  },
+  {
+    "subject": "senior-science",
+    "unit": "ss-chem",
+    "id": "atmosphere-ocean",
+    "title": "大気と海——地球の熱のエンジン"
+  },
+  {
+    "subject": "senior-science",
+    "unit": "ss-bio",
+    "id": "cell-dna",
+    "title": "細胞とDNA（遺伝情報）"
+  },
+  {
+    "subject": "senior-science",
+    "unit": "ss-earth",
+    "id": "earth-history",
+    "title": "地球の歴史とプレート運動"
+  },
+  {
+    "subject": "senior-science",
+    "unit": "ss-physics-basic",
+    "id": "electric-circuits-basic",
+    "title": "電気の基礎——オームの法則と回路"
+  },
+  {
+    "subject": "senior-science",
+    "unit": "ss-physics-basic",
+    "id": "waves-light-sound",
+    "title": "波と光と音"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-states",
+    "id": "gas-solutions",
+    "title": "気体の性質と溶液"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-states",
+    "id": "equilibrium-acid-base",
+    "title": "化学平衡・酸塩基"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-states",
+    "id": "redox-thermo-electrochem",
+    "title": "熱化学・酸化還元と電池"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-states",
+    "id": "kinetic-theory-mean-free-path",
+    "title": "気体分子の運動論"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-states",
+    "id": "osmosis-colligative-physical",
+    "title": "浸透圧と溶液の物理化学"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-inorganic",
+    "id": "typical-elements",
+    "title": "典型元素の性質"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-inorganic",
+    "id": "transition-metals-complex",
+    "title": "遷移元素と錯体"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-inorganic",
+    "id": "halogens-noble-gases",
+    "title": "ハロゲンと希ガスの性質・反応"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-inorganic",
+    "id": "ionization-tendency-refining",
+    "title": "金属のイオン化傾向と精錬"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-organic",
+    "id": "hydrocarbons-alcohols",
+    "title": "炭化水素と含酸素化合物"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-organic",
+    "id": "aromatic-polymers",
+    "title": "芳香族化合物と高分子"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-organic",
+    "id": "benzene-electrophilic-substitution",
+    "title": "芳香族化合物の反応と配向則"
+  },
+  {
+    "subject": "senior-chemistry",
+    "unit": "sch-organic",
+    "id": "carbonyl-sugars",
+    "title": "カルボニル化合物と糖"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-cell",
+    "id": "cell-structure",
+    "title": "細胞の構造と機能"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-cell",
+    "id": "enzyme-respiration",
+    "title": "酵素と呼吸・光合成"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-cell",
+    "id": "organelles-detail",
+    "title": "細胞小器官の構造と機能"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-cell",
+    "id": "photosynthesis-mechanism",
+    "title": "光合成の反応機構"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-cell",
+    "id": "respiration-detail",
+    "title": "呼吸の詳細解説と ATP 収支"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-genetics",
+    "id": "reproduction-development",
+    "title": "生殖と発生"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-genetics",
+    "id": "mendelian-genetics",
+    "title": "形質の遺伝"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-genetics",
+    "id": "heredity-variations",
+    "title": "遺伝の規則性の応用"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-genetics",
+    "id": "dna-structure-replication",
+    "title": "DNAの構造と複製"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-genetics",
+    "id": "operon-transcription",
+    "title": "転写調節とオペロン説"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-genetics",
+    "id": "biotechnology",
+    "title": "バイオテクノロジー"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-ecology",
+    "id": "environment-response",
+    "title": "生物の環境応答"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-ecology",
+    "id": "ecosystem",
+    "title": "生態系とその平衡"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-ecology",
+    "id": "population-growth",
+    "title": "個体群の増殖モデル"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-ecology",
+    "id": "species-interactions",
+    "title": "生物間相互作用とニッチ"
+  },
+  {
+    "subject": "senior-biology",
+    "unit": "sbi-ecology",
+    "id": "community-diversity-conservation",
+    "title": "群集の遷移と生物多様性の保全"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-geo",
+    "id": "population-urbanization",
+    "title": "人口と都市化"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-history",
+    "id": "industrial-revolution",
+    "title": "産業革命と世界システム"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-history",
+    "id": "japan-history-flow",
+    "title": "日本史の骨格——飛鳥から現代までの8つの局面"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-history",
+    "id": "world-system",
+    "title": "世界システムの誕生 — 香辛料から鉄道、そして帝国主義へ"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-history",
+    "id": "wars-cold-war",
+    "title": "二つの世界大戦と冷戦 — 「総力戦」が変えた世界"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-history",
+    "id": "japan-modernization",
+    "title": "日本の近代化 — 黒船から大正デモクラシー、そして昭和の暗転へ"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-civics",
+    "id": "democracy-market",
+    "title": "民主政治と市場経済のしくみ"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-civics",
+    "id": "history-of-rights",
+    "title": "権利獲得の歴史 — 「当たり前」は800年かけて勝ち取られた"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-civics",
+    "id": "cold-war-detail",
+    "title": "冷戦の詳細 — 封じ込めからデタント、崩壊まで"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-civics",
+    "id": "french-revolution-industrial",
+    "title": "フランス革命と産業革命 — 二つの革命がつくった近代"
+  },
+  {
+    "subject": "senior-social",
+    "unit": "shs-civics",
+    "id": "japanese-politics-system",
+    "title": "日本の政治制度 — 国会・内閣・裁判所・地方自治のしくみ"
+  },
+  {
+    "subject": "senior-japanese",
+    "unit": "sj-modern",
+    "id": "criticism-reading",
+    "title": "評論文の精読と解答技法"
+  },
+  {
+    "subject": "senior-japanese",
+    "unit": "sj-modern",
+    "id": "novel-reading",
+    "title": "小説の精読——心情と表現技法"
+  },
+  {
+    "subject": "senior-japanese",
+    "unit": "sj-modern",
+    "id": "essay-summary",
+    "title": "評論文の要約問題——解法の5ステップ"
+  },
+  {
+    "subject": "senior-japanese",
+    "unit": "sj-classic",
+    "id": "classical-grammar",
+    "title": "古典文法の要点"
+  },
+  {
+    "subject": "senior-japanese",
+    "unit": "sj-classic",
+    "id": "kanbun",
+    "title": "漢文の基本句法"
+  },
+  {
+    "subject": "senior-japanese",
+    "unit": "sj-classic",
+    "id": "kanbun-dokushuho",
+    "title": "漢文読解の実践技法"
+  },
+  {
+    "subject": "senior-japanese",
+    "unit": "sj-classic",
+    "id": "classical-vocab-50",
+    "title": "古文単語 基本50語と覚え方"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-grammar",
+    "id": "infinitive-participle",
+    "title": "不定詞・分詞・動名詞"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-grammar",
+    "id": "relative-advanced",
+    "title": "関係詞の応用——複合関係詞と前置詞＋関係代名詞"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-grammar",
+    "id": "subjunctive-comparison",
+    "title": "仮定法と比較"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-grammar",
+    "id": "participle-clauses-detail",
+    "title": "分詞構文と独立分詞"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-grammar",
+    "id": "noun-clauses-and-inversion",
+    "title": "名詞節と倒置"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-grammar",
+    "id": "academic-vocabulary",
+    "title": "英単語・熟語ドリル"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-grammar",
+    "id": "vocabulary-master",
+    "title": "英単語マスター5000"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-reading",
+    "id": "reading-strategy",
+    "title": "長文読解の戦略"
+  },
+  {
+    "subject": "senior-english",
+    "unit": "se-reading",
+    "id": "discourse-markers",
+    "title": "長文頻出のディスコースマーカーと読み取り方"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-society",
+    "id": "problem-solving-society",
+    "title": "情報社会の問題解決"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-society",
+    "id": "info-design",
+    "title": "コミュニケーションと情報デザイン"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-society",
+    "id": "data-ethics-privacy",
+    "title": "データとプライバシー — 個人情報・匿名加工情報・AI時代の倫理"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-society",
+    "id": "algorithmic-thinking",
+    "title": "アルゴリズム的思考 — ソート・探索・計算量の直感"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-programming",
+    "id": "computer-basics-algorithm",
+    "title": "コンピュータの仕組みとアルゴリズム"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-programming",
+    "id": "programming-practice",
+    "title": "プログラミングの実践"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-network-data",
+    "id": "network-security",
+    "title": "ネットワークの仕組みとセキュリティ"
+  },
+  {
+    "subject": "info-1",
+    "unit": "si-network-data",
+    "id": "data-science-modeling",
+    "title": "データの活用とモデル化・シミュレーション"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-linalg",
+    "id": "matrices-eigenvalues",
+    "title": "行列と固有値問題"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-linalg",
+    "id": "inner-product-spaces",
+    "title": "内積空間と直交性"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-linalg",
+    "id": "matrix-decompositions",
+    "title": "行列の分解——LU・QR・特異値分解"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-linalg",
+    "id": "eigenvalue-applications",
+    "title": "固有値の応用——冪計算・フィボナッチ・マルコフ連鎖"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-analysis",
+    "id": "taylor-multivariable",
+    "title": "テイラー展開と偏微分"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-analysis",
+    "id": "limits-continuity",
+    "title": "極限と連続性"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-analysis",
+    "id": "series-convergence",
+    "title": "級数と収束判定"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-analysis",
+    "id": "multivariable-extrema",
+    "title": "多変数関数の極値とラグランジュの未定乗数法"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-analysis",
+    "id": "multiple-integrals",
+    "title": "重積分——累次積分・領域の読み替え・座標変換"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-difffourier",
+    "id": "ode-basics",
+    "title": "常微分方程式——変化の法則を解く"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-difffourier",
+    "id": "fourier-analysis",
+    "title": "フーリエ解析——任意の波は sin の合成"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-difffourier",
+    "id": "laplace-transform",
+    "title": "ラプラス変換——微分方程式を代数方程式に変える"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-probstat",
+    "id": "random-variables",
+    "title": "確率変数と期待値・分散"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-probstat",
+    "id": "normal-distribution-clt",
+    "title": "正規分布と中心極限定理"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-complex-vector",
+    "id": "complex-functions",
+    "title": "複素関数——正則性とコーシー＝リーマン"
+  },
+  {
+    "subject": "university-math",
+    "unit": "uni-complex-vector",
+    "id": "vector-calculus",
+    "title": "ベクトル解析——流れを読む演算子"
+  },
+  {
+    "subject": "university-chemistry",
+    "unit": "uch-thermo",
+    "id": "entropy-gibbs",
+    "title": "エントロピーとギブズエネルギー"
+  },
+  {
+    "subject": "university-chemistry",
+    "unit": "uch-kinetics",
+    "id": "rate-laws-arrhenius",
+    "title": "速度式とアレニウスの式"
+  },
+  {
+    "subject": "university-chemistry",
+    "unit": "uch-quantum",
+    "id": "orbitals-bonding",
+    "title": "軌道の概念と化学結合"
+  },
+  {
+    "subject": "university-chemistry",
+    "unit": "uch-organic",
+    "id": "reaction-mechanisms",
+    "title": "反応機構——電子の流れで理解する"
+  },
+  {
+    "subject": "university-chemistry",
+    "unit": "uch-solid",
+    "id": "band-theory",
+    "title": "バンド理論——金属・絶縁体・半導体"
+  },
+  {
+    "subject": "university-chemistry",
+    "unit": "uch-electrochem",
+    "id": "electrochemistry-detail",
+    "title": "電気化学の詳細——電極電位・ネルンストの式・電気分解"
+  },
+  {
+    "subject": "university-chemistry",
+    "unit": "uch-coordination",
+    "id": "coordination-chemistry",
+    "title": "配位化学入門——錯体の構造・命名・色と磁性"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-lagrangian",
+    "id": "lagrange-equations",
+    "title": "ラグランジュ形式の力学"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-maxwell",
+    "id": "maxwell-equations",
+    "title": "マクスウェルの方程式と電磁波"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-quantum",
+    "id": "schrodinger-basics",
+    "title": "シュレーディンガー方程式と確率解釈"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-statmech",
+    "id": "boltzmann-distribution",
+    "title": "ミクロ状態とボルツマン分布"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-modern",
+    "id": "special-relativity",
+    "title": "特殊相対性理論入門——時間の遅れ・ローレンツ収縮・E=mc²"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-modern",
+    "id": "thermodynamics-zeroth-law",
+    "title": "熱力学の第0法則と温度の定義"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-dynamics",
+    "id": "special-relativity-dynamics",
+    "title": "相対論的力学——運動量・エネルギー・速度の加法定理"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-dynamics",
+    "id": "waves-superposition-detail",
+    "title": "波の重ね合わせの詳細——定在波・うなり・分散"
+  },
+  {
+    "subject": "university-physics",
+    "unit": "uni-phys-dynamics",
+    "id": "thermodynamics-laws",
+    "title": "熱力学の法則——第0法則から第3法則まで"
+  },
+  {
+    "subject": "university-cs",
+    "unit": "uni-cs-algorithms",
+    "id": "complexity-basics",
+    "title": "計算量オーダー——速さの言い方"
+  },
+  {
+    "subject": "university-cs",
+    "unit": "uni-cs-algorithms",
+    "id": "computability-p-np",
+    "title": "計算可能性と P vs NP"
+  },
+  {
+    "subject": "university-cs",
+    "unit": "uni-cs-ml",
+    "id": "supervised-learning",
+    "title": "機械学習の骨格——損失を最小にする"
+  },
+  {
+    "subject": "university-cs",
+    "unit": "uni-cs-systems",
+    "id": "database-sql-basics",
+    "title": "データベースと SQL 基礎"
+  },
+  {
+    "subject": "university-cs",
+    "unit": "uni-cs-systems",
+    "id": "network-tcpip-dns",
+    "title": "ネットワークの階層モデル——TCP/IP と DNS の仕組み"
+  },
+  {
+    "subject": "trivia",
+    "unit": "tv-science",
+    "id": "trivia-science",
+    "title": "身近な科学の雑学"
+  },
+  {
+    "subject": "trivia",
+    "unit": "tv-math",
+    "id": "trivia-math",
+    "title": "数学の雑学"
+  },
+  {
+    "subject": "trivia",
+    "unit": "tv-japan",
+    "id": "trivia-japan",
+    "title": "日本語と日本文化の雑学"
+  },
+  {
+    "subject": "trivia",
+    "unit": "tv-earth",
+    "id": "trivia-earth",
+    "title": "宇宙と地球の雑学"
+  },
+  {
+    "subject": "trivia",
+    "unit": "tv-food",
+    "id": "trivia-food",
+    "title": "食べ物の雑学"
+  },
+  {
+    "subject": "trivia",
+    "unit": "tv-sports",
+    "id": "trivia-sports",
+    "title": "スポーツの雑学"
+  },
+  {
+    "subject": "trivia",
+    "unit": "tv-music-art",
+    "id": "trivia-music-art",
+    "title": "音楽と美術の雑学"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-body",
+    "id": "trivia-qa-brain-sleep",
+    "title": "脳と睡眠の「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-body",
+    "id": "trivia-qa-body",
+    "title": "人体の「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-body",
+    "id": "trivia-qa-senses",
+    "title": "五感と脳の「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-body",
+    "id": "trivia-qa-life",
+    "title": "生きものの「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-everyday",
+    "id": "trivia-qa-clothes-material",
+    "title": "衣類と素材の「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-everyday",
+    "id": "trivia-qa-everyday-sky",
+    "title": "空と光の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-everyday",
+    "id": "trivia-qa-everyday-heat",
+    "title": "熱と水の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-everyday",
+    "id": "trivia-qa-everyday-electric",
+    "title": "電気と磁石の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-everyday",
+    "id": "trivia-qa-everyday-kitchen",
+    "title": "キッチンの化学の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-language",
+    "id": "trivia-qa-japanese",
+    "title": "日本語の「なぜ？」——文字・発音・敬語のヒミツ"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-language",
+    "id": "trivia-qa-english",
+    "title": "英語の「なぜ？」——つづり・語源・世界への広がり"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-language",
+    "id": "trivia-qa-wasei-eigo",
+    "title": "和製英語と外来語の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-language",
+    "id": "trivia-qa-world-languages",
+    "title": "世界の言語の「なぜ？」——7000言語の不思議"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-society",
+    "id": "trivia-qa-money-economy",
+    "title": "お金と経済の「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-society",
+    "id": "trivia-qa-history-japan",
+    "title": "日本史の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-society",
+    "id": "trivia-qa-history-world",
+    "title": "世界史の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-society",
+    "id": "trivia-qa-geo",
+    "title": "地理の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-society",
+    "id": "trivia-qa-society",
+    "title": "社会・経済の「なぜ？」"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-tech",
+    "id": "trivia-qa-internet-security",
+    "title": "ネットとセキュリティの「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-tech",
+    "id": "trivia-qa-tech",
+    "title": "デジタル技術の「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-tech",
+    "id": "trivia-qa-math",
+    "title": "数学の「なぜ？」Q&A"
+  },
+  {
+    "subject": "why-qa",
+    "unit": "tq-tech",
+    "id": "trivia-qa-space",
+    "title": "宇宙の「なぜ？」Q&A"
+  }
+]

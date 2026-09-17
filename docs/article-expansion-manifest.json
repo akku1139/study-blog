@@ -1,0 +1,202 @@
+[
+  {
+    "subject": "junior-math",
+    "id": "jm-ratio-units"
+  },
+  {
+    "subject": "junior-math",
+    "id": "jm-solid-geometry"
+  },
+  {
+    "subject": "junior-math",
+    "id": "jm-constructions"
+  },
+  {
+    "subject": "junior-science",
+    "id": "js-light-lenses"
+  },
+  {
+    "subject": "junior-science",
+    "id": "js-astronomy"
+  },
+  {
+    "subject": "junior-science",
+    "id": "js-density-solubility"
+  },
+  {
+    "subject": "junior-social",
+    "id": "jso-map-scale"
+  },
+  {
+    "subject": "junior-social",
+    "id": "jso-local-government"
+  },
+  {
+    "subject": "junior-japanese",
+    "id": "jj-poetry"
+  },
+  {
+    "subject": "junior-japanese",
+    "id": "jj-discussion"
+  },
+  {
+    "subject": "junior-english",
+    "id": "je-questions"
+  },
+  {
+    "subject": "junior-english",
+    "id": "je-countability"
+  },
+  {
+    "subject": "senior-math",
+    "id": "sm-logic-sets"
+  },
+  {
+    "subject": "senior-math",
+    "id": "sm-binomial-theorem"
+  },
+  {
+    "subject": "senior-math-ab",
+    "id": "sm-integer-euclid"
+  },
+  {
+    "subject": "senior-physics",
+    "id": "sp-fluid-pressure"
+  },
+  {
+    "subject": "senior-physics",
+    "id": "sp-heat-calorimetry"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sc-buffer-titration"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sc-crystal-lattices"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sc-polymer-properties"
+  },
+  {
+    "subject": "senior-biology",
+    "id": "sb-homeostasis"
+  },
+  {
+    "subject": "senior-biology",
+    "id": "sb-evolution-drift"
+  },
+  {
+    "subject": "senior-science",
+    "id": "ss-rock-dating"
+  },
+  {
+    "subject": "senior-science",
+    "id": "ss-weather-fronts"
+  },
+  {
+    "subject": "senior-social",
+    "id": "sso-trade-comparative"
+  },
+  {
+    "subject": "senior-social",
+    "id": "sso-public-finance"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-classical-auxiliaries"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-source-comparison"
+  },
+  {
+    "subject": "senior-english",
+    "id": "se-modal-nuance"
+  },
+  {
+    "subject": "senior-english",
+    "id": "se-paragraph-writing"
+  },
+  {
+    "subject": "info-1",
+    "id": "info-binary-encoding"
+  },
+  {
+    "subject": "info-1",
+    "id": "info-image-audio"
+  },
+  {
+    "subject": "info-1",
+    "id": "info-accessible-design"
+  },
+  {
+    "subject": "university-math",
+    "id": "um-graph-theory"
+  },
+  {
+    "subject": "university-math",
+    "id": "um-numerical-roots"
+  },
+  {
+    "subject": "university-math",
+    "id": "um-bayesian-inference"
+  },
+  {
+    "subject": "university-physics",
+    "id": "up-damped-oscillation"
+  },
+  {
+    "subject": "university-physics",
+    "id": "up-quantum-spin"
+  },
+  {
+    "subject": "university-chemistry",
+    "id": "uc-phase-equilibrium"
+  },
+  {
+    "subject": "university-chemistry",
+    "id": "uc-spectroscopy"
+  },
+  {
+    "subject": "university-cs",
+    "id": "ucs-data-structures"
+  },
+  {
+    "subject": "university-cs",
+    "id": "ucs-transactions"
+  },
+  {
+    "subject": "university-cs",
+    "id": "ucs-testing"
+  },
+  {
+    "subject": "trivia",
+    "id": "tv-voting-paradoxes"
+  },
+  {
+    "subject": "trivia",
+    "id": "tv-calendar-arithmetic"
+  },
+  {
+    "subject": "trivia",
+    "id": "tv-music-tuning"
+  },
+  {
+    "subject": "why-qa",
+    "id": "qa-bicycle"
+  },
+  {
+    "subject": "why-qa",
+    "id": "qa-packaging"
+  },
+  {
+    "subject": "why-qa",
+    "id": "qa-perception-images"
+  },
+  {
+    "subject": "why-qa",
+    "id": "qa-measurement-error"
+  }
+]

@@ -1,4 +1,5 @@
 import type { Subject } from './types';
+import { withAdditionalLessons } from './additions/index.ts';
 import { juniorMath } from './junior-math.ts';
 import { juniorScience } from './junior-science.ts';
 import { juniorSocial } from './junior-social.ts';
@@ -48,7 +49,7 @@ export const subjects: Subject[] = [
   universityCS,
   triviaSubject,
   whySubject,
-];
+].map(withAdditionalLessons);
 
 
 export const stageNames = {

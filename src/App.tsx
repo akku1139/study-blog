@@ -5,6 +5,7 @@ import { SubjectPage } from './pages/SubjectPage';
 import { TocPage } from './pages/TocPage';
 import { DrillPage } from './pages/DrillPage';
 import { ExamPrepPage } from './pages/ExamPrepPage';
+import { ScrollToTop } from './components/ScrollToTop';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,6 +37,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export function App() {
   return (
     <Layout>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/toc" element={<TocPage />} />
