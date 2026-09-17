@@ -1,7 +1,7 @@
 // コンテンツ全体の KaTeX 文法検証: 全レッスンのブロック（text / formula / derivation /
 // example / practice / quiz / note / table / list）に含まれる $...$・$$...$$ をチェックする。
 import katex from 'katex';
-import { subjects } from '../src/content/index';
+import { subjects } from '../src/content/index.ts';
 
 const re = /\$\$([^$]+)\$\$|\$([^$]+)\$/g;
 function validateTex(text: string, where: string): string[] {
@@ -16,14 +16,27 @@ function validateTex(text: string, where: string): string[] {
       errors.push(`${where}: ${(e as Error).message} in "${tex.slice(0, 80)}"`);
     }
   }
+  for (const error of errors) console.error(error);
   return errors;
 }
 
 let fail = 0;
+const subjectIds = new Set<string>();
 for (const subject of subjects) {
+  if (subjectIds.has(subject.id)) {
+    console.error(`Duplicate subject ID: ${subject.id}`);
+    fail++;
+  }
+  subjectIds.add(subject.id);
+  const lessonIds = new Set<string>();
   for (const unit of subject.units) {
     for (const lesson of unit.lessons) {
       const where = `${subject.id}/${lesson.id}`;
+      if (lessonIds.has(lesson.id)) {
+        console.error(`Duplicate lesson ID: ${where}`);
+        fail++;
+      }
+      lessonIds.add(lesson.id);
       for (const b of lesson.blocks) {
         switch (b.type) {
           case 'text':
@@ -73,6 +86,10 @@ for (const subject of subjects) {
             break;
           case 'quiz':
             for (const q of b.questions) {
+              if (!Number.isInteger(q.answerIndex) || q.answerIndex < 0 || q.answerIndex >= q.choices.length) {
+                console.error(`${where}/quiz: answerIndex out of range: ${q.answerIndex}`);
+                fail++;
+              }
               fail += validateTex(q.question, where).length;
               for (const c of q.choices) fail += validateTex(c, where).length;
               if (q.explanation) fail += validateTex(q.explanation, where).length;

@@ -1,7 +1,7 @@
 import type { Subject } from '../types';
-import { cellUnit } from './cell-metabolism';
-import { geneticsUnit } from './genetics';
-import { ecologyUnit } from './ecology';
+import { cellUnit } from './cell-metabolism.ts';
+import { geneticsUnit } from './genetics.ts';
+import { ecologyUnit } from './ecology.ts';
 
 // ============================================================
 // 高校生物（学習指導要領 第2章 第6節「生物」）

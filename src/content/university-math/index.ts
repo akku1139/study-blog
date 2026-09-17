@@ -1,5 +1,5 @@
 import type { Subject } from '../types';
-import { linearAlgebraUnit, analysisUnit, probabilityStatisticsUnit, differentialEquationsUnit, complexVectorUnit } from './units';
+import { linearAlgebraUnit, analysisUnit, probabilityStatisticsUnit, differentialEquationsUnit, complexVectorUnit } from './units.ts';
 
 // ============================================================
 // 大学数学（入門：線形代数と解析）

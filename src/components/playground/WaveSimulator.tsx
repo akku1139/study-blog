@@ -21,8 +21,9 @@ export function WaveSimulator() {
 
   const t = tRef.current;
   const W = 520, H = 300, mid = H * 0.55;
+  // 波1は +x 方向へ、波2は −x 方向へ進む。逆向きの重ね合わせで定在波が観察できる。
   const y1 = (x: number) => a1 * 30 * Math.sin((2 * Math.PI * x) / lambda1 - t);
-  const y2 = (x: number) => a2 * 30 * Math.sin((2 * Math.PI * x) / lambda2 - t * 1.0);
+  const y2 = (x: number) => a2 * 30 * Math.sin((2 * Math.PI * x) / lambda2 + t);
 
   const path = (f: (x: number) => number) =>
     Array.from({ length: W }, (_, i) => `${i},${mid - f(i)}`).join(' ');
@@ -46,7 +47,7 @@ export function WaveSimulator() {
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} width={520} height={300} style={{ maxWidth: '100%', border: '1px solid #e2e8f0', borderRadius: 8, background: '#fff' }}>
         <line x1={0} y1={mid} x2={W} y2={mid} stroke="#e2e8f0" />
-        {/* 合成波（塗り） */}
+        {/* 合成波 */}
         <polyline points={path((x) => y1(x) + y2(x))} fill="none" stroke="#dc2626" strokeWidth={3} />
         {/* 各波 */}
         <polyline points={path(y1)} fill="none" stroke="#2563eb" strokeWidth={1.5} strokeDasharray="5 4" opacity={0.8} />
@@ -54,7 +55,8 @@ export function WaveSimulator() {
         <text x={12} y={22} fontSize={12} fill="#dc2626">合成波（赤）＝ 波1（青）＋ 波2（緑）</text>
       </svg>
       <p className="widget-note">
-        波長を揃えると<strong>定在波</strong>が、λ₁ ≠ λ₂ だと<strong>うなり</strong>のようなうねりが見えます。
+        λ₁ = λ₂ で逆向きに進む 2 つの波を重ねると<strong>定在波</strong>（節と腹が動かない波）が見えます。
+        この図は 1 次元の変位のみを表すため、うなり（時間的な強弱）は出ません。3 次元で波を重ねた場合の強め合い・弱め合いは<strong>干渉</strong>として現れます。
         媒質の各点の変位は各波の変位の和になる——これが<strong>重ね合わせの原理</strong>です。
       </p>
     </div>

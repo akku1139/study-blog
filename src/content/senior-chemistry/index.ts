@@ -1,7 +1,7 @@
 import type { Subject } from '../types';
-import { statesUnit } from './states';
-import { inorganicUnit } from './inorganic';
-import { organicUnit } from './organic';
+import { statesUnit } from './states.ts';
+import { inorganicUnit } from './inorganic.ts';
+import { organicUnit } from './organic.ts';
 
 // ============================================================
 // 高校化学（学習指導要領 第2章 第6節「化学」）

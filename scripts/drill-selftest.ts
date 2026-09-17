@@ -1,7 +1,7 @@
 // ドリル生成器の自己検証: 全トピック×多シードで KaTeX 文法チェックと出力目視を行う
 import katex from 'katex';
-import { mulberry32 } from '../src/lib/rng';
-import { drillTopics } from '../src/components/playground/MathDrill';
+import { mulberry32 } from '../src/lib/rng.ts';
+import { drillTopics } from '../src/lib/drill-topics.ts';
 
 const re = /\$\$([^$]+)\$\$|\$([^$]+)\$/g;
 function validateTex(text: string): string | null {

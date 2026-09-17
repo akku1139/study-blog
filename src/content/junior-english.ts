@@ -31,8 +31,8 @@ export const juniorEnglish: Subject = {
                 ['第1文型 SV', '主語＋動詞', 'Birds sing.'],
                 ['第2文型 SVC', '主語＋動詞＋補語', 'She is a doctor.'],
                 ['第3文型 SVO', '主語＋動詞＋目的語', 'I play tennis.'],
-                ['第4文型 SVOO', '＋間接目的語', 'He gave me a book.'],
-                ['第5文型 SVOC', '＋補語', 'We call him Ken.'],
+                ['第4文型 SVOO', '主語＋動詞＋間接目的語＋直接目的語', 'He gave me a book.'],
+                ['第5文型 SVOC', '主語＋動詞＋目的語＋補語', 'We call him Ken.'],
               ],
             },
             { type: 'heading', level: 3, content: '時制' },
@@ -40,22 +40,102 @@ export const juniorEnglish: Subject = {
               type: 'table',
               headers: ['時制', '形', '意味'],
               rows: [
-                ['現在進行形', 'be + -ing', '今〜している'],
+                ['現在形', '一般動詞は原形（三人称単数では -s など）／be動詞は am・is・are', '習慣・一般的な事実・現在の状態'],
+                ['現在進行形', 'am / is / are + -ing', '今〜している'],
                 ['過去形', '動詞の過去形', '〜した'],
-                ['未来形', 'will / be going to', '〜するだろう'],
-                ['現在完了形', 'have + 過去分詞', '経験・継続・完了・結果'],
+                ['未来の表現', 'will + 原形 / be going to + 原形', '〜するつもりだ・〜するだろう'],
+                ['現在完了形', 'have / has + 過去分詞', '経験・継続・完了・結果'],
               ],
             },
             {
               type: 'example',
               title: '例題',
               body: '「私は3年間ピアノを習っています。」を英訳せよ。',
-              answer: "**I have learned (have been learning) the piano for three years.** 「for + 期間」＝継続の現在完了。",
+              answer: '**I have been learning to play the piano for three years.** 過去に始めた動作が今も続いているので現在完了進行形（have / has been + -ing）が自然です。for + 期間で「3年間」を表します。',
             },
             {
               type: 'note',
               variant: 'warn',
               content: '現在完了形に「昨日」「last week」のような**特定の過去の時点を表す副詞は使えません**（×I have seen him yesterday）。過去形にしましょう。',
+            },
+            { type: 'heading', level: 3, content: '文型の見分け方' },
+            {
+              type: 'list',
+              items: [
+                '**第2文型か第5文型か**: 第2文型では C が S の正体や状態を説明します（She is a doctor. → She＝a doctor）。第5文型では C が O を説明します（We call him Ken. → him＝Ken）。語順を入れ替えるのではなく、何を説明する語かを確かめます。',
+                '**第3文型か第4文型か**: He gave me a book. では前置詞なしで目的語 me と a book が2つ並ぶので第4文型。He gave a book to me. は目的語が a book の1つで、to me は修飾語なので第3文型です。',
+                '**修飾語を除いて骨組みを見る**: Birds sing in the park. の in the park は場所を足す修飾語なので第1文型。look at the picture や listen to music の at / to の後ろの名詞も、動詞の直接の目的語ではありません。',
+              ],
+            },
+            { type: 'heading', level: 3, content: '時制ごとの形のまとめ' },
+            {
+              type: 'table',
+              headers: ['時制', 'be動詞の文', '一般動詞の文'],
+              rows: [
+                ['現在', 'I am ~.', 'I play tennis.（3人称単数は plays）'],
+                ['過去', 'I was ~.', 'I played tennis.'],
+                ['未来', 'I will be ~.', 'I will play tennis.'],
+                ['現在進行', '—', 'I am playing tennis.（be + -ing）'],
+                ['現在完了', 'I have been ~.', 'I have played tennis.'],
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'tip',
+              content: 'be going to は「〜するつもり（予定）」、will は「その場で決めた意志・推量」というニュアンスの違いもあります。',
+            },
+            {
+              type: 'example',
+              title: '例題2',
+              body: '「私は昨日その映画を見ました」を英語にせよ。',
+              answer: '**I saw the movie yesterday.** yesterday があるので過去形。現在完了（×have seen）は不可。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題',
+              problems: [
+                {
+                  body: '「私は2年前からこの学校に通っています」を英語にせよ。',
+                  answer: '**I have attended this school for two years.** 過去から今までの継続を現在完了で表します。for two years は「2年間」。I have been attending this school for two years. も可能です。',
+                  hint: '「from + 期間」ではなく for を使う。',
+                },
+                {
+                  body: 'Look at the baby. She ___ (sleep) now. 空欄に入る形は？',
+                  answer: '**is sleeping**。now ＝ 今まさに → 現在進行形。',
+                },
+                {
+                  body: '「彼は私たちに音楽を聞かせてくれました」の文型は？（He played us music.）',
+                  answer: '**第4文型（SVOO）**。us（間接目的語）＋ music（直接目的語）= He played music for us. とも書ける。',
+                },
+                {
+                  body: 'How long ___ you lived in Tokyo? — ___ 2015. 空欄を埋めよ。',
+                  answer: '**have / Since**。「How long + 現在完了」で期間を尋ね、since + 出発点で答える。',
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（時制と文型）',
+              questions: [
+                {
+                  question: '「私はちょうど宿題を終えたところです」に合うのは？',
+                  choices: ['I have just finished my homework.', 'I just finish my homework.', 'I am just finishing my homework now.'],
+                  answerIndex: 0,
+                  explanation: 'just ＋ 現在完了で「ちょうど〜したところ」。完了を表します。',
+                },
+                {
+                  question: 'We call the dog Pochi. の文型は？',
+                  choices: ['第3文型 SVO', '第4文型 SVOO', '第5文型 SVOC'],
+                  answerIndex: 2,
+                  explanation: 'the dog（O）を Pochi（C）と呼ぶ、という O=C の関係があるので第5文型です。',
+                },
+                {
+                  question: '×I have visited Kyoto last year. を「昨年京都を訪れた」という意味を保って直すと？',
+                  choices: ['I visited Kyoto last year.', 'I visit Kyoto last year.', 'I have visited Kyoto every year.'],
+                  answerIndex: 0,
+                  explanation: 'last year は特定の過去時点なので、現在完了ではなく過去形にします。',
+                },
+              ],
             },
           ],
         },
@@ -63,17 +143,44 @@ export const juniorEnglish: Subject = {
           id: 'passive-gerund',
           title: '受動態・不定詞・動名詞',
           summary: '準動詞の使い分けと受動態への書き換え。',
+          objectives: ['能動態の目的語を主語にし、時制を保って受動態を作れる', '不定詞と動名詞の形・働きを例文で説明できる', '動詞や前置詞に応じて to do と doing を選べる'],
           blocks: [
             { type: 'heading', level: 3, content: '受動態' },
             { type: 'formula', tex: '\\text{be} + \\text{過去分詞} (+ \\text{by})', display: true },
             { type: 'text', content: '「English is spoken in many countries.」のように、動作を受ける側を主語にします。by の後ろには動作主を置きます。' },
+            {
+              type: 'list',
+              ordered: true,
+              items: [
+                '**目的語を新しい主語にする**: Ken uses this room. の this room を文頭へ移します。',
+                '**be動詞を主語と時制に合わせる**: this room は単数で元の文は現在形なので is。uses は過去分詞 used にします。',
+                '**必要なら動作主を加える**: This room is used by Ken.（この部屋はケンに使われています）。誰がしたか不明・重要でない場合は by 以下を省きます。',
+              ],
+            },
+            {
+              type: 'table',
+              headers: ['時制・形', '受動態の形', '例文'],
+              rows: [
+                ['現在', 'am / is / are + 過去分詞', 'These rooms are cleaned every day.（これらの部屋は毎日掃除されます）'],
+                ['過去', 'was / were + 過去分詞', 'This bridge was built in 1990.（この橋は1990年に造られました）'],
+                ['助動詞あり', 'can / will など + be + 過去分詞', 'This book can be read online.（この本はオンラインで読めます）'],
+                ['否定・疑問', 'be動詞の後ろに not / be動詞を主語の前へ', 'This room is not used. / Is this room used?'],
+              ],
+            },
+            {
+              type: 'example',
+              title: '例題：過去の受動態',
+              body: 'My sister made these cookies. を these cookies を主語にして書き換えよ。',
+              answer: '**These cookies were made by my sister.** 主語が複数で元の文が過去形なので were。make の過去形・過去分詞はともに made です。',
+            },
+            { type: 'note', variant: 'warn', content: 'be動詞だけでなく**過去分詞も必要**です（×This bridge was build）。また、happen（起こる）のように目的語を取らない自動詞は、この方法で受動態にできません。An accident happened. と言います。' },
             { type: 'heading', level: 3, content: '不定詞 vs 動名詞' },
             {
               type: 'table',
               headers: ['', '不定詞 to do', '動名詞 doing'],
               rows: [
                 ['主な用法', '名詞的（〜すること）・形容詞的・副詞的', '名詞的のみ'],
-                ['注意', 'stop / remember 等で意味が変わる', 'enjoy, finish, practice などの後では必ず doing'],
+                ['注意', 'want to do / hope to do など', 'enjoy, finish, practice の目的語に動作を置くときは doing'],
               ],
             },
             {
@@ -81,14 +188,37 @@ export const juniorEnglish: Subject = {
               items: [
                 '**stop to do** = するために立ち止まる ／ **stop doing** = するのをやめる',
                 '**remember to do** = 忘れずにする ／ **remember doing** = したことを覚えている',
-                '**enjoy / finish / give up** の後は必ず **-ing**',
+                '**enjoy / finish / give up** の目的語に動作を置くときは **-ing**。普通の名詞も置けます（enjoy music）。',
               ],
             },
+            {
+              type: 'table',
+              headers: ['働き', '例文', '確認する点'],
+              rows: [
+                ['不定詞・名詞的用法', 'I want to read this book.（この本を読みたい）', 'to read this book が want の目的語'],
+                ['不定詞・形容詞的用法', 'I have a book to read.（読む本がある）', 'to read が前の名詞 a book を説明'],
+                ['不定詞・副詞的用法', 'I went to the library to read.（読むために図書館へ行った）', 'to read が行った目的を説明'],
+                ['動名詞', 'Reading books is fun.（本を読むことは楽しい）', 'Reading books が文の主語'],
+              ],
+            },
+            { type: 'text', content: '前置詞の後ろに「〜すること」を置くときも動名詞です。She is good at swimming.（彼女は泳ぐのが得意です）の at の後ろは swimming。I am swimming. の swimming は現在進行形の一部なので、同じ -ing でも文の働きを見て区別します。' },
             {
               type: 'example',
               title: '例題',
               body: '次の空欄に入る語を答えよ。「I finished ___ (clean) my room.」',
               answer: '**cleaning**（finish の後は動名詞）',
+            },
+            {
+              type: 'practice',
+              title: '練習問題：形と理由を確認',
+              problems: [
+                { body: 'They clean this classroom every day. を This classroom で始まる受動態にせよ。', answer: '**This classroom is cleaned every day.** 単数・現在なので is cleaned。動作主を示すなら by them を加えられますが、ここでは省略できます。' },
+                { body: 'These pictures ___ (take) by Emi yesterday. を完成させよ。', answer: '**were taken**。主語が複数、yesterday があるので過去の受動態。take の過去分詞は taken です。' },
+                { body: 'This computer can ___ (use) by students. を完成させよ。', answer: '**be used**。助動詞の直後は原形なので、can is used ではなく can be used にします。' },
+                { body: 'I enjoy ___ (cook), but I want ___ (learn) more recipes. の空欄を埋めよ。', answer: '**cooking / to learn**。enjoy の目的語となる動作は動名詞、want の後ろで「〜したい」は不定詞を使います。' },
+                { body: 'He is interested in ___ (play) the guitar. の空欄を埋めよ。', answer: '**playing**。前置詞 in の後ろなので動名詞。「彼はギターを弾くことに興味がある」。' },
+                { body: 'I stopped to drink some water. と I stopped drinking water. の意味の違いは？', answer: '**前者は「水を飲むために（していたことを）やめた・立ち止まった」、後者は「水を飲むのをやめた」**。to drink は目的を表す副詞的用法、drinking は stop の目的語です。' },
+              ],
             },
           ],
         },
@@ -118,7 +248,7 @@ export const juniorEnglish: Subject = {
             {
               type: 'note',
               variant: 'tip',
-              content: 'Would you mind ~ing? の答えは日本語と逆で、「いいですよ」は **Not at all. / Of course not.**（ちっとも気にしません）となります。',
+              content: 'Would you mind ~ing? は「〜するのを嫌だと思いますか」という尋ね方です。依頼を受けるなら **Not at all. / Of course not.**（構いません）。Yes だけでは「嫌です」と受け取られ得るので注意。断るなら I am sorry, but ... と理由を添えると明確です。',
             },
           ],
         },
@@ -194,13 +324,13 @@ export const juniorEnglish: Subject = {
             { type: 'heading', level: 3, content: '目的格' },
             {
               type: 'text',
-              content: '**the book (which) I bought yesterday** のように、目的格は省略できます。省略されていても、後ろに「主語＋動詞」が続いたら関係代名詞の省略と考えます。',
+              content: '**the book (which) I bought yesterday** のように、ここで扱う名詞を限定する節では目的格を省略できます。I bought の目的語が欠け、その内容が the book と一致することを確かめます。「主語＋動詞」が続くだけで省略と決めつけないこと。主格の who / which / that はこの形では省略できません。',
             },
             {
               type: 'example',
               title: '例題',
               body: 'Look at the mountain. + Its top is covered with snow. を1文にせよ。',
-              answer: '**Look at the mountain whose top is covered with snow.**（頂が雪でおおわれた山）所有格 whose の使用。中学では that/which で書き換える別解もあります。',
+              answer: '**Look at the mountain whose top is covered with snow.**（頂が雪でおおわれている山を見なさい）。発展：whose は所有関係を表し、物にも使えます。whose を単純に that / which に置き換えることはできません。中学の基本表現なら Look at the mountain with a snow-covered top. とも表せます。',
             },
             {
               type: 'practice',
@@ -216,7 +346,7 @@ export const juniorEnglish: Subject = {
                 },
                 {
                   body: 'I know a girl ___ can speak five languages. 空欄に入る語は？',
-                  answer: '**who**（主格。girl を修飾する節の中の主語として働く）',
+                  answer: '**who または that**（主格。girl を修飾する節の中の主語として働く）。この主格は省略できません。',
                 },
               ],
             },
@@ -263,7 +393,7 @@ export const juniorEnglish: Subject = {
             {
               type: 'note',
               variant: 'warn',
-              content: '**He has gone to Kyoto.**（行ってしまった＝今も向こう）と **He has been to Kyoto.**（行ったことがある＝経験）は意味が違います。been は「行って戻ってきた」ニュアンス。',
+              content: '**He has gone to Kyoto.** は「京都へ行ってしまって、今ここにいない」。移動中の場合もあり、到着済みとは限りません。**He has been to Kyoto.** は「京都に行ったことがある」という経験を表し、通常は訪問して戻った経験を指します。',
             },
             {
               type: 'practice',
@@ -271,7 +401,7 @@ export const juniorEnglish: Subject = {
               problems: [
                 {
                   body: '「私は彼を昨日見ました」を英語にせよ（ヒント：完了形は使えない）。',
-                  answer: '**I saw him yesterday.** yesterday など特定の過去時点の副詞があるときは必ず過去形。',
+                  answer: '**I saw him yesterday.** 昨日の出来事として述べるこの文は過去形。現在完了にはしません（別の文脈では yesterday と過去進行形などを組み合わせることもあります）。',
                 },
                 {
                   body: 'How long ___ you known her? に入る語と、答え方の例を示せ。',
@@ -320,14 +450,14 @@ export const juniorEnglish: Subject = {
             { type: 'heading', level: 3, content: '3つの形の基本' },
             {
               type: 'text',
-              content: '形容詞・副詞には「同等」を表す原級、「優っている」を表す比較級、「いちばん」を表す最上級の3つの形があります。比較級は than、最上級は the とセットで使うのが鉄則です。変化のルールは語の長さ（音節数）で決まるので、まず短い語からパターンで覚えましょう。',
+              content: '原級は形容詞・副詞の基本形です。「同じくらい」は as ... as、「より〜」は比較級、「いちばん〜」は最上級で表します。比較の相手を示すときは than を使いますが、It is getting colder. のように相手を明示しない文もあります。形容詞の最上級には通常 the を付け、副詞の最上級では省くこともあります。語の長さ（音節数）と語尾を目安に変化を覚えましょう。',
             },
             {
               type: 'table',
               headers: ['タイプ', '変化の例', 'ポイント'],
               rows: [
                 ['er / est をつける', 'fast → faster → fastest', 'tall, old, young など1音節の短い語'],
-                ['e をつけるだけ', 'nice → nicer → nicest', 'large, wide など e で終わる語'],
+                ['e で終わる語に r / st をつける', 'nice → nicer → nicest', 'large, wide など'],
                 ['y を i に変える', 'easy → easier → easiest', 'happy, early など「子音字 + y」の語'],
                 ['子音字を重ねる', 'big → bigger → biggest', 'hot, thin など「短母音 + 子音字」で終わる語'],
                 ['more / most を前におく', 'careful → more careful → most careful', 'careful, famous, useful など長い語'],
@@ -341,7 +471,7 @@ export const juniorEnglish: Subject = {
                 ['good / well', 'better', 'best'],
                 ['bad / badly / ill', 'worse', 'worst'],
                 ['many / much', 'more', 'most'],
-                ['little', 'less', 'least'],
+                ['little（量が少ない）', 'less', 'least'],
                 ['far', 'farther / further', 'farthest / furthest'],
               ],
             },
@@ -363,14 +493,14 @@ export const juniorEnglish: Subject = {
                 '**This room is three times as large as that room.**（この部屋はあの部屋の3倍広い）',
               ],
             },
-            { type: 'heading', level: 3, content: '比較級を強める言葉' },
+            { type: 'heading', level: 3, content: '比較級の差の程度を表す言葉' },
             {
               type: 'text',
-              content: '比較級を強めるときは much, far, even, still, a lot, a little などを比較級の直前におきます。日本語の感覚で very を使いたくなりますが、**very は比較級を強められません**（×very better）。最上級を強めたいときは by far を使います。',
+              content: 'much, far, a lot は比較の差が大きいこと、a little, a bit は差が小さいことを表します。even, still は「さらに・いっそう」という強調です。いずれも比較級の直前に置きます。**very は比較級を直接強められません**（×very better）。最上級の強調には by far the best のような形を使います。',
             },
             {
               type: 'table',
-              headers: ['強める語', 'ニュアンス', '例'],
+              headers: ['程度・強調の語', 'ニュアンス', '例'],
               rows: [
                 ['much / far', 'ずっと', 'much faster（ずっと速い）'],
                 ['even / still', 'さらに・いっそう', 'even better（さらに良い）'],
@@ -382,7 +512,7 @@ export const juniorEnglish: Subject = {
               type: 'example',
               title: '例題',
               body: '「私の兄は私よりずっと背が高い。」を英語にせよ。',
-              answer: '**My brother is much taller than I (me).** 比較級 taller を much で強めます。very には置き換えられない点が答案での差になります。',
+              answer: '**My brother is much taller than I am.** または **My brother is much taller than me.** 比較級 taller を much で強めます。very には置き換えられません。',
             },
             {
               type: 'practice',
@@ -390,19 +520,19 @@ export const juniorEnglish: Subject = {
               problems: [
                 {
                   body: 'Tokyo is ___ (large) than Osaka. 空欄に適する形を入れよ。',
-                  answer: '**larger**。1音節語なので er をつける。more large は誤り。',
+                  answer: '**larger**。large は e で終わる短い語なので r を付けます。この文では more large ではなく larger を使います。',
                 },
                 {
                   body: '「彼女はクラスでいちばん上手に歌う。」を英語にせよ。',
-                  answer: '**She sings (the) best in her class.** well の最上級は best。人を含む範囲を表すときは in を使う。',
+                  answer: '**She sings (the) best in her class.** well の最上級は best。in her class は1つの集団を範囲として示します。of all the students（全生徒のうちで）のように、複数の比較対象を並べる場合は of を使います。',
                 },
                 {
                   body: 'Today is ___ hotter than yesterday. 空欄に入る語を1つ挙げ、very が不可の理由も述べよ。',
-                  answer: '**much / far / even** など。very は原級（as ... as の中など）を強める語で、比較級とは組み合わないため。',
+                  answer: '**much / far / even** など。very は very hot のように通常の形容詞・副詞を強めますが、比較級 hotter を直接修飾できません。',
                 },
                 {
-                  body: 'No other mountain in Japan is ___ than Mt. Fuji. 最上級と同じ意味になるよう空欄を埋めよ。',
-                  answer: '**higher**。「No other A is 比較級 than B」で「Bほど高い山はない＝Bがいちばん高い」。',
+                  body: 'No other mountain in Japan is as ___ as Mt. Fuji. 「富士山は日本で最も高い山だ」と同じ意味になるよう空欄を埋めよ。',
+                  answer: '**high**。as と as の間は原級。「日本のほかのどの山も富士山ほど高くない」と表せます。No other mountain ... is higher than ... なら厳密には「富士山より高い山はない」で、同じ高さの山がある可能性までは否定しません。',
                 },
               ],
             },
@@ -426,7 +556,7 @@ export const juniorEnglish: Subject = {
                   question: 'much happier の much の働きは？',
                   choices: ['very と同じで原級を強めている', '比較級を強めている', '名詞 happier を修飾している'],
                   answerIndex: 1,
-                  explanation: 'much は比較級・最上級を強められる副詞です。very は比較級を強められない点とセットで覚えましょう。',
+                  explanation: 'much はここでは比較級 happier を強め、「ずっと幸せな」を表します。最上級の強調は by far the happiest などの形で覚えましょう。',
                 },
               ],
             },
@@ -449,7 +579,7 @@ export const juniorEnglish: Subject = {
               rows: [
                 ['名詞的用法', '主語・目的語・補語になる', '**To swim** here is fun.', 'ここで泳ぐことは楽しい'],
                 ['形容詞的用法', '名詞を後ろから修飾', 'I have homework **to do**.', 'やるべき宿題'],
-                ['副詞的用法', '動詞を修飾（目的・原因・結果など）', 'I got up early **to catch** the bus.', 'バスに間に合うように'],
+                ['副詞的用法', '動詞・形容詞などを修飾（目的・感情の原因など）', 'I got up early **to catch** the bus.', 'バスに間に合うように'],
               ],
             },
             { type: 'heading', level: 3, content: '判別の手順（4ステップ）' },
@@ -457,10 +587,10 @@ export const juniorEnglish: Subject = {
               type: 'list',
               ordered: true,
               items: [
-                '**ステップ1**: to do の直後に名詞があるか確認する → あれば形容詞的用法の可能性大',
-                '**ステップ2**: to do を「すること」に置き換えて意味が通るか試す → 通れば名詞的用法',
-                '**ステップ3**: 「〜するために」「〜してみたら」など訳語を足して自然か試す → 自然なら副詞的用法',
-                '**ステップ4**: 迷ったら動詞の種類に注目する。want や hope の直後の to do は目的語（名詞的用法）と決まっている',
+                '**ステップ1**: to + 動詞の原形から始まるかたまり全体を見つける。to read a book の a book は read の目的語であり、直後に名詞があることだけでは用法は決まらない。',
+                '**ステップ2**: かたまり全体が文の主語・目的語・補語として「〜すること」を表すなら名詞的用法（I want to read a book.）。',
+                '**ステップ3**: 前にある名詞を「どんな名詞か」と説明していれば形容詞的用法（I have a book to read. の to read は a book を説明）。名詞の直後にあるだけでなく、意味のつながりを確認する。',
+                '**ステップ4**: 動作の目的や感情の原因などを足していれば副詞的用法（I went there to read. / I am happy to see you.）。訳だけでなく、文中で何を説明するかを根拠にする。',
               ],
             },
             {
@@ -484,11 +614,11 @@ export const juniorEnglish: Subject = {
             { type: 'heading', level: 3, content: 'stop / remember / forget は要注意' },
             {
               type: 'text',
-              content: '同じ動詞でも、後ろに to do が来るか doing が来るかで意味が変わることがあります。ポイントは時間の向きです。**to do はこれから先の動作**、**doing はすでに起こった（または進行中の）動作**を指します。次の表を対になって声に出して覚えましょう。',
+              content: '同じ動詞でも、後ろに to do が来るか doing が来るかで意味が変わります。remember / forget では「これからする予定のこと」と「すでにしたこと」の対比が手がかりです。ただし、不定詞が常に未来、動名詞が常に過去を表すわけではありません。try doing は「試しにしてみる」なので、動詞ごとの組み合わせで覚えます。',
             },
             {
               type: 'table',
-              headers: ['動詞', '+ to do（未来向き）', '+ doing（過去向き）'],
+              headers: ['動詞', '+ to do', '+ doing'],
               rows: [
                 ['stop', 'stop to do = するために立ち止まる', 'stop doing = するのをやめる'],
                 ['remember', 'remember to do = 忘れずにする', 'remember doing = したことを覚えている'],
@@ -505,7 +635,7 @@ export const juniorEnglish: Subject = {
               type: 'example',
               title: '例題',
               body: '「私は電気を消し忘れた。」を英語にせよ。',
-              answer: '**I forgot to turn off the light.** やるはずだった動作だから to do。I forgot turning off the light. とすると「消したことを忘れていた」という奇妙な文になります。',
+              answer: '**I forgot to turn off the light.** 消すはずだったのに忘れてしなかったので to do。「消したことを忘れていた」なら I forgot that I had turned off the light. などとなり、実際に消したかどうかが違います。',
             },
             {
               type: 'practice',
@@ -516,7 +646,7 @@ export const juniorEnglish: Subject = {
                   answer: '**drinking**。stop の目的語は動名詞。to drink にすると「飲むために立ち止まった」になり文意が変わる。',
                 },
                 {
-                  body: 'Did you remember ___ (lock) the door? 「鍵をかけたかどうか確認した？」の意味にするには？',
+                  body: 'Did you remember ___ (lock) the door? 「忘れずにドアの鍵をかけた？」の意味にするには？',
                   answer: '**to lock**。remember to do は「忘れずに〜する」。Did you remember locking ...? だと「したことを覚えているか」になる。',
                 },
                 {
@@ -525,7 +655,7 @@ export const juniorEnglish: Subject = {
                 },
                 {
                   body: '「どうやってこのアプリを使えばいいか知っていますか」を how to を使って英語に。',
-                  answer: '**Do you know how to use this app?** how to use が know の目的語（名詞的用法）。',
+                  answer: '**Do you know how to use this app?** how to use this app 全体が know の目的語となる名詞のかたまりです。',
                 },
               ],
             },
@@ -546,7 +676,7 @@ export const juniorEnglish: Subject = {
                   explanation: 'time を後ろから修飾する形容詞的用法。「テレビを見る時間がない」。',
                 },
                 {
-                  question: 'Remember buying stamps. の意味は？',
+                  question: 'I remember buying stamps. の意味は？',
                   choices: ['切手を買うのを忘れないで', '切手を買ったことを覚えている', '切手を買いに行こう'],
                   answerIndex: 1,
                   explanation: 'remember + doing は「〜したことを覚えている」。doing はすでに起こった動作を指します。',

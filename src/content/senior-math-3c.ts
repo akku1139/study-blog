@@ -9,7 +9,7 @@ export const seniorMath3C: Subject = {
   stage: 'senior',
   name: '高校数学（数学III・C）',
   description:
-    '数学III：関数・極限、微分法・積分法の発展。数学C：ベクトル、数列、統計的な推測。大学入試・理工系への架け橋。',
+    '数学IIIの極限・微分法・積分法と、数学Cのベクトルを学ぶ。関連する数学Bの数列・統計的な推測も復習する。',
   icon: '∑',
   color: '#4338ca',
   units: [
@@ -43,7 +43,7 @@ export const seniorMath3C: Subject = {
             {
               type: 'list',
               items: [
-                '$\\vec{a} \\perp \\vec{b}$（垂直）$\\iff \\vec{a} \\cdot \\vec{b} = 0$',
+                '零ベクトルでない $\\vec{a},\\vec{b}$ について、$\\vec{a} \\perp \\vec{b}$（垂直）$\\iff \\vec{a} \\cdot \\vec{b} = 0$。零ベクトルとの内積は 0 だが、なす角は定義しない',
                 '$|\\vec{a}|^2 = \\vec{a} \\cdot \\vec{a}$（大きさは自分自身との内積から出る）',
                 '内積の計算法則：分配法則 $(\\vec{a} + \\vec{b}) \\cdot \\vec{c} = \\vec{a}\\cdot\\vec{c} + \\vec{b}\\cdot\\vec{c}$ が成り立つ',
               ],
@@ -53,6 +53,28 @@ export const seniorMath3C: Subject = {
               title: '例題',
               body: '$\\vec{a} = (2, 1)$, $\\vec{b} = (-1, x)$ が垂直になるとき、$x$ の値を求めよ。',
               answer: '$\\vec{a} \\cdot \\vec{b} = -2 + x = 0$ より **$x = 2$**',
+            },
+            {
+              type: 'derivation',
+              title: '余弦定理から内積の成分表示へ',
+              steps: [
+                { label: '同じ始点から2本のベクトルを描く', tex: '|\\vec{a}-\\vec{b}|^2=|\\vec{a}|^2+|\\vec{b}|^2-2|\\vec{a}|\\,|\\vec{b}|\\cos\\theta', note: '零ベクトルでない2本のベクトルがつくる三角形に余弦定理を使います。平行な場合も式は成り立ちます。' },
+                { label: '左辺を成分で展開する', tex: '(a_1-b_1)^2+(a_2-b_2)^2=|\\vec{a}|^2+|\\vec{b}|^2-2(a_1b_1+a_2b_2)' },
+                { label: '両方の式を比較する', tex: '|\\vec{a}|\\,|\\vec{b}|\\cos\\theta=a_1b_1+a_2b_2', note: '向きの情報を含む量が、成分の積の和だけで計算できる理由です。' },
+              ],
+            },
+            {
+              type: 'example',
+              title: 'なす角を求める',
+              body: '$\\vec{a}=(1,1),\\vec{b}=(2,0)$ のなす角を求めよ。',
+              answer: '内積は 2、大きさは $\\sqrt{2}$ と 2。したがって $\\cos\\theta=2/(2\\sqrt{2})=1/\\sqrt{2}$。$0\\le\\theta\\le\\pi$ より $\\theta=\\pi/4$（45°）です。',
+            },
+            {
+              type: 'practice',
+              problems: [
+                { body: '$\\vec{a}=(3,-1),\\vec{b}=(1,2)$ とする。$2\\vec{a}-\\vec{b}$ とその大きさを求めよ。', answer: '$2\\vec{a}-\\vec{b}=(6,-2)-(1,2)=(5,-4)$。大きさは $\\sqrt{5^2+(-4)^2}=\\sqrt{41}$。' },
+                { body: '$\\vec{a}=(1,2),\\vec{b}=(2,-1)$ とする。$(\\vec{a}+t\\vec{b})\\cdot\\vec{a}=0$ となる実数 t はあるか。', answer: '$\\vec{a}\\cdot\\vec{a}=5$、$\\vec{b}\\cdot\\vec{a}=0$ なので左辺は $5+t\\cdot0=5$。0 にならないため、そのような実数 t は存在しません。' },
+              ],
             },
           ],
         },
@@ -67,6 +89,7 @@ export const seniorMath3C: Subject = {
           ],
           blocks: [
             { type: 'heading', level: 3, content: '内分点・外分点・重心' },
+            { type: 'note', variant: 'info', content: '内分・外分の比では $m,n>0$ とします。直線の方向ベクトル・法線ベクトルは零ベクトルではありません。一般形の係数は $(a,b)\\ne(0,0)$ が前提です。' },
             {
               type: 'text',
               content: '線分 AB を $m : n$ に内分する点 P は、「AP と PB が同方向で長さの比が $m : n$」という条件をベクトル方程式に書き直すと求まります。位置ベクトルで表しておけば、座標が変わっても同じ式が使い回せるのが大きな利点です。中点はその特別な場合で、三角形の重心は中点の式を重ねて導けるので、セットで覚えてしまいましょう。',
@@ -110,7 +133,7 @@ export const seniorMath3C: Subject = {
                 },
                 {
                   label: 'Step 2: 法線方向への射影',
-                  tex: 'd = |\\overrightarrow{\\mathrm{QP}}| \\cos\\theta = \\dfrac{|\\vec{n} \\cdot \\overrightarrow{\\mathrm{QP}}|}{|\\vec{n}|}',
+                   tex: 'd = |\\overrightarrow{\\mathrm{QP}}| |\\cos\\theta| = \\dfrac{|\\vec{n} \\cdot \\overrightarrow{\\mathrm{QP}}|}{|\\vec{n}|}',
                   note: '内積の定義 $\\vec{n} \\cdot \\overrightarrow{\\mathrm{QP}} = |\\vec{n}|\\,|\\overrightarrow{\\mathrm{QP}}|\\cos\\theta$ を変形しました。垂線の長さは、QP を法線の向きに射影した長さそのものです。',
                 },
                 {
@@ -141,7 +164,7 @@ export const seniorMath3C: Subject = {
                 {
                   body: 'A(1, 2), B(6, 7) に対し、線分 AB を 2 : 3 に内分する点 P の座標を求めよ。',
                   hint: '$\\vec{p} = \\dfrac{3\\vec{a} + 2\\vec{b}}{5}$ を成分で計算する。',
-                  answer: '$\\vec{p} = \\dfrac{3(1, 2) + 2(6, 7)}{5} = \\dfrac{(15, 20)}{5} = $ **(4, 5)**',
+                  answer: '$\\vec{p} = \\dfrac{3(1, 2) + 2(6, 7)}{5} = \\dfrac{(15, 20)}{5} = $ **(3, 4)**',
                 },
                 {
                   body: '原点 O と直線 $2x - y + 6 = 0$ の距離を求めよ。',
@@ -172,7 +195,7 @@ export const seniorMath3C: Subject = {
                   explanation: '一般形 $ax + by + c = 0$ の法線ベクトルは係数 $(a, b)$。(2, -3) は方向ベクトルです。',
                 },
                 {
-                  question: '点と直線の距離の公式の分母 $\\sqrt{a^2 + b^2}$ は、何の大きさ？',
+                  question: '点と直線の距離の導出で、射影方向として用いたベクトルは？',
                   choices: ['法線ベクトル (a, b)', '方向ベクトル (b, -a)', 'OP ベクトル'],
                   answerIndex: 0,
                   explanation: '導出の射影の式 $d = |\\vec{n} \\cdot \\overrightarrow{\\mathrm{QP}}| / |\\vec{n}|$ の $|\\vec{n}|$ の部分です。',
@@ -192,6 +215,7 @@ export const seniorMath3C: Subject = {
           ],
           blocks: [
             { type: 'heading', level: 3, content: '空間ベクトルの成分と内積' },
+            { type: 'note', variant: 'info', content: 'なす角を求める2本のベクトル、直線の方向ベクトル、平面の法線ベクトルはいずれも零ベクトルでないことが前提です。球の半径は $r>0$ とします。' },
             {
               type: 'text',
               content: '空間のベクトルは 3 つの実数の組 $(a_1, a_2, a_3)$ で表します。演算のルールは平面ベクトルとまったく同じで、成分ごとに足し引きするだけです。内積も同様に定義されるので、「なす角を求める」「垂直条件を調べる」という平面の技がそのまま空間で使えます。',
@@ -243,7 +267,7 @@ export const seniorMath3C: Subject = {
             { type: 'heading', level: 3, content: '球の方程式' },
             {
               type: 'text',
-              content: '球は「中心からの距離が一定値 r に等しい点の集合」なので、距離の条件を成分で書き下せば方程式になります。逆に、与えられた二次式を平方完成すれば、それが球かどうか、中心と半径は何かが読み取れます。平面と球の交わりが円になることも、距離の計算で確かめられる重要な事実です。',
+              content: 'ここで球の方程式とは、中心からの距離が一定値 r に等しい点の集合（球面）の方程式です。二次式を平方完成すれば中心と半径が読み取れます。中心と平面の距離を d とすると、球面との交わりは $d<r$ なら半径 $\\sqrt{r^2-d^2}$ の円、$d=r$ なら1点、$d>r$ ならありません。',
             },
             { type: 'formula', tex: '(x - a)^2 + (y - b)^2 + (z - c)^2 = r^2 \\quad (\\text{中心 } (a, b, c), \\text{ 半径 } r)', display: true },
             {
@@ -310,11 +334,11 @@ export const seniorMath3C: Subject = {
         },
       ],
     },
-    // ---------- 数学C: 数列 ----------
+    // ---------- 数学Bの復習と数学IIIの数列の極限 ----------
     {
       id: 's3c-sequence',
-      name: '数学C：数列',
-      gakushuShidoYoryo: '内容「数列」等差数列・等比数列、階差数列、漸化式、数学的帰納法',
+      name: '数学Bの復習：数列・統計／数学III：数列の極限',
+      gakushuShidoYoryo: '数学B「数列」「統計的な推測」の復習、数学III「極限」のうち数列の極限・無限級数',
       lessons: [
         {
           id: 'sequences',
@@ -325,7 +349,7 @@ export const seniorMath3C: Subject = {
             { type: 'heading', level: 3, content: '基本の数列' },
             {
               type: 'table',
-              headers: ['', '一般項', '初項 n 項の和 $S_n$'],
+               headers: ['', '一般項', '初項から第 n 項までの和 $S_n$'],
               rows: [
                 ['等差数列（公差 d）', '$a_n = a_1 + (n-1)d$', '$S_n = \\dfrac{n(a_1 + a_n)}{2}$'],
                 ['等比数列（公比 r）', '$a_n = a_1 r^{n-1}$', '$S_n = \\dfrac{a_1(r^n - 1)}{r - 1}$（r ≠ 1）'],
@@ -334,7 +358,7 @@ export const seniorMath3C: Subject = {
             { type: 'heading', level: 3, content: '階差数列' },
             {
               type: 'text',
-              content: '隣り合う項の差 $b_n = a_{n+1} - a_n$ が等比数列になるなら、$a_n = a_1 + \\displaystyle\\sum_{k=1}^{n-1} b_k$ として一般項が求まります。「差をとったらきれいになる」パターンを見抜くのがコツです。',
+              content: '隣り合う項の差 $b_n = a_{n+1} - a_n$ を階差数列といいます。等差・等比など和を計算できる形なら、$a_n = a_1 + \\displaystyle\\sum_{k=1}^{n-1} b_k$（$n\\ge2$）として一般項が求まります。$n=1$ は初項で別に確認します。等比数列の和は公比 $r=1$ のとき $S_n=na_1$ です。',
             },
             { type: 'heading', level: 3, content: '数学的帰納法' },
             {
@@ -389,7 +413,7 @@ export const seniorMath3C: Subject = {
               type: 'widget',
               widget: {
                 id: 'golden-sunflower',
-                caption: 'ひまわりの種の並びは黄金角（フィボナッチ数列の隣項の比の極限）。角度をずらすと縞模様が現れる',
+                caption: 'ひまわりの種の配置を黄金角でモデル化。黄金比 φ はフィボナッチ数列の隣項比の極限、黄金角は 360°/φ² ≈ 137.5° です',
               },
             },
             {
@@ -401,7 +425,7 @@ export const seniorMath3C: Subject = {
             },
           ],
         },
-        // ---------- 数学C: 統計的な推測 ----------
+        // ---------- 数学B: 統計的な推測 ----------
         {
           id: 'statistical-inference',
           title: '統計的な推測',
@@ -463,8 +487,8 @@ export const seniorMath3C: Subject = {
               rows: [
                 ['$a_{n+1} = a_n + d$', '等差数列そのもの', '$a_n = a_1 + (n - 1)d$'],
                 ['$a_{n+1} = r a_n$', '等比数列そのもの', '$a_n = a_1 r^{n-1}$'],
-                ['$x_{n+1} = a x_n + b$（$b \\ne 0$）', '特性方程式 $\\alpha = a\\alpha + b$', '等比数列 $\\{ x_n - \\alpha \\}$'],
-                ['$a_{n+1} = p a_n + q r^n$', '特徴的方程式 $\\alpha = p\\alpha + qr$', '両辺割りの等比数列'],
+                ['$x_{n+1} = a x_n + b$（$a \\ne 1$, $b \\ne 0$）', '特性方程式 $\\alpha = a\\alpha + b$', '等比数列 $\\{ x_n - \\alpha \\}$'],
+                ['$a_{n+1} = p a_n + q r^n$（$r \\ne 0$）', '両辺を $r^{n+1}$ で割る: $\\dfrac{a_{n+1}}{r^{n+1}} = \\dfrac{p}{r} \\cdot \\dfrac{a_n}{r^n} + \\dfrac{q}{r^2}$', '等比数列 $\\left\\{ \\dfrac{a_n}{r^n} \\right\\}$'],
                 ['階差 $b_n = a_{n+1} - a_n$ がきれい', '階差数列を足し合わせる', '$a_n = a_1 + \\sum b_k$'],
               ],
             },
@@ -494,8 +518,8 @@ export const seniorMath3C: Subject = {
                 },
                 {
                   label: '実行例',
-                  tex: 'x_{n+1} = 2x_n + 1,\\ x_1 = 4 \\quad \\Longrightarrow \\quad \\alpha = 1,\\ x_n - 1 = 3 \\cdot 2^{n-1},\\ \\therefore\\ x_n = 3 \\cdot 2^{n-1} + 1',
-                  note: '検算: n=1 で 4 ✓、n=2 で $6+1=7 = 2 \\cdot 4 + 1$ ✓。答えを出したら小さい n での一致を必ず確かめましょう。',
+                  tex: 'x_{n+1} = 2x_n + 1,\\ x_1 = 4 \\quad \\Longrightarrow \\quad \\alpha = -1,\\ x_n + 1 = 5 \\cdot 2^{n-1},\\ \\therefore\\ x_n = 5 \\cdot 2^{n-1} - 1',
+                  note: '検算: n=1 で $5-1=4$ ✓、n=2 で $10-1=9 = 2 \\cdot 4 + 1$ ✓。答えを出したら小さい n での一致を必ず確かめましょう。',
                 },
               ],
             },
@@ -715,8 +739,8 @@ export const seniorMath3C: Subject = {
               steps: [
                 {
                   label: 'Step 1: 標本比率の分布',
-                  tex: '\\bar{p} = \\dfrac{X}{n} \\sim B\\left(n,\\ \\text{分散 } \\dfrac{p(1-p)}{n}\\right) \\text{ 的に振る舞い、平均 } p \\text{ を中心にばらつく}',
-                  note: '成功回数 X を n で割った標本比率は、真の値 p を中心に標準偏差 $\\sqrt{p(1-p)/n}$ でばらつきます。n が大きいほど縮む量です。',
+                  tex: '\\bar{p} = \\dfrac{X}{n} \\quad \\text{は 近似的に} \\quad N\\left(p,\\ \\dfrac{p(1-p)}{n}\\right) \\text{ に従う}',
+                  note: '成功回数 X が B(n, p) に従うので、標本比率 $\\bar{p} = X/n$ の平均は $np/n = p$、分散は $np(1-p)/n^2 = p(1-p)/n$ となります。X を定数倍しただけなので、n が大きければ正規近似から $\\bar{p}$ も正規分布に従います。',
                 },
                 {
                   label: 'Step 2: 標準化して 95% 区間を作る',

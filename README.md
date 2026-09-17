@@ -19,9 +19,12 @@
 
 ## 起動方法
 
+Node.js 24 以降を使用します。自己テストは Node.js の TypeScript 直接実行に対応しており、tsx は不要です。
+
 ```bash
 pnpm install
 pnpm dev      # 開発サーバー
+pnpm selftest # ドリル生成・記事の数式・ID重複・クイズ正解位置を検証
 pnpm build    # 本番ビルド (tsc + vite) + 全ページのプリレンダリング
 pnpm preview  # ビルド結果の確認
 ```

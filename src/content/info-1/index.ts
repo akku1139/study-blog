@@ -1,7 +1,7 @@
 import type { Subject } from '../types';
-import { societyUnit } from './society';
-import { programmingUnit } from './programming';
-import { networkDataUnit } from './network-data';
+import { societyUnit } from './society.ts';
+import { programmingUnit } from './programming.ts';
+import { networkDataUnit } from './network-data.ts';
 
 // ============================================================
 // 情報I（学習指導要領 第2章 第9節「情報」）

@@ -1,8 +1,8 @@
 import type { Subject } from '../types';
-import { motionUnit } from './motion';
-import { wavesUnit } from './waves';
-import { emUnit } from './em';
-import { atomicUnit } from './atomic';
+import { motionUnit } from './motion.ts';
+import { wavesUnit } from './waves.ts';
+import { emUnit } from './em.ts';
+import { atomicUnit } from './atomic.ts';
 
 // ============================================================
 // 高校物理（学習指導要領 第2章 第6節「物理」）

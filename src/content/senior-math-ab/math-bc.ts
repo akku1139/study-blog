@@ -20,7 +20,7 @@ export const linearTransformUnit: Unit = {
         {
           type: 'text',
           content:
-            '原点を動かさず、直線を直線に移す変換。合成は**行列の積**、繰り返しは**行列の冪**で表されます。',
+            'ベクトルの和と実数倍を保つ変換を1次変換といいます。原点は原点に移り、直線の像は直線または1点です。合成は**行列の積**、繰り返しは**行列の冪**で表されます。回転角の正の向きは反時計回りとします。',
         },
         { type: 'heading', level: 3, content: '重要な変換の表現行列' },
         {
@@ -44,7 +44,7 @@ export const linearTransformUnit: Unit = {
         {
           type: 'note',
           variant: 'tip',
-          content: 'det A = 0 のとき、変換により平面全体が1本の直線につぶれます（正則でない）。逆変換が存在しない条件でもあります。',
+          content: 'det A = 0 のとき、平面全体の像は1本の直線または原点だけになります（零行列なら原点だけ）。このとき A は正則でなく、逆変換は存在しません。',
         },
       ],
     },
@@ -189,7 +189,7 @@ export const complexPlaneUnit: Unit = {
           headers: ['曲線', '定義', '標準形'],
           rows: [
             ['楕円', '2焦点までの距離の和が一定', '$\\dfrac{x^2}{a^2} + \\dfrac{y^2}{b^2} = 1$'],
-            ['双曲線', '2焦点までの距離の差が一定', '$\\dfrac{x^2}{a^2} - \\dfrac{y^2}{b^2} = 1$'],
+            ['双曲線', '2焦点までの距離の差の絶対値が一定', '$\\dfrac{x^2}{a^2} - \\dfrac{y^2}{b^2} = 1$'],
             ['放物線', '焦点と準線への距離が等しい', '$y^2 = 4px$'],
           ],
         },
@@ -224,6 +224,7 @@ export const complexPlaneUnit: Unit = {
       ],
       blocks: [
         { type: 'heading', level: 3, content: '焦点と準線による統一定義' },
+        { type: 'text', content: 'ここでは焦点が準線上にない非退化な曲線を扱います。楕円・双曲線は $a,b>0$ とし、焦点を $(\\pm c,0)$ に取ります。楕円では $a>c>0$、双曲線では $c>a>0$。放物線は $p\\ne0$ とします。円は楕円の極限 $e=0$ ですが、有限の準線を用いた距離比の定義にはそのまま含めません。' },
         {
           type: 'text',
           content:
@@ -274,17 +275,31 @@ export const complexPlaneUnit: Unit = {
               tex: '(x+c)^2 + y^2 = 4a^2 - 4a\\sqrt{(x-c)^2+y^2} + (x-c)^2 + y^2',
             },
             {
-              label: '根号についてもう一度2乗',
-              tex: 'a^2(x-c)^2 + a^2 y^2 = (a^2 - c^2)^2',
+              label: '根号を残して整理し、もう一度2乗',
+              tex: 'a\\sqrt{(x-c)^2+y^2}=a^2-cx \\implies a^2((x-c)^2+y^2)=(a^2-cx)^2',
+              note: '右辺には x が残る。ここを定数に置き換えると正しい楕円の式にならない。',
+            },
+            {
+              label: '展開して共通項を消す',
+              tex: '(a^2-c^2)x^2+a^2y^2=a^2(a^2-c^2)',
             },
             {
               label: 'b^2 = a^2 - c^2 でおく',
               tex: '\\dfrac{x^2}{a^2} + \\dfrac{y^2}{b^2} = 1',
-              note: '三角形の不等式より a > c なので b は実数。長半径 a・短半径 b・焦点距離 c の関係が確定する',
+              note: '非退化な楕円には距離の和 2a が焦点間距離 2c より大きいことが必要。a > c より b > 0 と置ける。標準形では |x| ≤ a なので a² − cx > 0 となり、2乗前の条件も満たす。',
             },
           ],
         },
         { type: 'heading', level: 3, content: '離心率と形の変化' },
+        {
+          type: 'derivation',
+          title: '楕円の離心率と準線を求める',
+          steps: [
+            { label: '右の焦点までの距離を取り出す', tex: 'PF=\\sqrt{(x-c)^2+y^2}=a-\\frac{c}{a}x', note: '楕円の導出で得た式を a で割る。' },
+            { label: '準線までの距離として書く', tex: 'PF=\\frac{c}{a}\\left(\\frac{a^2}{c}-x\\right)=e\\,d(P,\\ell),\\quad e=\\frac{c}{a},\\quad\\ell: x=\\frac{a^2}{c}', note: 'a²/c > a ≥ x なので括弧内は正。左の焦点には準線 x = −a²/c が対応する。' },
+          ],
+        },
+        { type: 'text', content: '楕円では $e=c/a$、$b/a=\\sqrt{1-e^2}$。双曲線でも $e=c/a$ ですが、$b/a=\\sqrt{e^2-1}$ となり、準線は $x=\\pm a^2/c$ です。したがって離心率は単に名前を覚える量ではなく、縦横比や準線の位置を決める量です。' },
         {
           type: 'text',
           content:
@@ -305,7 +320,8 @@ export const complexPlaneUnit: Unit = {
           steps: [
             {
               label: '陰関数を微分する',
-              tex: '\\dfrac{2x}{a^2} + \\dfrac{2y}{b^2} y_t = 0 \\implies y_t = -\\dfrac{b^2 x}{a^2 y}',
+              tex: '\\dfrac{2x}{a^2} + \\dfrac{2y}{b^2} y^{\\prime} = 0 \\implies y^{\\prime} = -\\dfrac{b^2 x}{a^2 y}',
+              note: 'ここでは y₀ ≠ 0 として、y を x の関数として微分する。',
             },
             {
               label: '点 (x_0, y_0) の傾きを入れる',
@@ -325,6 +341,7 @@ export const complexPlaneUnit: Unit = {
           answer:
             '$\\dfrac{x_0 x}{9} + \\dfrac{y_0 y}{4} = 1$ に代入して $\\dfrac{x}{9} + \\dfrac{\\sqrt{2}}{3} y = 1$。整理して **$x + 3\\sqrt{2} y = 9$**',
         },
+        { type: 'note', variant: 'warn', content: '接線の公式を使う前に、接点が曲線上にあることを代入で確認しましょう。また $y_0=0$ の頂点 $(\\pm a,0)$ では傾きによる導出は使えませんが、接線は鉛直な直線 $x=\\pm a$ で、最終的な接線の公式にはそのまま代入できます。' },
         { type: 'heading', level: 3, content: '練習問題' },
         {
           type: 'practice',
@@ -349,6 +366,14 @@ export const complexPlaneUnit: Unit = {
               hint: '$y_0 y = 2p(x + x_0)$。',
               answer: '$2y = 2(x + 1)$ より **$y = x + 1$**',
             },
+            {
+              body: '焦点が $(\\pm3,0)$、2焦点までの距離の和が10である楕円の方程式と、右の焦点に対応する準線を求めよ。',
+              answer: '$a=5,c=3$ なので $b^2=25-9=16$。方程式は $x^2/25+y^2/16=1$。準線は $x=a^2/c=25/3$、離心率は $e=3/5$。',
+            },
+            {
+              body: '楕円 $x^2/25+y^2/16=1$ の点 $(3,16/5)$ における接線を求めよ。頂点 $(5,0)$ の接線も求めよ。',
+              answer: '$9/25+(256/25)/16=1$ より最初の点は楕円上。接線は $3x/25+y/5=1$、すなわち $3x+5y=25$。頂点 $(5,0)$ の接線は $x=5$ で、傾きは定義されない。',
+            },
           ],
         },
         { type: 'heading', level: 3, content: '確認クイズ' },
@@ -369,7 +394,7 @@ export const complexPlaneUnit: Unit = {
             },
             {
               question: '楕円 $\\dfrac{x^2}{a^2} + \\dfrac{y^2}{b^2} = 1$ （a > b > 0）で正しい関係はどれか。',
-              choices: ['$b^2 = a^2 - c^2$', '$b^2 = a^2 + c^2$', '$a^2 = b^2 + c^2$', '$c^2 = a^2 + b^2$'],
+              choices: ['$b^2 = a^2 - c^2$', '$b^2 = a^2 + c^2$', '$a^2 = b^2 - c^2$', '$c^2 = a^2 + b^2$'],
               answerIndex: 0,
               explanation: '楕円では長半径 a が最大で、$c^2 = a^2 - b^2$ すなわち $b^2 = a^2 - c^2$。',
             },

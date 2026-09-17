@@ -13,7 +13,7 @@ export const electrochemistryUnit: Unit = {
         '酸化還元反応を「電子の売買」として捉え直す。標準水素電極を基準にした電極電位、ネルンストの式による濃度依存性、濃淡電池と電気分解の定量計算までを系統的に学ぶ。',
       objectives: [
         '標準水素電極を基準とした標準電極電位の意味を説明し、電池の起電力を計算できる',
-        'ギブズエネルギーとの関係からネルンストの式 E = E° + (RT/nF)ln Q を導出できる',
+        'ギブズエネルギーとの関係からネルンストの式 E = E° − (RT/nF)ln Q を導出できる',
         'ネルンストの式を使って濃淡電池の起電力を求め、ファラデーの法則で電気分解の物質量を計算できる',
       ],
       blocks: [
@@ -23,16 +23,16 @@ export const electrochemistryUnit: Unit = {
           content:
             '金属をそのイオン溶液に浸すと、表面で酸化（金属がイオンになって溶ける）と還元（イオンが金属として析出する）が同時に起こります。両者の速度が等しくなったところで平衡に達し、金属と溶液の間に**電位差**が生じます。この電位差そのものは測定できませんが、「どちらがより強く電子を受け取りたがるか」を相対的に比較できます。基準になるのが**標準水素電極**（白金に水素ガスを吹き込んだ電極）で、その電位を0 V と約束します。',
         },
-        { type: 'formula', tex: '2\\mathrm{H}^+ + 2\\mathrm{e}^- \\rightleftharpoons \\mathrm{H}_2, \\\\quad E^{\\circ} = 0.000\\ \\mathrm{V}', display: true },
+        { type: 'formula', tex: '2\\mathrm{H}^+ + 2\\mathrm{e}^- \\rightleftharpoons \\mathrm{H}_2, \\quad E^{\\circ} = 0.000\\ \\mathrm{V}', display: true },
         {
           type: 'table',
           headers: ['電極（還元方向）', '$E^{\\circ}$ (V)', '解釈'],
           rows: [
-            ['$\\mathrm{F}_2/F^-$', '+2.87', '最も強い酸化剤'],
+            ['$\\mathrm{F}_2/F^-$', '+2.87', 'この表で最も強い酸化剤（標準状態）'],
             ['$\\mathrm{Cu}^{2+}/\\mathrm{Cu}$', '+0.34', 'イオンになりにくい（貴金属的）'],
             ['$2\\mathrm{H}^+/\\mathrm{H}_2$', '0.000', '基準（標準水素電極）'],
             ['$\\mathrm{Zn}^{2+}/\\mathrm{Zn}$', '−0.76', 'イオンになりやすい'],
-            ['$\\mathrm{Li}^+/\\mathrm{Li}$', '−3.04', '最も強い還元剤'],
+            ['$\\mathrm{Li}^+/\\mathrm{Li}$', '−3.04', 'この表で金属 Li が最も強い還元剤（標準状態）'],
           ],
         },
         { type: 'heading', level: 3, content: '起電力とギブズエネルギー' },
@@ -41,10 +41,11 @@ export const electrochemistryUnit: Unit = {
           content:
             'ダニエル電池（Zn | Zn²⁺ ‖ Cu²⁺ | Cu）では、Zn が酸化され Cu²⁺ が還元されます。電池の**起電力** $E$ は、2つの半電池の電極電位の差として表せます。起電力が正ということは、その反応が自発に進むことを意味し、対応するギブズエネルギー変化は負になります。これが「化学エネルギー → 電気エネルギー」変換の定量関係です。',
         },
-        { type: 'formula', tex: 'E_{cell} = E_{cathode} - E_{anode} > 0 \\\\quad (\\text{self}), \\\\qquad \\Delta G = -nFE', display: true },
+        { type: 'formula', tex: 'E_{cell} = E_{cathode} - E_{anode}, \\qquad \\Delta_r G = -nFE', display: true },
+        { type: 'note', variant: 'info', content: '両極の電位は還元電位として引き算します。E は可逆な起電力（電流をほとんど流さない極限）で、負荷時の端子電圧とは別です。一定 T、p で、書いた反応の ΔrG < 0 と E > 0 が対応します。n は反応式1回あたりの電子の化学量論数です。' },
         {
           type: 'derivation',
-          title: 'ネルンストの式 E = E° + (RT/nF)ln Q の導出',
+          title: 'ネルンストの式 E = E° − (RT/nF)ln Q の導出',
           steps: [
             {
               label: 'Step 1: ギブズエネルギーと起電力の関係',
@@ -69,7 +70,7 @@ export const electrochemistryUnit: Unit = {
             {
               label: 'Step 5: E について解く',
               tex: 'E = E^{\\circ} - \\dfrac{RT}{nF}\\ln Q',
-              note: 'これがネルンストの式。慣用上、自然対数を常用対数に書き換えた $E = E^{\\circ} + \\dfrac{RT}{nF}\\ln(1/Q)$ 形式も使われます。',
+              note: 'Q は生成物側の活量積を反応物側で割った無次元量。対数の性質 ln(1/Q) = −ln Q により $E = E^{\\circ} + \\dfrac{RT}{nF}\\ln(1/Q)$ 形式も使われます。これは常用対数への変換ではありません。25℃で常用対数を使うなら E = E° − (0.05916 V/n) log₁₀Q です。',
             },
           ],
         },
@@ -85,18 +86,18 @@ export const electrochemistryUnit: Unit = {
           steps: [
             {
               label: 'Step 1: ネルンストの式を各極に適用',
-              tex: 'E = E^{\\circ} + \\\\dfrac{RT}{2F}\\\\ln[\\\\mathrm{Cu}^{2+}]',
-              note: '還元電位はイオン濃度が高いほど正にずれます（イオンが多いと還元が起きやすい）。',
+              tex: 'E = E^{\\circ} + \\dfrac{RT}{2F}\\ln a(\\mathrm{Cu}^{2+})',
+              note: '純金属の活量は1。希薄溶液では無次元活量 a ≈ c/c°（c° = 1 mol/L）と近似します。以下ではこの近似と液間電位差の無視を仮定します。',
             },
             {
               label: 'Step 2: 起電力は両極の差',
-              tex: 'E_{cell} = \\\\dfrac{RT}{2F}\\\\ln\\\\dfrac{[\\\\mathrm{Cu}^{2+}]_{conc}}{[\\\\mathrm{Cu}^{2+}]_{dil}}',
+              tex: 'E_{cell} = \\dfrac{RT}{2F}\\ln\\dfrac{[\\mathrm{Cu}^{2+}]_{conc}}{[\\mathrm{Cu}^{2+}]_{dil}}',
               note: '$E^{\\circ}$ は両極で等しいので打ち消し合います。残るは濃度比だけです。',
             },
             {
               label: 'Step 3: 数値を代入（10倍の濃度差、25 °C）',
-              tex: 'E_{cell} = \\\\dfrac{0.0591}{2}\\\\log_{10}(10) \\\\approx 0.030\\\\ \\\\mathrm{V}',
-              note: '25 °C では $RT/F \\\\times \\\\ln 10 = 0.0591$ V という定数を使うと計算が速くなります。',
+              tex: 'E_{cell} = \\dfrac{0.0591}{2}\\log_{10}(10) \\approx 0.030\\ \\mathrm{V}',
+              note: '25 °C では $RT/F \\times \\ln 10 = 0.0591$ V という定数を使うと計算が速くなります。',
             },
           ],
         },
@@ -104,22 +105,23 @@ export const electrochemistryUnit: Unit = {
         {
           type: 'text',
           content:
-            '電気分解は「電気エネルギー → 化学エネルギー」の変換で、自発的でない酸化還元を外部電源で無理やり進めます。陰極では還元、陽極では酸化が起こります。どちらの極で何が析出・発生するかは、標準電極電位の順序と濃度で決まります。析出した物質量は流れた電気量に比例し、これが**ファラデーの電気分解則**です。',
+            '電気分解は「電気エネルギー → 化学エネルギー」の変換で、自発的でない酸化還元を外部電源で無理やり進めます。陰極では還元、陽極では酸化が起こります。生成物は電極電位と活量だけでなく、過電圧、電極材料、物質移動にも依存します。以下は目的反応の電流効率100%の理論計算です。析出した物質量は流れた電気量に比例し、これが**ファラデーの電気分解則**です。',
         },
-        { type: 'formula', tex: 'Q = It = nF, \\\\qquad W = \\\\dfrac{It}{nF} \\\\cdot M', display: true },
+        { type: 'formula', tex: 'Q_{\\mathrm{el}} = It = n_eF, \\qquad W = \\dfrac{It}{zF}M', display: true },
+        { type: 'text', content: '電気量 Qel は反応商 Q と別の量。nₑ は電子の物質量（mol）、z は生成物1 molあたりの電子の mol 数、M はモル質量です。生成物の物質量は It/(zF) となります。以下で電子数 n と書いた箇所も、この z を意味します。' },
         {
           type: 'example',
           title: '例題——銅の電気分解',
           body:
-            '硫酸銅(II)水溶液に $2.0\\\\ \\\\mathrm{A}$ の電流を 1 時間通した。(1) 流れた電気量は何 C か。(2) 陰極に析出する銅の質量は何 g か。原子量 Cu = 63.5、$F = 9.65 \\\\times 10^4\\\\ \\\\mathrm{C/mol}$。',
+            '硫酸銅(II)水溶液に $2.0\\ \\mathrm{A}$ の電流を 1 時間通した。(1) 流れた電気量は何 C か。(2) 陰極に析出する銅の質量は何 g か。原子量 Cu = 63.5、$F = 9.65 \\times 10^4\\ \\mathrm{C/mol}$。',
           answer:
-            '(1) $Q = It = 2.0 \\\\times 3600 = $ **7200 C**　(2) 電子数 $n=2$ より析出量 $= \\\\dfrac{7200}{2 \\\\times 9.65 \\\\times 10^4} = 3.7 \\\\times 10^{-2}$ mol。質量は $3.7 \\\\times 10^{-2} \\\\times 63.5 \\approx$ **2.4 g**',
+            '(1) $Q = It = 2.0 \\times 3600 = $ **7200 C**　(2) 電子数 $n=2$ より析出量 $= \\dfrac{7200}{2 \\times 9.65 \\times 10^4} = 3.7 \\times 10^{-2}$ mol。質量は $3.7 \\times 10^{-2} \\times 63.5 \\approx$ **2.4 g**',
         },
         {
           type: 'note',
           variant: 'warn',
           content:
-            '電池（ガルバニ電池）と電気分解では**極の符号と反応の種類が逆**になります。電池の負極は酸化、電気分解の陰極（カソード）は還元。「陰＝還元、陽＝酸化」は電気分解でも電池でも共通ですが、プラスマイナスとの対応が逆なので混同注意です。',
+            '**アノード＝酸化、カソード＝還元**という定義は共通です。放電中の電池ではアノードが負極、カソードが正極。電気分解ではアノードが正極（陽極）、カソードが負極（陰極）です。反応の定義は変わらず、正負との対応が逆になります。',
         },
         {
           type: 'practice',
@@ -131,18 +133,18 @@ export const electrochemistryUnit: Unit = {
               answer: '$E^\\circ_{cell} = 0.34 - (-0.76) = $ **1.10 V**',
             },
             {
-              body: '25 °C で水素電極の圧力を保ったまま $[H^+]$ を 1 mol/L から $10^{-3}$ mol/L に薄めると、電極電位はどう変わるか。ネルンストの式から求めよ。',
-              hint: '$E = E^{\\circ} + \\\\dfrac{RT}{F}\\\\ln a(H^+)$（$E^{\\circ}=0$）。',
-              answer: '$E = 0.0591 \\\\log_{10}(10^{-3}) = $ **−0.177 V**。酸性度が下がると還元電位は負にずれる',
+              body: '25 °C で水素の分圧を標準圧力に保ち、水素イオンの活量を1から $10^{-3}$ に変えると、還元電位はいくらになるか。',
+              hint: '$E = E^{\\circ} + \\dfrac{RT}{F}\\ln a(H^+)$（$E^{\\circ}=0$）。',
+              answer: '$E = 0.0591 \\log_{10}(10^{-3}) = $ **−0.177 V**。酸性度が下がると還元電位は負にずれる',
             },
             {
               body: '濃淡電池で Cu²⁺ の濃度比を100倍にすると起電力は何 V になるか（25 °C、2電子反応）。',
-              answer: '$E = \\\\dfrac{0.0591}{2}\\\\log_{10}100 = 0.0296 \\\\times 2 = $ **0.059 V**',
+              answer: '$E = \\dfrac{0.0591}{2}\\log_{10}100 = 0.0296 \\times 2 = $ **0.059 V**',
             },
             {
               body: '硝酸銀水溶液に $0.50$ A を 193 秒通したとき析出する銀の質量を求めよ。原子量 Ag = 108。',
-              hint: '$W = \\\\dfrac{It}{F}\\\\cdot M$（Ag⁺ + e⁻ → Ag なので n=1）。',
-              answer: '$Q = 0.50 \\\\times 193 = 96.5$ C、$W = \\\\dfrac{96.5}{9.65\\\\times10^4} \\\\times 108 = $ **0.108 g**',
+              hint: '$W = \\dfrac{It}{F}\\cdot M$（Ag⁺ + e⁻ → Ag なので n=1）。',
+              answer: '$Q = 0.50 \\times 193 = 96.5$ C、$W = \\dfrac{96.5}{9.65\\times10^4} \\times 108 = $ **0.108 g**',
             },
           ],
         },
@@ -152,7 +154,7 @@ export const electrochemistryUnit: Unit = {
           questions: [
             {
               question: '標準水素電極の役割はどれか。',
-              choices: ['電極電位の基準（0 V）を与える', '最も強い酸化剤である', 'すべての電池の陽極になる'],
+              choices: ['電極電位の基準（0 V）を与える', 'この表で最も強い酸化剤（標準状態）である', 'すべての電池の陽極になる'],
               answerIndex: 0,
               explanation: '単独では測れない電極電位を、水素電極との差として相対的に定義するための基準点です。',
             },
@@ -166,13 +168,13 @@ export const electrochemistryUnit: Unit = {
               question: 'Cu²⁺ 濃度が10倍違う濃淡電池の25 °Cでの起電力は約いくらか（2電子反応）。',
               choices: ['0.030 V', '0.059 V', '0.34 V'],
               answerIndex: 0,
-              explanation: '$E = \\\\dfrac{0.0591}{2}\\\\log_{10}10 = 0.0296 \\\\times 1 \\\\approx 0.030$ V です。',
+              explanation: '$E = \\dfrac{0.0591}{2}\\log_{10}10 = 0.0296 \\times 1 \\approx 0.030$ V です。',
             },
             {
               question: '電気分解で陰極に起こることはどれか。',
               choices: ['還元', '酸化', '何も起こらない'],
               answerIndex: 0,
-              explanation: '陰極は電子を供給される極なのでカチオンが還元されて析出します。陽極では酸化が起こります。',
+              explanation: '陰極（カソード）では電子を受け取る還元が起こります。必ず金属が析出するとは限らず、水の還元などもあり得ます。陽極（アノード）では酸化が起こります。',
             },
           ],
         },

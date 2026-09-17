@@ -19,10 +19,10 @@ export const quantumUnit: Unit = {
         {
           type: 'text',
           content:
-            'シュレディンガー方程式を解くと、電子は特定の軌道を回る球ではなく、**波動関数 ψ で表される確率分布**（電子雲）として存在します。水素原子では主量子数 n = 1, 2, 3…、方位量子数 l = s, p, d, f、磁気量子数 m で軌道が決まります。s は球、p は亜鈴形。',
+            '原子軌道は電子の古典的な通り道ではなく、**波動関数 ψ** です。位置の確率密度は |ψ|² で与えられます。水素原子では主量子数 n = 1, 2, 3…、方位量子数 l = 0, 1, …, n−1、磁気量子数 mₗ = −l, …, l で軌道を指定します。l = 0, 1, 2, 3 に s, p, d, f が対応します。s の確率密度は球対称、実数の p 軌道は亜鈴形です。',
         },
         { type: 'heading', level: 3, content: '分子軌道法の直感' },
-        { type: 'formula', tex: '\\psi_{\\text{bonding}} = \\psi_1 + \\psi_2 \\quad (\\text{同位相で重ねる})', display: true },
+        { type: 'formula', tex: '\\psi_{\\text{bonding}} \\propto \\psi_1 + \\psi_2 \\quad (\\text{同位相で重ねる})', display: true },
         {
           type: 'text',
           content:
@@ -34,7 +34,7 @@ export const quantumUnit: Unit = {
           rows: [
             ['H₂', '1', '単結合、安定'],
             ['O₂', '2', '不対電子2個 → 常磁性（分子軌道法の勝利）'],
-            ['He₂', '0', '結合しない（ヘリウムが単原子分子な理由）'],
+            ['He₂', '0', '単純な分子軌道モデルでは共有結合しない（極めて弱い分散力による二量体は別）'],
           ],
         },
         { type: 'heading', level: 3, content: '混成軌道と分子の形' },

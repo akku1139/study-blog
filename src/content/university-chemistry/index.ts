@@ -1,11 +1,11 @@
 import type { Subject } from '../types';
-import { thermodynamicsUnit } from './thermodynamics';
-import { kineticsUnit } from './kinetics';
-import { quantumUnit } from './quantum';
-import { organicUnit } from './organic-reactions';
-import { solidUnit } from './solid-state';
-import { electrochemistryUnit } from './electrochemistry-detail';
-import { coordinationUnit } from './coordination-chemistry';
+import { thermodynamicsUnit } from './thermodynamics.ts';
+import { kineticsUnit } from './kinetics.ts';
+import { quantumUnit } from './quantum.ts';
+import { organicUnit } from './organic-reactions.ts';
+import { solidUnit } from './solid-state.ts';
+import { electrochemistryUnit } from './electrochemistry-detail.ts';
+import { coordinationUnit } from './coordination-chemistry.ts';
 
 // ============================================================
 // 大学化学（教養：物理化学入門）

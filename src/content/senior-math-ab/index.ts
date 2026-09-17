@@ -1,6 +1,6 @@
 import type { Subject } from '../types';
-import { countingUnit, geometryUnit } from './math-a';
-import { linearTransformUnit, complexPlaneUnit } from './math-bc';
+import { countingUnit, geometryUnit } from './math-a.ts';
+import { linearTransformUnit, complexPlaneUnit } from './math-bc.ts';
 
 // ============================================================
 // 高校数学A・B（学習指導要領 第2章 第4節「数学」: 数学A／数学B）

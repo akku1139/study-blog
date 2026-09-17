@@ -17,16 +17,16 @@ export const emUnit: Unit = {
       ],
       blocks: [
         { type: 'heading', level: 3, content: 'クーロンの法則と電場' },
-        { type: 'formula', tex: "F = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_1 q_2}{r^2}, \\qquad \\vec{E} = \\frac{\\vec{F}}{q}", display: true },
+        { type: 'formula', tex: 'F = \\frac{1}{4\\pi\\varepsilon_0}\\frac{|q_1 q_2|}{r^2}, \\qquad \\vec{E} = \\frac{\\vec{F}}{q}', display: true },
         {
           type: 'text',
-          content: '**電場 ＝ 単位電荷が受ける力**。点電荷のつくる電場は $E = \\dfrac{kq}{r^2}$（k は比例定数）。電場の向きは正電荷にはたらく力の向きです。',
+          content: 'F は真空中の2点電荷間の力の大きさ。同符号なら反発、異符号なら引力です。**電場 ＝ 試験電荷が受ける力 ÷ その電荷**。点電荷 Q のつくる電場の大きさは $E = k|Q|/r^2$ で、正の Q からは外向き、負の Q へは内向きです。試験電荷 q はもとの電荷分布を変えないほど小さいものとします。',
         },
         { type: 'heading', level: 3, content: '電位' },
-        { type: 'formula', tex: 'V = \\frac{W}{q} \\text{（仕事との関係）}, \\qquad E = -\\frac{dV}{d} \\text{（一様電場）}', display: true },
+        { type: 'formula', tex: 'U=qV, \\qquad W_{A\\to B}^{\\text{電場}}=q(V_A-V_B), \\qquad E_x=-\\frac{dV}{dx}', display: true },
         {
           type: 'text',
-          content: '**高電位→低電位**へ正電荷は自然に動きます。電位差 V [V] を越えて電荷 q [C] が動くと $W = qV$ の仕事。電子ボルト eV はこの単位系から出てきます。',
+          content: '電位 V は単位電荷あたりの位置エネルギー。電場は電位が下がる方向を向き、正電荷への力はその向き、負電荷への力は逆向きです。外力でゆっくり運ぶときの仕事は $W_{\\text{外力}}=q(V_B-V_A)$ で、電場の仕事とは符号が逆。一様電場では $E_x=-\\Delta V/\\Delta x$、電場に沿って距離 d 離れた2点の電位差の大きさは Ed です。1 eV は電気素量 e の電荷が 1 V の電位差で得るエネルギーで、約 1.60×10⁻¹⁹ J。',
         },
         { type: 'heading', level: 3, content: 'コンデンサー' },
         { type: 'formula', tex: 'Q = CV, \\qquad U = \\frac{1}{2}CV^2, \\qquad C = \\varepsilon\\frac{S}{d}', display: true },
@@ -51,7 +51,7 @@ export const emUnit: Unit = {
             {
               label: 'Step 4: Q = CV を代入',
               tex: 'U = W = \\frac{(CV)^2}{2C} = \\frac{1}{2}CV^2',
-              note: '「だんだん強くなる抵抗力に逆らって運ぶ」から平均が半分——比例関係の積分は必ず ½ を生む。重力の位置エネルギー mgh（h を徐々に上げる）と同じ構造です。',
+              note: '容量 C が一定なら電圧は 0 から V まで比例して増えるので、平均電圧 V/2 に電荷 Q を掛ける。ばねのエネルギー kx²/2 と同じ三角形の面積の構造です。一定の重力に逆らう仕事 mgh には 1/2 は付きません。',
             },
           ],
         },
@@ -59,8 +59,8 @@ export const emUnit: Unit = {
           type: 'list',
           items: [
             '**並列**: 容量の和 $C = C_1 + C_2$（電圧は共通）',
-            '**直列**: $\\frac{1}{C} = \\frac{1}{C_1} + \\frac{1}{C_2}$（電荷は共通）',
-            '誘電体を挿入すると容量は増える（ε が大きくなる）',
+            '**直列**: $\\frac{1}{C} = \\frac{1}{C_1} + \\frac{1}{C_2}$（中間の導体が初めに電気的に中性なら電荷の大きさが共通）',
+            '平行板の C = εS/d は端の電場の乱れを無視し、極板間を一様な誘電体が満たす場合。誘電率 ε を大きくすると容量は増える',
           ],
         },
         {
@@ -82,7 +82,7 @@ export const emUnit: Unit = {
               answer: '$C = \\varepsilon S/d$ の $d$ が 1/2 になるので **2 倍**。',
             },
             {
-              body: '電位差 500 V の 2 点間で +2 C の電荷を動かすのに必要な仕事を求めよ。',
+              body: '+2 C の電荷を、低い電位の点から 500 V 高い点へゆっくり運ぶ。電気力以外の抵抗を無視して、外力のする仕事を求めよ。',
               hint: '$W = qV$',
               answer: '$W = qV = 2 \\times 500 = 1000$ J',
             },
@@ -99,7 +99,7 @@ export const emUnit: Unit = {
               explanation: '電子は負の電荷なので、力 $\\vec{F} = q\\vec{E}$ の向きは電場と逆になります。',
             },
             {
-              question: 'コンデンサーを充電したまま極板間に誘電体を挿入した。電荷 Q はどうなるか。',
+              question: 'コンデンサーを充電後に電池から切り離し、電荷が漏れない状態で極板間に誘電体を挿入した。電荷 Q はどうなるか。',
               choices: ['増える', '減る', '変わらない'],
               answerIndex: 2,
               explanation: '電池につないだまま（V 固定）なら Q = CV で Q は増えますが、**充電後に切り離して**挿入すると電荷は保存され不変。容量が増えて電圧が下がります。',
@@ -130,13 +130,14 @@ export const emUnit: Unit = {
           ],
         },
         { type: 'heading', level: 3, content: '電流と磁場' },
-        { type: 'formula', tex: '\\text{フレミング左手}: \\vec{F} = q\\vec{v} \\times \\vec{B}, \\qquad H = nI, B = \\mu_0 nI \\text{（ソレノイド）}', display: true },
+        { type: 'formula', tex: '\\vec{F} = q\\vec{v} \\times \\vec{B} \\text{（磁場によるローレンツ力）}, \\qquad H = nI, \\quad B = \\mu_0 nI', display: true },
         {
           type: 'text',
-          content: '磁場中を動く電荷は**速度に垂直な力**を受けるため、速さを変えずに進路だけ曲げられます（円運動）。これがサイクロトロンの原理です。',
+          content: '磁気力は速度に垂直なので仕事をせず、速さを変えません。一様な磁場に垂直な速度で入ると円運動、平行な速度成分もあればらせん運動になります。平行にだけ動く場合は磁気力が 0 です。サイクロトロンでは磁場で軌道を曲げ、電場で加速します。H = nI、B = μ₀nI は十分長い空芯ソレノイドの内部で端を無視した式で、n は単位長さあたりの巻数です。',
         },
         { type: 'heading', level: 3, content: '電磁誘導と交流' },
-        { type: 'formula', tex: 'V_N = -n\\frac{d\\Phi}{dt} \\text{（レンツの法則）}, \\qquad V_L = \\omega L I \\text{（コイル）}, V_C = \\frac{I}{\\omega C} \\text{（コンデンサー）}', display: true },
+        { type: 'formula', tex: '\\mathcal{E} = -N\\frac{d\\Phi}{dt} \\text{（ファラデーの法則）}, \\qquad V_L = \\omega L I, \\quad V_C = \\frac{I}{\\omega C}', display: true },
+        { type: 'text', content: 'N はコイル全体の巻数、Φ は1巻きを貫く磁束（各巻きで等しいとする）です。負号が変化を妨げる向きというレンツの法則を表します。後半の V_L、V_C、I は理想素子の正弦波定常交流における実効値で、瞬間値をそのまま代入する式ではありません。' },
         {
           type: 'list',
           items: [
@@ -165,7 +166,7 @@ export const emUnit: Unit = {
               answer: '$I = V/R = 12/2 = $ **6 A**。並列なので両抵抗とも **12 V**。',
             },
             {
-              body: '抵抗 R に電流 i を t 秒間流したときのジュール熱を表せ。',
+              body: '一定の抵抗 R に一定の電流 i を t 秒間流したときのジュール熱を表せ。',
               hint: '電力 P = i²R',
               answer: '$Q = i^2Rt$',
             },
@@ -182,7 +183,7 @@ export const emUnit: Unit = {
               explanation: 'コイルは電流の変化を妨げる誘導起電力（レンツの法則）を生じます。交流ではこれがリアクタンスとして働きます。',
             },
             {
-              question: '変圧器で電圧を 10 倍に上げて送電すると、送電線の損失はどうなるか。',
+              question: '同じ電力を同じ抵抗の送電線で送る。力率を 1 とし、変圧器で電圧を 10 倍にすると、送電線の損失はどうなるか。',
               choices: ['10 倍になる', '1/10 になる', '1/100 になる'],
               answerIndex: 2,
               explanation: '同一電力なら電圧を10倍 → 電流は1/10。損失は $i^2R$ なので $(1/10)^2 = $ **1/100**。',
@@ -214,6 +215,7 @@ export const emUnit: Unit = {
             '直流では単なる巻線にすぎないコイルも、交流では**電流の変化を妨げる誘導起電力**をつくるので抵抗のように振る舞います。この「交流に対する妨げ」をリアクタンスと呼びます。逆にコンデンサーは直流を通しませんが、交流では充放電を繰り返すことで電流が「流れているように」なり、やはりリアクタンスをもちます。重要なのは、両者の大きさが**周波数で変わる**こと。コイルは高周波ほど通しにくく、コンデンサーは高周波ほど通りやすくなります。',
         },
         { type: 'formula', tex: 'X_L = \\omega L = 2\\pi f L, \\qquad X_C = \\frac{1}{\\omega C} = \\frac{1}{2\\pi f C}', display: true },
+        { type: 'note', variant: 'info', content: '以下では過渡状態が終わった正弦波定常交流を扱います。L、C は理想素子、R > 0 は回路全体の抵抗で、各値は周波数によらず一定とします。V と I は実効値です。共振で電流が最大という比較は、電源の実効電圧を一定に保って周波数を変える場合です。' },
         {
           type: 'table',
           headers: ['素子', '周波数を上げると', '電流と電圧の位相'],
@@ -251,7 +253,7 @@ export const emUnit: Unit = {
             {
               label: 'Step 4: インピーダンスを定義する',
               tex: 'Z = \\frac{V}{I} = \\sqrt{R^2 + (X_L - X_C)^2}',
-              note: 'Z は「交流版のオームの法則」V = ZI を与えます。直流なら Z = R に帰着します。電流と電圧の位相差は tanφ = (X_L − X_C)/R で決まります。',
+              note: 'Z は実効値の関係 V = ZI を与えます。R > 0 とし、電圧の位相から電流の位相を引いた φ は tanφ = (X_L − X_C)/R。RLC 直列回路の直流定常状態ではコンデンサーが電流を遮断するので、Z = R にはなりません。',
             },
           ],
         },
@@ -302,7 +304,7 @@ export const emUnit: Unit = {
               answer: '$X_C = 1/(2 \\times 3.14 \\times 50 \\times 8 \\times 10^{-6}) \\approx $ **400 Ω**。コンデンサーは低い周波数ほど通しにくい。',
             },
             {
-              body: '上の RLC 回路が共振しているとき、電源電圧 60 V に対してコイルにかかる電圧 V_L は何 V になるか。オームの法則の常識と比べてどうか。',
+              body: '例題の R = 30 Ω、L = 0.10 H、C = 25 μF の RLC 直列回路が共振しているとき、電源の実効電圧 60 V に対してコイルの実効電圧 V_L は何 V になるか。',
               answer: '共振時 $I = V/R = 60/30 = 2.0$ A、$V_L = X_L I = 63 \\times 2.0 \\approx $ **126 V**。電源電圧 60 V より大きな電圧が素子に現れます（V_L と V_C が逆向きに打ち消し合っているため矛盾しない）。',
             },
           ],
@@ -323,9 +325,9 @@ export const emUnit: Unit = {
             },
             {
               question: 'RLC 直列回路で V_R = 40 V、V_L = 90 V、V_C = 30 V のとき、電源電圧 V はいくらか。',
-              choices: ['$160$ V', '$80$ V', '$100$ V'],
+              choices: ['$160$ V', '約 $72$ V', '$100$ V'],
               answerIndex: 1,
-              explanation: '位相がそろわないので大きさの和にはできません。$V = \\sqrt{{40}^2 + (90-30)^2} = \\sqrt{1600+3600} = 80$ V。',
+              explanation: '位相がそろわないので大きさの和にはできません。$V = \\sqrt{40^2 + (90-30)^2} = \\sqrt{5200} = 20\\sqrt{13} \\approx 72.1$ V。',
             },
             {
               question: 'RLC 直列回路が共振しているとき、回路のようすとして正しいのはどれか。',

@@ -1,9 +1,9 @@
 import type { Subject } from '../types';
-import { bodyQaUnit } from './body';
-import { everydayQaUnit } from './everyday';
-import { languageQaUnit } from './language';
-import { societyQaUnit } from './society';
-import { techQaUnit } from './tech';
+import { bodyQaUnit } from './body.ts';
+import { everydayQaUnit } from './everyday.ts';
+import { languageQaUnit } from './language.ts';
+import { societyQaUnit } from './society.ts';
+import { techQaUnit } from './tech.ts';
 
 // ============================================================
 // 「なぜ？」コレクション（些細な疑問から湧く Q&A 型コンテンツ）

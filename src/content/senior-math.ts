@@ -30,7 +30,7 @@ export const seniorMath: Subject = {
             { type: 'heading', level: 3, content: '平方完成' },
             {
               type: 'text',
-              content: '$y = ax^2 + bx + c$ を**頂点の形**に変形する手続きが平方完成です。中学校ではグラフの平行移動で見ましたが、高校では式変形で機械的に求めます。',
+              content: '$y = ax^2 + bx + c$（$a \\ne 0$）を**頂点の形**に変形する手続きが平方完成です。二乗の項を作ることで、頂点と軸の位置を式から読み取れます。',
             },
             { type: 'formula', tex: 'y = ax^2 + bx + c = a\\left(x + \\frac{b}{2a}\\right)^2 + \\frac{4ac - b^2}{4a}', display: true },
             {
@@ -40,7 +40,7 @@ export const seniorMath: Subject = {
                 {
                   label: 'Step 1: x² の項にまとめる',
                   tex: 'ax^2 + bx = a\\left(x^2 + \\frac{b}{a}x\\right)',
-                  note: 'まず $x^2$ の係数 a を括り出す。中身は「$x^2$ ＋ (一次の係数/a)」という形になる。',
+                  note: 'まず $x^2$ の係数 a を括り出す。中身の一次の項は $(b/a)x$ となる。',
                 },
                 {
                   label: 'Step 2: 完全平方をつくる',
@@ -50,7 +50,7 @@ export const seniorMath: Subject = {
                 {
                   label: 'Step 3: 元に戻す',
                   tex: 'y = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{b^2}{4a} + c = a\\left(x + \\frac{b}{2a}\\right)^2 + \\frac{4ac - b^2}{4a}',
-                  note: '$-\\frac{b^2}{4a}$ を a 倍すると $-\\frac{b^2}{4a}$、c と通分して定数項が揃う。頂点は $(x, y) = (-\\frac{b}{2a}, \\frac{4ac-b^2}{4a})$。',
+                  note: '$-(b/(2a))^2$ を a 倍すると $-\\frac{b^2}{4a}$。これを c と通分する。頂点は $(x, y) = (-\\frac{b}{2a}, \\frac{4ac-b^2}{4a})$。',
                 },
               ],
             },
@@ -81,10 +81,14 @@ export const seniorMath: Subject = {
           id: 'quadratic-inequality',
           title: '二次不等式',
           summary: 'グラフと x 軸の位置関係から二次不等式を解く。',
+          objectives: [
+            '二次式の符号を、実数解と二次の係数の符号から判断できる',
+            '重解・実数解なしの場合も含め、境界の扱いに注意して二次不等式を解ける',
+          ],
           blocks: [
             {
               type: 'text',
-              content: '$ax^2 + bx + c > 0$ を解くとは、「グラフが x 軸より上になる x の範囲」を求めることです。まず二次方程式の解を求めます。',
+              content: '$ax^2 + bx + c > 0$（$a \\ne 0$）を解くとは、「グラフが x 軸より上になる x の範囲」を求めることです。二次方程式の実数解を境界にして符号を調べます。実数解がない場合には、二次式の符号は全域で一定です。',
             },
             { type: 'heading', level: 3, content: '判別式' },
             { type: 'formula', tex: 'D = b^2 - 4ac', display: true },
@@ -101,6 +105,33 @@ export const seniorMath: Subject = {
               title: '例題',
               body: '$x^2 - 5x + 6 > 0$ を解け。',
               answer: '$(x-2)(x-3) > 0$ より解は **$x < 2$, $3 < x$**（境界を含めないことに注意）',
+            },
+            {
+              type: 'derivation',
+              title: 'なぜ「外側が正、内側が負」になるのか',
+              steps: [
+                { label: 'Step 1: 2つの実数解で因数分解', tex: 'f(x)=a(x-\\alpha)(x-\\beta),\\quad a>0,\\quad \\alpha<\\beta', note: 'まず二次の係数が正の場合を考える。' },
+                { label: 'Step 2: 因子の符号を調べる', tex: '\\begin{array}{c|ccc}x&x<\\alpha&\\alpha<x<\\beta&\\beta<x\\\\\\hline x-\\alpha&-&+&+\\\\ x-\\beta&-&-&+\\\\ f(x)&+&-&+\\end{array}', note: '同符号どうしの積は正、異符号の積は負。根では積は0になる。' },
+                { label: 'Step 3: 二次の係数が負なら反転', tex: 'a<0\\quad\\Longrightarrow\\quad f(x)\\text{ の符号は外側で負、内側で正}', note: '「外側」と暗記するだけでは不十分。負の数で不等式の両辺を割る場合も、不等号の向きを逆にする。' },
+              ],
+            },
+            {
+              type: 'table',
+              headers: ['判別式（a > 0 の場合）', '二次式の様子', 'f(x) > 0 の解'],
+              rows: [
+                ['$D>0$', '2つの根の外側で正、内側で負', '$x<\\alpha$ または $x>\\beta$'],
+                ['$D=0$', '$f(x)=a(x-\\alpha)^2$、根だけ0', '$x\\ne\\alpha$'],
+                ['$D<0$', 'x軸と交わらず常に正', 'すべての実数'],
+              ],
+            },
+            {
+              type: 'practice',
+              title: '練習問題（符号と境界を確認）',
+              problems: [
+                { body: '$-x^2+5x-6\\ge0$ を解け。', hint: '両辺に −1 を掛けたら不等号を逆向きにする。', answer: '$(x-2)(x-3)\\le0$ より **$2\\le x\\le3$**。根の内側では積が負、根では0なので両端を含む。' },
+                { body: '$(x-2)^2>0$ と $(x-2)^2\\le0$ をそれぞれ解け。', answer: '二乗は常に0以上で、0になるのは $x=2$ のみ。前者は **$x\\ne2$**、後者は **$x=2$**。重解を異なる2つの根と同じように扱わない。' },
+                { body: '$x^2+2x+3<0$ を解け。', answer: '$x^2+2x+3=(x+1)^2+2\\ge2$ なので **解なし**。$D=-8<0$ かつ二次の係数が正であることからも判断できる。' },
+              ],
             },
             {
               type: 'note',
@@ -144,26 +175,26 @@ export const seniorMath: Subject = {
                 {
                   label: 'Step 1: 単位円上の点',
                   tex: 'P(\\cos\\theta, \\sin\\theta) \\quad (\\text{半径 } 1)',
-                  note: '原点 O、点 P、そして x 軸上の P の足元 Q で直角三角形 OPQ ができる。',
+                  note: '原点 O、点 P、そして x 軸への垂線の足 Q を考える。P が座標軸上にある場合は円の方程式で直接確認できる。',
                 },
                 {
                   label: 'Step 2: 三平方の定理を適用',
                   tex: 'OP^2 = OQ^2 + PQ^2',
-                  note: 'OP は半径なので 1。OQ は P の x 座標＝cos θ、PQ は y 座標＝sin θ。',
+                  note: 'OP は半径なので 1。長さは負にならないため、OQ = |cos θ|、PQ = |sin θ|。二乗すれば絶対値は外れる。',
                 },
                 {
                   label: 'Step 3: 代入',
                   tex: '1^2 = \\cos^2\\theta + \\sin^2\\theta',
-                  note: 'つまりこの等式は「半径 1 の円に内接する直角三角形の三平方」そのもの。θ がどんな値でも幾何学的に必ず成立します。',
+                  note: '単位円の方程式 $x^2+y^2=1$ に座標を代入した等式でもあるため、点が座標軸上にある場合を含めて成立する。',
                 },
               ],
             },
-            { type: 'formula', tex: '\\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta}', display: true },
+            { type: 'formula', tex: '\\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta}\\quad(\\cos\\theta\\ne0)', display: true },
             { type: 'heading', level: 3, content: '正弦定理' },
             { type: 'formula', tex: '\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C} = 2R', display: true },
             {
               type: 'text',
-              content: '**2組の「角とその対辺」**がわかっているときに有効です（R は外接円の半径）。三角形の「角」と「対辺」の対応は下の図を参考にしてください。',
+              content: '**1組の「角とその対辺」**がわかっていて、別の角からその対辺を求めるときなどに有効です（R は外接円の半径）。別の辺から角を求める場合は、同じ正弦をもつ鋭角と鈍角の2通りが候補になることにも注意します。',
             },
             { type: 'diagram', diagram: 'sine-rule-triangle', caption: '三角形の角と対辺の対応、2つの定理の使い分け' },
             { type: 'heading', level: 3, content: '余弦定理' },
@@ -248,7 +279,7 @@ export const seniorMath: Subject = {
                   answer: '$a = 6 \\cdot \\dfrac{1/2}{(\\sqrt{6}+\\sqrt{2})/4} = \\dfrac{12}{\\sqrt{6}+\\sqrt{2}} = 3(\\sqrt{6}-\\sqrt{2})$',
                 },
                 {
-                  body: '3 辺が 4, 5, 6 の三角形の最大の角の大きさを cos を使って求めよ。',
+                  body: '3 辺が 4, 5, 6 の三角形の最大の角を C とする。cos C を求めよ。',
                   hint: '最大の角は最長辺 6 の対角。余弦定理を cos について解く。',
                   answer: '$\\cos C = \\frac{4^2 + 5^2 - 6^2}{2 \\cdot 4 \\cdot 5} = \\frac{5}{40} = \\frac{1}{8}$',
                 },
@@ -281,7 +312,7 @@ export const seniorMath: Subject = {
               headers: ['性質', '内容', '使いどころ'],
               rows: [
                 ['対角の補関係', '∠A + ∠C = 180°、∠B + ∠D = 180°', '残りの角を即座に求める。4点共円の証明'],
-                ['外角と内対角', '1つの内角の外角は、その隣の内角の内対角（向かいの角）に等しい', '図の中で角の言い換えをする'],
+                ['外角と内対角', '1つの内角の外角は、その内角の向かいの内角に等しい', '図の中で角の言い換えをする'],
                 ['面積（ブラーマグプタの公式）', '$S = \\sqrt{(s-a)(s-b)(s-c)(s-d)}$、$s = \\frac{a+b+c+d}{2}$', '4辺の長さだけが分かっているときの面積（発展）'],
               ],
             },
@@ -405,7 +436,7 @@ export const seniorMath: Subject = {
     {
       id: 's1-numbers',
       name: '数学I：数と式',
-      gakushuShidoYoryo: '内容「数と式」: 実数、絶対値、複素数の基礎、多項式の展開と因数分解',
+      gakushuShidoYoryo: '内容「数と式」: 実数、絶対値、多項式の展開と因数分解（複素数は数学II）',
       lessons: [
         {
           id: 'numbers-expressions',
@@ -422,7 +453,7 @@ export const seniorMath: Subject = {
               type: 'table',
               headers: ['分類', '定義', '例'],
               rows: [
-                ['有理数', '分数 a/b（b≠0）で書ける', '整数、0.5、1/3、0.333…'],
+                ['有理数', '整数 a, b を用いた分数 a/b（b≠0）で書ける', '整数、0.5、1/3、0.333…'],
                 ['無理数', '分数で書けない実数', '$\\sqrt{2}$, $\\pi$'],
                 ['実数', '有理数＋無理数', '数直線上のすべての点'],
               ],
@@ -454,7 +485,7 @@ export const seniorMath: Subject = {
               problems: [
                 {
                   body: '$\\sqrt{50} + \\sqrt{8} - \\sqrt{18}$ を簡単にせよ。',
-                  answer: '$5\\sqrt{2} + 2\\sqrt{2} - 3\\sqrt{2} = $ **$2\\sqrt{2}$**',
+                  answer: '$5\\sqrt{2} + 2\\sqrt{2} - 3\\sqrt{2} = (5+2-3)\\sqrt{2} = $ **$4\\sqrt{2}$**',
                 },
                 {
                   body: '$\\dfrac{3}{\\sqrt{5}}$ を分母に根号を含まない形にせよ。',
@@ -615,27 +646,32 @@ export const seniorMath: Subject = {
             { type: 'formula', tex: '\\sin(\\alpha \\pm \\beta) = \\sin\\alpha\\cos\\beta \\pm \\cos\\alpha\\sin\\beta', display: true },
             {
               type: 'derivation',
-              title: '加法定理の導出——正弦定理からの距離計算',
+              title: '加法定理の導出——同じ弦の長さを2通りで計算',
               steps: [
                 {
                   label: 'Step 1: 単位円上に2点をとる',
-                  tex: 'P(\\cos\\alpha, \\sin\\alpha), \\quad Q(\\cos(\\alpha+\\beta), \\sin(\\alpha+\\beta))',
-                  note: 'OP と OQ のなす角は β。',
+                  tex: 'P(\\cos\\alpha, \\sin\\alpha), \\quad Q(\\cos\\beta, \\sin\\beta)',
+                  note: 'P と Q の偏角の差は α−β。両点を −β だけ回転しても距離は変わらず、Q は (1,0) に移る。',
                 },
                 {
-                  label: 'Step 2: 余弦定理で PQ² を表す（その1）',
-                  tex: 'PQ^2 = OP^2 + OQ^2 - 2 \\cdot OP \\cdot OQ \\cdot \\cos\\beta = 1 + 1 - 2\\cos\\beta = 2 - 2\\cos\\beta',
-                  note: '三角形 OPQ に余弦定理。OP=OQ=1 なので極めて簡単になる。',
+                  label: 'Step 2: 回転後の座標で距離を計算',
+                  tex: 'PQ^2=(\\cos(\\alpha-\\beta)-1)^2+\\sin^2(\\alpha-\\beta)=2-2\\cos(\\alpha-\\beta)',
+                  note: '単位円の恒等式 sin²+cos²=1 で整理する。回転角が一般角でも成り立つ。',
                 },
                 {
                   label: 'Step 3: 座標の差からも PQ² を書く（その2）',
-                  tex: 'PQ^2 = (\\cos(\\alpha+\\beta) - \\cos\\alpha)^2 + (\\sin(\\alpha+\\beta) - \\sin\\alpha)^2',
-                  note: '展開して $\\cos^2+\\sin^2$ の項をまとめると、$2 - 2\\{\\cos(\\alpha+\\beta)\\cos\\alpha + \\sin(\\alpha+\\beta)\\sin\\alpha\\}$。',
+                  tex: 'PQ^2=(\\cos\\alpha-\\cos\\beta)^2+(\\sin\\alpha-\\sin\\beta)^2=2-2(\\cos\\alpha\\cos\\beta+\\sin\\alpha\\sin\\beta)',
+                  note: '元の座標でも距離を求め、2つの結果を等しいとおく。',
                 },
                 {
-                  label: 'Step 4: (その1)=(その2) から cos の加法定理が得られる',
-                  tex: '\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta',
-                  note: '両辺の 2 を消して整理。α を −β で置き換えると sin の加法定理も同時に出ます（sin は奇関数であることを使う）。',
+                  label: 'Step 4: 余弦の差と和の公式',
+                  tex: '\\cos(\\alpha-\\beta)=\\cos\\alpha\\cos\\beta+\\sin\\alpha\\sin\\beta',
+                  note: 'β を −β に置き換え、cos の偶関数性と sin の奇関数性を使うと、余弦の和の公式になる。',
+                },
+                {
+                  label: 'Step 5: 正弦の公式へ',
+                  tex: '\\sin(\\alpha+\\beta)=\\cos\\left((\\tfrac{\\pi}{2}-\\alpha)-\\beta\\right)=\\sin\\alpha\\cos\\beta+\\cos\\alpha\\sin\\beta',
+                  note: '単位円からわかる余角の関係 cos(π/2−α)=sin α、sin(π/2−α)=cos α を使う。さらに β を −β にして正弦の差の公式を得る。',
                 },
               ],
             },
@@ -696,6 +732,7 @@ export const seniorMath: Subject = {
           ],
           blocks: [
             { type: 'heading', level: 3, content: '指数の拡張' },
+            { type: 'text', content: 'ここでは底 $a>0$ とします。実数の指数まで一貫して扱うための条件です。対数ではさらに $a\\ne1$ が必要で、真数も正でなければなりません。以下の対数法則は $x>0, y>0$ のもとで使います。' },
             {
               type: 'list',
               items: [
@@ -797,6 +834,7 @@ export const seniorMath: Subject = {
               widget: { id: 'derivative-tangent', caption: 'プレイグラウンド: f(x) = x³ − 3x の接線。x₀ を動かして f′(x₀) = 0 となる点（極値）を見つけよう' },
             },
             { type: 'heading', level: 3, content: '導関数の計算規則' },
+            { type: 'text', content: 'ここでは多項式を扱い、冪の微分公式の n は正の整数とします。定数の導関数は0です。次の二項定理による導出は n が2以上の場合で、n=1 は定義から直接確認できます。' },
             { type: 'formula', tex: "(x^n)' = n x^{n-1}, \\qquad (fg)' = f'g + fg'", display: true },
             {
               type: 'derivation',
@@ -887,7 +925,7 @@ export const seniorMath: Subject = {
                   answer: '**x = −2 で極大値 16、x = 2 で極小値 −16**',
                 },
                 {
-                  body: '放物線 $y = \\frac{1}{3}x^3$ の $x = 1$ における接線の方程式を求めよ。',
+                  body: '曲線 $y = \\frac{1}{3}x^3$ の $x = 1$ における接線の方程式を求めよ。',
                   hint: "$y' = x^2$、接点 $(1, \\frac{1}{3})$。",
                   answer: '傾きは $f\'(1) = 1$。$y = (x - 1) + \\frac{1}{3}$、すなわち **$y = x - \\frac{2}{3}$**',
                 },
@@ -909,18 +947,24 @@ export const seniorMath: Subject = {
           id: 'integral',
           title: '不定積分と定積分',
           summary: '微分の逆演算としての不定積分と、面積を与える定積分を学ぶ。',
+          objectives: [
+            '多項式の原始関数を求め、微分によって検算できる',
+            '定積分の符号つきの値と図形の面積を区別できる',
+            '交点や符号が変わる点で区間を分け、面積を計算できる',
+          ],
           blocks: [
             { type: 'heading', level: 3, content: '不定積分' },
-            { type: 'formula', tex: "\\int x^n dx = \\frac{x^{n+1}}{n+1} + C \\quad (n \\neq -1)", display: true },
+            { type: 'formula', tex: "\\int x^n dx = \\frac{x^{n+1}}{n+1} + C \\quad (n=0,1,2,\\ldots)", display: true },
             {
               type: 'text',
-              content: 'C は**積分定数**。微分したら元に戻るという条件しかないので、C は任意の定数になります。',
+              content: 'C は**積分定数**。微分したら元に戻るという条件しかないので、C は任意の定数になります。ここでは数学IIで扱う多項式に範囲を絞ります。不定積分の答えは関数の集まりですが、定積分の答えは数値です。',
             },
             { type: 'heading', level: 3, content: '定積分と面積' },
             { type: 'formula', tex: '\\int_a^b f(x)\\,dx = [F(x)]_a^b = F(b) - F(a)', display: true },
+            { type: 'text', content: "ここで $F'(x)=f(x)$ となる F を原始関数といいます。まず積分し、それから上端 b と下端 a を代入して引きます。積分定数は $(F(b)+C)-(F(a)+C)$ で消えるため、定積分の答えに +C は付けません。" },
             {
               type: 'derivation',
-              title: '$\\int x^n dx = \\frac{x^{n+1}}{n+1}$ の導出——微分の逆をたどる',
+              title: '$\\int x^n dx = \\frac{x^{n+1}}{n+1}+C$ の導出——微分の逆をたどる',
               steps: [
                 {
                   label: 'Step 1: 「微分したら xⁿ」になる関数を探す',
@@ -959,6 +1003,31 @@ export const seniorMath: Subject = {
               variant: 'info',
               content: '微分と積分は互いに逆の操作——この事実を**微積分学の基本定理**といい、ニュートンとライプニッツが独立に発見しました。',
             },
+            { type: 'heading', level: 3, content: '面積は「上の関数 − 下の関数」を積分する' },
+            {
+              type: 'text',
+              content: '$a<b$ とします。定積分では x軸より下の部分が負になるため、そのままでは面積にならないことがあります。面積を求めるには、交点で区間を分け、それぞれで上側の関数から下側の関数を引きます。',
+            },
+            { type: 'formula', tex: 'S=\\int_a^b |f(x)-g(x)|\\,dx', display: true },
+            {
+              type: 'derivation',
+              title: '符号が変わるときの面積——y = x² − 1 と x軸',
+              steps: [
+                { label: 'Step 1: 区切る点を探す', tex: 'x^2-1=0\\quad\\Longrightarrow\\quad x=\\pm1', note: '区間 0≦x≦2 では x=1 だけが区間内にある。0≦x≦1 では曲線がx軸の下、1≦x≦2 では上。' },
+                { label: 'Step 2: 正の高さを足し合わせる', tex: 'S=\\int_0^1(1-x^2)\\,dx+\\int_1^2(x^2-1)\\,dx', note: '下側の部分は 0−(x²−1) として符号を反転する。' },
+                { label: 'Step 3: 原始関数に端点を代入', tex: 'S=\\left[x-\\frac{x^3}{3}\\right]_0^1+\\left[\\frac{x^3}{3}-x\\right]_1^2=\\frac23+\\frac43=2', note: '符号つきの定積分 ∫₀²(x²−1)dx は 2/3。面積2とは異なる。' },
+              ],
+            },
+            {
+              type: 'practice',
+              title: '練習問題（微分で検算・符号で分割）',
+              problems: [
+                { body: '$\\int(3x^2-4x+2)\\,dx$ を求め、微分して確かめよ。', answer: '$x^3-2x^2+2x+C$。微分すると $3x^2-4x+2$ に戻る。各項を積分し、最後に任意定数 C を1つ付ける。' },
+                { body: '$\\int_{-1}^2(2x+1)\\,dx$ を求めよ。', answer: '$[x^2+x]_{-1}^2=(4+2)-(1-1)=6$。下端が負でも、原始関数の値全体を引く。' },
+                { body: '曲線 $y=x^2-4$ と x軸で囲まれた図形の面積を求めよ。', hint: '交点を求め、交点の間ではどちらが上かを確かめる。', answer: '交点の x座標は $-2,2$。区間内では x軸が上なので、$S=\\int_{-2}^2(4-x^2)\\,dx=[4x-x^3/3]_{-2}^2=\\frac{32}{3}$。' },
+                { body: '曲線 $y=x^3$ と直線 $y=x$ で囲まれた2つの部分の面積の和を求めよ。', hint: '交点は x=−1,0,1。x=0 で上下が入れ替わる。', answer: '$S=\\int_{-1}^0(x^3-x)\\,dx+\\int_0^1(x-x^3)\\,dx=\\frac14+\\frac14=\\frac12$。区間を分けずに差を積分すると正負が打ち消し合い0になるので注意。' },
+              ],
+            },
             { type: 'heading', level: 3, content: '練習（定積分ドリル）' },
             {
               type: 'widget',
@@ -994,7 +1063,7 @@ export const seniorMath: Subject = {
               content: "曲線 $y = f(x)$ 上の点 $(x_1, f(x_1))$ における接線の傾きは、微分係数 $f'(x_1)$ です。接線に直交する直線を**法線**といい、2直線が垂直のとき傾きの積が $-1$ になることを使います。「接線を求めよ」は微分単元の最頻出アプリケーションなので、公式を即座に書けるレベルにしておきましょう。",
             },
             { type: 'formula', tex: "y = f'(x_1)(x - x_1) + f(x_1)", display: true },
-            { type: 'formula', tex: "y = -\\frac{1}{f'(x_1)}(x - x_1) + f(x_1)", display: true },
+            { type: 'formula', tex: "y = -\\frac{1}{f'(x_1)}(x - x_1) + f(x_1)\\quad(f'(x_1)\\ne0)", display: true },
             {
               type: 'derivation',
               title: '接線の公式はどこから来るのか——割線の極限',
@@ -1026,7 +1095,7 @@ export const seniorMath: Subject = {
               headers: ['直線', '傾き', '方程式', 'チェックポイント'],
               rows: [
                 ['接線', "$f'(x_1)$", "$y = f'(x_1)(x - x_1) + f(x_1)$", '接点の y 座標は $f(x_1)$。代入忘れに注意'],
-                ['法線', "-\\dfrac{1}{f'(x_1)}$", "$y = -\\dfrac{1}{f'(x_1)}(x - x_1) + f(x_1)$", "$f'(x_1) = 0$ なら法線は $x = x_1$"],
+                ['法線', "$-\\dfrac{1}{f'(x_1)}$（分母が0でないとき）", "$y = -\\dfrac{1}{f'(x_1)}(x - x_1) + f(x_1)$", "$f'(x_1) = 0$ なら法線は $x = x_1$"],
               ],
             },
             { type: 'heading', level: 3, content: '速度と加速度' },
@@ -1070,12 +1139,12 @@ export const seniorMath: Subject = {
                 {
                   body: '曲線 $y = x^3 - 3x$ の傾きが 9 である接線をすべて求めよ。（発展）',
                   hint: "$3x^2 - 3 = 9$ となる接点の x 座標を探す。",
-                  answer: "$3x^2 - 3 = 9$ より $x = \\pm 2$。接点は $(2, 2)$ と $(-2, 2)$ なので **$y = 9x - 16$** と **$y = 9x + 16$**",
+                  answer: "$3x^2 - 3 = 9$ より $x = \\pm 2$。接点は $(2, 2)$ と $(-2, -2)$ なので **$y = 9x - 16$** と **$y = 9x + 16$**",
                 },
                 {
-                  body: '位置 $s = t^3 - 6t^2 + 9t$ ($t \\ge 0$) で動く点について、加速度 $a(t)$ を求め、$t = 1$ で速くなっているか遅くなっているか答えよ。',
-                  hint: '加速度は $v(t)$ をさらに微分する。',
-                  answer: "$a(t) = 6t - 12$。$t = 1$ では $v > 0$、$a = -6 < 0$ と符号が逆なので**遅くなっている**",
+                  body: '位置 $s = t^3 - 6t^2 + 9t$ ($t \\ge 0$) で動く点について、加速度 $a(t)$ を求め、$t = 1$ の直前と直後で速さがどう変化するか答えよ。',
+                  hint: 't=1 では速度は0。前後で速度と加速度の符号を比較する。',
+                  answer: '$v(t)=3(t-1)(t-3)$、$a(t)=6t-12$。$t=1$ では $v=0$、$a=-6$。直前の $0<t<1$ では $v>0,a<0$ なので速さは減少し、直後の $1<t<2$ では $v<0,a<0$ なので速さは増加する。t=1 で停止して折り返すため、その瞬間を単純に「減速中」とは扱わない。',
                 },
                 {
                   body: '速度が $v(t) = t^2 - 4t + 3$ ($0 \\le t \\le 3$) のとき、点が負の向きに動いている時間帯を求めよ。',
@@ -1114,4 +1183,3 @@ export const seniorMath: Subject = {
     },
   ],
 };
-
