@@ -246,5 +246,161 @@
   {
     "subject": "junior-japanese",
     "id": "jj-sentence-revision"
+  },
+  {
+    "subject": "junior-math",
+    "id": "jm-rate-word-problems"
+  },
+  {
+    "subject": "junior-math",
+    "id": "jm-integer-remainders"
+  },
+  {
+    "subject": "junior-science",
+    "id": "js-rock-cycle"
+  },
+  {
+    "subject": "junior-social",
+    "id": "jso-time-zones"
+  },
+  {
+    "subject": "junior-social",
+    "id": "jso-disaster-maps"
+  },
+  {
+    "subject": "junior-japanese",
+    "id": "jj-keigo-context"
+  },
+  {
+    "subject": "junior-english",
+    "id": "je-preposition-space"
+  },
+  {
+    "subject": "junior-english",
+    "id": "je-conjunction-clauses"
+  },
+  {
+    "subject": "senior-math",
+    "id": "sm-parameter-roots"
+  },
+  {
+    "subject": "senior-math-ab",
+    "id": "sma-inclusion-exclusion"
+  },
+  {
+    "subject": "senior-math-3c",
+    "id": "smc-induction-proof"
+  },
+  {
+    "subject": "senior-math-3c",
+    "id": "smc-sequence-sums"
+  },
+  {
+    "subject": "senior-physics-full",
+    "id": "spf-friction-models"
+  },
+  {
+    "subject": "senior-physics-full",
+    "id": "spf-reference-frames"
+  },
+  {
+    "subject": "senior-biology",
+    "id": "sb-water-transport"
+  },
+  {
+    "subject": "senior-biology",
+    "id": "sb-sensory-signals"
+  },
+  {
+    "subject": "senior-social",
+    "id": "sso-inflation-real"
+  },
+  {
+    "subject": "senior-social",
+    "id": "sso-externalities"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-kanbun-negation"
+  },
+  {
+    "subject": "senior-english",
+    "id": "se-tense-aspect"
+  },
+  {
+    "subject": "senior-english",
+    "id": "se-articles-reference"
+  },
+  {
+    "subject": "info-1",
+    "id": "info-spreadsheet-models"
+  },
+  {
+    "subject": "info-1",
+    "id": "info-data-cleaning"
+  },
+  {
+    "subject": "university-math",
+    "id": "um-least-squares"
+  },
+  {
+    "subject": "university-math",
+    "id": "um-change-variables-probability"
+  },
+  {
+    "subject": "university-physics",
+    "id": "up-angular-momentum"
+  },
+  {
+    "subject": "university-chemistry",
+    "id": "uc-chemical-equilibrium-activities"
+  },
+  {
+    "subject": "university-chemistry",
+    "id": "uc-surface-adsorption"
+  },
+  {
+    "subject": "university-cs",
+    "id": "ucs-dynamic-programming"
+  },
+  {
+    "subject": "university-cs",
+    "id": "ucs-numerical-floating-point"
+  },
+  {
+    "subject": "trivia",
+    "id": "tv-paper-folding"
+  },
+  {
+    "subject": "trivia",
+    "id": "tv-queues-waiting"
+  },
+  {
+    "subject": "why-qa",
+    "id": "qa-refrigeration"
+  },
+  {
+    "subject": "why-qa",
+    "id": "qa-soap-bubbles"
+  },
+  {
+    "subject": "junior-science",
+    "id": "js-weather-humidity"
+  },
+  {
+    "subject": "senior-japanese",
+    "id": "sj-classical-honorifics"
+  },
+  {
+    "subject": "university-physics",
+    "id": "up-dimensional-scaling"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-solubility-product"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-reaction-rate-data"
   }
 ]

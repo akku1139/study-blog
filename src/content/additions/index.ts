@@ -1,3 +1,42 @@
+import { lesson as wave4e18 } from './sch-reaction-rate-data.ts';
+import { lesson as wave4e17 } from './sch-solubility-product.ts';
+import { lesson as wave4e31 } from './up-dimensional-scaling.ts';
+import { lesson as wave4e23 } from './sj-classical-honorifics.ts';
+import { lesson as wave4e03 } from './js-weather-humidity.ts';
+import { lesson as wave4e40 } from './qa-soap-bubbles.ts';
+import { lesson as wave4e39 } from './qa-refrigeration.ts';
+import { lesson as wave4e38 } from './tv-queues-waiting.ts';
+import { lesson as wave4e37 } from './tv-paper-folding.ts';
+import { lesson as wave4e36 } from './ucs-numerical-floating-point.ts';
+import { lesson as wave4e35 } from './ucs-dynamic-programming.ts';
+import { lesson as wave4e34 } from './uc-surface-adsorption.ts';
+import { lesson as wave4e33 } from './uc-chemical-equilibrium-activities.ts';
+import { lesson as wave4e32 } from './up-angular-momentum.ts';
+import { lesson as wave4e30 } from './um-change-variables-probability.ts';
+import { lesson as wave4e29 } from './um-least-squares.ts';
+import { lesson as wave4e28 } from './info-data-cleaning.ts';
+import { lesson as wave4e27 } from './info-spreadsheet-models.ts';
+import { lesson as wave4e26 } from './se-articles-reference.ts';
+import { lesson as wave4e25 } from './se-tense-aspect.ts';
+import { lesson as wave4e24 } from './sj-kanbun-negation.ts';
+import { lesson as wave4e22 } from './sso-externalities.ts';
+import { lesson as wave4e21 } from './sso-inflation-real.ts';
+import { lesson as wave4e20 } from './sb-sensory-signals.ts';
+import { lesson as wave4e19 } from './sb-water-transport.ts';
+import { lesson as wave4e16 } from './spf-reference-frames.ts';
+import { lesson as wave4e15 } from './spf-friction-models.ts';
+import { lesson as wave4e14 } from './smc-sequence-sums.ts';
+import { lesson as wave4e13 } from './smc-induction-proof.ts';
+import { lesson as wave4e12 } from './sma-inclusion-exclusion.ts';
+import { lesson as wave4e11 } from './sm-parameter-roots.ts';
+import { lesson as wave4e10 } from './je-conjunction-clauses.ts';
+import { lesson as wave4e09 } from './je-preposition-space.ts';
+import { lesson as wave4e07 } from './jj-keigo-context.ts';
+import { lesson as wave4e06 } from './jso-disaster-maps.ts';
+import { lesson as wave4e05 } from './jso-time-zones.ts';
+import { lesson as wave4e04 } from './js-rock-cycle.ts';
+import { lesson as wave4e02 } from './jm-integer-remainders.ts';
+import { lesson as wave4e01 } from './jm-rate-word-problems.ts';
 import type { Subject, Unit } from '../types.ts';
 import { lesson as lesson0 } from './jm-ratio-units.ts';
 import { lesson as lesson1 } from './jm-solid-geometry.ts';
@@ -64,47 +103,59 @@ import { lesson as sentenceRevision } from './jj-sentence-revision.ts';
 
 // 既存記事を変更せず、科目末尾に新しい学習単元を追加する。
 const extraUnits: Record<string, Unit> = {
+  'senior-physics-full': {
+    id: 'senior-physics-full-additional-studies',
+    name: 'テーマ別学習・演習',
+    gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
+    lessons: [wave4e15, wave4e16],
+  },
+  'senior-math-3c': {
+    id: 'senior-math-3c-additional-studies',
+    name: 'テーマ別学習・演習',
+    gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
+    lessons: [wave4e13, wave4e14],
+  },
   'junior-math': {
     id: 'junior-math-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson0, lesson1, lesson2],
+    lessons: [lesson0, lesson1, lesson2, wave4e01, wave4e02],
   },
   'junior-science': {
     id: 'junior-science-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson3, lesson4, lesson5, lesson56],
+    lessons: [lesson3, lesson4, lesson5, lesson56, wave4e04, wave4e03],
   },
   'junior-social': {
     id: 'junior-social-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson6, lesson7, lesson59],
+    lessons: [lesson6, lesson7, lesson59, wave4e05, wave4e06],
   },
   'junior-japanese': {
     id: 'junior-japanese-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson8, lesson9, lesson57, lesson58, sentenceRevision],
+    lessons: [lesson8, lesson9, lesson57, lesson58, sentenceRevision, wave4e07],
   },
   'junior-english': {
     id: 'junior-english-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson10, lesson11],
+    lessons: [lesson10, lesson11, wave4e09, wave4e10],
   },
   'senior-math': {
     id: 'senior-math-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson12, lesson13],
+    lessons: [lesson12, lesson13, wave4e11],
   },
   'senior-math-ab': {
     id: 'senior-math-ab-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson14],
+    lessons: [lesson14, wave4e12],
   },
   'senior-physics': {
     id: 'senior-physics-additional-studies',
@@ -116,13 +167,13 @@ const extraUnits: Record<string, Unit> = {
     id: 'senior-chemistry-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson17, lesson18, lesson19, lesson50, lesson51, lesson52, lesson53, lesson54, lesson55, lesson60],
+    lessons: [lesson17, lesson18, lesson19, lesson50, lesson51, lesson52, lesson53, lesson54, lesson55, lesson60, wave4e17, wave4e18],
   },
   'senior-biology': {
     id: 'senior-biology-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson20, lesson21],
+    lessons: [lesson20, lesson21, wave4e19, wave4e20],
   },
   'senior-science': {
     id: 'senior-science-additional-studies',
@@ -134,61 +185,61 @@ const extraUnits: Record<string, Unit> = {
     id: 'senior-social-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson24, lesson25],
+    lessons: [lesson24, lesson25, wave4e21, wave4e22],
   },
   'senior-japanese': {
     id: 'senior-japanese-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson26, lesson27],
+    lessons: [lesson26, lesson27, wave4e24, wave4e23],
   },
   'senior-english': {
     id: 'senior-english-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson28, lesson29],
+    lessons: [lesson28, lesson29, wave4e25, wave4e26],
   },
   'info-1': {
     id: 'info-1-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson30, lesson31, lesson32],
+    lessons: [lesson30, lesson31, lesson32, wave4e27, wave4e28],
   },
   'university-math': {
     id: 'university-math-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson33, lesson34, lesson35],
+    lessons: [lesson33, lesson34, lesson35, wave4e29, wave4e30],
   },
   'university-physics': {
     id: 'university-physics-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson36, lesson37],
+    lessons: [lesson36, lesson37, wave4e32, wave4e31],
   },
   'university-chemistry': {
     id: 'university-chemistry-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson38, lesson39],
+    lessons: [lesson38, lesson39, wave4e33, wave4e34],
   },
   'university-cs': {
     id: 'university-cs-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson40, lesson41, lesson42],
+    lessons: [lesson40, lesson41, lesson42, wave4e35, wave4e36],
   },
   'trivia': {
     id: 'trivia-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson43, lesson44, lesson45],
+    lessons: [lesson43, lesson44, lesson45, wave4e37, wave4e38],
   },
   'why-qa': {
     id: 'why-qa-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson46, lesson47, lesson48, lesson49],
+    lessons: [lesson46, lesson47, lesson48, lesson49, wave4e39, wave4e40],
   },
 };
 

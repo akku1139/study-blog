@@ -13,3 +13,10 @@
 - Node v24のTypeScript直接importを使える。tsxや依存追加は不要。TypeScriptパッケージはv7で旧transpileModule APIを使わない。
 - 単体検証：`pnpm exec tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2022 --module ESNext --moduleResolution bundler --allowImportingTsExtensions <担当ファイル>`。Node直接importで構造と数値を検査し、KaTeXも検証。git diff --check（担当範囲）確認。
 - 最終報告：ファイル・記事ID・主な説明と例題・問題数・根拠・実行した検証。終了前に記事ファイルが保存されていることを確認する。
+
+## 既存記事の増強タスク（enhance モード）の場合
+- 新規ファイルを作成せず、指定された既存ファイル内の指定レッスンだけを厚くする。他のレッスン・科目・indexは編集しない。
+- 目標: 対象レッスンの blocks を最低でも +8、例題を +2 以上、解答付き練習を +3 以上追加する。既存の説明は消さない。
+- 追加内容は「なぜそうなるか→身近な例→定義→よくある誤解→手を動かす例題」の順で、既存の重複を避けて補完する。
+- 既存のID・タイトル・summary は変更しない。数式・数値は独立に検算し、実験手順や危険操作は書かない。
+- 検証: 担当ファイルの単体tsc、Node直接importで対象レッスンの構造と数値を確認、KaTeX、git diff --check。

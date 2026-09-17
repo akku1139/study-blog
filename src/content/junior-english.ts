@@ -233,6 +233,7 @@ export const juniorEnglish: Subject = {
           id: 'daily-expressions',
           title: '場面別の表現集',
           summary: '会話でよく使う定型表現を場面ごとに整理する。',
+          objectives: ['相手と目的に応じて依頼・許可・提案を選べる', '依頼を受ける返事と断る返事を区別できる', '理由や返事を添えた短い会話を作れる'],
           blocks: [
             {
               type: 'table',
@@ -250,6 +251,100 @@ export const juniorEnglish: Subject = {
               variant: 'tip',
               content: 'Would you mind ~ing? は「〜するのを嫌だと思いますか」という尋ね方です。依頼を受けるなら **Not at all. / Of course not.**（構いません）。Yes だけでは「嫌です」と受け取られ得るので注意。断るなら I am sorry, but ... と理由を添えると明確です。',
             },
+            { type: 'note', variant: 'info', content: '以下の英文・会話・設問は本レッスン用の自作です。特定の教材からの引用ではありません。' },
+            // ---------- 以下 増強分（例文はすべて自作） ----------
+            { type: 'heading', level: 3, content: 'なぜ could を使うと依頼が控えめになるのか' },
+            {
+              type: 'text',
+              content: '教室で窓を開けてほしいとき、いきなり命じるより「開けてもらえますか」と尋ねると、相手が応じられるか判断する余地が生まれます。Can you open the window? より Could you open the window? のほうが一般に控えめです。ここでの could は、過去形の形を借りて直接的な要求から距離をおく働きをしています。これを丁寧な依頼の表現と考え、Could you + 動詞の原形? とまとめます。長ければ必ず丁寧というわけではなく、相手との関係や口調も大切です。友達にも丁寧に頼めますし、Can you ~? が常に失礼なわけでもありません。',
+            },
+            { type: 'heading', level: 3, content: '場面別表現の追加セット' },
+            {
+              type: 'table',
+              headers: ['場面', '英語', 'ニュアンス'],
+              rows: [
+                ['あいさつ（ひさしぶり）', "How have you been? / Long time no see!", '最近どうしてた？／おひさしぶり'],
+                ['感謝', 'Thank you for ~ing. / Thanks to you, ...', '〜してくれてありがとう／おかげで'],
+                ['謝罪', "I'm sorry for ~ing. / I apologize for ...", '〜してごめんなさい（for の後ろに動作を置くなら動名詞。名詞も可）'],
+                ['買い物', "Can I help you? / I'd like this one, please.", '何かお探しですか／これをください'],
+                ['道案内', 'Go straight and turn left at the second corner.', 'まっすぐ行って2つ目の角を左'],
+                ['天気・雑談', "It's a beautiful day, isn't it?", 'いい天気ですね（付加疑問で話しかける）'],
+                ['承諾・断り', 'Sure, no problem. / I am afraid I cannot, because ...', 'もちろんいいよ／残念だができません（理由つき）'],
+              ],
+            },
+            {
+              type: 'note',
+              variant: 'warn',
+              content: 'I am afraid I cannot. は「恐れている」ではなく「残念ですが〜できません」という丁寧な断り方の定型です。また Thank you for coming. のように for の後ろに動作を置くときは動名詞（〜ing）になります（×Thank you for come）。Thank you for your help. のように名詞も置けます。上の表の例文はすべて自作です。',
+            },
+            {
+              type: 'text',
+              content: '会話では「相手に聞く→自分も答える」セットで覚えると定着が速くなります。たとえば How have you been? には I have been fine, thank you. と答え、It is a beautiful day, isn\'t it? には Yes, it is. と返す、という具合です。A と B の二人のやり取りをひとまとまりの短い会話（自作）として声に出して練習すると、試験のリスニングでも英作文でも使える形になります。',
+            },
+            {
+              type: 'example',
+              title: '例題：依頼を丁寧に',
+              body: '「窓を開けてくれますか」を、友達への言い方と先生への丁寧な言い方の2通りで言い表せ（例文は自作）。',
+              answer: '**友達: Can you open the window?** ／ **先生: Could you open the window, please?** ①窓を開けるのは相手なので you。②依頼なので can / could の後ろは原形 open。③先生には控えめな could と please を選びます。ここでの could は過去の依頼ではありません。Would you open the window? も可。口調や場面も丁寧さを左右します。',
+            },
+            {
+              type: 'example',
+              title: '例題2：謝罪の言い換え',
+              body: '「遅れてごめんなさい」を I am sorry ... の形で2通りに言い表せ（例文は自作）。',
+              answer: '**I am sorry for being late.** ／ **I am sorry (that) I am late.** ①「遅れている」は be late。②for に続けるなら be を動名詞 being にする。③that に続けるなら主語 I と動詞 am のある文にする、という順です。I am sorry to be late. とも言えますが、to be だけで未来の遅刻を意味するわけではありません。',
+            },
+            {
+              type: 'note',
+              variant: 'tip',
+              content: '手を動かす練習のしかた（自作の道順）: ① 場面を1つ決める ② 表から表現を2つ選ぶ ③ 自分の身のまわりの内容に差し替えて声に出す ④ 答え方（返事）までセットで言う。たとえば「道案内」なら、家から最寄り駅までの道を Go straight and turn right at the first traffic light. のように実際の町の名前を使って説明してみます。',
+            },
+            {
+              type: 'practice',
+              title: '練習問題（追加・例文は自作）',
+              problems: [
+                {
+                  body: 'Would you mind closing the door? の依頼を受けるときの答えを2通り書け。',
+                  answer: '**Not at all.** ／ **Of course not.**（どちらも「嫌がることは全くない＝もちろん閉めます」の意味）。Yes とだけ答えると「嫌です」と誤解されるので注意。',
+                  hint: 'mind は「嫌だと思う」という意味。',
+                },
+                {
+                  body: '「案内してくれてありがとう」を Thank you for ... の形で英語にせよ。',
+                  answer: '**Thank you for showing me around.** for の後ろは動名詞 showing。show A around で「A に見て回りながら案内する」。案内する場所は会話から分かれば省けます。',
+                },
+                {
+                  body: '「まっすぐ行って、信号を右に曲がってください」を英語にせよ。',
+                  answer: '**Go straight and turn right at the traffic light(s).** 道案内では命令形が普通です。2つ目の交差点なら at the second intersection と表せます。信号と交差点は必ずしも一対一ではありません。',
+                },
+                {
+                  body: '「テニスをしませんか」を Why don\'t we ...? と Shall we ...? の2通りで言え。',
+                  answer: "**Why don't we play tennis?** ／ **Shall we play tennis?** どちらも一緒に〜しようという提案。Why don't we は why で始まる疑問文だが『なぜ〜しないのか＝しようよ』という勧誘の意味になる点がポイント。",
+                },
+              ],
+            },
+            {
+              type: 'quiz',
+              title: '確認クイズ（場面別表現・追加）',
+              questions: [
+                {
+                  question: '先生に「この文をチェックしていただけますか」と丁寧に頼むとき、最も適切なのは？（例文は自作）',
+                  choices: ['Check this sentence.', 'Could you check this sentence, please?', 'You check this sentence, right?'],
+                  answerIndex: 1,
+                  explanation: 'could + please の組み合わせが丁寧な依頼です。この依頼の場面で命令形だけを使うと強い指示に聞こえます。安全の注意や案内などでは命令形も使われます。',
+                },
+                {
+                  question: 'Would you mind waiting here? に対して「もちろんいいよ」と答える言い方は？（自作例）',
+                  choices: ['Yes, I would mind.', 'Not at all.', 'Yes, you may not.'],
+                  answerIndex: 1,
+                  explanation: 'Would you mind ~? は「〜するのを嫌だと思いますか」と尋ねる形なので、受けるときは Not at all.（全く嫌じゃない）を使います。',
+                },
+                {
+                  question: '×Thank you for help me. を直すと？',
+                  choices: ['Thank you for helping me.', 'Thank you for help me.', 'Thank you to helping me.'],
+                  answerIndex: 0,
+                  explanation: '前置詞 for の後ろに動詞を置くときは動名詞（helping）にします。',
+                },
+              ],
+            },
           ],
         },
         {
@@ -259,6 +354,7 @@ export const juniorEnglish: Subject = {
           objectives: [
             '中学校学習指導要領の語彙のうち頻出コア単語を英→日・日→英両方向で使える',
             '例文の中で単語を記憶する習慣をつける',
+            '文中での役割・語の組み合わせ・文脈から意味を判断できる',
           ],
           blocks: [
             { type: 'heading', level: 3, content: '覚え方のコツ' },
@@ -287,6 +383,75 @@ export const juniorEnglish: Subject = {
                 caption: '4択クイズ: 英→日・日→英ランダム出題。例文つき',
                 props: { deck: 'junior', rounds: 10 },
               },
+            },
+            { type: 'heading', level: 3, content: 'なぜ日本語訳だけでは文を作れないのか' },
+            { type: 'note', variant: 'info', content: 'ここからの英文・例題・練習・クイズはすべて学習用の自作です。以下の語の選定は学習用の例示で、頻度調査による順位や学習指導要領が指定した単語一覧ではありません。' },
+            {
+              type: 'text',
+              content: '単語を部品にたとえると、日本語訳は部品の名前、使い方は部品のつなぎ目です。「借りる」と覚えても、誰が受け取るかを取り違えると lend を選んで逆の意味にしてしまいます。友達の辞書を借りる場面を思い浮かべ、辞書が「友達→自分」へ動く矢印を書きましょう。I borrow a dictionary from my friend. は自分が受け取る側、My friend lends me a dictionary. は友達が渡す側です。同じ出来事でも主語の立場で語が変わります。',
+            },
+            { type: 'heading', level: 3, content: '語彙カードに足す3つの情報' },
+            {
+              type: 'table',
+              headers: ['情報', '意味・使い方', 'カードに書く自作例'],
+              rows: [
+                ['品詞', '文の中での役割。名詞は物事の名前、動詞は動作・状態、形容詞は性質などを表す', 'This is a clean cup. / I clean my cup.（clean は前者で形容詞、後者で動詞）'],
+                ['コロケーション', 'よく一緒に使われる語の組み合わせ', 'I do my homework after dinner.（do homework をひとまとまりに）'],
+                ['文脈', '周りの語や場面。多義語のどの意味かを選ぶ手がかり', 'This bag is light. / Turn on the light.（軽い／明かり）'],
+              ],
+            },
+            {
+              type: 'text',
+              content: '多義語は「意味が複数ある語」です。light をいつも「光」と訳すと、かばんの例を読めません。まず This bag is ___ の空所がかばんの性質を説明すると考え、light を「軽い」と判断します。一方、turn on はスイッチを入れることなので、後ろの the light は「明かり」です。日本語訳の候補を並べるだけでなく、意味ごとに短い文を1本ずつ結び付けて覚えます。',
+            },
+            {
+              type: 'note', variant: 'warn',
+              content: '一語に一つの品詞・一つの訳だけがあるとは限りません。また「宿題をする」を ×make homework と直訳せず do homework と覚えます。語尾だけで品詞を決めつけるのも危険です。たとえば friendly（親しみやすい）は -ly で終わりますが形容詞です。迷ったら辞書で品詞と用例を確かめましょう。',
+            },
+            { type: 'heading', level: 3, content: '似た語は「何が違うか」を並べる' },
+            {
+              type: 'table',
+              headers: ['対比', '見分ける点', '自作例'],
+              rows: [
+                ['borrow / lend', '主語が借りる側／貸す側', 'May I borrow your pen? / I can lend you my pen.'],
+                ['look at / see', '意識して目を向ける／視界に入って見える（ここでの基本的な意味）', 'Look at that tree. / I can see a bird in it.'],
+                ['say / tell', '言葉の内容を述べる／人に情報を伝える', 'She said hello. / She told me the news.'],
+              ],
+            },
+            {
+              type: 'example', title: '例題1：物の移動で borrow / lend を決める',
+              body: 'ミカが持っているペンを私が一時的に使いたい。borrow / lend を必要な形で入れよ。① May I ___ your pen, Mika? ② Mika ___ me her pen yesterday.',
+              answer: '**① borrow　② lent**。まずペンの矢印は「ミカ→私」。①主語 I は受け取る側だから borrow、May の後ろは原形。②主語 Mika は渡す側だから lend、yesterday に合わせて過去形 lent にします。語の意味を選んでから、文に合う形へ変える2段階です。',
+            },
+            {
+              type: 'example', title: '例題2：同じ綴りでも役割を確かめる',
+              body: '① This is a clean desk. ② I clean my desk every Friday. それぞれの clean の品詞と意味を答えよ。',
+              answer: '**①形容詞「きれいな」　②動詞「掃除する」**。①は desk の直前で机の性質を説明。②は主語 I の後ろで行う動作を表し、my desk がその対象です。「これはきれいな机」「私は毎週金曜日に机を掃除する」となります。単語帳の一つ目の訳ではなく、文の中の位置と役割を根拠にします。',
+            },
+            {
+              type: 'list', ordered: true,
+              items: [
+                '今日覚える語を3語選び、表に英語、裏に意味・品詞・短い自作例文を書く。借り物の文を写すだけでなく、自分の持ち物や予定に変えてみる。',
+                '裏を隠して意味を言い、次に表を隠して日本語の場面から英文を書く。読めたことと書けたことは別々に記録する。',
+                '答え合わせでは、綴り・語の選択・語形のどこが違ったか印を付ける。翌日など間隔をあけて、間違えた語を別の短い文でも使う。復習間隔は覚え具合に合わせて調整する。',
+              ],
+            },
+            {
+              type: 'practice', title: '練習：文の中で使うコア語彙（自作）',
+              problems: [
+                { body: 'borrow / lend のどちらかを入れよ。Can you ___ me an eraser?', answer: '**lend**。主語 you が私に消しゴムを貸す側です。lend + 人 + 物の形。can の直後なので原形を使います。' },
+                { body: '「夕食前に宿題をする」になるよう do / make から選べ。I ___ my homework before dinner.', answer: '**do**。do homework が通常の組み合わせです。make は「作る」と覚えていても、この組み合わせでは使いません。' },
+                { body: 'This box is light, so I can carry it easily. の light の意味を答え、根拠になる部分を示せ。', answer: '**軽い**。箱の性質を述べ、後ろの「だから簡単に運べる」が重さの意味を裏付けます。「明かり」ではつながりません。' },
+                { body: 'Our new teacher is friendly. の friendly は形容詞か副詞か。意味も答えよ。', answer: '**形容詞「親しみやすい」**。is の後ろで主語 our new teacher の性質を説明しています。-ly で終わることだけを根拠に副詞と決めません。' },
+              ],
+            },
+            {
+              type: 'quiz', title: '確認クイズ：訳から使い方へ（自作）',
+              questions: [
+                { question: '「私がユウタの辞書を借りたい」と尋ねる文は？', choices: ['May I lend your dictionary, Yuta?', 'May I borrow your dictionary, Yuta?', 'May you borrow my dictionary, Yuta?'], answerIndex: 1, explanation: '借りる側を主語 I にするので borrow。lend では私が貸すことになり、主語 you ではユウタが借りる側になります。' },
+                { question: 'I clean my room on Sundays. の clean はどの働き？', choices: ['room の性質を表す形容詞', '掃除という物事を表す名詞', '主語がする動作を表す動詞'], answerIndex: 2, explanation: 'I が「掃除する」という動作を表し、my room が対象です。形容詞なら a clean room のように部屋の性質を説明します。' },
+                { question: '「その知らせを私に伝えてください」となる空所は？ Please ___ me the news.', choices: ['tell', 'say', 'speak'], answerIndex: 0, explanation: 'tell + 人 + 内容の形なので tell me the news。say はこの形で人を直接続けず、speak もこの二つの目的語を取る形にはしません。' },
+              ],
             },
           ],
         },

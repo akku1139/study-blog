@@ -1,0 +1,576 @@
+{
+  "baseCommit": "51c57b2",
+  "expectedNew": 40,
+  "tasks": [
+    {
+      "task": "d14",
+      "mode": "enhance",
+      "subject": "senior-chemistry",
+      "status": "parent-verified",
+      "targets": [
+        "gas-solutions",
+        "typical-elements",
+        "transition-metals-complex",
+        "aromatic-polymers"
+      ]
+    },
+    {
+      "task": "d13",
+      "mode": "enhance",
+      "subject": "senior-science",
+      "status": "parent-verified",
+      "targets": [
+        "mole",
+        "atmosphere-ocean",
+        "cell-dna",
+        "earth-history"
+      ]
+    },
+    {
+      "task": "d12",
+      "mode": "enhance",
+      "subject": "senior-physics-full",
+      "status": "parent-verified",
+      "targets": [
+        "circular-motion",
+        "momentum-impulse",
+        "energy-work",
+        "rigid-equilibrium",
+        "wave-basics",
+        "resonance-tube",
+        "atom-nucleus"
+      ]
+    },
+    {
+      "task": "d11",
+      "mode": "enhance",
+      "subject": "senior-math-ab",
+      "status": "parent-verified",
+      "targets": [
+        "permutations-combinations",
+        "probability",
+        "triangle-circle-properties",
+        "linear-transforms",
+        "conics-complex"
+      ]
+    },
+    {
+      "task": "parent-d10",
+      "mode": "enhance",
+      "subject": "senior-math",
+      "status": "parent-verified",
+      "targets": [
+        "quadratic-graph-senior",
+        "quadratic-inequality",
+        "numbers-expressions",
+        "data-analysis",
+        "trig-functions",
+        "exp-log-functions"
+      ]
+    },
+    {
+      "task": "d09",
+      "mode": "enhance",
+      "subject": "junior-english",
+      "status": "parent-verified",
+      "targets": [
+        "daily-expressions",
+        "core-vocabulary"
+      ]
+    },
+    {
+      "task": "d07",
+      "mode": "enhance",
+      "subject": "junior-japanese",
+      "status": "parent-verified",
+      "targets": [
+        "critical-reading",
+        "narrative-reading"
+      ]
+    },
+    {
+      "task": "d05",
+      "mode": "enhance",
+      "subject": "junior-social",
+      "status": "parent-verified",
+      "targets": [
+        "world-climate",
+        "ancient-japan",
+        "renaissance-world",
+        "industry-trade",
+        "modern-japan",
+        "economy-basics",
+        "democracy-election"
+      ]
+    },
+    {
+      "task": "d03",
+      "mode": "enhance",
+      "subject": "junior-science",
+      "status": "parent-verified",
+      "targets": [
+        "atoms-molecules",
+        "atoms-molecules-practice",
+        "ions-neutralization",
+        "photosynthesis-energy-flow",
+        "chemical-reaction-formula",
+        "motion-energy-junior"
+      ]
+    },
+    {
+      "task": "d01",
+      "mode": "enhance",
+      "subject": "junior-math",
+      "status": "parent-verified",
+      "targets": [
+        "letters-expressions",
+        "proportional",
+        "proof-triangles",
+        "probability-basics",
+        "sampling-survey",
+        "figure-transformations"
+      ]
+    },
+    {
+      "task": "e01",
+      "mode": "new",
+      "subject": "junior-math",
+      "id": "jm-rate-word-problems",
+      "file": "src/content/additions/jm-rate-word-problems.ts",
+      "topic": "速さの文章題：出会い・追いつき・往復を時間線で解く",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e01",
+      "authorComplete": true
+    },
+    {
+      "task": "e02",
+      "mode": "new",
+      "subject": "junior-math",
+      "id": "jm-integer-remainders",
+      "file": "src/content/additions/jm-integer-remainders.ts",
+      "topic": "整数の余りから考える周期と曜日：合同式前の直感",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e02",
+      "authorComplete": true
+    },
+    {
+      "task": "e03",
+      "mode": "new",
+      "subject": "junior-science",
+      "id": "js-weather-humidity",
+      "file": "src/content/additions/js-weather-humidity.ts",
+      "topic": "湿度・露点・雲のでき方を水蒸気量の表で読む",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e03",
+      "authorComplete": true
+    },
+    {
+      "task": "e04",
+      "mode": "new",
+      "subject": "junior-science",
+      "id": "js-rock-cycle",
+      "file": "src/content/additions/js-rock-cycle.ts",
+      "topic": "岩石の粒と組織から読む火成岩・堆積岩・変成岩",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e04",
+      "authorComplete": true
+    },
+    {
+      "task": "e05",
+      "mode": "new",
+      "subject": "junior-social",
+      "id": "jso-time-zones",
+      "file": "src/content/additions/jso-time-zones.ts",
+      "topic": "経度・標準時・日付変更線：時差と移動の日付を解く",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e05",
+      "authorComplete": true
+    },
+    {
+      "task": "e06",
+      "mode": "new",
+      "subject": "junior-social",
+      "id": "jso-disaster-maps",
+      "file": "src/content/additions/jso-disaster-maps.ts",
+      "topic": "ハザードマップと地域防災：想定条件・凡例・避難情報の読解",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e06",
+      "authorComplete": true
+    },
+    {
+      "task": "e07",
+      "mode": "new",
+      "subject": "junior-japanese",
+      "id": "jj-keigo-context",
+      "file": "src/content/additions/jj-keigo-context.ts",
+      "topic": "敬語を場面で選ぶ：尊敬語・謙譲語・丁寧語と内外",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e07",
+      "authorComplete": true
+    },
+    {
+      "task": "e08",
+      "mode": "new",
+      "subject": "junior-japanese",
+      "id": "jj-sentence-revision",
+      "file": "src/content/additions/jj-sentence-revision.ts",
+      "topic": "一文の推敲：係り受け・主述・修飾の曖昧さを直す",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e08",
+      "note": "Agent draft rejected for factual errors; parent rewrote, reviewed and tested.",
+      "authorComplete": true
+    },
+    {
+      "task": "e09",
+      "mode": "new",
+      "subject": "junior-english",
+      "id": "je-preposition-space",
+      "file": "src/content/additions/je-preposition-space.ts",
+      "topic": "前置詞の空間イメージ：in/on/at/to/forと時間表現",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e09",
+      "authorComplete": true
+    },
+    {
+      "task": "e10",
+      "mode": "new",
+      "subject": "junior-english",
+      "id": "je-conjunction-clauses",
+      "file": "src/content/additions/je-conjunction-clauses.ts",
+      "topic": "接続詞で文をつなぐ：because/if/when/althoughの意味と語順",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e10",
+      "authorComplete": true
+    },
+    {
+      "task": "e11",
+      "mode": "new",
+      "subject": "senior-math",
+      "id": "sm-parameter-roots",
+      "file": "src/content/additions/sm-parameter-roots.ts",
+      "topic": "パラメータ付き二次方程式：根の配置と定義域",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e11",
+      "authorComplete": true
+    },
+    {
+      "task": "e12",
+      "mode": "new",
+      "subject": "senior-math-ab",
+      "id": "sma-inclusion-exclusion",
+      "file": "src/content/additions/sma-inclusion-exclusion.ts",
+      "topic": "包除原理と重複計数：三つの集合と条件付きの数え上げ",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e12",
+      "authorComplete": true
+    },
+    {
+      "task": "e13",
+      "mode": "new",
+      "subject": "senior-math-3c",
+      "id": "smc-induction-proof",
+      "file": "src/content/additions/smc-induction-proof.ts",
+      "topic": "数学的帰納法の設計：仮定を使う位置と不等式の証明",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e13",
+      "authorComplete": true
+    },
+    {
+      "task": "e14",
+      "mode": "new",
+      "subject": "senior-math-3c",
+      "id": "smc-sequence-sums",
+      "file": "src/content/additions/smc-sequence-sums.ts",
+      "topic": "数列の和の工夫：階差・部分分数・望遠鏡和",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e14",
+      "authorComplete": true
+    },
+    {
+      "task": "e15",
+      "mode": "new",
+      "subject": "senior-physics-full",
+      "id": "spf-friction-models",
+      "file": "src/content/additions/spf-friction-models.ts",
+      "topic": "静止摩擦と動摩擦：滑り出す条件と摩擦の向き",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e15",
+      "authorComplete": true
+    },
+    {
+      "task": "e16",
+      "mode": "new",
+      "subject": "senior-physics-full",
+      "id": "spf-reference-frames",
+      "file": "src/content/additions/spf-reference-frames.ts",
+      "topic": "相対速度と座標系：川渡り・雨・動く観測者",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e16",
+      "authorComplete": true
+    },
+    {
+      "task": "e17",
+      "mode": "new",
+      "subject": "senior-chemistry",
+      "id": "sch-solubility-product",
+      "file": "src/content/additions/sch-solubility-product.ts",
+      "topic": "溶解度積と共通イオン効果：沈殿が始まる境界を計算する",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e17",
+      "authorComplete": true
+    },
+    {
+      "task": "e18",
+      "mode": "new",
+      "subject": "senior-chemistry",
+      "id": "sch-reaction-rate-data",
+      "file": "src/content/additions/sch-reaction-rate-data.ts",
+      "topic": "反応速度のデータ読解：平均速度・初速度と反応次数",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e18",
+      "authorComplete": true
+    },
+    {
+      "task": "e19",
+      "mode": "new",
+      "subject": "senior-biology",
+      "id": "sb-water-transport",
+      "file": "src/content/additions/sb-water-transport.ts",
+      "topic": "植物の吸水・蒸散・気孔：水ポテンシャルの概念と観察データ",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e19",
+      "authorComplete": true
+    },
+    {
+      "task": "e20",
+      "mode": "new",
+      "subject": "senior-biology",
+      "id": "sb-sensory-signals",
+      "file": "src/content/additions/sb-sensory-signals.ts",
+      "topic": "感覚と神経信号：受容器・活動電位・反射を図式で区別",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e20",
+      "authorComplete": true
+    },
+    {
+      "task": "e21",
+      "mode": "new",
+      "subject": "senior-social",
+      "id": "sso-inflation-real",
+      "file": "src/content/additions/sso-inflation-real.ts",
+      "topic": "物価指数と実質値：名目所得・購買力・基準年の違い",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e21",
+      "authorComplete": true
+    },
+    {
+      "task": "e22",
+      "mode": "new",
+      "subject": "senior-social",
+      "id": "sso-externalities",
+      "file": "src/content/additions/sso-externalities.ts",
+      "topic": "外部性と公共財：個人の判断と社会全体の費用",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e22",
+      "authorComplete": true
+    },
+    {
+      "task": "e23",
+      "mode": "new",
+      "subject": "senior-japanese",
+      "id": "sj-classical-honorifics",
+      "file": "src/content/additions/sj-classical-honorifics.ts",
+      "topic": "古文の敬語で人物関係を追う：動作主・受け手・敬意の方向",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e23",
+      "authorComplete": true
+    },
+    {
+      "task": "e24",
+      "mode": "new",
+      "subject": "senior-japanese",
+      "id": "sj-kanbun-negation",
+      "file": "src/content/additions/sj-kanbun-negation.ts",
+      "topic": "漢文の否定と反語：不・未・無・莫と二重否定の論理",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e24",
+      "authorComplete": true
+    },
+    {
+      "task": "e25",
+      "mode": "new",
+      "subject": "senior-english",
+      "id": "se-tense-aspect",
+      "file": "src/content/additions/se-tense-aspect.ts",
+      "topic": "時制と相の読み分け：基準時・完了・進行と物語の時間",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e25",
+      "authorComplete": true
+    },
+    {
+      "task": "e26",
+      "mode": "new",
+      "subject": "senior-english",
+      "id": "se-articles-reference",
+      "file": "src/content/additions/se-articles-reference.ts",
+      "topic": "冠詞と指示：初出・共有情報・一般化のa/the/無冠詞",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e26",
+      "authorComplete": true
+    },
+    {
+      "task": "e27",
+      "mode": "new",
+      "subject": "info-1",
+      "id": "info-spreadsheet-models",
+      "file": "src/content/additions/info-spreadsheet-models.ts",
+      "topic": "表計算のモデル設計：相対参照・絶対参照・検算セル",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e27",
+      "authorComplete": true
+    },
+    {
+      "task": "e28",
+      "mode": "new",
+      "subject": "info-1",
+      "id": "info-data-cleaning",
+      "file": "src/content/additions/info-data-cleaning.ts",
+      "topic": "データ前処理：欠損・重複・単位・表記揺れを区別する",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e28",
+      "authorComplete": true
+    },
+    {
+      "task": "e29",
+      "mode": "new",
+      "subject": "university-math",
+      "id": "um-least-squares",
+      "file": "src/content/additions/um-least-squares.ts",
+      "topic": "最小二乗法と射影：残差の直交性と直線当てはめ",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e29",
+      "authorComplete": true
+    },
+    {
+      "task": "e30",
+      "mode": "new",
+      "subject": "university-math",
+      "id": "um-change-variables-probability",
+      "file": "src/content/additions/um-change-variables-probability.ts",
+      "topic": "確率密度の変数変換：ヤコビアンと分布関数法",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e30",
+      "authorComplete": true
+    },
+    {
+      "task": "e31",
+      "mode": "new",
+      "subject": "university-physics",
+      "id": "up-dimensional-scaling",
+      "file": "src/content/additions/up-dimensional-scaling.ts",
+      "topic": "次元解析と相似則：無次元量から何がわかるか",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e31",
+      "authorComplete": true
+    },
+    {
+      "task": "e32",
+      "mode": "new",
+      "subject": "university-physics",
+      "id": "up-angular-momentum",
+      "file": "src/content/additions/up-angular-momentum.ts",
+      "topic": "角運動量と保存則：中心力・慣性モーメント・回転運動",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e32",
+      "authorComplete": true
+    },
+    {
+      "task": "e33",
+      "mode": "new",
+      "subject": "university-chemistry",
+      "id": "uc-chemical-equilibrium-activities",
+      "file": "src/content/additions/uc-chemical-equilibrium-activities.ts",
+      "topic": "平衡定数と活量：無次元化と標準状態を分けて考える",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e33",
+      "authorComplete": true
+    },
+    {
+      "task": "e34",
+      "mode": "new",
+      "subject": "university-chemistry",
+      "id": "uc-surface-adsorption",
+      "file": "src/content/additions/uc-surface-adsorption.ts",
+      "topic": "表面と吸着：Langmuir等温式を占有率から導く",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e34",
+      "authorComplete": true
+    },
+    {
+      "task": "e35",
+      "mode": "new",
+      "subject": "university-cs",
+      "id": "ucs-dynamic-programming",
+      "file": "src/content/additions/ucs-dynamic-programming.ts",
+      "topic": "動的計画法：状態・遷移・境界条件を設計する",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e35",
+      "authorComplete": true
+    },
+    {
+      "task": "e36",
+      "mode": "new",
+      "subject": "university-cs",
+      "id": "ucs-numerical-floating-point",
+      "file": "src/content/additions/ucs-numerical-floating-point.ts",
+      "topic": "浮動小数点の誤差：丸め・桁落ち・安定な計算",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e36",
+      "authorComplete": true
+    },
+    {
+      "task": "e37",
+      "mode": "new",
+      "subject": "trivia",
+      "id": "tv-paper-folding",
+      "file": "src/content/additions/tv-paper-folding.ts",
+      "topic": "紙の折り目と幾何：厚さの倍増モデルと実物の限界",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e37",
+      "authorComplete": true
+    },
+    {
+      "task": "e38",
+      "mode": "new",
+      "subject": "trivia",
+      "id": "tv-queues-waiting",
+      "file": "src/content/additions/tv-queues-waiting.ts",
+      "topic": "待ち時間の数学：待ち行列・変動・混雑の非線形性",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e38",
+      "authorComplete": true
+    },
+    {
+      "task": "e39",
+      "mode": "new",
+      "subject": "why-qa",
+      "id": "qa-refrigeration",
+      "file": "src/content/additions/qa-refrigeration.ts",
+      "topic": "冷蔵庫はなぜ部屋を暖める？熱の移動と仕事の収支",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e39",
+      "authorComplete": true
+    },
+    {
+      "task": "e40",
+      "mode": "new",
+      "subject": "why-qa",
+      "id": "qa-soap-bubbles",
+      "file": "src/content/additions/qa-soap-bubbles.ts",
+      "topic": "シャボン玉はなぜ丸く色づく？表面張力・圧力・薄膜干渉",
+      "status": "parent-verified",
+      "agent": "study-blog-sub-e40",
+      "authorComplete": true
+    }
+  ]
+}
