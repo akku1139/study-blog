@@ -49,6 +49,16 @@ import { lesson as lesson46 } from './qa-bicycle.ts';
 import { lesson as lesson47 } from './qa-packaging.ts';
 import { lesson as lesson48 } from './qa-perception-images.ts';
 import { lesson as lesson49 } from './qa-measurement-error.ts';
+import { lesson as lesson50 } from './sch-carbohydrates.ts';
+import { lesson as lesson51 } from './sch-amino-acids-proteins.ts';
+import { lesson as lesson52 } from './sch-polymer-chemistry.ts';
+import { lesson as lesson53 } from './sch-hydrocarbons.ts';
+import { lesson as lesson54 } from './sch-lipids.ts';
+import { lesson as lesson55 } from './sch-organic-calculations.ts';
+import { lesson as lesson56 } from './js-waves-in-everyday.ts';
+import { lesson as lesson57 } from './jj-kanji-strategy.ts';
+import { lesson as lesson58 } from './jj-essay-writing.ts';
+import { lesson as lesson59 } from './jso-primary-sources.ts';
 
 // 既存記事を変更せず、科目末尾に新しい学習単元を追加する。
 const extraUnits: Record<string, Unit> = {
@@ -62,19 +72,19 @@ const extraUnits: Record<string, Unit> = {
     id: 'junior-science-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson3, lesson4, lesson5],
+    lessons: [lesson3, lesson4, lesson5, lesson56],
   },
   'junior-social': {
     id: 'junior-social-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson6, lesson7],
+    lessons: [lesson6, lesson7, lesson59],
   },
   'junior-japanese': {
     id: 'junior-japanese-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson8, lesson9],
+    lessons: [lesson8, lesson9, lesson57, lesson58],
   },
   'junior-english': {
     id: 'junior-english-additional-studies',
@@ -104,7 +114,7 @@ const extraUnits: Record<string, Unit> = {
     id: 'senior-chemistry-additional-studies',
     name: 'テーマ別学習・演習',
     gakushuShidoYoryo: '関連分野の補充・発展学習。各記事に前提と適用範囲を明記。',
-    lessons: [lesson17, lesson18, lesson19],
+    lessons: [lesson17, lesson18, lesson19, lesson50, lesson51, lesson52, lesson53, lesson54, lesson55],
   },
   'senior-biology': {
     id: 'senior-biology-additional-studies',

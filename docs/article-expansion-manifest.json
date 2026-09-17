@@ -198,5 +198,45 @@
   {
     "subject": "why-qa",
     "id": "qa-measurement-error"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-carbohydrates"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-amino-acids-proteins"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-polymer-chemistry"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-hydrocarbons"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-lipids"
+  },
+  {
+    "subject": "senior-chemistry",
+    "id": "sch-organic-calculations"
+  },
+  {
+    "subject": "junior-science",
+    "id": "js-waves-in-everyday"
+  },
+  {
+    "subject": "junior-japanese",
+    "id": "jj-kanji-strategy"
+  },
+  {
+    "subject": "junior-japanese",
+    "id": "jj-essay-writing"
+  },
+  {
+    "subject": "junior-social",
+    "id": "jso-primary-sources"
   }
 ]

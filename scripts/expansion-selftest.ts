@@ -36,7 +36,8 @@ for (const subject of subjects) {
   }
 }
 for (const item of baseline) assert.ok(routes.has(`${item.subject}/${item.id}`), `Lost existing lesson ${item.id}`);
-assert.equal(new Set(manifest.map(m => m.id)).size, 50, 'Manifest must contain 50 unique new lessons');
+assert.ok(manifest.length >= 50, 'Manifest must contain at least 50 new lessons');
+assert.equal(new Set(manifest.map(m => m.id)).size, manifest.length, 'Manifest IDs must be unique');
 for (const item of manifest) {
   const route = `${item.subject}/${item.id}`;
   const lesson = routes.get(route);
